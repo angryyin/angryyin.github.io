@@ -229,6 +229,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php垃圾回收机制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="愤怒的小殷">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/php垃圾回收机制/" itemprop="url">php垃圾回收机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T20:03:25+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/taijun/p/4206770.html" target="_blank" rel="noopener">https://www.cnblogs.com/taijun/p/4206770.html</a><br>基础概念：写时拷贝 引用计数 回收周期<br>php的每个变量都会存储在一个叫做zval的变量容器中，这个容器的定义如下：<br>typedef struct _zval_struct zval;</p>
+<p>//zval定义<br>struct _zval_struct {<br>    zvalue_value value; /<em> value</em>/<br>    zend_uint refcount__gc;<br>    zend_uchar type; /<em> active type </em>/<br>    zend_uchar is_ref__g<br>}<br>//avalue_value定义<br>typedef union _zvalue_value {<br>    long lval;   /<em> long value </em>/<br>    double dval; /<em> double value </em>/<br>    struct {<br>    char <em>val;<br>    int len;<br>    } str;<br>    HashTable </em>ht; /<em> hash table value </em>/<br>    zend_object_value obj;<br>}zvalue_value;<br>在php中，存在8中变量类型，可以分为三类：</p>
+<p>标量类型：bool  int  float(double)  string<br>复合类型：array  object<br>特殊类型：resource  NULL<br>在变量声明开始，就会判断数据类型存到zval结构体，结构体的字段解释：</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php常用数组操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -923,7 +1045,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
