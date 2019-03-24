@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>php常用字符串函数 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度 strtolower($str);//字母转小写 strtoupper($str);//字母转大写 ucwords($str);//每一个单词的首字母转大写 ucfirst($str);//首字母转大写 str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php常用字符串函数">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/php常用字符串函数/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度 strtolower($str);//字母转小写 strtoupper($str);//字母转大写 ucwords($str);//每一个单词的首字母转大写 ucfirst($str);//首字母转大写 str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-24T08:46:11.206Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php常用字符串函数">
+<meta name="twitter:description" content="strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度 strtolower($str);//字母转小写 strtoupper($str);//字母转大写 ucwords($str);//每一个单词的首字母转大写 ucfirst($str);//首字母转大写 str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-php常用字符串函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/24/php常用字符串函数/" class="article-date">
+  <time datetime="2019-03-24T08:38:00.000Z" itemprop="datePublished">2019-03-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php常用字符串函数
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度</p>
+<p>strtolower($str);//字母转小写</p>
+<p>strtoupper($str);//字母转大写</p>
+<p>ucwords($str);//每一个单词的首字母转大写</p>
+<p>ucfirst($str);//首字母转大写</p>
+<p>str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;</p>
+<p>str_ireplace(‘a’,’b’,$str);//替换 不区分大小写</p>
+<p>htmlspecialchars($str,ENT_NOQUOTES);//字符串转换为html 实体 ENT_COMPT(默认只编译双引号)ENT_QUOTES单引号双引号都编译,ENT_NOQUOTES不编译任何引号</p>
+<p>trim($str);//删除字符串前后（左右）空格</p>
+<p>ltrim($str);//只删除字符串左侧的空格</p>
+<p>rtrim($str);//只删除字符串右侧的空格<br>//trim加第二个参数 就是移除指定的字符集 如ltrim($str,’0..9’) 移除左侧数字开头的字符</p>
+<p>strpos($str,’a’);//字符串a 在$str 第一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>stripos($str,’a’);//同上 但是不区分大小写</p>
+<p>strrpos($str,’a’);//字符串a 在$str 最后一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>strripos($str,’a’);//同上 但是不区分大小写</p>
+<p>substr($str,0,3);//截取字符串 $str 的第一个字符 截取长度3 长度不填默认截取到最后  参数为负数则倒数</p>
+<p>strstr($str,’a’);//截取字符串 $str 中的第一个字符’a’后的字符串 如 sabc -&gt; abc</p>
+<p>strrchr($str,’a’);//截取字符串 $str 中最后一一个字符’a’后的字符串</p>
+<p>strrev($str);//字符串反转 abcd-&gt;dcba</p>
+<p>md5($str);//字符串MD5加密</p>
+<p>str_shuffle($str);//随机打乱字符串顺序</p>
+<p>explode(‘-‘,$str);//指定分隔符分割字符串 返回数组 ‘-’ 分割$str</p>
+<p>implode(‘-‘,$str);//数组拼接字符串 与explode()相反</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/24/php常用字符串函数/" data-id="cjtmoq4m600007gum263mfsv6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/24/php拷贝机制/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php拷贝机制</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/24/php常用字符串函数/">php常用字符串函数</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/php拷贝机制/">php拷贝机制</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/第一个博客/">mysql索引总结</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
