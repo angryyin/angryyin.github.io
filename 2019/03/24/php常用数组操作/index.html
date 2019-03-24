@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="一、数组操作的基本函数 数组的键名和值array_values($arr);  获得数组的值array_keys($arr);  获得数组的键名array_flip($arr);  数组中的值与键名互换（如果有重复前面的会被后面的覆盖）in_array(“apple”,$arr);  在数组中检索applearray_search(“apple”,$arr);  在数组中检索apple ，如果存在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/hello-world/index.html">
+<meta property="og:title" content="php常用数组操作">
+<meta property="og:url" content="http://yoursite.com/2019/03/24/php常用数组操作/index.html">
 <meta property="og:site_name" content="愤怒的小殷">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="一、数组操作的基本函数 数组的键名和值array_values($arr);  获得数组的值array_keys($arr);  获得数组的键名array_flip($arr);  数组中的值与键名互换（如果有重复前面的会被后面的覆盖）in_array(“apple”,$arr);  在数组中检索applearray_search(“apple”,$arr);  在数组中检索apple ，如果存在">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-24T05:48:53.712Z">
+<meta property="og:updated_time" content="2019-03-24T11:57:12.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="php常用数组操作">
+<meta name="twitter:description" content="一、数组操作的基本函数 数组的键名和值array_values($arr);  获得数组的值array_keys($arr);  获得数组的键名array_flip($arr);  数组中的值与键名互换（如果有重复前面的会被后面的覆盖）in_array(“apple”,$arr);  在数组中检索applearray_search(“apple”,$arr);  在数组中检索apple ，如果存在">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/24/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/24/php常用数组操作/">
 
 
 
 
 
-  <title>Hello World | 愤怒的小殷</title>
+  <title>php常用数组操作 | 愤怒的小殷</title>
   
 
 
@@ -232,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php常用数组操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">php常用数组操作</h1>
         
 
         <div class="post-meta">
@@ -261,7 +261,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T13:48:53+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T19:54:57+08:00">
                 2019-03-24
               </time>
             
@@ -299,15 +299,31 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>一、数组操作的基本函数</p>
+<p>数组的键名和值<br>array_values($arr);  获得数组的值<br>array_keys($arr);  获得数组的键名<br>array_flip($arr);  数组中的值与键名互换（如果有重复前面的会被后面的覆盖）<br>in_array(“apple”,$arr);  在数组中检索apple<br>array_search(“apple”,$arr);  在数组中检索apple ，如果存在返回键名<br>array_key_exists(“apple”,$arr);  检索给定的键名是否存在数组中<br>isset($arr[apple]):   检索给定的键名是否存在数组中</p>
+<p>数组的内部指针<br>current($arr);  返回数组中的当前单元<br>pos($arr);  返回数组中的当前单元<br>key($arr);  返回数组中当前单元的键名<br>prev($arr);  将数组中的内部指针倒回一位<br>next($arr);  将数组中的内部指针向前移动一位<br>end($arr);  将数组中的内部指针指向最后一个单元<br>reset($arr;  将数组中的内部指针指向第一个单元<br>each($arr);  将返回数组当前元素的一个键名/值的构造数组，并使数组指针向前移动一位<br>list($key,$value)=each($arr);  获得数组当前元素的键名和值</p>
+<p>数组和变量之间的转换<br>extract($arr);用于把数组中的元素转换成变量导入到当前文件中，键名当作变量名，值作为变量值<br>注：（第二个参数很重要，可以看手册使用）使用方法 echo $a;<br>compact(var1,var2,var3);用给定的变量名创建一个数组</p>
+<p>二、数组的分段和填充</p>
+<p>数组的分段<br>array_slice($arr,0,3);  可以将数组中的一段取出，此函数忽略键名<br>array_splice($arr,0,3，array(“black”,”maroon”));  可以将数组中的一段取出，与上个函数不同在于返回的序列从原数组中删除</p>
+<p>分割多个数组<br>array_chunk($arr,3,TRUE);  可以将一个数组分割成多个，TRUE为保留原数组的键名</p>
+<p>数组的填充<br>array_pad($arr,5,’x’);  将一个数组填补到制定长度</p>
+<p>三、数组与栈</p>
+<p>array_push($arr,”apple”,”pear”);  将一个或多个元素压入数组栈的末尾（入栈），返回入栈元素的个数<br>array_pop($arr);  将数组栈的最后一个元素弹出（出栈）</p>
+<p>四、数组与列队</p>
+<p>array_shift($arr);数组中的第一个元素移出并作为结果返回（数组长度减1，其他元素向前移动一位，数字键名改为从零技术，文字键名不变）<br>array_unshift($arr,”a”,array(1,2));在数组的开头插入一个或多个元素</p>
+<p>五、回调函数</p>
+<p>array_walk($arr,’function’,’words’);  使用用户函数对数组中的每个成员进行处理（第三个参数传递给回调函数function）<br>array_mpa(“function”,$arr1,$arr2);  可以处理多个数组（当使用两个或更多数组时，他们的长度应该相同）<br>array_filter($arr,”function”);  使用回调函数过滤数组中的每个元素，如果回调函数为TRUE，数组的当前元素会被包含在返回的结果数组中，数组的键名保留不变<br>array_reduce($arr,”function”,”<em>“);  转化为单值函数（</em>为数组的第一个值）</p>
+<p>六、数组的排序</p>
+<p>通过元素值对数组排序<br>sort($arr);  由小到大的顺序排序（第二个参数为按什么方式排序）忽略键名的数组排序<br>rsort($arr);  由大到小的顺序排序（第二个参数为按什么方式排序）忽略键名的数组排序<br>usort($arr,”function”);  使用用户自定义的比较函数对数组中的值进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）忽略键名的数组排序<br>asort($arr);  由小到大的顺序排序（第二个参数为按什么方式排序）保留键名的数组排序<br>arsort($arr);  由大到小的顺序排序（第二个参数为按什么方式排序）保留键名的数组排序<br>uasort($arr,”function”);  使用用户自定义的比较函数对数组中的值进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）保留键名的数组排序</p>
+<p>通过键名对数组排序<br>ksort($arr);  按照键名正序排序<br>krsort($arr);  按照键名逆序排序<br>uksort($arr,”function”);  使用用户自定义的比较函数对数组中的键名进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）</p>
+<p>自然排序法排序<br>natsort($arr);  自然排序（忽略键名）<br>natcasesort($arr);  自然排序（忽略大小写，忽略键名）</p>
+<p>七、数组的计算</p>
+<p>数组元素的求和<br>array_sum($arr);  对数组内部的所有元素做求和运算</p>
+<p>数组的合并<br>array_merge($arr1,$arr2);  合并两个或多个数组（相同的字符串键名，后面的覆盖前面的，相同的数字键名，后面的不会做覆盖操作，而是附加到后面）<br>“+”$arr1+$arr2;  对于相同的键名只保留后一个<br>array_merge_recursive($arr1,$arr2);   递归合并操作，如果数组中有相同的字符串键名，这些值将被合并到一个数组中去。如果一个值本身是一个数组，将按照相应的键名把它合并为另一个数组。当数组 具有相同的数组键名时，后一个值将不会覆盖原来的值，而是附加到后面</p>
+<p>数组的差集<br>array_diff($arr1,$arr2);  返回差集结果数组<br>array_diff_assoc($arr1,$arr2,$arr3);  返回差集结果数组，键名也做比较</p>
+<p>数组的交集<br>array_intersect($arr1,$arr2);  返回交集结果数组<br>array_intersect_assoc($arr1,$arr2);  返回交集结果数组，键名也做比较</p>
+<p>八、其他的数组函数</p>
+<p>range(0,12);  创建一个包含指定范围单元的数组<br>array_unique($arr);  移除数组中重复的值，新的数组中会保留原始的键名<br>array_reverse($arr,TRUE);  返回一个单元顺序与原数组相反的数组，如果第二个参数为TRUE保留原来的键名<br>//srand((float)microtime()*10000000);   随机种子触发器<br>array_rand($arr,2);  从数组中随机取出一个或 多个元素<br>shuffle($arr);  将数组的顺序打乱</p>
 
       
     </div>
@@ -332,15 +348,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/03/24/php常用字符串函数/" rel="next" title="php常用字符串函数">
+                <i class="fa fa-chevron-left"></i> php常用字符串函数
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/24/第一个博客/" rel="prev" title="mysql索引总结">
-                mysql索引总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -392,17 +408,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -444,22 +451,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
