@@ -259,6 +259,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/题-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/题-1/" itemprop="url">环队列叫号问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T13:44:00+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有m个猴子，按顺时针方向围成一个圈选大王。从第1号开始报数1，2，……，数到n号时该猴子退出到圈外，如此报数直到圈内只剩下一个猴子时，此猴子便是大王。由键盘输入m，n，打印出猴子大王序号。<br>输入 10 3<br>输出 4</p>
+<pre><code>&lt;?php
+echo monkey(4,1);//5
+  function monkey($m,$n){
+  //定义arr猴子数组，
+  $arr=range(1,$m);
+  $i=0;
+  while(count($arr)&gt;1){
+        //出队
+      if(($i+1)%$n==0){
+            //如果猴子序号/猴王号n余数为0，踢走
+          unset($arr[$i]);
+      }else{
+          //否则将该序号放在猴子数组队尾
+          $arr[]=$arr[$i];
+          unset($arr[$i]);
+      }
+      echo $i.&quot;\n&quot;;
+      $i++;
+  }
+  //最后key i所对应的就是猴王
+  return $arr[$i];
+  }
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/mysql事务总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -531,10 +695,8 @@ unset($a);
 <p>5.3版本后如何处理垃圾内存？<br>为解决环形引用导致的垃圾，产生了新的GC算法，遵守以下几个基本准则：</p>
 <p>1.如果一个zval的refcount增加，那么此zval还在使用，不属于垃圾<br>2.如果一个zval的refcount减少到0， 那么zval可以被释放掉，不属于垃圾<br>3.如果一个zval的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾！</p>
 <p>就是对此zval中的每个元素进行一次refcount减1操作，操作完成之后，如果zval的refcount=0，那么这个zval就是一个垃圾</p>
-<pre><code>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。
-当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。
-算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。
-</code></pre><p>性能<br>gc算法会有一个缓冲区的概念，只有当缓冲区填满了需要判断为垃圾的3的时候，才会进行统一处理。<br>也可以在php.ini中设置 zend.enable_gc 项来开启或则关闭GC。<br>缓冲区默认可以放10,000个节点，当缓冲区满了才会清理。可以通过修改Zend/zend_gc.c中的GC_ROOT_BUFFER_MAX_ENTRIES 来改变这个数值，需要重新编译链接PHP</p>
+<p>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。<br>当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。<br>算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。</p>
+<p>性能：<br>gc算法会有一个缓冲区的概念，只有当缓冲区填满了需要判断为垃圾的3的时候，才会进行统一处理。<br>也可以在php.ini中设置 zend.enable_gc 项来开启或则关闭GC。<br>缓冲区默认可以放10,000个节点，当缓冲区满了才会清理。可以通过修改Zend/zend_gc.c中的GC_ROOT_BUFFER_MAX_ENTRIES 来改变这个数值，需要重新编译链接PHP</p>
 
           
         
@@ -1299,7 +1461,7 @@ unset($a);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1310,7 +1472,7 @@ unset($a);
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

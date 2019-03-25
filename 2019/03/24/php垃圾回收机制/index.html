@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-25T05:39:17.445Z">
+<meta property="og:updated_time" content="2019-03-25T05:41:03.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php垃圾回收机制">
 <meta name="twitter:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
@@ -402,10 +402,8 @@ unset($a);
 <p>5.3版本后如何处理垃圾内存？<br>为解决环形引用导致的垃圾，产生了新的GC算法，遵守以下几个基本准则：</p>
 <p>1.如果一个zval的refcount增加，那么此zval还在使用，不属于垃圾<br>2.如果一个zval的refcount减少到0， 那么zval可以被释放掉，不属于垃圾<br>3.如果一个zval的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾！</p>
 <p>就是对此zval中的每个元素进行一次refcount减1操作，操作完成之后，如果zval的refcount=0，那么这个zval就是一个垃圾</p>
-<pre><code>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。
-当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。
-算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。
-</code></pre><p>性能<br>gc算法会有一个缓冲区的概念，只有当缓冲区填满了需要判断为垃圾的3的时候，才会进行统一处理。<br>也可以在php.ini中设置 zend.enable_gc 项来开启或则关闭GC。<br>缓冲区默认可以放10,000个节点，当缓冲区满了才会清理。可以通过修改Zend/zend_gc.c中的GC_ROOT_BUFFER_MAX_ENTRIES 来改变这个数值，需要重新编译链接PHP</p>
+<p>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。<br>当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。<br>算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。</p>
+<p>性能：<br>gc算法会有一个缓冲区的概念，只有当缓冲区填满了需要判断为垃圾的3的时候，才会进行统一处理。<br>也可以在php.ini中设置 zend.enable_gc 项来开启或则关闭GC。<br>缓冲区默认可以放10,000个节点，当缓冲区满了才会清理。可以通过修改Zend/zend_gc.c中的GC_ROOT_BUFFER_MAX_ENTRIES 来改变这个数值，需要重新编译链接PHP</p>
 
       
     </div>
@@ -516,7 +514,7 @@ unset($a);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -527,7 +525,7 @@ unset($a);
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
