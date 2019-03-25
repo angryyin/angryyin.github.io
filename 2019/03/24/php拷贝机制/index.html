@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="php,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="深拷贝：赋值时值完全复制，完全的copy，对其中一个作出改变，不会影响另一个浅拷贝：赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个PHP中， = 赋值时，普通对象是深拷贝，但对对象来说，是浅拷贝。也就是说，对象的赋值是引用赋值。（对象作为参数传递时，也是引用传递，无论函数定义时参数前面是否有&amp;amp;符号）php5中，对象的 = 赋值和传递都是引用。要想实现拷贝副本，php提供">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php拷贝机制">
 <meta property="og:url" content="http://yoursite.com/2019/03/24/php拷贝机制/index.html">
-<meta property="og:site_name" content="愤怒的小殷">
+<meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="深拷贝：赋值时值完全复制，完全的copy，对其中一个作出改变，不会影响另一个浅拷贝：赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个PHP中， = 赋值时，普通对象是深拷贝，但对对象来说，是浅拷贝。也就是说，对象的赋值是引用赋值。（对象作为参数传递时，也是引用传递，无论函数定义时参数前面是否有&amp;amp;符号）php5中，对象的 = 赋值和传递都是引用。要想实现拷贝副本，php提供">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-24T08:35:08.495Z">
+<meta property="og:updated_time" content="2019-03-25T04:13:47.212Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php拷贝机制">
 <meta name="twitter:description" content="深拷贝：赋值时值完全复制，完全的copy，对其中一个作出改变，不会影响另一个浅拷贝：赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个PHP中， = 赋值时，普通对象是深拷贝，但对对象来说，是浅拷贝。也就是说，对象的赋值是引用赋值。（对象作为参数传递时，也是引用传递，无论函数定义时参数前面是否有&amp;amp;符号）php5中，对象的 = 赋值和传递都是引用。要想实现拷贝副本，php提供">
@@ -125,7 +126,7 @@
 
 
 
-  <title>php拷贝机制 | 愤怒的小殷</title>
+  <title>php拷贝机制 | 殷航的博客</title>
   
 
 
@@ -155,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">愤怒的小殷</span>
+        <span class="site-title">殷航的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -196,6 +197,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -261,7 +272,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="愤怒的小殷">
+      <meta itemprop="name" content="殷航的博客">
     </span>
 
     
@@ -281,7 +292,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T16:34:59+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T16:34:00+08:00">
                 2019-03-24
               </time>
             
@@ -334,6 +345,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
       
 
       
@@ -431,7 +448,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>

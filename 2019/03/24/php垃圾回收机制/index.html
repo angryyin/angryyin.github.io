@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="php,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="https://www.cnblogs.com/taijun/p/4206770.html基础概念：写时拷贝 引用计数 回收周期php的每个变量都会存储在一个叫做zval的变量容器中，这个容器的定义如下：typedef struct _zval_struct zval; //zval定义struct _zval_struct {    zvalue_value value; / value/">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php垃圾回收机制">
 <meta property="og:url" content="http://yoursite.com/2019/03/24/php垃圾回收机制/index.html">
-<meta property="og:site_name" content="愤怒的小殷">
+<meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="https://www.cnblogs.com/taijun/p/4206770.html基础概念：写时拷贝 引用计数 回收周期php的每个变量都会存储在一个叫做zval的变量容器中，这个容器的定义如下：typedef struct _zval_struct zval; //zval定义struct _zval_struct {    zvalue_value value; / value/">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-24T12:12:09.568Z">
+<meta property="og:updated_time" content="2019-03-25T03:51:29.930Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php垃圾回收机制">
 <meta name="twitter:description" content="https://www.cnblogs.com/taijun/p/4206770.html基础概念：写时拷贝 引用计数 回收周期php的每个变量都会存储在一个叫做zval的变量容器中，这个容器的定义如下：typedef struct _zval_struct zval; //zval定义struct _zval_struct {    zvalue_value value; / value/">
@@ -125,7 +126,7 @@
 
 
 
-  <title>php垃圾回收机制 | 愤怒的小殷</title>
+  <title>php垃圾回收机制 | 殷航的博客</title>
   
 
 
@@ -155,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">愤怒的小殷</span>
+        <span class="site-title">殷航的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -196,6 +197,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
           </a>
         </li>
       
@@ -261,7 +272,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="愤怒的小殷">
+      <meta itemprop="name" content="殷航的博客">
     </span>
 
     
@@ -281,7 +292,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T20:03:25+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T20:03:00+08:00">
                 2019-03-24
               </time>
             
@@ -291,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -336,6 +369,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
       
 
       
@@ -433,7 +472,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
             
 
           </nav>
