@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
+<meta name="description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机制的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php垃圾回收机制">
 <meta property="og:url" content="http://yoursite.com/2019/03/24/php垃圾回收机制/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
+<meta property="og:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机制的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-25T05:41:03.199Z">
+<meta property="og:updated_time" content="2019-03-25T11:08:00.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php垃圾回收机制">
-<meta name="twitter:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
+<meta name="twitter:description" content="https://www.cnblogs.com/taijun/p/4206770.htmlgarbage collection在php5.3版本之前，是没有垃圾回收机制的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。其中refcount:多少个变量是一样的用了相同的值，这个ref就是多少isref：bool，当refcount大于2的时候，其中一个">
 
 
 
@@ -352,7 +352,7 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/taijun/p/4206770.html" target="_blank" rel="noopener">https://www.cnblogs.com/taijun/p/4206770.html</a><br>garbage collection<br>在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。<br>其中<br>refcount:多少个变量是一样的用了相同的值，这个ref就是多少<br>isref：bool，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，那它就变成1了。<br>1、赋值<br>&lt;?php</p>
+        <p><a href="https://www.cnblogs.com/taijun/p/4206770.html" target="_blank" rel="noopener">https://www.cnblogs.com/taijun/p/4206770.html</a><br>garbage collection<br>在php5.3版本之前，是没有垃圾回收机制的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。<br>其中<br>refcount:多少个变量是一样的用了相同的值，这个ref就是多少<br>isref：bool，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，那它就变成1了。<br>1、赋值<br>&lt;?php</p>
 <pre><code>$name = &quot;咖啡色的羊驼&quot;;
 xdebug_debug_zval(&apos;name&apos;);
 </code></pre><p>会得到<br>name:(refcount=1, is_ref=0),string ‘咖啡色的羊驼’ (length=18)<br>2、增加一个计数<br>&lt;?php</p>
