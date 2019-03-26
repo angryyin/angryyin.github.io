@@ -259,6 +259,434 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/titled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/26/titled/" itemprop="url">冒泡排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T20:17:15+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>&lt;?php
+//送给心爱的她5201314
+$arr = array(&apos;5&apos;,&apos;2&apos;,&apos;0&apos;,&apos;1&apos;,&apos;3&apos;,&apos;1&apos;,&apos;4&apos;);
+function BubbleSort(array $arr)
+{
+for ($i=0 ; $i &lt;count($arr) ; $i++) { 
+    //设置一个空变量
+    $data = &apos;&apos;;
+    for ($j=$i ; $j &lt; count($arr)-1 ; $j++) { 
+        if ($arr[$i] &gt; $arr[$j+1]) {
+            $data      = $arr[$i]; 
+            $arr[$i]   = $arr[$j+1];
+            $arr[$j+1] = $data; 
+        }
+    }
+}
+return $arr;
+
+}
+echo &quot;&lt;pre&gt;&quot;;
+print_r(BubbleSort($arr));
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/26/排序/" itemprop="url">插入排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T20:15:42+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>  &lt;?php
+$arr = [2, 3, 1, 6, 4, 7, 5, 9];
+
+var_dump(insertsort($arr));
+function insertSort($arr) {
+    $len = count($arr);
+    for ($i = 1; $i &lt; $len; $i++) {
+        // 当前值
+        $key = $arr[$i];
+        // 当前位置
+        $pos = $i;
+        // 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值
+        while ($pos &gt; 0 &amp;&amp; $arr[$pos - 1] &gt; $key) {
+            // 当前值  =  前一个值
+            $arr[$pos] = $arr[$pos - 1];
+            // 当前位置后移
+            $pos = $pos - 1;
+        }
+        // 找到当前值的位置
+        $arr[$pos] = $key;
+    }
+    return $arr;
+}
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/速排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/26/速排序/" itemprop="url">快速排序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T20:05:31+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <pre><code>&lt;?php
+  //快速排序
+  //待排序数组
+  $arr=array(6,3,8,6,4,2,9,5,1);
+  //函数实现快速排序
+  function quick_sort($arr)
+  {
+      //递归出口:数组长度为1，直接返回数组
+      $length=count($arr);
+      if($length&lt;=1) return $arr;
+      $left=$right=array();
+      for($i=1;$i&lt;$length;$i++){
+          if($arr[$i]&lt;$arr[0]){
+              //第一次排序，left为小于6的所有数
+              $left[] = $arr[$i];
+          }else{
+              //right为大于6的所有数
+              $right[] = $arr[$i];
+          }
+      }
+      $left = quick_sort($left);
+      $right = quick_sort($right);
+      return array_merge($left,array($arr[0]),$right);
+  }
+      //调用
+      echo &quot;&lt;pre&gt;&quot;;
+      print_r(quick_sort($arr));
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/栈实现队列/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -908,7 +1336,7 @@ echo monkey(4,1);//5
       
         
           
-            <p><a href="https://www.cnblogs.com/taijun/p/4206770.html" target="_blank" rel="noopener">https://www.cnblogs.com/taijun/p/4206770.html</a><br>garbage collection<br>在php5.3版本之前，是没有垃圾回收机制的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。<br>其中<br>refcount:多少个变量是一样的用了相同的值，这个ref就是多少<br>isref：bool，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，那它就变成1了。<br>1、赋值<br>&lt;?php</p>
+            <p><a href="https://www.cnblogs.com/taijun/p/4206770.html" target="_blank" rel="noopener">https://www.cnblogs.com/taijun/p/4206770.html</a><br>garbage collection<br>在php5.3版本之前，是没有垃圾回收机智的，只是简单判断一下变脸zval的refcount是否为0，是的话就释放，否则不释放直至进程结束。<br>其中<br>refcount:多少个变量是一样的用了相同的值，这个ref就是多少<br>isref：bool，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，那它就变成1了。<br>1、赋值<br>&lt;?php</p>
 <pre><code>$name = &quot;咖啡色的羊驼&quot;;
 xdebug_debug_zval(&apos;name&apos;);
 </code></pre><p>会得到<br>name:(refcount=1, is_ref=0),string ‘咖啡色的羊驼’ (length=18)<br>2、增加一个计数<br>&lt;?php</p>
@@ -945,22 +1373,7 @@ for($i=0;$i&lt;100;$i++)
      unset($$a);    
 }
 var_dump(memory_get_usage());
-</code></pre><p>   结果为<br>    int 1593248<br>    int 1593384<br>    int 1593248内存没有全部回收回来<br>对于php的核心结构Hashtable来说，由于未知性，定义的时候不可能一次性分配足够多的内存块。所以初始化的时候只会分配一小块，等不够的时候在进行扩容，而Hashtable只扩容不减少，所以就出现了上述的情况:当存入100个变量的时候，符号表不够用了就进行一次扩容，当unset的时候只释放了”为变量值分配内存”，而“为变量名分配内存”是在符号表的，符号表并没有缩小，所以没收回来的内存是被符号表占去了。</p>
-<p>老版本php可能出现环状引用，<br>&lt;?php</p>
-<pre><code>$a = [&apos;one&apos;];
-$a[] = &amp;$a;
-xdebug_debug_zval(&apos;a&apos;);
-</code></pre><p>得到<br>a:(refcount=2, is_ref=1),<br>array (size=2)<br>  0 =&gt; (refcount=1, is_ref=0),string ‘one’ (length=3)<br>  1 =&gt; (refcount=2, is_ref=1),<br>        &amp;array&lt;<br>这样 $a数组就有了两个元素，一个索引为0，值为one字符串，另一个索引为1，为$a自身的引用。<br>a-&gt;(array) refcount=2<br>array[0]-&gt;one  refcount=1<br>array[1]-&gt;(array)<br>此时删掉$a<br>&lt;?php</p>
-<pre><code>$a = [&apos;one&apos;];
-$a[] = &amp;$a;
-unset($a);
-</code></pre><p>array[0]-&gt;one  refcount=1<br>array[1]-&gt;array refcount=1<br>此内存不能被回收从而产生内存泄露</p>
-<p>5.3版本后如何处理垃圾内存？<br>为解决环形引用导致的垃圾，产生了新的GC算法，遵守以下几个基本准则：</p>
-<p>1.如果一个zval的refcount增加，那么此zval还在使用，不属于垃圾<br>2.如果一个zval的refcount减少到0， 那么zval可以被释放掉，不属于垃圾<br>3.如果一个zval的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾！</p>
-<p>就是对此zval中的每个元素进行一次refcount减1操作，操作完成之后，如果zval的refcount=0，那么这个zval就是一个垃圾</p>
-<p>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。<br>当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。<br>算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。</p>
-<p>性能：<br>gc算法会有一个缓冲区的概念，只有当缓冲区填满了需要判断为垃圾的3的时候，才会进行统一处理。<br>也可以在php.ini中设置 zend.enable_gc 项来开启或则关闭GC。<br>缓冲区默认可以放10,000个节点，当缓冲区满了才会清理。可以通过修改Zend/zend_gc.c中的GC_ROOT_BUFFER_MAX_ENTRIES 来改变这个数值，需要重新编译链接PHP</p>
-
+</code></pre>
           
         
       
@@ -1303,384 +1716,13 @@ unset($a);
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php拷贝机制/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/24/php拷贝机制/" itemprop="url">php拷贝机制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T16:34:00+08:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>深拷贝：赋值时值完全复制，完全的copy，对其中一个作出改变，不会影响另一个<br>浅拷贝：赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个<br>PHP中， = 赋值时，普通对象是深拷贝，但对对象来说，是浅拷贝。也就是说，对象的赋值是引用赋值。（对象作为参数传递时，也是引用传递，无论函数定义时参数前面是否有&amp;符号）<br>php5中，对象的 = 赋值和传递都是引用。要想实现拷贝副本，php提供了clone函数实现。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/第一个博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/24/第一个博客/" itemprop="url">mysql索引总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T15:10:00+08:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>mysql索引总结<br>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。更通俗的说，数据库索引好比是一本书前面的目录，能加快数据库的查询速度。上述SQL语句，在没有索引的情况下，数据库会遍历全部200条数据后选择符合条件的；而有了相应的索引之后，数据库会直接在索引中查找符合条件的选项。如果我们把SQL语句换成“SELECT * FROM article WHERE id=2000000”，那么你是希望数据库按照顺序读取完200万行数据以后给你结果还是直接在索引中定位呢？上面的两个图片鲜明的用时对比已经给出了答案（注：一般数据库默认都会为主键生成索引）。<br>索引分为聚簇索引和非聚簇索引两种，聚簇索引是按照数据存放的物理位置为顺序的，而非聚簇索引就不一样了；聚簇索引能提高多行检索的速度，而非聚簇索引对于单行的检索很快。</p>
-<ol>
-<li>普通索引<br>这是最基本的索引，它没有任何限制，比如上文中为title字段创建的索引就是一个普通索引，MyIASM中默认的BTREE类型的索引，也是我们大多数情况下用到的索引。</li>
-<li>唯一索引<br>与普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值（注意和主键不同）。如果是组合索引，则列值的组合必须唯一，创建方法和普通索引类似。</li>
-<li>全文索引（FULLTEXT）<br>MySQL从3.23.23版开始支持全文索引和全文检索，FULLTEXT索引仅可用于 MyISAM 表；他们可以从CHAR、VARCHAR或TEXT列中作为CREATE TABLE语句的一部分被创建，或是随后使用ALTER TABLE 或CREATE INDEX被添加。////对于较大的数据集，将你的资料输入一个没有FULLTEXT索引的表中，然后创建索引，其速度比把资料输入现有FULLTEXT索引的速度更为快。不过切记对于大容量的数据表，生成全文索引是一个非常消耗时间非常消耗硬盘空间的做法。</li>
-<li>单列索引、多列索引<br>多个单列索引与单个多列索引的查询效果不同，因为执行查询时，MySQL只能使用一个索引，会从多个索引中选择一个限制最为严格的索引。</li>
-<li>组合索引（最左前缀）<br>平时用的SQL查询语句一般都有比较多的限制条件，所以为了进一步榨取MySQL的效率，就要考虑建立组合索引。例如上表中针对title和time建立一个组合索引：ALTER TABLE article ADD INDEX index_titme_time (title(50),time(10))。建立这样的组合索引，其实是相当于分别建立了下面两组组合索引：<br>–title,time<br>–title</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/24/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T13:48:53+08:00">
-                2019-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1724,7 +1766,7 @@ unset($a);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
