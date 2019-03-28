@@ -79,14 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="category">
-<meta property="og:url" content="http://yoursite.com/categories/index-2.html">
+<meta name="description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前序与中序还原树">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/序与中序还原树/index.html">
 <meta property="og:site_name" content="殷航的博客">
+<meta property="og:description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-25T04:10:50.485Z">
+<meta property="og:updated_time" content="2019-03-28T08:24:27.756Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="category">
+<meta name="twitter:title" content="前序与中序还原树">
+<meta name="twitter:description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
 
 
 
@@ -116,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/index-2.html">
+  <link rel="canonical" href="http://yoursite.com/2019/03/28/序与中序还原树/">
 
 
 
 
 
-  <title>category | 殷航的博客</title>
+  <title>前序与中序还原树 | 殷航的博客</title>
   
 
 
@@ -247,33 +250,162 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/序与中序还原树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">category</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">前序与中序还原树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T16:20:00+08:00">
+                2019-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <pre><code>&lt;?php
+class TreeNode{
+    var $val;
+    var $left = NULL;
+    var $right = NULL;
+    function __construct($val){
+        $this-&gt;val = $val;
+    }
+}
+function reConstructBinaryTree($pre, $vin)
+{
+    // write code here
+    if($pre &amp;&amp; $vin){
+        //前序遍历的第一个节点一定是根节点
+        $treeRoot = new TreeNode($pre[0]);
+        //index判断根节点在中序中是否存在,并返回根节点在vin中的键名
+        $index = array_search($pre[0],$vin);
+        $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,1,$index),array_slice($vin,0,$index));
+        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+1),array_slice($vin,$index+1));
+        return $treeRoot;
+    }
+}
+$pre = [1,2,4,7,3,5,6,8];
+$vin = [4,7,2,1,5,3,8,6];
+$re = reConstructBinaryTree($pre, $vin);
+</code></pre>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/28/序遍历与中序遍历/" rel="next" title="前序遍历与中序遍历与后续遍历的php实现">
+                <i class="fa fa-chevron-left"></i> 前序遍历与中序遍历与后续遍历的php实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 

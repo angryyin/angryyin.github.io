@@ -79,14 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="category">
-<meta property="og:url" content="http://yoursite.com/categories/index-2.html">
+<meta name="description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php十进制二进制算法题">
+<meta property="og:url" content="http://yoursite.com/2019/03/28/hp十进制二进制算法题/index.html">
 <meta property="og:site_name" content="殷航的博客">
+<meta property="og:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-25T04:10:50.485Z">
+<meta property="og:updated_time" content="2019-03-28T02:54:33.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="category">
+<meta name="twitter:title" content="php十进制二进制算法题">
+<meta name="twitter:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
 
 
 
@@ -116,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/index-2.html">
+  <link rel="canonical" href="http://yoursite.com/2019/03/28/hp十进制二进制算法题/">
 
 
 
 
 
-  <title>category | 殷航的博客</title>
+  <title>php十进制二进制算法题 | 殷航的博客</title>
   
 
 
@@ -247,33 +250,191 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/hp十进制二进制算法题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">category</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">php十进制二进制算法题</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T10:50:40+08:00">
+                2019-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p> 负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数</p>
+<pre><code>&lt;?php
+function NumberOf1($n){
+    $arr = array();
+    if ($n &gt; 0){
+        while($n != 0)
+        {
+            $temp = $n % 2;
+            $n = floor($n/2);
+            array_push($arr,$temp);
+        }
+        $judge = array_count_values($arr);
+        if(isset($judge[1])){
+            return $judge[1];
+        }else{
+            return 0;
+        }
+    }else{
+        $n = -1 * $n;
+        while($n &gt; 0){
+            $temp = $n % 2;
+            $n = floor($n/2);
+            array_push($arr,$temp);
+        }
+        for($i=0;$i &lt; 32;$i++){
+           if($arr[$i] == 1){
+               $arr[$i] = 0;
+           }elseif($arr[$i] == 0) {
+               $arr[$i] = 1;
+           }else{
+               $arr[$i] = 1;
+           }
+        }
+        $length = count($arr);
+        for($i = 0;$i &lt; $length;$i++){
+            if($arr[$i]==0){
+                $arr[$i] = 1;
+                break;
+            }else{
+                $arr[$i] = 0;
+            }
+        }
+        $judge = array_count_values($arr);
+        if(isset($judge[1])){
+            return $judge[1];
+        }else{
+            return 0;
+        }
+    }
+}
+</code></pre>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/27/一面凉经/" rel="next" title="阿里一面凉经">
+                <i class="fa fa-chevron-left"></i> 阿里一面凉经
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/28/序遍历与中序遍历/" rel="prev" title="前序遍历与中序遍历与后续遍历的php实现">
+                前序遍历与中序遍历与后续遍历的php实现 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
