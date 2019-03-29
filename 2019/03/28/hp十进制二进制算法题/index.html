@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
+<meta name="description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php十进制二进制算法题">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/hp十进制二进制算法题/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
+<meta property="og:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-28T02:54:33.272Z">
+<meta property="og:updated_time" content="2019-03-29T01:32:14.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php十进制二进制算法题">
-<meta name="twitter:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n !=">
+<meta name="twitter:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
 
 
 
@@ -97,7 +97,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -297,7 +297,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/header.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -359,7 +359,7 @@
       
 
       
-        <p> 负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数</p>
+        <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数</p>
 <pre><code>&lt;?php
 function NumberOf1($n){
     $arr = array();
@@ -409,6 +409,7 @@ function NumberOf1($n){
         }
     }
 }
+   ?&gt;
 </code></pre>
       
     </div>
@@ -502,6 +503,8 @@ function NumberOf1($n){
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="yinhang">
+            
               <p class="site-author-name" itemprop="name">yinhang</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
@@ -513,7 +516,7 @@ function NumberOf1($n){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -616,6 +619,8 @@ function NumberOf1($n){
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     
@@ -1094,5 +1099,7 @@ function NumberOf1($n){
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
