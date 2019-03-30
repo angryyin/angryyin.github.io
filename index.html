@@ -289,6 +289,181 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/ysql千行笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/30/ysql千行笔记/" itemprop="url">mysql千行笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T19:48:00+08:00">
+                2019-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Windows服务</p>
+<pre><code>-- 启动MySQL
+   net start mysql
+-- 创建Windows服务
+   sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
+</code></pre><p>连接与断开服务器</p>
+<pre><code>mysql -h 地址 -P 端口 -u 用户名 -p 密码
+
+SHOW PROCESSLIST -- 显示哪些线程正在运行
+SHOW VARIABLES -- 显示系统变量信息
+</code></pre><p> 数据库操作</p>
+<pre><code>-- 查看当前数据库
+   SELECT DATABASE();
+-- 显示当前时间、用户名、数据库版本
+   SELECT now(), user(), version();
+-- 创建库
+   CREATE DATABASE[ IF NOT EXISTS] 数据库名 数据库选项
+   数据库选项：
+       CHARACTER SET charset_name
+       COLLATE collation_name
+-- 查看已有库
+   SHOW DATABASES[ LIKE &apos;PATTERN&apos;]
+-- 查看当前库信息
+   SHOW CREATE DATABASE 数据库名
+-- 修改库的选项信息
+   ALTER DATABASE 库名 选项信息
+-- 删除库
+   DROP DATABASE[ IF EXISTS] 数据库名
+       同时删除该数据库相关的目录及其目录内容
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/30/ysql千行笔记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/1背包问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -320,7 +495,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:12:54+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:12:00+08:00">
                 2019-03-29
               </time>
             
@@ -330,6 +505,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/高级算法/" itemprop="url" rel="index">
+                    <span itemprop="name">高级算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -487,7 +684,7 @@ back();
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:06:41+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:06:00+08:00">
                 2019-03-29
               </time>
             
@@ -497,6 +694,28 @@ back();
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -528,6 +747,8 @@ back();
         
           
             <p><a href="https://www.cnblogs.com/chenpingzhao/p/4553139.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpingzhao/p/4553139.html</a></p>
+<p><a href="https://www.cnblogs.com/XGHeaven/p/4245306.html" target="_blank" rel="noopener">https://www.cnblogs.com/XGHeaven/p/4245306.html</a></p>
+<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。 </p>
 
           
         
@@ -607,7 +828,7 @@ back();
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T10:51:20+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T10:51:00+08:00">
                 2019-03-29
               </time>
             
@@ -617,6 +838,28 @@ back();
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/高级算法/" itemprop="url" rel="index">
+                    <span itemprop="name">高级算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -875,6 +1118,28 @@ back();
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1008,7 +1273,7 @@ $re = reConstructBinaryTree($pre, $vin);
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T15:13:06+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T15:13:00+08:00">
                 2019-03-28
               </time>
             
@@ -1018,6 +1283,28 @@ $re = reConstructBinaryTree($pre, $vin);
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1208,7 +1495,7 @@ tailorder($a);//D B E F C A
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T10:50:40+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T10:50:00+08:00">
                 2019-03-28
               </time>
             
@@ -1218,6 +1505,28 @@ tailorder($a);//D B E F C A
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1498,129 +1807,7 @@ function NumberOf1($n){
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T11:29:37+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
-<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
-<p>PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参数重新编译 PHP，这个参数是指定编译 PHP 时使用线程安全方式。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/结/" itemprop="url">查找总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T09:17:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T11:29:00+08:00">
                 2019-03-27
               </time>
             
@@ -1643,8 +1830,8 @@ function NumberOf1($n){
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -1682,44 +1869,9 @@ function NumberOf1($n){
       
         
           
-            <ol>
-<li><p>顺序查找<br>　　说明：顺序查找适合于存储结构为顺序存储或链接存储的线性表。<br>　　基本思想：顺序查找也称为线形查找，属于无序查找算法。从数据结构线形表的一端开始，顺序扫描，依次将扫描到的结点关键字与给定值k相比较，若相等则表示查找成功；若扫描结束仍没有找到关键字等于k的结点，表示查找失败。<br>　　复杂度分析：　<br>　　查找成功时的平均查找长度为：（假设每个数据元素的概率相等） ASL = 1/n(1+2+3+…+n) = (n+1)/2 ;<br>　　当查找不成功时，需要n+1次比较，时间复杂度为O(n);<br>　　所以，顺序查找的时间复杂度为O(n)。</p>
-</li>
-<li><p>二分查找<br>　　说明：元素必须是有序的，如果是无序的则要先进行排序操作。<br>　　基本思想：也称为是折半查找，属于有序查找算法。用给定值k先与中间结点的关键字比较，中间结点把线形表分成两个子表，若相等则查找成功；若不相等，再根据k与该中间结点关键字的比较结果确定下一步查找哪个子表，这样递归进行，直到查找到或查找结束发现表中没有这样的结点。<br>　　复杂度分析：最坏情况下，关键词比较次数为log2(n+1)，且期望时间复杂度为O(log2n)；<br>　　注：折半查找的前提条件是需要有序表顺序存储，对于静态查找表，一次排序后不再变化，折半查找能得到不错的效率。但对于需要频繁执行插入或删除操作的数据集来说，维护有序的排序会带来不小的工作量，那就不建议使用。——《大话数据结构》</p>
-<p> /二分查找（折半查找），版本1</p>
-<pre><code>int BinarySearch1(int a[], int value, int n)
-{
-int low, high, mid;
-low = 0;
-high = n-1;
-while(low&lt;=high)
-{
-    mid = (low+high)/2;
-    if(a[mid]==value)
-        return mid;
-    if(a[mid]&gt;value)
-        high = mid-1;
-    if(a[mid]&lt;value)
-        low = mid+1;
-}
-return -1;
-}
-</code></pre><p> //二分查找，递归版本</p>
-<pre><code>int BinarySearch2(int a[], int value, int low, int high)
- {
- int mid = low+(high-low)/2;
- if(a[mid]==value)
-     return mid;
- if(a[mid]&gt;value)
-     return BinarySearch2(a, value, low, mid-1);
- if(a[mid]&lt;value)
-     return BinarySearch2(a, value, mid+1, high);
- }
-</code></pre></li>
-</ol>
-<ol start="3">
-<li>插值查找<br>　　在介绍插值查找之前，首先考虑一个新问题，为什么上述算法一定要是折半，而不是折四分之一或者折更多呢？<br>　　打个比方，在英文字典里面查“apple”，你下意识翻开字典是翻前面的书页还是后面的书页呢？如果再让你查“zoo”，你又怎么查？很显然，这里你绝对不会是从中间开始查起，而是有一定目的的往前或往后翻。<br>　　同样的，比如要在取值范围1 ~ 10000 之间 100 个元素从小到大均匀分布的数组中查找5， 我们自然会考虑从数组下标较小的开始查找。<br>　　经过以上分析，折半查找这种查找方式，不是自适应的（也就是说是傻瓜式的）。二分查找中查找点计算如下：<br>　　mid=(low+high)/2, 即mid=low+1/2<em>(high-low);<br>　　通过类比，我们可以将查找的点改进为如下：<br>　　mid=low+(key-a[low])/(a[high]-a[low])</em>(high-low)，<br>　　也就是将上述的比例参数1/2改进为自适应的，根据关键字在整个有序表中所处的位置，让mid值的变化更靠近关键字key，这样也就间接地减少了比较次数。<br>　　基本思想：基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。<br>　　注：对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。<br>　　复杂度分析：查找成功或者失败的时间复杂度均为O(log2(log2n))。<br>　　C++实现源码：</li>
-</ol>
+            <p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
+<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
+<p>PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参数重新编译 PHP，这个参数是指定编译 PHP 时使用线程安全方式。</p>
 
           
         
@@ -1807,7 +1959,7 @@ return -1;
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1818,7 +1970,7 @@ return -1;
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1829,7 +1981,7 @@ return -1;
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
