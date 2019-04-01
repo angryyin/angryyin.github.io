@@ -119,6 +119,7 @@
 
 
 
+
   <title>殷航的博客</title>
   
 
@@ -275,6 +276,299 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/题-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/题-1/" itemprop="url">环队列叫号问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T13:44:00+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>有m个猴子，按顺时针方向围成一个圈选大王。从第1号开始报数1，2，……，数到n号时该猴子退出到圈外，如此报数直到圈内只剩下一个猴子时，此猴子便是大王。由键盘输入m，n，打印出猴子大王序号。<br>输入 10 3<br>输出 4</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> monkey(<span class="number">4</span>,<span class="number">1</span>);<span class="comment">//5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">monkey</span><span class="params">($m,$n)</span></span>&#123;</span><br><span class="line">   <span class="comment">//定义arr猴子数组，</span></span><br><span class="line">   $arr=range(<span class="number">1</span>,$m);</span><br><span class="line">   $i=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span>(count($arr)&gt;<span class="number">1</span>)&#123;</span><br><span class="line">   	  <span class="comment">//出队</span></span><br><span class="line">       <span class="keyword">if</span>(($i+<span class="number">1</span>)%$n==<span class="number">0</span>)&#123;</span><br><span class="line">       	  <span class="comment">//如果猴子序号/猴王号n余数为0，踢走</span></span><br><span class="line">           <span class="keyword">unset</span>($arr[$i]);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="comment">//否则将该序号放在猴子数组队尾</span></span><br><span class="line">           $arr[]=$arr[$i];</span><br><span class="line">           <span class="keyword">unset</span>($arr[$i]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">echo</span> $i.<span class="string">"\n"</span>;</span><br><span class="line">       $i++;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//最后key i所对应的就是猴王</span></span><br><span class="line">   <span class="keyword">return</span> $arr[$i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/mysql事务总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/mysql事务总结/" itemprop="url">mysql事务、事务隔离、锁机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T10:38:00+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1、什么是事务<br>事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。<br>Atomicity原子性：要不全部成功，要不全部撤销<br>Isolation隔离性：事务之间相互独立，互不干扰<br>Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏<br>Durability持久性：事务的提交结果，将持久保存在数据库中</p>
+<p>pass：不可重复读与幻读的本质区别<br>不可重复读是读取了其他事务更改的数据，针对update操作<br>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>passpass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。<br>不可重复读：数据读错方读了两次数据库</p>
+<p>幻读是读取了其他事务新增的数据，针对insert操作<br>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。</p>
+<p>2、事务并发会产生什么问题<br>1）第一类丢失更新：在没有事务隔离的情况下，两个事务都同时更新一行数据，但是第二个事务却中途失败退出，导致对数据的两个修改都失效了。<br>例如：<br>    张三的工资为5000，事务A中获取工资为5000，事务B获取工资为5000，汇入100，并提交数据库，工资变为5100，<br>    随后事务A发生异常，回滚了，恢复张三的工资为5000，这样就导致事务B的更新丢失了。<br>2）脏读：脏读就是指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。<br>例如：<br>　　张三的工资为5000,事务A中把他的工资改为8000,但事务A尚未提交。<br>　　与此同时，事务B正在读取张三的工资，读取到张三的工资为8000。<br>　　随后，事务A发生异常，而回滚了事务。张三的工资又回滚为5000。<br>　　最后，事务B读取到的张三工资为8000的数据即为脏数据，事务B做了一次脏读。</p>
+<p>3）不可重复读：是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。<br>例如：<br>　　在事务A中，读取到张三的工资为5000，操作没有完成，事务还没提交。<br>　　与此同时，事务B把张三的工资改为8000，并提交了事务。<br>　　随后，在事务A中，再次读取张三的工资，此时工资变为8000。在一个事务中前后两次读取的结果并不致，导致了不可重复读。</p>
+<p>4）第二类丢失更新：不可重复读的特例。有两个并发事务同时读取同一行数据，然后其中一个对它进行修改提交，而另一个也进行了修改提交。这就会造成第一次写操作失效。<br>例如：<br>    在事务A中，读取到张三的存款为5000，操作没有完成，事务还没提交。<br>　　与此同时，事务B，存储1000，把张三的存款改为6000，并提交了事务。<br>　　随后，在事务A中，存储500，把张三的存款改为5500，并提交了事务，这样事务A的更新覆盖了事务B的更新。<br>5）幻读：是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。<br>例如：<br>　　目前工资为5000的员工有10人，事务A读取所有工资为5000的人数为10人。<br>　　此时，事务B插入一条工资也为5000的记录。<br>　　这时，事务A再次读取工资为5000的员工，记录为11人。此时产生了幻读。</p>
+<p>提醒：<br>不可重复读的重点是修改，同样的条件，你读取过的数据，再次读取出来发现值不一样了<br>幻读的重点在于新增或者删除，同样的条件，第 1 次和第 2 次读出来的记录数不一样</p>
+<p>3、事务隔离级别，解决什么并发问题，以及存在什么并发问题<br>（1）READ_UNCOMMITTED（读未提交）<br>　　这是事务最低的隔离级别，它充许另外一个事务可以看到这个事务未提交的数据。<br>　　解决第一类丢失更新的问题，但是会出现脏读、不可重复读、第二类丢失更新的问题，幻读 。<br>（2）READ_COMMITTED（读已提交）<br>　　保证一个事务修改的数据提交后才能被另外一个事务读取，即另外一个事务不能读取该事务未提交的数据。<br>　　解决第一类丢失更新和脏读的问题，但会出现不可重复读、第二类丢失更新的问题，幻读问题<br>（3）REPEATABLE_READ（重复读）<br>　　保证一个事务相同条件下前后两次获取的数据是一致的<br>    解决第一类丢失更新，脏读、不可重复读、第二类丢失更新的问题，但会出幻读。<br>（4）SERIALIZABLE（串行化）<br>　　事务被处理为顺序执行。<br>　　解决所有问题<br>提醒：<br>Mysql默认的事务隔离级别为repeatable_read</p>
+<p>4、InnoDB引擎的锁机制<br>（之所以以InnoDB为主介绍锁，是因为InnoDB支持事务，支持行锁和表锁用的比较多，Myisam不支持事务，只支持表锁）<br>共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排他锁。<br>排他锁（X)：允许获得排他锁的事务更新数据，阻止其他事务取得相同数据集的共享读锁和排他写锁。<br>意向共享锁（IS）：事务打算给数据行加行共享锁，事务在给一个数据行加共享锁前必须先取得该表的IS锁。<br>意向排他锁（IX）：事务打算给数据行加行排他锁，事务在给一个数据行加排他锁前必须先取得该表的IX锁。<br>说明：</p>
+<p>1）共享锁和排他锁都是行锁，意向锁都是表锁，应用中我们只会使用到共享锁和排他锁，意向锁是mysql内部使用的，不需要用户干预。<br>2）对于UPDATE、DELETE和INSERT语句，InnoDB会自动给涉及数据集加排他锁（X)；对于普通SELECT语句，InnoDB不会加任何锁，事务可以通过以下语句显示给记录集加共享锁或排他锁。<br>共享锁（S）：SELECT <em> FROM table_name WHERE … LOCK IN SHARE MODE。<br>排他锁（X)：SELECT </em> FROM table_name WHERE … FOR UPDATE。<br>3）InnoDB行锁是通过给索引上的索引项加锁来实现的，因此InnoDB这种行锁实现特点意味着：只有通过索引条件检索数据，InnoDB才使用行级锁，否则，InnoDB将使用表锁！。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -1240,7 +1534,7 @@ unset($a);  --- step2
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

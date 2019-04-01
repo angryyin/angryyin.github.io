@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="&amp;lt;?php $arr = [2, 3, 1, 6, 4, 7, 5, 9];  var_dump(insertsort($arr)); function insertSort($arr) {     $len = count($arr);     for ($i = 1; $i &amp;lt; $len; $i++) {         // 当前值         $key = $arr[$">
+<meta name="description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
 <meta name="keywords" content="排序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序">
 <meta property="og:url" content="http://yoursite.com/2019/03/26/排序/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="&amp;lt;?php $arr = [2, 3, 1, 6, 4, 7, 5, 9];  var_dump(insertsort($arr)); function insertSort($arr) {     $len = count($arr);     for ($i = 1; $i &amp;lt; $len; $i++) {         // 当前值         $key = $arr[$">
+<meta property="og:description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-27T00:39:08.931Z">
+<meta property="og:updated_time" content="2019-04-01T02:19:10.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="插入排序">
-<meta name="twitter:description" content="&amp;lt;?php $arr = [2, 3, 1, 6, 4, 7, 5, 9];  var_dump(insertsort($arr)); function insertSort($arr) {     $len = count($arr);     for ($i = 1; $i &amp;lt; $len; $i++) {         // 当前值         $key = $arr[$">
+<meta name="twitter:description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
 
 
 
@@ -119,6 +119,7 @@
 
 
   <link rel="canonical" href="http://yoursite.com/2019/03/26/排序/">
+
 
 
 
@@ -382,30 +383,7 @@
       
 
       
-        <pre><code>  &lt;?php
-$arr = [2, 3, 1, 6, 4, 7, 5, 9];
-
-var_dump(insertsort($arr));
-function insertSort($arr) {
-    $len = count($arr);
-    for ($i = 1; $i &lt; $len; $i++) {
-        // 当前值
-        $key = $arr[$i];
-        // 当前位置
-        $pos = $i;
-        // 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值
-        while ($pos &gt; 0 &amp;&amp; $arr[$pos - 1] &gt; $key) {
-            // 当前值  =  前一个值
-            $arr[$pos] = $arr[$pos - 1];
-            // 当前位置后移
-            $pos = $pos - 1;
-        }
-        // 找到当前值的位置
-        $arr[$pos] = $key;
-    }
-    return $arr;
-}
-</code></pre>
+        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line">    var_dump(insertsort($arr));</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($arr)</span> </span>&#123;</span><br><span class="line">        $len = count($arr);</span><br><span class="line">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">            <span class="comment">// 当前值</span></span><br><span class="line">            $key = $arr[$i];</span><br><span class="line">            <span class="comment">// 当前位置</span></span><br><span class="line">            $pos = $i;</span><br><span class="line">            <span class="comment">// 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值</span></span><br><span class="line">            <span class="keyword">while</span> ($pos &gt; <span class="number">0</span> &amp;&amp; $arr[$pos - <span class="number">1</span>] &gt; $key) &#123;</span><br><span class="line">                <span class="comment">// 当前值  =  前一个值</span></span><br><span class="line">                $arr[$pos] = $arr[$pos - <span class="number">1</span>];</span><br><span class="line">                <span class="comment">// 当前位置后移</span></span><br><span class="line">                $pos = $pos - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 找到当前值的位置</span></span><br><span class="line">            $arr[$pos] = $key;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -517,7 +495,7 @@ function insertSort($arr) {
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

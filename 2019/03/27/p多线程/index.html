@@ -85,7 +85,7 @@
 <meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。 线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。 PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-30T12:01:41.614Z">
+<meta property="og:updated_time" content="2019-04-01T03:16:47.583Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php多线程">
 <meta name="twitter:description" content="进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。 线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。 PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参">
@@ -119,6 +119,7 @@
 
 
   <link rel="canonical" href="http://yoursite.com/2019/03/27/p多线程/">
+
 
 
 
@@ -385,6 +386,7 @@
         <p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
 <p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
 <p>PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参数重新编译 PHP，这个参数是指定编译 PHP 时使用线程安全方式。</p>
+<p>什么是线程安全?<br>如果你的代码所在的进程中有多个线程在同时运行，而这些线程可能会同时运行这段代码。如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。 </p>
 
       
     </div>
@@ -499,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

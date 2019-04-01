@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
+<meta name="description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数     123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
 <meta name="keywords" content="算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php十进制二进制算法题">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/hp十进制二进制算法题/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
+<meta property="og:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数     123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-30T12:01:16.518Z">
+<meta property="og:updated_time" content="2019-04-01T02:14:37.559Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php十进制二进制算法题">
-<meta name="twitter:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数 &amp;lt;?php function NumberOf1($n){     $arr = array();     if ($n &amp;gt; 0){         while($n != 0">
+<meta name="twitter:description" content="负数需要先置反为反码，然后再加1，并且循环需要32位 floor()舍去法取整 ceil – 进一法取整 round – 对浮点数进行四舍五入 %取余数 array_count_values()表示$v出现次数     123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495">
 
 
 
@@ -119,6 +119,7 @@
 
 
   <link rel="canonical" href="http://yoursite.com/2019/03/28/hp十进制二进制算法题/">
+
 
 
 
@@ -382,58 +383,8 @@
       
 
       
-        <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数</p>
-<pre><code>&lt;?php
-function NumberOf1($n){
-    $arr = array();
-    if ($n &gt; 0){
-        while($n != 0)
-        {
-            $temp = $n % 2;
-            $n = floor($n/2);
-            array_push($arr,$temp);
-        }
-        $judge = array_count_values($arr);
-        if(isset($judge[1])){
-            return $judge[1];
-        }else{
-            return 0;
-        }
-    }else{
-        $n = -1 * $n;
-        while($n &gt; 0){
-            $temp = $n % 2;
-            $n = floor($n/2);
-            array_push($arr,$temp);
-        }
-        for($i=0;$i &lt; 32;$i++){
-           if($arr[$i] == 1){
-               $arr[$i] = 0;
-           }elseif($arr[$i] == 0) {
-               $arr[$i] = 1;
-           }else{
-               $arr[$i] = 1;
-           }
-        }
-        $length = count($arr);
-        for($i = 0;$i &lt; $length;$i++){
-            if($arr[$i]==0){
-                $arr[$i] = 1;
-                break;
-            }else{
-                $arr[$i] = 0;
-            }
-        }
-        $judge = array_count_values($arr);
-        if(isset($judge[1])){
-            return $judge[1];
-        }else{
-            return 0;
-        }
-    }
-}
-   ?&gt;
-</code></pre>
+        <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数<br>     <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">NumberOf1</span><span class="params">($n)</span></span>&#123;</span></span><br><span class="line"><span class="php">    $arr = <span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n != <span class="number">0</span>)</span></span><br><span class="line"><span class="php">        &#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">        $n = <span class="number">-1</span> * $n;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; <span class="number">32</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">           <span class="keyword">if</span>($arr[$i] == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">elseif</span>($arr[$i] == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $length = count($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i = <span class="number">0</span>;$i &lt; $length;$i++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($arr[$i]==<span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -545,7 +496,7 @@ function NumberOf1($n){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

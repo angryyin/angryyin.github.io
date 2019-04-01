@@ -119,6 +119,7 @@
 
 
 
+
   <title>殷航的博客</title>
   
 
@@ -275,6 +276,384 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/new/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/29/new/" itemprop="url">music</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T07:56:44+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2059989167&auto=1&height=66"></iframe>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/p设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/01/p设计模式/" itemprop="url">五种常见的 PHP 设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T09:23:08+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>策略模式<br>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>策略模式的代码实例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">baseAgent</span> </span>&#123; <span class="comment">//抽象策略类</span></span><br><span class="line">        <span class="keyword">abstract</span> <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用于客户端是IE时调用的类（环境角色）</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ieAgent</span> <span class="keyword">extends</span> <span class="title">baseAgent</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'IE'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用于客户端不是IE时调用的类（环境角色）</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">otherAgent</span> <span class="keyword">extends</span> <span class="title">baseAgent</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'not IE'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Browser</span> </span>&#123; <span class="comment">//具体策略角色</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">call</span><span class="params">($object)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> $object-&gt;PrintPage ();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        $bro = <span class="keyword">new</span> Browser ();</span><br><span class="line">    <span class="keyword">echo</span> $bro-&gt;call ( <span class="keyword">new</span> ieAgent () );</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>工厂模式<br>    工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。<br>使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需更改该工厂方法内容即可，不需逐一寻找代码中具体实例化的地方（new处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">'Content-Type:text/html;charset=utf-8'</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *简单工厂模式（静态工厂方法模式）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Interface people 人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span>  <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span>  <span class="title">say</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class man 继承people的男人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">man</span> <span class="keyword">implements</span> <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体实现people的say方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'我是男人&lt;br&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class women 继承people的女人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">women</span> <span class="keyword">implements</span> <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体实现people的say方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'我是女人&lt;br&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class SimpleFactoty 工厂类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleFactoty</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 简单工厂里的静态方法-用于创建男人对象</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createMan</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> man();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 简单工厂里的静态方法-用于创建女人对象</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createWomen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> women();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 具体调用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$man = SimpleFactoty::createMan();</span><br><span class="line">$man-&gt;say();</span><br><span class="line">$woman = SimpleFactoty::createWomen();</span><br><span class="line">$woman-&gt;say();</span><br></pre></td></tr></table></figure>
+<p>单例模式<br>    单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。<br>单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。<br>单例模式分3种：懒汉式单例、饿汉式单例、登记式单例。<br>单例模式有以下3个特点：<br>1．只能有一个实例。<br>2．必须自行创建这个实例。<br>3．必须给其他对象提供这一实例。<br>那么为什么要使用PHP单例模式？<br>PHP一个主要应用场合就是应用程序与数据库打交道的场景，在一个应用中会存在大量的数据库操作，针对数据库句柄连接数据库的行为，使用单例模式可以避免大量的new操作。因为每一次new操作都会消耗系统和内存的资源。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $name;<span class="comment">//声明一个私有的实例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;<span class="comment">//声明私有构造方法为了防止外部代码使用new来创建对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> $instance;<span class="comment">//声明一个静态变量（保存在类中唯一的一个实例）</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getinstance</span><span class="params">()</span></span>&#123;<span class="comment">//声明一个getinstance()静态方法，用于检测是否有实例对象</span></span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">self</span>::$instance) <span class="keyword">self</span>::$instance = <span class="keyword">new</span> <span class="keyword">self</span>();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">self</span>::$instance;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setname</span><span class="params">($n)</span></span>&#123; <span class="keyword">$this</span>-&gt;name = $n; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getname</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;name; &#125;</span><br><span class="line">&#125;</span><br><span class="line">$oa = Single::getinstance();</span><br><span class="line">$ob = Single::getinstance();</span><br><span class="line">$oa-&gt;setname(<span class="string">'hello world'</span>);</span><br><span class="line">$ob-&gt;setname(<span class="string">'good morning'</span>);</span><br><span class="line"><span class="keyword">echo</span> $oa-&gt;getname();<span class="comment">//good morning</span></span><br><span class="line"><span class="keyword">echo</span> $ob-&gt;getname();<span class="comment">//good morning</span></span><br></pre></td></tr></table></figure></p>
+<p>注册模式<br>注册模式，解决全局共享和交换对象。已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。将对象注册到全局的树上。任何地方直接去访问。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Register</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span>  $objects;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">set</span><span class="params">($alias,$object)</span>//将对象注册到全局的树上</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">self</span>::$objects[$alias]=$object;<span class="comment">//将对象放到树上</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">($name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::$objects[$name];<span class="comment">//获取某个注册到树上的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_unset</span><span class="params">($alias)</span></span></span><br><span class="line"><span class="function">　　</span>&#123;</span><br><span class="line">        <span class="keyword">unset</span>(<span class="keyword">self</span>::$objects[$alias]);<span class="comment">//移除某个注册到树上的对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>适配器模式<br>将各种截然不同的函数接口封装成统一的API。<br>PHP中的数据库操作有MySQL,MySQLi,PDO三种，可以用适配器模式统一成一致，使不同的数据库操作，统一成一样的API。类似的场景还有cache适配器，可以将memcache,redis,file,apc等不同的缓存函数，统一成一致。<br>首先定义一个接口(有几个方法，以及相应的参数)。然后，有几种不同的情况，就写几个类实现该接口。将完成相似功能的函数，统一成一致的方法。</p>
+<p>接口 IDatabase<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MySQL</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>\<span class="title">Database</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">IMooc</span>\<span class="title">IDatabase</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQL</span> <span class="keyword">implements</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $conn;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $conn = mysql_connect($host, $user, $passwd);</span><br><span class="line">            mysql_select_db($dbname, $conn);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;conn = $conn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $res = mysql_query($sql, <span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">            <span class="keyword">return</span> $res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mysql_close(<span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MySQLi</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>\<span class="title">Database</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">IMooc</span>\<span class="title">IDatabase</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQLi</span> <span class="keyword">implements</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $conn;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $conn = mysqli_connect($host, $user, $passwd, $dbname);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;conn = $conn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mysqli_query(<span class="keyword">$this</span>-&gt;conn, $sql);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mysqli_close(<span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>观察者模式<br>1：观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。<br>2：场景:一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。<br>3：观察者模式实现了低耦合，非侵入式的通知与更新机制。<br>定义一个事件触发抽象类。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">EventGenerator.php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">EventGenerator</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $observers = <span class="keyword">array</span>();</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addObserver</span><span class="params">(Observer $observer)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;observers[]=$observer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">notify</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;observers <span class="keyword">as</span> $observer)&#123;</span><br><span class="line">            $observer-&gt;update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">定义一个观察者接口</span><br><span class="line"></span><br><span class="line">Observer.php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>;<span class="comment">//这里就是在事件发生后要执行的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一个实现了EventGenerator抽象类的类，用于具体定义某个发生的事件</span></span><br><span class="line"></span><br><span class="line">实现</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Event</span> <span class="keyword">extends</span> <span class="title">EventGenerator</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">triger</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Event&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer1</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"逻辑1&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer2</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"逻辑2&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$event = <span class="keyword">new</span> Event();</span><br><span class="line">$event-&gt;addObserver(<span class="keyword">new</span> Observer1());</span><br><span class="line">$event-&gt;addObserver(<span class="keyword">new</span> Observer2());</span><br><span class="line">$event-&gt;triger();</span><br><span class="line">$event-&gt;notify();</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/hp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/01/hp/" itemprop="url">php运行模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T09:01:35+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、CGI：fork-and-excute"><a href="#一、CGI：fork-and-excute" class="headerlink" title="一、CGI：fork-and-excute "></a>一、CGI：fork-and-excute </h2><p><img src="\images\pasted-11.png" alt="upload successful"><br>    CGI全称是“公共网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。<br>CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等。<br>    CGI有很多缺点，每接收一个请求就要fork一个进程处理，只能接收一个请求作出一个响应。请求结束后该进程就会结束。<br>    而FastCGI会事先启动起来，作为一个cgi的管理服务器存在，预先启动一系列的子进程来等待处理，然后等待web服务器发过来的请求，一旦接受到请求就交由子进程处理，这样由于不需要在接受到请求后启动cgi。FastCGI使用进程/线程池来处理一连串的请求。这些进程/线程由FastCGI服务器管理，而不是Web服务器。当进来一个请求时，Web服务器把环境变量和这个页面请求通过一个Socket长连接传递给FastCGI进程。在请求到达时不会花费时间去fork一个进程来处理。</p>
+<h2 id="二、FastCGI（协议）："><a href="#二、FastCGI（协议）：" class="headerlink" title="二、FastCGI（协议）："></a>二、FastCGI（协议）：</h2><p><img src="\images\pasted-6.png" alt="upload successful"></p>
+<p>   FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次（这是CGI最为人诟病的fork-and-execute 分叉-执行模式）。它还支持分布式的运算，即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。<br>    FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。</p>
+<h2 id="FastCGI特点"><a href="#FastCGI特点" class="headerlink" title="FastCGI特点"></a>FastCGI特点</h2><p>FastCGI具有语言无关性.<br>    FastCGI在进程中的应用程序，独立于核心web服务器运行，提供了一个比API更安全的环境。APIs把应用程序的代码与核心的web服务器链接在一起，这意味着在一个错误的API的应用程序可能会损坏其他应用程序或核心服务器。 恶意的API的应用程序代码甚至可以窃取另一个应用程序或核心服务器的密钥。<br>    FastCGI技术目前支持语言有：C/C++、Java、Perl、Tcl、Python、SmallTalk、Ruby等。相关模块在Apache, ISS, Lighttpd等流行的服务器上也是可用的。<br>FastCGI的不依赖于任何Web服务器的内部架构，因此即使服务器技术的变化, FastCGI依然稳定不变。</p>
+<h2 id="FastCGI的工作原理"><a href="#FastCGI的工作原理" class="headerlink" title="FastCGI的工作原理"></a>FastCGI的工作原理</h2><p>   1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)<br>FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。<br>    2、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。<br>    3、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。<br>    在上述情况中，你可以想象CGI通常有多慢。每一个Web请求PHP都必须重新解析php.ini、重新载入全部扩展并重初始化全部数据结构。使用FastCGI，所有这些都只在进程启动时发生一次。一个额外的好处是，持续数据库连接(Persistent database connection)可以工作。</p>
+<h2 id="FastCGI的不足"><a href="#FastCGI的不足" class="headerlink" title="FastCGI的不足"></a>FastCGI的不足</h2><p>   因为是多进程，所以比CGI多线程消耗更多的服务器内存，PHP-CGI解释器每进程消耗7至25兆内存，将这个数字乘以50或100就是很大的内存数。<br>PHP-CGI<br>PHP-CGI是PHP自带的FastCGI管理器。<br>PHP-CGI的不足：<br>php-cgi变更php.ini配置后需重启php-cgi才能让新的php-ini生效，不可以平滑重启。<br>直接杀死php-cgi进程，php就不能运行了。(PHP-FPM和Spawn-FCGI就没有这个问题，守护进程会平滑从新生成新的子进程。）</p>
+<h2 id="PHP-FPM（实现FASTCGI的程序）"><a href="#PHP-FPM（实现FASTCGI的程序）" class="headerlink" title="PHP-FPM（实现FASTCGI的程序）"></a>PHP-FPM（实现FASTCGI的程序）</h2><p>PHP-FPM是一个PHP FastCGI管理器，是只用于PHP的，可以在 <a href="http://php-fpm.org/download下载得到。" target="_blank" rel="noopener">http://php-fpm.org/download下载得到。</a><br>PHP-FPM其实是PHP源代码的一个补丁，旨在将FastCGI进程管理整合进PHP包中。必须将它patch到你的PHP源代码中，在编译安装PHP后才可以使用。<br>现在我们可以在最新的PHP 5.3.2的源码树里下载得到直接整合了PHP-FPM的分支，据说下个版本会融合进PHP的主分支去。相对Spawn-FCGI，PHP-FPM在CPU和内存方面的控制都更胜一筹，而且前者很容易崩溃，必须用crontab进行监控，而PHP-FPM则没有这种烦恼。<br>PHP5.3.3已经集成php-fpm了，不再是第三方的包了。PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以平滑重载PHP配置，所以被PHP官方收录了。<br>PHP-FPM的使用非常方便，配置都是在PHP-FPM.ini的文件内，而启动、重启都可以从php/sbin/PHP-FPM中进行。更方便的是修改php.ini后可以直接使用PHP-FPM reload进行加载，无需杀掉进程就可以完成php.ini的修改加载<br>结果显示使用PHP-FPM可以使php有不小的性能提升。PHP-FPM控制的进程cpu回收的速度比较慢,内存分配的很均匀。<br>而PHP-FPM合理的分配，导致总体响应的提到以及任务的平均。</p>
+<h2 id="三、-LoadModule（Apache独有）："><a href="#三、-LoadModule（Apache独有）：" class="headerlink" title="三、 LoadModule（Apache独有）："></a>三、 LoadModule（Apache独有）：</h2><p>在Apache配置文件httpd.conf里，通常加的LoadModule php7_module “D:/…/php71/php7apache2_4.dll”起到的作用就是这个 </p>
+<p><img src="\images\pasted-7.png" alt="upload successful"></p>
+<h2 id="四、ISAPI（IIS独有）："><a href="#四、ISAPI（IIS独有）：" class="headerlink" title="四、ISAPI（IIS独有）："></a>四、ISAPI（IIS独有）：</h2><p><img src="\images\pasted-8.png" alt="upload successful"></p>
+<h2 id="五、CLI：命令行模式"><a href="#五、CLI：命令行模式" class="headerlink" title="五、CLI：命令行模式"></a>五、CLI：命令行模式</h2><p>CLI:就是命令行，例如可以在控制台或者是shell中键入命令</p>
+<pre><code>php -f index.php
+</code></pre><p>总结：FastCGI 和 LoadModule 模式其实就是 CGI 模式的升级版，主要为了克服 CGI fork-and-execute 的弊端而产生的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -558,54 +937,10 @@ SHOW VARIABLES -- 显示系统变量信息
         
           
             <p><img src="/images/pasted-5.png" alt="upload successful"></p>
-<pre><code>&lt;? php
-function back(){
-    $a[&apos;w&apos;] = [0, 2, 3, 4, 5, 9];
-    $a[&apos;v&apos;] = [0, 3, 4, 5, 8, 10];
-    $b =array();
-    $n = 6;
-    $w = 21;
-    for($i=0;$i &lt; $n;$i++){
-        for($j=0;$j &lt; $w;$j++){
-            $b[$i][$j] = 0;
-        }
-    }
-    for($k = 1; $k &lt; $n ;$k++){
-        for($c = 1; $c &lt; $w ;$c++){
-            if($a[&apos;w&apos;][$k] &gt; $c){
-                $b[$k][$c] = $b[$k-1][$c];
-            }else{
-                $value1 = $b[$k-1][$c-$a[&apos;w&apos;][$k]] + $a[&apos;v&apos;][$k]; // 拿第k件物品
-                $value2 = $b[$k-1][$c]; // 不拿第k件物品
-                $b[$k][$c] = max($value1,$value2);
-            }
-        }
-    }
-    print_r($b);
-}
-back();
+<pre><code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $a[<span class="string">'w'</span>] = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line">    $a[<span class="string">'v'</span>] = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span>];</span><br><span class="line">    $b =<span class="keyword">array</span>();</span><br><span class="line">    $n = <span class="number">6</span>;</span><br><span class="line">    $w = <span class="number">21</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $n;$i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($j=<span class="number">0</span>;$j &lt; $w;$j++)&#123;</span><br><span class="line">            $b[$i][$j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>($k = <span class="number">1</span>; $k &lt; $n ;$k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($c = <span class="number">1</span>; $c &lt; $w ;$c++)&#123;</span><br><span class="line">            <span class="keyword">if</span>($a[<span class="string">'w'</span>][$k] &gt; $c)&#123;</span><br><span class="line">                $b[$k][$c] = $b[$k<span class="number">-1</span>][$c];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $value1 = $b[$k<span class="number">-1</span>][$c-$a[<span class="string">'w'</span>][$k]] + $a[<span class="string">'v'</span>][$k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                $value2 = $b[$k<span class="number">-1</span>][$c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                $b[$k][$c] = max($value1,$value2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($b);</span><br><span class="line">&#125;</span><br><span class="line">back();</span><br></pre></td></tr></table></figure>
 </code></pre><p> JAVA实现</p>
-<pre><code>class Main {
- public static void main(String[] args) {
-     int[] w = { 0, 2, 3, 4, 5, 9 };
-     int[] v = { 0, 3, 4, 5, 8, 10 };
-     int N = 6, W = 21;
-     int[][] b = new int[N][W];
-     for (int k = 1; k &lt; N; k++) {
-         for (int c = 1; c &lt; W; c++) {
-             if (w[k] &gt; c) {
-                 b[k][c] = b[k - 1][c];
-             } else {
-                 int value1 = b[k - 1][c - w[k]] + v[k]; // 拿第k件物品
-                 int value2 = b[k - 1][c]; // 不拿第k件物品
-                 b[k][c] = Math.max(value1, value2);
-             }
-         }
-     }
-     System.out.println(b[5][20]);
- }
-</code></pre><p>  }</p>
-
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] w = &#123; <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span>[] v = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span> N = <span class="number">6</span>, W = <span class="number">21</span>;</span><br><span class="line">      <span class="keyword">int</span>[][] b = <span class="keyword">new</span> <span class="keyword">int</span>[N][W];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &lt; W; c++) &#123;</span><br><span class="line">              <span class="keyword">if</span> (w[k] &gt; c) &#123;</span><br><span class="line">                  b[k][c] = b[k - <span class="number">1</span>][c];</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">int</span> value1 = b[k - <span class="number">1</span>][c - w[k]] + v[k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                  <span class="keyword">int</span> value2 = b[k - <span class="number">1</span>][c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                  b[k][c] = Math.max(value1, value2);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(b[<span class="number">5</span>][<span class="number">20</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
           
         
       
@@ -956,126 +1291,6 @@ back();
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/new/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/29/new/" itemprop="url">new</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T07:56:44+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=34324755&auto=1&height=66"></iframe>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/序与中序还原树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1169,32 +1384,7 @@ back();
       
         
           
-            <pre><code>&lt;?php
-class TreeNode{
-    var $val;
-    var $left = NULL;
-    var $right = NULL;
-    function __construct($val){
-        $this-&gt;val = $val;
-    }
-}
-function reConstructBinaryTree($pre, $vin)
-{
-    // write code here
-    if($pre &amp;&amp; $vin){
-        //前序遍历的第一个节点一定是根节点
-        $treeRoot = new TreeNode($pre[0]);
-        //index判断根节点在中序中是否存在,并返回根节点在vin中的键名
-        $index = array_search($pre[0],$vin);
-        $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,1,$index),array_slice($vin,0,$index));
-        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+1),array_slice($vin,$index+1));
-        return $treeRoot;
-    }
-}
-$pre = [1,2,4,7,3,5,6,8];
-$vin = [4,7,2,1,5,3,8,6];
-$re = reConstructBinaryTree($pre, $vin);
-</code></pre>
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $val;</span><br><span class="line">        <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">            <span class="comment">//前序遍历的第一个节点一定是根节点</span></span><br><span class="line">            $treeRoot = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">            <span class="comment">//index判断根节点在中序中是否存在,并返回根节点在vin中的键名</span></span><br><span class="line">            $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">            $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">            $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> $treeRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1335,88 +1525,7 @@ $re = reConstructBinaryTree($pre, $vin);
       
         
           
-            <pre><code>&lt;?php
-class Node{
-    public $value;
-    public $left;
-    public $right;
-}
-//先序遍历 根节点 ---&gt; 左子树 ---&gt; 右子树
-function preorder($root){
-    $stack=array();
-    array_push($stack,$root);
-    while(!empty($stack)){
-        $center_node=array_pop($stack);
-        echo $center_node-&gt;value.&apos; &apos;;//先输出根节点
-        if($center_node-&gt;right!=null){
-            array_push($stack,$center_node-&gt;right);//压入左子树
-        }
-        if($center_node-&gt;left!=null){
-            array_push($stack,$center_node-&gt;left);
-        }
-    }
-}
-//中序遍历，左子树---&gt; 根节点 ---&gt; 右子树
-function inorder($root){
-    $stack = array();
-    $center_node = $root;
-    while (!empty($stack) || $center_node != null) {
-        while ($center_node != null) {
-            array_push($stack, $center_node);
-            $center_node = $center_node-&gt;left;
-        }
-
-        $center_node = array_pop($stack);
-        echo $center_node-&gt;value . &quot; &quot;;
-
-        $center_node = $center_node-&gt;right;
-    }
-}
-//后序遍历，左子树 ---&gt; 右子树 ---&gt; 根节点
-function tailorder($root){
-    $stack=array();
-    $outstack=array();
-    array_push($stack,$root);
-    while(!empty($stack)){
-        $center_node=array_pop($stack);
-        array_push($outstack,$center_node);//最先压入根节点，最后输出
-        if($center_node-&gt;left!=null){
-            array_push($stack,$center_node-&gt;left);
-        }
-        if($center_node-&gt;right!=null){
-            array_push($stack,$center_node-&gt;right);
-        }
-    }
-
-    while(!empty($outstack)){
-        $center_node=array_pop($outstack);
-        echo $center_node-&gt;value.&apos; &apos;;
-    }
-
-}
-$a=new Node();
-$b=new Node();
-$c=new Node();
-$d=new Node();
-$e=new Node();
-$f=new Node();
-$a-&gt;value=&apos;A&apos;;
-$b-&gt;value=&apos;B&apos;;
-$c-&gt;value=&apos;C&apos;;
-$d-&gt;value=&apos;D&apos;;
-$e-&gt;value=&apos;E&apos;;
-$f-&gt;value=&apos;F&apos;;
-$a-&gt;left=$b;
-$a-&gt;right=$c;
-$b-&gt;left=$d;
-$c-&gt;left=$e;
-$c-&gt;right=$f;
-preorder($a);//A B D C E F
-echo &apos;&lt;hr/&gt;&apos;;
-inorder($a);//D B A E C F
-echo &apos;&lt;hr/&gt;&apos;;
-tailorder($a);//D B E F C A
-</code></pre>
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $value;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $left;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $right;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//先序遍历 根节点 ---&gt; 左子树 ---&gt; 右子树</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">preorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        array_push($stack,$root);</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($stack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($stack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value.<span class="string">' '</span>;<span class="comment">//先输出根节点</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;right!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;right);<span class="comment">//压入左子树</span></span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;left!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;left);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//中序遍历，左子树---&gt; 根节点 ---&gt; 右子树</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">inorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack = <span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        $center_node = $root;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> (!<span class="keyword">empty</span>($stack) || $center_node != <span class="keyword">null</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">while</span> ($center_node != <span class="keyword">null</span>) &#123;</span></span><br><span class="line"><span class="php">                array_push($stack, $center_node);</span></span><br><span class="line"><span class="php">                $center_node = $center_node-&gt;left;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            $center_node = array_pop($stack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value . <span class="string">" "</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            $center_node = $center_node-&gt;right;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//后序遍历，左子树 ---&gt; 右子树 ---&gt; 根节点</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">tailorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        $outstack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        array_push($stack,$root);</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($stack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($stack);</span></span><br><span class="line"><span class="php">            array_push($outstack,$center_node);<span class="comment">//最先压入根节点，最后输出</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;left!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;left);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;right!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;right);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($outstack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($outstack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value.<span class="string">' '</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $a=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $b=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $c=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $d=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $e=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $f=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $a-&gt;value=<span class="string">'A'</span>;</span></span><br><span class="line"><span class="php">    $b-&gt;value=<span class="string">'B'</span>;</span></span><br><span class="line"><span class="php">    $c-&gt;value=<span class="string">'C'</span>;</span></span><br><span class="line"><span class="php">    $d-&gt;value=<span class="string">'D'</span>;</span></span><br><span class="line"><span class="php">    $e-&gt;value=<span class="string">'E'</span>;</span></span><br><span class="line"><span class="php">    $f-&gt;value=<span class="string">'F'</span>;</span></span><br><span class="line"><span class="php">    $a-&gt;left=$b;</span></span><br><span class="line"><span class="php">    $a-&gt;right=$c;</span></span><br><span class="line"><span class="php">    $b-&gt;left=$d;</span></span><br><span class="line"><span class="php">    $c-&gt;left=$e;</span></span><br><span class="line"><span class="php">    $c-&gt;right=$f;</span></span><br><span class="line"><span class="php">    preorder($a);<span class="comment">//A B D C E F</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span></span><br><span class="line"><span class="php">    inorder($a);<span class="comment">//D B A E C F</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span></span><br><span class="line"><span class="php">    tailorder($a);<span class="comment">//D B E F C A</span></span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1557,325 +1666,7 @@ tailorder($a);//D B E F C A
       
         
           
-            <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数</p>
-<pre><code>&lt;?php
-function NumberOf1($n){
-    $arr = array();
-    if ($n &gt; 0){
-        while($n != 0)
-        {
-            $temp = $n % 2;
-            $n = floor($n/2);
-            array_push($arr,$temp);
-        }
-        $judge = array_count_values($arr);
-        if(isset($judge[1])){
-            return $judge[1];
-        }else{
-            return 0;
-        }
-    }else{
-        $n = -1 * $n;
-        while($n &gt; 0){
-            $temp = $n % 2;
-            $n = floor($n/2);
-            array_push($arr,$temp);
-        }
-        for($i=0;$i &lt; 32;$i++){
-           if($arr[$i] == 1){
-               $arr[$i] = 0;
-           }elseif($arr[$i] == 0) {
-               $arr[$i] = 1;
-           }else{
-               $arr[$i] = 1;
-           }
-        }
-        $length = count($arr);
-        for($i = 0;$i &lt; $length;$i++){
-            if($arr[$i]==0){
-                $arr[$i] = 1;
-                break;
-            }else{
-                $arr[$i] = 0;
-            }
-        }
-        $judge = array_count_values($arr);
-        if(isset($judge[1])){
-            return $judge[1];
-        }else{
-            return 0;
-        }
-    }
-}
-   ?&gt;
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/一面凉经/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/一面凉经/" itemprop="url">阿里一面凉经</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T16:39:38+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          博客文章密码
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/27/一面凉经/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/p多线程/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/p多线程/" itemprop="url">php多线程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T11:29:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
-<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
-<p>PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参数重新编译 PHP，这个参数是指定编译 PHP 时使用线程安全方式。</p>
+            <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数<br>     <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">NumberOf1</span><span class="params">($n)</span></span>&#123;</span></span><br><span class="line"><span class="php">    $arr = <span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n != <span class="number">0</span>)</span></span><br><span class="line"><span class="php">        &#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">        $n = <span class="number">-1</span> * $n;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; <span class="number">32</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">           <span class="keyword">if</span>($arr[$i] == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">elseif</span>($arr[$i] == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $length = count($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i = <span class="number">0</span>;$i &lt; $length;$i++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($arr[$i]==<span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -1963,7 +1754,7 @@ function NumberOf1($n){
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

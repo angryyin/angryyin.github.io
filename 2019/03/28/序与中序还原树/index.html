@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
+<meta name="description" content="12345678910111213141516171819202122232425&amp;lt;?php    class TreeNode&amp;#123;        var $val;        var $left = NULL;        var $right = NULL;        function __construct($val)&amp;#123;            $this-&amp;">
 <meta name="keywords" content="树,遍历">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前序与中序还原树">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/序与中序还原树/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
+<meta property="og:description" content="12345678910111213141516171819202122232425&amp;lt;?php    class TreeNode&amp;#123;        var $val;        var $left = NULL;        var $right = NULL;        function __construct($val)&amp;#123;            $this-&amp;">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-30T12:00:46.495Z">
+<meta property="og:updated_time" content="2019-04-01T02:26:06.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前序与中序还原树">
-<meta name="twitter:description" content="&amp;lt;?php class TreeNode{     var $val;     var $left = NULL;     var $right = NULL;     function __construct($val){         $this-&amp;gt;val = $val;     } } function reConstructBinaryTree($pre, $vin) {">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425&amp;lt;?php    class TreeNode&amp;#123;        var $val;        var $left = NULL;        var $right = NULL;        function __construct($val)&amp;#123;            $this-&amp;">
 
 
 
@@ -119,6 +119,7 @@
 
 
   <link rel="canonical" href="http://yoursite.com/2019/03/28/序与中序还原树/">
+
 
 
 
@@ -382,32 +383,7 @@
       
 
       
-        <pre><code>&lt;?php
-class TreeNode{
-    var $val;
-    var $left = NULL;
-    var $right = NULL;
-    function __construct($val){
-        $this-&gt;val = $val;
-    }
-}
-function reConstructBinaryTree($pre, $vin)
-{
-    // write code here
-    if($pre &amp;&amp; $vin){
-        //前序遍历的第一个节点一定是根节点
-        $treeRoot = new TreeNode($pre[0]);
-        //index判断根节点在中序中是否存在,并返回根节点在vin中的键名
-        $index = array_search($pre[0],$vin);
-        $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,1,$index),array_slice($vin,0,$index));
-        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+1),array_slice($vin,$index+1));
-        return $treeRoot;
-    }
-}
-$pre = [1,2,4,7,3,5,6,8];
-$vin = [4,7,2,1,5,3,8,6];
-$re = reConstructBinaryTree($pre, $vin);
-</code></pre>
+        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $val;</span><br><span class="line">        <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">            <span class="comment">//前序遍历的第一个节点一定是根节点</span></span><br><span class="line">            $treeRoot = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">            <span class="comment">//index判断根节点在中序中是否存在,并返回根节点在vin中的键名</span></span><br><span class="line">            $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">            $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">            $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> $treeRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -449,8 +425,8 @@ $re = reConstructBinaryTree($pre, $vin);
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/29/new/" rel="prev" title="new">
-                new <i class="fa fa-chevron-right"></i>
+              <a href="/2019/03/29/new/" rel="prev" title="music">
+                music <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,7 +497,7 @@ $re = reConstructBinaryTree($pre, $vin);
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
