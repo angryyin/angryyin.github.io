@@ -93,7 +93,7 @@
     root: '/',
     scheme: 'Gemini',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
     fancybox: true,
     tabs: true,
     motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -139,7 +139,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <div class="container sidebar-position-right 
   page-home">
     <div class="headband"></div>
 
@@ -362,6 +362,490 @@
         
           
             <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2059989167&auto=1&height=66"></iframe>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/表反转/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/表反转/" itemprop="url">链表反转</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T16:39:21+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*class ListNode&#123;</span></span><br><span class="line"><span class="comment">    var $val;</span></span><br><span class="line"><span class="comment">    var $next = NULL;</span></span><br><span class="line"><span class="comment">    function __construct($x)&#123;</span></span><br><span class="line"><span class="comment">        $this-&gt;val = $x;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReverseList</span><span class="params">($pHead)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span>($pHead==<span class="keyword">NULL</span>||$pHead-&gt;next==<span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> $pHead;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将原链表的元素一个个插入到新链表的头部</span></span><br><span class="line">    $pPre = <span class="keyword">NULL</span>;</span><br><span class="line">    $pCur = $pHead;</span><br><span class="line">    <span class="keyword">while</span> ($pCur-&gt;next != <span class="keyword">NULL</span>) &#123;</span><br><span class="line">        $pNext = $pCur-&gt;next;</span><br><span class="line">        $pCur-&gt;next = $pPre;</span><br><span class="line">        $pPre = $pCur;</span><br><span class="line">        $pCur = $pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    $pCur-&gt;next = $pPre;</span><br><span class="line">    <span class="keyword">return</span> $pCur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/层次遍历/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/层次遍历/" itemprop="url">树的层次遍历</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T14:08:23+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="\images\pasted-10.png" alt="upload successful"></p>
+<p>1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素<br>2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B<br>3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；<br>4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br><span class="line">PrintFromTopToBottom($re);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintFromTopToBottom</span><span class="params">($re)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $quene=<span class="keyword">array</span>();</span><br><span class="line">    $res=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span>($re==<span class="keyword">null</span>) <span class="keyword">return</span> $res;</span><br><span class="line">    array_push($quene,$re);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!<span class="keyword">empty</span>($quene))&#123;</span><br><span class="line">        <span class="comment">// quene出队，队头值赋值给tmp，最后打印tmp的val</span></span><br><span class="line">        <span class="comment">//这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B</span></span><br><span class="line">        $tmp=array_shift($quene);</span><br><span class="line">        <span class="comment">//左右节点依次入队</span></span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将tmp的val入队</span></span><br><span class="line">        array_push($res,$tmp-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($res) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/遍历与对比/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/遍历与对比/" itemprop="url">树的遍历与对比</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:47:39+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$pre1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>];</span><br><span class="line">$vin1 = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">$pRoot1 = reConstructBinaryTree($pre, $vin);</span><br><span class="line">$pRoot2 = reConstructBinaryTree($pre1,$vin1);</span><br><span class="line"><span class="keyword">echo</span> HasSubtree($pRoot1, $pRoot2);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HasSubtree</span><span class="params">($pRoot1, $pRoot2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        $re = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false</span></span><br><span class="line">        <span class="keyword">if</span>($pRoot1!=<span class="keyword">NULL</span>&amp;&amp;$pRoot2!=<span class="keyword">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//如果找到了对应Tree2的根节点的点</span></span><br><span class="line">            <span class="keyword">if</span>($pRoot1-&gt;val==$pRoot2-&gt;val)&#123;</span><br><span class="line">                <span class="comment">//以这个根节点为为起点判断是否包含Tree2</span></span><br><span class="line">                $re = judge($pRoot1,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;left,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果还找不到，那么就再去root的右儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;right,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $re;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">($pRoot1, $pRoot2)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果Tree2已经遍历完了都能对应的上，返回true</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot2 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果Tree2还没有遍历完，Tree1却遍历完了。返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果其中有一个点没有对应上，返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1-&gt;val != $pRoot2-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果根节点对应的上，那么就分别去子节点里面匹配</span></span><br><span class="line">    <span class="keyword">return</span> judge($pRoot1-&gt;left,$pRoot2-&gt;left)&amp;&amp;judge($pRoot1-&gt;right,$pRoot2-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/算加法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/01/算加法/" itemprop="url">位运算加法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T16:36:00+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Add</span><span class="params">($num1, $num2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">while</span>($num2)&#123;</span><br><span class="line">        <span class="comment">//相加之后的进位</span></span><br><span class="line">        $tmp = $num1 ^ $num2;</span><br><span class="line">        <span class="comment">//相加之后没有进位</span></span><br><span class="line">        $num2 = ($num1 &amp; $num2) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        $num1 = $tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $num1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先看十进制是如何做的： 5+7=12，三步走<br>第一步：相加各位的值，不算进位，得到2。<br>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。</p>
+<p>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
+<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。</p>
+<p>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。</p>
+<p>第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>     继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
+
           
         
       
@@ -1119,594 +1603,11 @@ SHOW VARIABLES -- 显示系统变量信息
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/29/算法/" itemprop="url">动态规划与贪心算法的区别与联系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T10:51:00+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/高级算法/" itemprop="url" rel="index">
-                    <span itemprop="name">高级算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>动态规划的路径规划：<a href="https://blog.csdn.net/xgf415/article/details/52662389" target="_blank" rel="noopener">https://blog.csdn.net/xgf415/article/details/52662389</a></p>
-<p>0-1背包问题： <a href="https://www.jianshu.com/p/b86148c10142" target="_blank" rel="noopener">https://www.jianshu.com/p/b86148c10142</a><br>动态规划和贪心算法都是一种递推算法<br>均有局部最优解来推导全局最优解<br>背包问题可以由贪心算法求解，但是0-1背包问题不能而需要采取动态规划。</p>
-<h2 id="不同点："><a href="#不同点：" class="headerlink" title="不同点： "></a>不同点： </h2><p>贪心算法：<br>1.贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。<br>2.由（1）中的介绍，可以知道贪心法正确的条件是：每一步的最优解一定包含上一步的最优解。 </p>
-<h2 id="贪心法的基本思路："><a href="#贪心法的基本思路：" class="headerlink" title="贪心法的基本思路："></a>贪心法的基本思路：</h2><p>从问题的某一个初始解出发逐步逼近给定的目标，以尽可能快的地求得更好的解。当达到某算法中的某一步不能再继续前进时，算法停止。<br>该算法存在问题：   </p>
-<ol>
-<li>不能保证求得的最后解是最佳的；   </li>
-<li>不能用来求最大或最小解问题；   </li>
-<li>只能求满足某些约束条件的可行解的范围。实现该算法的过程：<br>从问题的某一初始解出发；</li>
-</ol>
-<p>while   能朝给定总目标前进一步   do<br>求出可行解的一个解元素；<br>由所有解元素组合成问题的一个可行解 </p>
-<p>贪心算法最经典的例子，给钱问题。<br>比如中国的货币，只看元，有1元2元5元10元20、50、100   </p>
-<p>如果我要16元，可以拿16个1元，8个2元，但是怎么最少呢？<br>如果用贪心算，就是我每一次拿那张可能拿的最大的。<br>比如16，我第一次拿20拿不起，拿10元，OK，剩下6元，再拿个5元，剩下1元<br>也就是3张   10、5、1。   </p>
-<p>每次拿能拿的最大的，就是贪心。   </p>
-<p>但是一定注意，贪心得到的并不是最优解，也就是说用贪心不一定是拿的最少的张数<br>贪心只能得到一个比较好的解，而且贪心算法很好想得到。<br>再注意，为什么我们的钱可以用贪心呢？因为我们国家的钱的大小设计，正好可以使得贪心算法算出来的是最优解（一般是个国家的钱币都应该这么设计）。如果设计成别的样子情况就不同了<br>比如某国的钱币分为   1元3元4元<br>如果要拿6元钱   怎么拿？贪心的话   先拿4   再拿两个1     一共3张钱<br>实际最优呢？   两张3元就够了  </p>
-<p>贪心算法两个最重要的性质：<br>（1）贪心选择性质；<br>（2）最优子结构性质；</p>
-<p>其中，贪心选择性质：自顶向下进行决策，每次做出的决策都是局部最优解，且每次做出决策后问题规模都变小了；最优子结构性质：即问题的最优解结构中包含子问题的最优解；</p>
-<p>动态规划算法的两个最重要的性质：<br>（1）重叠子问题性质；<br>（2）最优子结构性质；</p>
-<p>其中最优解子结构性质和贪心算法相似，唯一不同的是重叠子问题性质，因为动态规划算法是自底向上的算法，它需要首先将原始问题分解为若干个相互有联系的子问题，在计算的时候有的子问题可能会被计算很多次，所以动态规划算法会将这些子问题的解存在一个表格中，使得最终对于这些子问题只需要求解一次（可以使原来需要再指数时间内解决的问题可以在多项式问题中得到解决）</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/序与中序还原树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/28/序与中序还原树/" itemprop="url">前序与中序还原树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T16:20:00+08:00">
-                2019-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">        <span class="keyword">var</span> $val;</span><br><span class="line">        <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// write code here</span></span><br><span class="line">        <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">            <span class="comment">//前序遍历的第一个节点一定是根节点</span></span><br><span class="line">            $treeRoot = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">            <span class="comment">//index判断根节点在中序中是否存在,并返回根节点在vin中的键名</span></span><br><span class="line">            $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">            $treeRoot-&gt;left=reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">            $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">return</span> $treeRoot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/序遍历与中序遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/28/序遍历与中序遍历/" itemprop="url">前序遍历与中序遍历与后续遍历的php实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T15:13:00+08:00">
-                2019-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    <span class="class"><span class="keyword">class</span> <span class="title">Node</span></span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $value;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $left;</span></span><br><span class="line"><span class="php">        <span class="keyword">public</span> $right;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//先序遍历 根节点 ---&gt; 左子树 ---&gt; 右子树</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">preorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        array_push($stack,$root);</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($stack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($stack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value.<span class="string">' '</span>;<span class="comment">//先输出根节点</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;right!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;right);<span class="comment">//压入左子树</span></span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;left!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;left);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//中序遍历，左子树---&gt; 根节点 ---&gt; 右子树</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">inorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack = <span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        $center_node = $root;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> (!<span class="keyword">empty</span>($stack) || $center_node != <span class="keyword">null</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">while</span> ($center_node != <span class="keyword">null</span>) &#123;</span></span><br><span class="line"><span class="php">                array_push($stack, $center_node);</span></span><br><span class="line"><span class="php">                $center_node = $center_node-&gt;left;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            $center_node = array_pop($stack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value . <span class="string">" "</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            $center_node = $center_node-&gt;right;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//后序遍历，左子树 ---&gt; 右子树 ---&gt; 根节点</span></span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">tailorder</span><span class="params">($root)</span></span>&#123;</span></span><br><span class="line"><span class="php">        $stack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        $outstack=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">        array_push($stack,$root);</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($stack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($stack);</span></span><br><span class="line"><span class="php">            array_push($outstack,$center_node);<span class="comment">//最先压入根节点，最后输出</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;left!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;left);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($center_node-&gt;right!=<span class="keyword">null</span>)&#123;</span></span><br><span class="line"><span class="php">                array_push($stack,$center_node-&gt;right);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>(!<span class="keyword">empty</span>($outstack))&#123;</span></span><br><span class="line"><span class="php">            $center_node=array_pop($outstack);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $center_node-&gt;value.<span class="string">' '</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $a=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $b=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $c=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $d=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $e=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $f=<span class="keyword">new</span> Node();</span></span><br><span class="line"><span class="php">    $a-&gt;value=<span class="string">'A'</span>;</span></span><br><span class="line"><span class="php">    $b-&gt;value=<span class="string">'B'</span>;</span></span><br><span class="line"><span class="php">    $c-&gt;value=<span class="string">'C'</span>;</span></span><br><span class="line"><span class="php">    $d-&gt;value=<span class="string">'D'</span>;</span></span><br><span class="line"><span class="php">    $e-&gt;value=<span class="string">'E'</span>;</span></span><br><span class="line"><span class="php">    $f-&gt;value=<span class="string">'F'</span>;</span></span><br><span class="line"><span class="php">    $a-&gt;left=$b;</span></span><br><span class="line"><span class="php">    $a-&gt;right=$c;</span></span><br><span class="line"><span class="php">    $b-&gt;left=$d;</span></span><br><span class="line"><span class="php">    $c-&gt;left=$e;</span></span><br><span class="line"><span class="php">    $c-&gt;right=$f;</span></span><br><span class="line"><span class="php">    preorder($a);<span class="comment">//A B D C E F</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span></span><br><span class="line"><span class="php">    inorder($a);<span class="comment">//D B A E C F</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'&lt;hr/&gt;'</span>;</span></span><br><span class="line"><span class="php">    tailorder($a);<span class="comment">//D B E F C A</span></span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/hp十进制二进制算法题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/28/hp十进制二进制算法题/" itemprop="url">php十进制二进制算法题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-28T10:50:00+08:00">
-                2019-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>负数需要先置反为反码，然后再加1，并且循环需要32位<br> floor()舍去法取整<br> ceil – 进一法取整<br> round – 对浮点数进行四舍五入<br> %取余数<br> array_count_values()表示$v出现次数<br>     <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">NumberOf1</span><span class="params">($n)</span></span>&#123;</span></span><br><span class="line"><span class="php">    $arr = <span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n != <span class="number">0</span>)</span></span><br><span class="line"><span class="php">        &#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">        $n = <span class="number">-1</span> * $n;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span>($n &gt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">            $temp = $n % <span class="number">2</span>;</span></span><br><span class="line"><span class="php">            $n = floor($n/<span class="number">2</span>);</span></span><br><span class="line"><span class="php">            array_push($arr,$temp);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; <span class="number">32</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">           <span class="keyword">if</span>($arr[$i] == <span class="number">1</span>)&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">elseif</span>($arr[$i] == <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">               $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">           &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $length = count($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($i = <span class="number">0</span>;$i &lt; $length;$i++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($arr[$i]==<span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">                <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">                $arr[$i] = <span class="number">0</span>;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $judge = array_count_values($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span>(<span class="keyword">isset</span>($judge[<span class="number">1</span>]))&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> $judge[<span class="number">1</span>];</span></span><br><span class="line"><span class="php">        &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1754,7 +1655,7 @@ SHOW VARIABLES -- 显示系统变量信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
