@@ -409,6 +409,412 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/据库垂直切分与水平切分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/据库垂直切分与水平切分/" itemprop="url">数据库垂直切分与水平切分</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:43+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/firstdream/p/6728106.html" target="_blank" rel="noopener">https://www.cnblogs.com/firstdream/p/6728106.html</a><br>当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。<br>数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。 </p>
+<p>切分模式： 垂直（纵向）拆分、水平拆分。</p>
+<h2 id="垂直拆分-专库专用"><a href="#垂直拆分-专库专用" class="headerlink" title="垂直拆分-专库专用"></a>垂直拆分-专库专用</h2><p>一个数据库由很多表的构成，每个表对应着不同的业务，垂直切分是指按照业务将表进行分类，分布到不同的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图：</p>
+<p><img src="\images\pasted-20.png" alt="upload successful"></p>
+<p>优点：</p>
+<pre><code>1. 拆分后业务清晰，拆分规则明确。
+2. 系统之间整合或扩展容易。
+3. 数据维护简单。
+</code></pre><p>缺点：</p>
+<pre><code>1. 部分业务表无法join，只能通过接口方式解决，提高了系统复杂度。
+2. 受每种业务不同的限制存在单库性能瓶颈，不易数据扩展跟性能提高。
+3. 事务处理复杂。
+</code></pre><h2 id="水平拆分"><a href="#水平拆分" class="headerlink" title="水平拆分"></a>水平拆分</h2><p>垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而水平拆分是把同一个表拆到不同的数据库中。</p>
+<p>相对于垂直拆分，水平拆分不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图：</p>
+<p><img src="\images\pasted-21.png" alt="upload successful"></p>
+<p><img src="\images\pasted-22.png" alt="upload successful"><br>优点：</p>
+<pre><code>1. 不存在单库大数据，高并发的性能瓶颈。
+2. 对应用透明，应用端改造较少。     
+3. 按照合理拆分规则拆分，join操作基本避免跨库。
+4. 提高了系统的稳定性跟负载能力。
+</code></pre><p>缺点：</p>
+<pre><code>1. 拆分规则难以抽象。
+2. 分片事务一致性难以解决。
+3. 数据多次扩展难度跟维护量极大。
+4. 跨库join性能较差。
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/ntitled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/ntitled/" itemprop="url">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:43:38+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、HTTP的历史"><a href="#一、HTTP的历史" class="headerlink" title="一、HTTP的历史"></a>一、HTTP的历史</h2><p>早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。</p>
+<p><img src="\images\pasted-14.png" alt="upload successful"></p>
+<h2 id="二、HTTP的基本优化"><a href="#二、HTTP的基本优化" class="headerlink" title="二、HTTP的基本优化"></a>二、HTTP的基本优化</h2><p>影响一个 HTTP 网络请求的因素主要有两个：带宽和延迟。<br>带宽：如果说我们还停留在拨号上网的阶段，带宽可能会成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得带宽得到极大的提升，我们不再会担心由带宽而影响网速，那么就只剩下延迟了。<br>延迟：<br>浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。<br>DNS 查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。<br>建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。</p>
+<h2 id="三、HTTP1-0和HTTP1-1的一些区别"><a href="#三、HTTP1-0和HTTP1-1的一些区别" class="headerlink" title="三、HTTP1.0和HTTP1.1的一些区别"></a>三、HTTP1.0和HTTP1.1的一些区别</h2><p>HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。 主要区别主要体现在：</p>
+<p>1、缓存处理，在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</p>
+<p>2、带宽优化及网络连接的使用，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。<br>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。<br>3、Host头处理，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。<br>4、长连接，HTTP 1.1支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。</p>
+<h2 id="四、HTTPS与HTTP的一些区别"><a href="#四、HTTPS与HTTP的一些区别" class="headerlink" title="四、HTTPS与HTTP的一些区别"></a>四、HTTPS与HTTP的一些区别</h2><p>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。<br>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。<br>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。<br><img src="\images\pasted-15.png" alt="upload successful"></p>
+<h2 id="五、SPDY：HTTP1-x的优化"><a href="#五、SPDY：HTTP1-x的优化" class="headerlink" title="五、SPDY：HTTP1.x的优化"></a>五、SPDY：HTTP1.x的优化</h2><p>2012年google如一声惊雷提出了SPDY的方案，优化了HTTP1.X的请求延迟，解决了HTTP1.X的安全性，具体如下：<br>1、降低延迟，针对HTTP高延迟的问题，SPDY优雅的采取了多路复用（multiplexing）。多路复用通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking的问题，降低了延迟同时提高了带宽的利用率。<br>2、请求优先级（request prioritization）。多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。比如浏览器加载首页，首页的html内容应该优先展示，之后才是各种静态资源文件，脚本文件等加载，这样可以保证用户能第一时间看到网页内容。<br>3、header压缩。前面提到HTTP1.x的header很多时候都是重复多余的。选择合适的压缩算法可以减小包的大小和数量。<br>4、基于HTTPS的加密协议传输，大大提高了传输数据的可靠性。<br>5、服务端推送（server push），采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。SPDY构成图：</p>
+<p><img src="\images\pasted-16.png" alt="upload successful"></p>
+<p>SPDY位于HTTP之下，TCP和SSL之上，这样可以轻松兼容老版本的HTTP协议(将HTTP1.x的内容封装成一种新的frame格式)，同时可以使用已有的SSL功能。</p>
+<h2 id="六、HTTP2-0性能惊人"><a href="#六、HTTP2-0性能惊人" class="headerlink" title="六、HTTP2.0性能惊人"></a>六、HTTP2.0性能惊人</h2><p>HTTP/2: the Future of the Internet <a href="https://link.zhihu.com/?target=https://http2.akamai.com/demo" target="_blank" rel="noopener">https://link.zhihu.com/?target=https://http2.akamai.com/demo</a> 是 Akamai 公司建立的一个官方的演示，用以说明 HTTP/2 相比于之前的 HTTP/1.1 在性能上的大幅度提升。 同时请求 379 张图片，从Load time 的对比可以看出 HTTP/2 在速度上的优势。</p>
+<h2 id="七、HTTP2-0：SPDY的升级版"><a href="#七、HTTP2-0：SPDY的升级版" class="headerlink" title="七、HTTP2.0：SPDY的升级版"></a>七、HTTP2.0：SPDY的升级版</h2><p>HTTP2.0可以说是SPDY的升级版（其实原本也是基于SPDY设计的），但是，HTTP2.0 跟 SPDY 仍有不同的地方，如下：</p>
+<p>HTTP2.0和SPDY的区别：<br>HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPS<br>HTTP2.0 消息头的压缩算法采用 HPACK <a href="http://http2.github.io/http2-spec/compression.html，而非" target="_blank" rel="noopener">http://http2.github.io/http2-spec/compression.html，而非</a> SPDY 采用的 DEFLATE <a href="http://zh.wikipedia.org/wiki/DEFLATE" target="_blank" rel="noopener">http://zh.wikipedia.org/wiki/DEFLATE</a></p>
+<h2 id="八、HTTP2-0和HTTP1-X相比的新特性"><a href="#八、HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="八、HTTP2.0和HTTP1.X相比的新特性"></a>八、HTTP2.0和HTTP1.X相比的新特性</h2><p>新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。<br>多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。<br>header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。<br>服务端推送（server push），同SPDY一样，HTTP2.0也具有server push功能。</p>
+<h2 id="九、HTTP2-0的升级改造"><a href="#九、HTTP2-0的升级改造" class="headerlink" title="九、HTTP2.0的升级改造"></a>九、HTTP2.0的升级改造</h2><p>前文说了HTTP2.0其实可以支持非HTTPS的，但是现在主流的浏览器像chrome，firefox表示还是只支持基于 TLS 部署的HTTP2.0协议，所以要想升级成HTTP2.0还是先升级HTTPS为好。<br>当你的网站已经升级HTTPS之后，那么升级HTTP2.0就简单很多，如果你使用NGINX，只要在配置文件中启动相应的协议就可以了，可以参考NGINX白皮书，NGINX配置HTTP2.0官方指南 <a href="https://www.nginx.com/blog/nginx-1-9-5/。" target="_blank" rel="noopener">https://www.nginx.com/blog/nginx-1-9-5/。</a><br>使用了HTTP2.0那么，原本的HTTP1.x怎么办，这个问题其实不用担心，HTTP2.0完全兼容HTTP1.x的语义，对于不支持HTTP2.0的浏览器，NGINX会自动向下兼容的。</p>
+<h2 id="十、附注"><a href="#十、附注" class="headerlink" title="十、附注"></a>十、附注</h2><p>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？<br>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；<br>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；<br>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；<br>具体如图：</p>
+<p><img src="\images\pasted-17.png" alt="upload successful"></p>
+<p>服务器推送到底是什么？<br>服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。正因为没有发起请求，建立连接等操作，所以静态资源通过服务端推送的方式可以极大地提升速度。具体如下：<br>普通的客户端请求过程：<br> <img src="\images\pasted-18.png" alt="upload successful"><br>服务端推送的过程：</p>
+<p><img src="\images\pasted-19.png" alt="upload successful"></p>
+<h2 id="为什么需要头部压缩？"><a href="#为什么需要头部压缩？" class="headerlink" title="为什么需要头部压缩？"></a>为什么需要头部压缩？</h2><p>假定一个页面有100个资源需要加载（这个数量对于今天的Web而言还是挺保守的）, 而每一次请求都有1kb的消息头（这同样也并不少见，因为Cookie和引用等东西的存在）, 则至少需要多消耗100kb来获取这些消息头。HTTP2.0可以维护一个字典，差量更新HTTP头部，大大降低因头部传输产生的流量。具体参考：HTTP/2 头部压缩技术介绍</p>
+<h2 id="HTTP2-0多路复用有多好？"><a href="#HTTP2-0多路复用有多好？" class="headerlink" title="HTTP2.0多路复用有多好？"></a>HTTP2.0多路复用有多好？</h2><p>HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我「调谐」，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。<br>HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/hp-PDO/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/06/hp-PDO/" itemprop="url">php PDO</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T11:27:17+08:00">
+                2019-04-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://blog.csdn.net/jiuyue9561/article/details/80379910" target="_blank" rel="noopener">https://blog.csdn.net/jiuyue9561/article/details/80379910</a></p>
+<h2 id="什么是PDO？"><a href="#什么是PDO？" class="headerlink" title="什么是PDO？"></a>什么是PDO？</h2><p>PDO就是PHP data Object 提供了PHP操作多种1（12种）数据库的统一的接口</p>
+<h2 id="为什么使用PDO？"><a href="#为什么使用PDO？" class="headerlink" title="为什么使用PDO？"></a>为什么使用PDO？</h2><p>PDO是PHP5新加入的一个重大功能，我们的数据库服务器为MySQL，所有的程序代码的数据库操作全是一mysql(）或者mysqli()函数来操作，当我们的数据库 需要更换时比如换成，SQL、SERVER、PostgreSQL、MS 等，我们不可能去修改所有的程序代码！所以就要用到PDO，PDO很好的帮我们解决了这个问题，使用PDO操作非常方便，只需要修改数据源格式，和加载相应的驱动文件到PHP.ini即可；</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/握手四次挥手/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1134,458 +1540,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/hp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/01/hp/" itemprop="url">php运行模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T09:01:35+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、CGI：fork-and-excute"><a href="#一、CGI：fork-and-excute" class="headerlink" title="一、CGI：fork-and-excute "></a>一、CGI：fork-and-excute </h2><p><img src="\images\pasted-11.png" alt="upload successful"><br>    CGI全称是“公共网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。<br>CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等。<br>    CGI有很多缺点，每接收一个请求就要fork一个进程处理，只能接收一个请求作出一个响应。请求结束后该进程就会结束。<br>    而FastCGI会事先启动起来，作为一个cgi的管理服务器存在，预先启动一系列的子进程来等待处理，然后等待web服务器发过来的请求，一旦接受到请求就交由子进程处理，这样由于不需要在接受到请求后启动cgi。FastCGI使用进程/线程池来处理一连串的请求。这些进程/线程由FastCGI服务器管理，而不是Web服务器。当进来一个请求时，Web服务器把环境变量和这个页面请求通过一个Socket长连接传递给FastCGI进程。在请求到达时不会花费时间去fork一个进程来处理。</p>
-<h2 id="二、FastCGI（协议）："><a href="#二、FastCGI（协议）：" class="headerlink" title="二、FastCGI（协议）："></a>二、FastCGI（协议）：</h2><p><img src="\images\pasted-6.png" alt="upload successful"></p>
-<p>   FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次（这是CGI最为人诟病的fork-and-execute 分叉-执行模式）。它还支持分布式的运算，即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。<br>    FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。</p>
-<h2 id="FastCGI特点"><a href="#FastCGI特点" class="headerlink" title="FastCGI特点"></a>FastCGI特点</h2><p>FastCGI具有语言无关性.<br>    FastCGI在进程中的应用程序，独立于核心web服务器运行，提供了一个比API更安全的环境。APIs把应用程序的代码与核心的web服务器链接在一起，这意味着在一个错误的API的应用程序可能会损坏其他应用程序或核心服务器。 恶意的API的应用程序代码甚至可以窃取另一个应用程序或核心服务器的密钥。<br>    FastCGI技术目前支持语言有：C/C++、Java、Perl、Tcl、Python、SmallTalk、Ruby等。相关模块在Apache, ISS, Lighttpd等流行的服务器上也是可用的。<br>FastCGI的不依赖于任何Web服务器的内部架构，因此即使服务器技术的变化, FastCGI依然稳定不变。</p>
-<h2 id="FastCGI的工作原理"><a href="#FastCGI的工作原理" class="headerlink" title="FastCGI的工作原理"></a>FastCGI的工作原理</h2><p>   1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)<br>FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。<br>    2、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。<br>    3、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。<br>    在上述情况中，你可以想象CGI通常有多慢。每一个Web请求PHP都必须重新解析php.ini、重新载入全部扩展并重初始化全部数据结构。使用FastCGI，所有这些都只在进程启动时发生一次。一个额外的好处是，持续数据库连接(Persistent database connection)可以工作。</p>
-<h2 id="FastCGI的不足"><a href="#FastCGI的不足" class="headerlink" title="FastCGI的不足"></a>FastCGI的不足</h2><p>   因为是多进程，所以比CGI多线程消耗更多的服务器内存，PHP-CGI解释器每进程消耗7至25兆内存，将这个数字乘以50或100就是很大的内存数。<br>PHP-CGI<br>PHP-CGI是PHP自带的FastCGI管理器。<br>PHP-CGI的不足：<br>php-cgi变更php.ini配置后需重启php-cgi才能让新的php-ini生效，不可以平滑重启。<br>直接杀死php-cgi进程，php就不能运行了。(PHP-FPM和Spawn-FCGI就没有这个问题，守护进程会平滑从新生成新的子进程。）</p>
-<h2 id="PHP-FPM（实现FASTCGI的程序）"><a href="#PHP-FPM（实现FASTCGI的程序）" class="headerlink" title="PHP-FPM（实现FASTCGI的程序）"></a>PHP-FPM（实现FASTCGI的程序）</h2><p>PHP-FPM是一个PHP FastCGI管理器，是只用于PHP的，可以在 <a href="http://php-fpm.org/download下载得到。" target="_blank" rel="noopener">http://php-fpm.org/download下载得到。</a><br>PHP-FPM其实是PHP源代码的一个补丁，旨在将FastCGI进程管理整合进PHP包中。必须将它patch到你的PHP源代码中，在编译安装PHP后才可以使用。<br>现在我们可以在最新的PHP 5.3.2的源码树里下载得到直接整合了PHP-FPM的分支，据说下个版本会融合进PHP的主分支去。相对Spawn-FCGI，PHP-FPM在CPU和内存方面的控制都更胜一筹，而且前者很容易崩溃，必须用crontab进行监控，而PHP-FPM则没有这种烦恼。<br>PHP5.3.3已经集成php-fpm了，不再是第三方的包了。PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以平滑重载PHP配置，所以被PHP官方收录了。<br>PHP-FPM的使用非常方便，配置都是在PHP-FPM.ini的文件内，而启动、重启都可以从php/sbin/PHP-FPM中进行。更方便的是修改php.ini后可以直接使用PHP-FPM reload进行加载，无需杀掉进程就可以完成php.ini的修改加载<br>结果显示使用PHP-FPM可以使php有不小的性能提升。PHP-FPM控制的进程cpu回收的速度比较慢,内存分配的很均匀。<br>而PHP-FPM合理的分配，导致总体响应的提到以及任务的平均。</p>
-<h2 id="三、-LoadModule（Apache独有）："><a href="#三、-LoadModule（Apache独有）：" class="headerlink" title="三、 LoadModule（Apache独有）："></a>三、 LoadModule（Apache独有）：</h2><p>在Apache配置文件httpd.conf里，通常加的LoadModule php7_module “D:/…/php71/php7apache2_4.dll”起到的作用就是这个 </p>
-<p><img src="\images\pasted-7.png" alt="upload successful"></p>
-<h2 id="四、ISAPI（IIS独有）："><a href="#四、ISAPI（IIS独有）：" class="headerlink" title="四、ISAPI（IIS独有）："></a>四、ISAPI（IIS独有）：</h2><p><img src="\images\pasted-8.png" alt="upload successful"></p>
-<h2 id="五、CLI：命令行模式"><a href="#五、CLI：命令行模式" class="headerlink" title="五、CLI：命令行模式"></a>五、CLI：命令行模式</h2><p>CLI:就是命令行，例如可以在控制台或者是shell中键入命令</p>
-<pre><code>php -f index.php
-</code></pre><p>总结：FastCGI 和 LoadModule 模式其实就是 CGI 模式的升级版，主要为了克服 CGI fork-and-execute 的弊端而产生的</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/ysql千行笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/30/ysql千行笔记/" itemprop="url">mysql千行笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T19:48:00+08:00">
-                2019-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Windows服务</p>
-<pre><code>-- 启动MySQL
-   net start mysql
--- 创建Windows服务
-   sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
-</code></pre><p>连接与断开服务器</p>
-<pre><code>mysql -h 地址 -P 端口 -u 用户名 -p 密码
-
-SHOW PROCESSLIST -- 显示哪些线程正在运行
-SHOW VARIABLES -- 显示系统变量信息
-</code></pre><p> 数据库操作</p>
-<pre><code>-- 查看当前数据库
-   SELECT DATABASE();
--- 显示当前时间、用户名、数据库版本
-   SELECT now(), user(), version();
--- 创建库
-   CREATE DATABASE[ IF NOT EXISTS] 数据库名 数据库选项
-   数据库选项：
-       CHARACTER SET charset_name
-       COLLATE collation_name
--- 查看已有库
-   SHOW DATABASES[ LIKE &apos;PATTERN&apos;]
--- 查看当前库信息
-   SHOW CREATE DATABASE 数据库名
--- 修改库的选项信息
-   ALTER DATABASE 库名 选项信息
--- 删除库
-   DROP DATABASE[ IF EXISTS] 数据库名
-       同时删除该数据库相关的目录及其目录内容
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/30/ysql千行笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/1背包问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/29/1背包问题/" itemprop="url">php实现0-1背包问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:12:00+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/高级算法/" itemprop="url" rel="index">
-                    <span itemprop="name">高级算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="/images/pasted-5.png" alt="upload successful"></p>
-<pre><code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $a[<span class="string">'w'</span>] = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line">    $a[<span class="string">'v'</span>] = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span>];</span><br><span class="line">    $b =<span class="keyword">array</span>();</span><br><span class="line">    $n = <span class="number">6</span>;</span><br><span class="line">    $w = <span class="number">21</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $n;$i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($j=<span class="number">0</span>;$j &lt; $w;$j++)&#123;</span><br><span class="line">            $b[$i][$j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>($k = <span class="number">1</span>; $k &lt; $n ;$k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($c = <span class="number">1</span>; $c &lt; $w ;$c++)&#123;</span><br><span class="line">            <span class="keyword">if</span>($a[<span class="string">'w'</span>][$k] &gt; $c)&#123;</span><br><span class="line">                $b[$k][$c] = $b[$k<span class="number">-1</span>][$c];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $value1 = $b[$k<span class="number">-1</span>][$c-$a[<span class="string">'w'</span>][$k]] + $a[<span class="string">'v'</span>][$k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                $value2 = $b[$k<span class="number">-1</span>][$c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                $b[$k][$c] = max($value1,$value2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($b);</span><br><span class="line">&#125;</span><br><span class="line">back();</span><br></pre></td></tr></table></figure>
-</code></pre><p> JAVA实现</p>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] w = &#123; <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span>[] v = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span> N = <span class="number">6</span>, W = <span class="number">21</span>;</span><br><span class="line">      <span class="keyword">int</span>[][] b = <span class="keyword">new</span> <span class="keyword">int</span>[N][W];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &lt; W; c++) &#123;</span><br><span class="line">              <span class="keyword">if</span> (w[k] &gt; c) &#123;</span><br><span class="line">                  b[k][c] = b[k - <span class="number">1</span>][c];</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">int</span> value1 = b[k - <span class="number">1</span>][c - w[k]] + v[k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                  <span class="keyword">int</span> value2 = b[k - <span class="number">1</span>][c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                  b[k][c] = Math.max(value1, value2);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(b[<span class="number">5</span>][<span class="number">20</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1638,7 +1592,7 @@ SHOW VARIABLES -- 显示系统变量信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -290,6 +290,458 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/hp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/01/hp/" itemprop="url">php运行模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T09:01:35+08:00">
+                2019-04-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="一、CGI：fork-and-excute"><a href="#一、CGI：fork-and-excute" class="headerlink" title="一、CGI：fork-and-excute "></a>一、CGI：fork-and-excute </h2><p><img src="\images\pasted-11.png" alt="upload successful"><br>    CGI全称是“公共网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。<br>CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等。<br>    CGI有很多缺点，每接收一个请求就要fork一个进程处理，只能接收一个请求作出一个响应。请求结束后该进程就会结束。<br>    而FastCGI会事先启动起来，作为一个cgi的管理服务器存在，预先启动一系列的子进程来等待处理，然后等待web服务器发过来的请求，一旦接受到请求就交由子进程处理，这样由于不需要在接受到请求后启动cgi。FastCGI使用进程/线程池来处理一连串的请求。这些进程/线程由FastCGI服务器管理，而不是Web服务器。当进来一个请求时，Web服务器把环境变量和这个页面请求通过一个Socket长连接传递给FastCGI进程。在请求到达时不会花费时间去fork一个进程来处理。</p>
+<h2 id="二、FastCGI（协议）："><a href="#二、FastCGI（协议）：" class="headerlink" title="二、FastCGI（协议）："></a>二、FastCGI（协议）：</h2><p><img src="\images\pasted-6.png" alt="upload successful"></p>
+<p>   FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次（这是CGI最为人诟病的fork-and-execute 分叉-执行模式）。它还支持分布式的运算，即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。<br>    FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。</p>
+<h2 id="FastCGI特点"><a href="#FastCGI特点" class="headerlink" title="FastCGI特点"></a>FastCGI特点</h2><p>FastCGI具有语言无关性.<br>    FastCGI在进程中的应用程序，独立于核心web服务器运行，提供了一个比API更安全的环境。APIs把应用程序的代码与核心的web服务器链接在一起，这意味着在一个错误的API的应用程序可能会损坏其他应用程序或核心服务器。 恶意的API的应用程序代码甚至可以窃取另一个应用程序或核心服务器的密钥。<br>    FastCGI技术目前支持语言有：C/C++、Java、Perl、Tcl、Python、SmallTalk、Ruby等。相关模块在Apache, ISS, Lighttpd等流行的服务器上也是可用的。<br>FastCGI的不依赖于任何Web服务器的内部架构，因此即使服务器技术的变化, FastCGI依然稳定不变。</p>
+<h2 id="FastCGI的工作原理"><a href="#FastCGI的工作原理" class="headerlink" title="FastCGI的工作原理"></a>FastCGI的工作原理</h2><p>   1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)<br>FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。<br>    2、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。<br>    3、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。<br>    在上述情况中，你可以想象CGI通常有多慢。每一个Web请求PHP都必须重新解析php.ini、重新载入全部扩展并重初始化全部数据结构。使用FastCGI，所有这些都只在进程启动时发生一次。一个额外的好处是，持续数据库连接(Persistent database connection)可以工作。</p>
+<h2 id="FastCGI的不足"><a href="#FastCGI的不足" class="headerlink" title="FastCGI的不足"></a>FastCGI的不足</h2><p>   因为是多进程，所以比CGI多线程消耗更多的服务器内存，PHP-CGI解释器每进程消耗7至25兆内存，将这个数字乘以50或100就是很大的内存数。<br>PHP-CGI<br>PHP-CGI是PHP自带的FastCGI管理器。<br>PHP-CGI的不足：<br>php-cgi变更php.ini配置后需重启php-cgi才能让新的php-ini生效，不可以平滑重启。<br>直接杀死php-cgi进程，php就不能运行了。(PHP-FPM和Spawn-FCGI就没有这个问题，守护进程会平滑从新生成新的子进程。）</p>
+<h2 id="PHP-FPM（实现FASTCGI的程序）"><a href="#PHP-FPM（实现FASTCGI的程序）" class="headerlink" title="PHP-FPM（实现FASTCGI的程序）"></a>PHP-FPM（实现FASTCGI的程序）</h2><p>PHP-FPM是一个PHP FastCGI管理器，是只用于PHP的，可以在 <a href="http://php-fpm.org/download下载得到。" target="_blank" rel="noopener">http://php-fpm.org/download下载得到。</a><br>PHP-FPM其实是PHP源代码的一个补丁，旨在将FastCGI进程管理整合进PHP包中。必须将它patch到你的PHP源代码中，在编译安装PHP后才可以使用。<br>现在我们可以在最新的PHP 5.3.2的源码树里下载得到直接整合了PHP-FPM的分支，据说下个版本会融合进PHP的主分支去。相对Spawn-FCGI，PHP-FPM在CPU和内存方面的控制都更胜一筹，而且前者很容易崩溃，必须用crontab进行监控，而PHP-FPM则没有这种烦恼。<br>PHP5.3.3已经集成php-fpm了，不再是第三方的包了。PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以平滑重载PHP配置，所以被PHP官方收录了。<br>PHP-FPM的使用非常方便，配置都是在PHP-FPM.ini的文件内，而启动、重启都可以从php/sbin/PHP-FPM中进行。更方便的是修改php.ini后可以直接使用PHP-FPM reload进行加载，无需杀掉进程就可以完成php.ini的修改加载<br>结果显示使用PHP-FPM可以使php有不小的性能提升。PHP-FPM控制的进程cpu回收的速度比较慢,内存分配的很均匀。<br>而PHP-FPM合理的分配，导致总体响应的提到以及任务的平均。</p>
+<h2 id="三、-LoadModule（Apache独有）："><a href="#三、-LoadModule（Apache独有）：" class="headerlink" title="三、 LoadModule（Apache独有）："></a>三、 LoadModule（Apache独有）：</h2><p>在Apache配置文件httpd.conf里，通常加的LoadModule php7_module “D:/…/php71/php7apache2_4.dll”起到的作用就是这个 </p>
+<p><img src="\images\pasted-7.png" alt="upload successful"></p>
+<h2 id="四、ISAPI（IIS独有）："><a href="#四、ISAPI（IIS独有）：" class="headerlink" title="四、ISAPI（IIS独有）："></a>四、ISAPI（IIS独有）：</h2><p><img src="\images\pasted-8.png" alt="upload successful"></p>
+<h2 id="五、CLI：命令行模式"><a href="#五、CLI：命令行模式" class="headerlink" title="五、CLI：命令行模式"></a>五、CLI：命令行模式</h2><p>CLI:就是命令行，例如可以在控制台或者是shell中键入命令</p>
+<pre><code>php -f index.php
+</code></pre><p>总结：FastCGI 和 LoadModule 模式其实就是 CGI 模式的升级版，主要为了克服 CGI fork-and-execute 的弊端而产生的</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/ysql千行笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/30/ysql千行笔记/" itemprop="url">mysql千行笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T19:48:00+08:00">
+                2019-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Windows服务</p>
+<pre><code>-- 启动MySQL
+   net start mysql
+-- 创建Windows服务
+   sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
+</code></pre><p>连接与断开服务器</p>
+<pre><code>mysql -h 地址 -P 端口 -u 用户名 -p 密码
+
+SHOW PROCESSLIST -- 显示哪些线程正在运行
+SHOW VARIABLES -- 显示系统变量信息
+</code></pre><p> 数据库操作</p>
+<pre><code>-- 查看当前数据库
+   SELECT DATABASE();
+-- 显示当前时间、用户名、数据库版本
+   SELECT now(), user(), version();
+-- 创建库
+   CREATE DATABASE[ IF NOT EXISTS] 数据库名 数据库选项
+   数据库选项：
+       CHARACTER SET charset_name
+       COLLATE collation_name
+-- 查看已有库
+   SHOW DATABASES[ LIKE &apos;PATTERN&apos;]
+-- 查看当前库信息
+   SHOW CREATE DATABASE 数据库名
+-- 修改库的选项信息
+   ALTER DATABASE 库名 选项信息
+-- 删除库
+   DROP DATABASE[ IF EXISTS] 数据库名
+       同时删除该数据库相关的目录及其目录内容
+</code></pre>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/30/ysql千行笔记/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/1背包问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/29/1背包问题/" itemprop="url">php实现0-1背包问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:12:00+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/高级算法/" itemprop="url" rel="index">
+                    <span itemprop="name">高级算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/images/pasted-5.png" alt="upload successful"></p>
+<pre><code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $a[<span class="string">'w'</span>] = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line">    $a[<span class="string">'v'</span>] = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span>];</span><br><span class="line">    $b =<span class="keyword">array</span>();</span><br><span class="line">    $n = <span class="number">6</span>;</span><br><span class="line">    $w = <span class="number">21</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $n;$i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($j=<span class="number">0</span>;$j &lt; $w;$j++)&#123;</span><br><span class="line">            $b[$i][$j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>($k = <span class="number">1</span>; $k &lt; $n ;$k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($c = <span class="number">1</span>; $c &lt; $w ;$c++)&#123;</span><br><span class="line">            <span class="keyword">if</span>($a[<span class="string">'w'</span>][$k] &gt; $c)&#123;</span><br><span class="line">                $b[$k][$c] = $b[$k<span class="number">-1</span>][$c];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $value1 = $b[$k<span class="number">-1</span>][$c-$a[<span class="string">'w'</span>][$k]] + $a[<span class="string">'v'</span>][$k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                $value2 = $b[$k<span class="number">-1</span>][$c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                $b[$k][$c] = max($value1,$value2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($b);</span><br><span class="line">&#125;</span><br><span class="line">back();</span><br></pre></td></tr></table></figure>
+</code></pre><p> JAVA实现</p>
+<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] w = &#123; <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span>[] v = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span> N = <span class="number">6</span>, W = <span class="number">21</span>;</span><br><span class="line">      <span class="keyword">int</span>[][] b = <span class="keyword">new</span> <span class="keyword">int</span>[N][W];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &lt; W; c++) &#123;</span><br><span class="line">              <span class="keyword">if</span> (w[k] &gt; c) &#123;</span><br><span class="line">                  b[k][c] = b[k - <span class="number">1</span>][c];</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">int</span> value1 = b[k - <span class="number">1</span>][c - w[k]] + v[k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                  <span class="keyword">int</span> value2 = b[k - <span class="number">1</span>][c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                  b[k][c] = Math.max(value1, value2);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(b[<span class="number">5</span>][<span class="number">20</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1273,485 +1725,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/结/" itemprop="url">查找总结</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T09:17:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>顺序查找<br>　　说明：顺序查找适合于存储结构为顺序存储或链接存储的线性表。<br>　　基本思想：顺序查找也称为线形查找，属于无序查找算法。从数据结构线形表的一端开始，顺序扫描，依次将扫描到的结点关键字与给定值k相比较，若相等则表示查找成功；若扫描结束仍没有找到关键字等于k的结点，表示查找失败。<br>　　复杂度分析：　<br>　　查找成功时的平均查找长度为：（假设每个数据元素的概率相等） ASL = 1/n(1+2+3+…+n) = (n+1)/2 ;<br>　　当查找不成功时，需要n+1次比较，时间复杂度为O(n);<br>　　所以，顺序查找的时间复杂度为O(n)。</p>
-</li>
-<li><p>二分查找<br>　　说明：元素必须是有序的，如果是无序的则要先进行排序操作。<br>　　基本思想：也称为是折半查找，属于有序查找算法。用给定值k先与中间结点的关键字比较，中间结点把线形表分成两个子表，若相等则查找成功；若不相等，再根据k与该中间结点关键字的比较结果确定下一步查找哪个子表，这样递归进行，直到查找到或查找结束发现表中没有这样的结点。<br>　　复杂度分析：最坏情况下，关键词比较次数为log2(n+1)，且期望时间复杂度为O(log2n)；<br>　　注：折半查找的前提条件是需要有序表顺序存储，对于静态查找表，一次排序后不再变化，折半查找能得到不错的效率。但对于需要频繁执行插入或删除操作的数据集来说，维护有序的排序会带来不小的工作量，那就不建议使用。——《大话数据结构》</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/二分查找（折半查找），版本<span class="number">1</span></span><br><span class="line">int BinarySearch1(int a[], int value, int n)</span><br><span class="line">   &#123;</span><br><span class="line">     int low, high, mid;</span><br><span class="line">     low = <span class="number">0</span>;</span><br><span class="line">     high = n<span class="number">-1</span>;</span><br><span class="line">     <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">     &#123;</span><br><span class="line">       mid = (low+high)/<span class="number">2</span>;</span><br><span class="line">       <span class="keyword">if</span>(a[mid]==value)</span><br><span class="line">         <span class="keyword">return</span> mid;</span><br><span class="line">       <span class="keyword">if</span>(a[mid]&gt;value)</span><br><span class="line">         high = mid<span class="number">-1</span>;</span><br><span class="line">       <span class="keyword">if</span>(a[mid]&lt;value)</span><br><span class="line">         low = mid+<span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//二分查找，递归版本</span></span><br><span class="line">int BinarySearch2(int a[], int value, int low, int high)</span><br><span class="line">  &#123;</span><br><span class="line">     int mid = low+(high-low)/<span class="number">2</span>;</span><br><span class="line">     <span class="keyword">if</span>(a[mid]==value)</span><br><span class="line">        <span class="keyword">return</span> mid;</span><br><span class="line">     <span class="keyword">if</span>(a[mid]&gt;value)</span><br><span class="line">        <span class="keyword">return</span> BinarySearch2(a, value, low, mid<span class="number">-1</span>);</span><br><span class="line">     <span class="keyword">if</span>(a[mid]&lt;value)</span><br><span class="line">        <span class="keyword">return</span> BinarySearch2(a, value, mid+<span class="number">1</span>, high);</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>插值查找<br>　　在介绍插值查找之前，首先考虑一个新问题，为什么上述算法一定要是折半，而不是折四分之一或者折更多呢？<br>　　打个比方，在英文字典里面查“apple”，你下意识翻开字典是翻前面的书页还是后面的书页呢？如果再让你查“zoo”，你又怎么查？很显然，这里你绝对不会是从中间开始查起，而是有一定目的的往前或往后翻。<br>　　同样的，比如要在取值范围1 ~ 10000 之间 100 个元素从小到大均匀分布的数组中查找5， 我们自然会考虑从数组下标较小的开始查找。<br>　　经过以上分析，折半查找这种查找方式，不是自适应的（也就是说是傻瓜式的）。二分查找中查找点计算如下：<br>　　mid=(low+high)/2, 即mid=low+1/2<em>(high-low);<br>　　通过类比，我们可以将查找的点改进为如下：<br>　　mid=low+(key-a[low])/(a[high]-a[low])</em>(high-low)，<br>　　也就是将上述的比例参数1/2改进为自适应的，根据关键字在整个有序表中所处的位置，让mid值的变化更靠近关键字key，这样也就间接地减少了比较次数。<br>　　基本思想：基于二分查找算法，将查找点的选择改进为自适应选择，可以提高查找效率。当然，差值查找也属于有序查找。<br>　　注：对于表长较大，而关键字分布又比较均匀的查找表来说，插值查找算法的平均性能比折半查找要好的多。反之，数组中如果分布非常不均匀，那么插值查找未必是很合适的选择。<br>　　复杂度分析：查找成功或者失败的时间复杂度均为O(log2(log2n))。<br>　　C++实现源码：</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/p请求/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/p请求/" itemprop="url">http请求</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T08:53:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>http协议的状态码</p>
-<p>5xx（服务器错误）<br>这些状态码表示服务器在处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。</p>
-<p>500（服务器内部错误）Internal Server Error<br>服务器遇到错误，无法完成请求。</p>
-<p>501（尚未实施）Not Implemented<br>服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码。</p>
-<p>502（错误网关）Bad Gateway<br>服务器作为网关或代理，从上游服务器收到无效响应。</p>
-<p>503（服务不可用）Service Unavailable<br>服务器目前无法使用（由于超载或停机维护）。通常，这只是暂时状态。</p>
-<p>504（网关超时）Gateway Timeout<br>服务器作为网关或代理，但是没有及时从上游服务器收到请求。</p>
-<p>505（HTTP 版本不受支持）HTTP Version Not Supported<br>服务器不支持请求中所用的 HTTP 协议版本。<br>1xx（临时响应）<br>表示临时响应并需要请求者继续执行操作的状态码。</p>
-<p>100（继续）continue<br>请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。<br>101（切换协议）switch protocols<br>请求者已要求服务器切换协议，服务器已确认并准备切换。</p>
-<p>2xx（成功）<br>表示成功处理了请求的状态码。</p>
-<p>200（成功）OK<br>服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。如果是对您的 robots.txt 文件显示此状态码，则表示 Googlebot 已成功检索到该文件。<br>201（已创建）Created<br>请求成功并且服务器创建了新的资源。</p>
-<p>202（已接受）Accepted<br>服务器已接受请求，但尚未处理。</p>
-<p>203（非授权信息）Non-Authoriative Information<br>服务器已成功处理了请求，但返回的信息可能来自另一来源。</p>
-<p>204（无内容）No Content<br>服务器成功处理了请求，但没有返回任何内容。</p>
-<p>205（重置内容）Reset Content<br>服务器成功处理了请求，但没有返回任何内容。与 204 响应不同，此响应要求请求者重置文档视图（例如，清除表单内容以输入新内容）。</p>
-<p>206（部分内容）Partial Content<br>服务器成功处理了部分 GET 请求。</p>
-<p>3xx（重定向）<br>要完成请求，需要进一步操作。通常，这些状态码用来重定向。Google建议您在每次请求中使用重定向不要超过5次。您可以使用网站管理员工具查看一下 Googlebot在抓取重定向网页时是否遇到问题。诊断下的网络抓取页列出了由于重定向错误导致 Googlebot 无法抓取的网址。</p>
-<p>300（多种选择）Multiple Choices<br>针对请求，服务器可执行多种操作。服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。</p>
-<p>301（永久移动）Moved Permanently<br>请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。您应使用此代码告诉 Googlebot 某个网页或网站已永久移动到新位置。</p>
-<p>302（临时移动）<br>服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个网页或网站已经移动，因为 Googlebot 会继续抓取原有位置并编制索引。</p>
-<p>303（查看其他位置）see other<br>请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。对于除 HEAD 之外的所有请求，服务器会自动转到其他位置。</p>
-<p>304（未修改）Not Modified<br>自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。<br>如果网页自请求者上次请求后再也没有更改过，您应将服务器配置为返回此响应（称为 If-Modified-Since HTTP 标头）。服务器可以告诉 Googlebot 自从上次抓取后网页没有变更，进而节省带宽和开销。<br>.</p>
-<p>305（使用代理）Use Proxy<br>请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。</p>
-<p>307（临时重定向）Temporary Redirect<br>服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。此代码与响应 GET 和 HEAD 请求的 <a href="answer.py?answer=">301</a> 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个页面或网站已经移动，因为 Googlebot 会继续抓取原有位置并编制索引。</p>
-<p>4xx（请求错误）<br>这些状态码表示请求可能出错，妨碍了服务器的处理。</p>
-<p>400（错误请求）Bad Request<br>服务器不理解请求的语法。</p>
-<p>401（未授权）Unauthorized<br>请求要求身份验证。对于登录后请求的网页，服务器可能返回此响应。</p>
-<p>403（禁止）Forbidden<br>服务器拒绝请求。如果您在 Googlebot 尝试抓取您网站上的有效网页时看到此状态码（您可以在 Google 网站管理员工具诊断下的网络抓取页面上看到此信息），可能是您的服务器或主机拒绝了 Googlebot 访问。</p>
-<p>404（未找到）File Not Found<br>服务器找不到请求的网页。例如，对于服务器上不存在的网页经常会返回此代码。<br>如果您的网站上没有 robots.txt 文件，而您在 Google 网站管理员工具“诊断”标签的 robots.txt 页上看到此状态码，则这是正确的状态码。但是，如果您有 robots.txt 文件而又看到此状态码，则说明您的 robots.txt 文件可能命名错误或位于错误的位置（该文件应当位于顶级域，名为 robots.txt）。<br>如果对于 Googlebot 抓取的网址看到此状态码（在”诊断”标签的 HTTP 错误页面上），则表示 Googlebot 跟随的可能是另一个页面的无效链接（是旧链接或输入有误的链接）。</p>
-<p>405（方法禁用）Method Not Allowed<br>禁用请求中指定的方法。</p>
-<p>406（不接受）Not Acceptable<br>无法使用请求的内容特性响应请求的网页。</p>
-<p>407（需要代理授权）Proxy Authentication Required<br>此状态码与 <a href="answer.py?answer=35128">401（未授权）</a>类似，但指定请求者应当授权使用代理。如果服务器返回此响应，还表示请求者应当使用代理。</p>
-<p>408（请求超时）Request Time-out<br>服务器等候请求时发生超时。</p>
-<p>409（冲突）conflict<br>服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，以及两个请求的差异列表。</p>
-<p>410（已删除）Gone<br>如果请求的资源已永久删除，服务器就会返回此响应。该代码与 404（未找到）代码类似，但在资源以前存在而现在不存在的情况下，有时会用来替代 404 代码。如果资源已永久移动，您应使用 301 指定资源的新位置。</p>
-<p>411（需要有效长度）Length Required<br>服务器不接受不含有效内容长度标头字段的请求。</p>
-<p>412（未满足前提条件）Precondition Failed<br>服务器未满足请求者在请求中设置的其中一个前提条件。</p>
-<p>413（请求实体过大）Request Entity Too Large<br>服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。</p>
-<p>414（请求的 URI 过长）Request-URL Too Large<br>请求的 URI（通常为网址）过长，服务器无法处理。</p>
-<p>415（不支持的媒体类型）Unsupported Media Type<br>请求的格式不受请求页面的支持。</p>
-<p>416（请求范围不符合要求）Requested range not statifiable<br>如果页面无法提供请求的范围，则服务器会返回此状态码。</p>
-<p>417（未满足期望值）Expectation Failed<br>服务器未满足”期望”请求标头字段的要求。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/27/ET与POST区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/27/ET与POST区别/" itemprop="url">GET与POST区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-27T08:43:00+08:00">
-                2019-03-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>get post本质：HTTP协议里两种发送请求的方法<br>get向服务器请求资源<br>post 向服务器发送请求</p>
-<p>通常情况参数的传送渠道的不同<br>get放在url里面 post放在body里面<br>get请求url有限制（字符串） post没有限制<br>但是http其实没明确规定什么get/post方法要用什么样的方式传输数据</p>
-<p>get产生一个TCP数据包 而post产生两个：<br>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；<br>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。<br>因为POST需要两步，时间上消耗的要多一点，但是在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。<br>并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1804,7 +1777,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
