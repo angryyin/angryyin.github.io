@@ -409,6 +409,1036 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/握手四次挥手/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/03/握手四次挥手/" itemprop="url">三次握手四次挥手</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T20:10:00+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试必考/" itemprop="url" rel="index">
+                    <span itemprop="name">面试必考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://www.nowcoder.com/ta/review-network" target="_blank" rel="noopener">https://www.nowcoder.com/ta/review-network</a></p>
+<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。</p>
+<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次挥手”。<br>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。<br>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。<br>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。<br>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/03/握手四次挥手/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/ookie与sesseion/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/07/ookie与sesseion/" itemprop="url">cookie与sesseion</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T16:09:00+08:00">
+                2019-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="\images\pasted-23.png" alt="upload successful"></p>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>位于用户的计算机上，用来维护用户计算机中的信息，直到用户删除。比如我们在网页上登录某个软件时输入用户名及密码时如果保存为cookie，则每次我们访问的时候就不需要登录网站了。我们可以在浏览器上保存任何文本，而且我们还可以随时随地的去阻止它或者删除。我们同样也可以禁用或者编辑cookie，但是有一点需要注意不要使用cookie来存储一些隐私数据，以防隐私泄露。</p>
+<p><img src="\images\pasted-24.png" alt="upload successful"></p>
+<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>session称为会话信息，位于web服务器上，主要负责访问者与网站之间的交互，当访问浏览器请求http地址时，将传递到web服务器上并与访问信息进行匹配， 当关闭网站时就表示会话已经结束，网站无法访问该信息了，所以它无法保存永久数据，我们无法访问以及禁用网站</p>
+<p><img src="\images\pasted-25.png" alt="upload successful"><br>（1）Cookie以文本文件格式存储在浏览器中，而session存储在服务端它存储了限制数据量。它只允许4kb它没有在cookie中保存多个变量。<br>（2）cookie的存储限制了数据量，只允许4KB，而session是无限量的<br>（3）我们可以轻松访问cookie值但是我们无法轻松访问会话值，因此它更安全<br>（4）设置cookie时间可以使cookie过期。但是使用session-destory（），我们将会销毁会话。</p>
+<p>总结：如果我们需要经常登录一个站点时，最好用cookie来保存信息，要不然每次登陆都特别麻烦，如果对于需要安全性高的站点以及控制数据的能力时需要用会话效果更佳，当然我们也可以结合两者，使网站按照我们的想法进行运行</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/mysql事务总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/25/mysql事务总结/" itemprop="url">mysql事务、事务隔离、锁机制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T10:38:00+08:00">
+                2019-03-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试必考/" itemprop="url" rel="index">
+                    <span itemprop="name">面试必考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1、什么是事务"><a href="#1、什么是事务" class="headerlink" title="1、什么是事务"></a>1、什么是事务</h2><p>事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。<br>Atomicity原子性：要不全部成功，要不全部撤销<br>Isolation隔离性：事务之间相互独立，互不干扰<br>Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏<br>Durability持久性：事务的提交结果，将持久保存在数据库中</p>
+<p>pass：不可重复读与幻读的本质区别<br>不可重复读是读取了其他事务更改的数据，针对update操作<br>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>passpass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。<br>不可重复读：数据读错方读了两次数据库</p>
+<p>幻读是读取了其他事务新增的数据，针对insert操作<br>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/25/mysql事务总结/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/p设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/p设计模式/" itemprop="url">php设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/p设计模式/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/dis/" itemprop="url">Redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p><a href="https://www.cnblogs.com/jasonZh/p/9513948.html" target="_blank" rel="noopener">https://www.cnblogs.com/jasonZh/p/9513948.html</a></p>
+<h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p>　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。<br>　　转向Redis当然也是可取的，许多开发者从一开始就把Redis作为首选数据库；但设想如果你的开发环境已经搭建好，应用已经在上面运行了，那么更换数据库框架显然不那么容易。另外在一些需要大容量数据集的应用，Redis也并不适合，因为它的数据集不会超过系统可用的内存。所以如果你有大数据应用，而且主要是读取访问模式，那么Redis并不是正确的选择。<br>　　然而我喜欢Redis的一点就是你可以把它融入到你的系统中来，这就能够解决很多问题，比如那些你现有的数据库处理起来感到缓慢的任务。这些你就可以通过Redis来进行优化，或者为应用创建些新的功能。在本文中，我就想探讨一些怎样将Redis加入到现有的环境中，并利用它的原语命令等功能来解决 传统环境中碰到的一些常见问题。在这些例子中，Redis都不是作为首选数据库。<br><img src="\images\pasted-30.png" alt="upload successful"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/dis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/p抽象类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/p抽象类/" itemprop="url">php抽象类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:28:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>抽象类与接口紧密相关，它们不能实例化，并且常常部分实现或根本不实现。抽象类和接口之间的一个主要差别是：类可以实现无限个接口，但仅能从一个抽象（或任何其他类型）类继承。从抽象类派生的类仍可实现接口。可以在创建组件时使用抽象类，因为它们使您得以在某些方法中指定不变级功能，但直到需要该类的特定实现之后才实现其他方法。抽象类也制定版本，因为如果在派生类中需要附加功能，则可以将其添加到基类而不中断代码。<br>PHP抽象类应用的定义：<br>abstract class ClassName{<br>}</p>
+<h2 id="什么是抽象方法"><a href="#什么是抽象方法" class="headerlink" title="什么是抽象方法"></a>什么是抽象方法</h2><p>我们在类里面定义的没有方法体的方法就是抽象方法，所谓的没有方法体指的是，在方法声明的时候没有大括号以及其中的内容，而是直接在声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字“abstract”来修饰；</p>
+<h2 id="什么是php抽象类"><a href="#什么是php抽象类" class="headerlink" title="什么是php抽象类"></a>什么是php抽象类</h2><p>只要一个类里面有一个方法是抽象方法，那么这个类就要定义为抽象类，抽象类也要使用“abstract”关键字来修饰；在抽象类里面可以有不是抽象的方法和成员属性，但只要有一个方法是抽象的方法，这个类就必须声明为抽象类，使用”abstract”来修饰。</p>
+<h2 id="PHP抽象类应用要点："><a href="#PHP抽象类应用要点：" class="headerlink" title="PHP抽象类应用要点："></a>PHP抽象类应用要点：</h2><p>　　1.定义一些方法，子类必须完全实现这个抽象中所有的方法<br>　　2.不能从抽象类创建对象，它的意义在于被扩展<br>　　3.抽象类通常具有抽象方法，方法中没有大括号</p>
+<h2 id="PHP抽象类应用重点："><a href="#PHP抽象类应用重点：" class="headerlink" title="PHP抽象类应用重点："></a>PHP抽象类应用重点：</h2><p>　　1.抽象方法不必实现具体的功能，由子类来完成<br>　　2.在子类实现抽象类的方法时，其子类的可见性必须大于或等于抽象方法的定义<br>　　3.抽象类的方法可以有参数，也可以为空<br>　　4.如果抽象方法有参数，那么子类的实现也必须有相同的参数个数</p>
+<p>PHP抽象类应用示例：<br>abstract public function_name(); //注意没有大括号</p>
+<h2 id="PHP抽象类规则："><a href="#PHP抽象类规则：" class="headerlink" title="PHP抽象类规则："></a>PHP抽象类规则：</h2><p>某个类只要至少含有一个抽象方法，就必须声明为抽象类<br>抽象方法，不能够含有函数体<br>继承抽象类的子类，实现抽象方法的，必须跟该抽象方法具有相同或者更低的访问级别<br>继承抽象类的子类，如果不实现所有抽象方法，那么该子类也为抽象类</p>
+<h2 id="计算矩形的周长"><a href="#计算矩形的周长" class="headerlink" title="计算矩形的周长"></a>计算矩形的周长</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt; ?PHP   </span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;   </span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>;   </span><br><span class="line"><span class="comment">//和一般的方法不同的是，这个方法没有大括号   </span></span><br><span class="line"><span class="comment">//你不能创建这个抽象类的实例：$Shape_Rect= new Shape(); </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;   </span><br><span class="line"><span class="keyword">private</span> $width;   </span><br><span class="line"><span class="keyword">private</span> $height;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($width=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">$height=<span class="number">0</span>)</span></span>&#123;   </span><br><span class="line"></span><br><span class="line">　　<span class="keyword">$this</span>-&gt;width=$width;   </span><br><span class="line">　　<span class="keyword">$this</span>-&gt;height=$height;   </span><br><span class="line">&#125;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>&#123;   </span><br><span class="line">　　<span class="keyword">echo</span> (<span class="keyword">$this</span>-&gt;width+<span class="keyword">$this</span>-&gt;height)*<span class="number">2</span>;   </span><br><span class="line">&#125;   </span><br><span class="line">&#125;   </span><br><span class="line">$Shape_Rect = <span class="keyword">new</span> Rectangle(<span class="number">20</span>,<span class="number">30</span>);   </span><br><span class="line">$Shape_Rect-&gt;get_area();   </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/inux基础操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/08/inux基础操作/" itemprop="url">linux基础操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T14:51:00+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="find操作"><a href="#find操作" class="headerlink" title="find操作"></a>find操作</h2><p>将目前目录及其子目录下所有延伸档名是 c 的文件列出来。<br>find . -name “*.c”<br><img src="\images\pasted-26.png" alt="upload successful"><br>将目前目录其其下子目录中所有一般文件列出<br>find . -type f</p>
+<p>递归查找<br>find . -r -name “*.txt”</p>
+<h2 id="grep操作"><a href="#grep操作" class="headerlink" title="grep操作"></a>grep操作</h2><p>grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）<br>grep -r 1 *.md</p>
+<p>找出程序运行的端口<br>netstat -ap | grep ssh</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/据库垂直切分与水平切分/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -440,7 +1470,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:00+08:00">
                 2019-04-07
               </time>
             
@@ -450,6 +1480,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -505,7 +1557,8 @@
 2. 分片事务一致性难以解决。
 3. 数据多次扩展难度跟维护量极大。
 4. 跨库join性能较差。
-</code></pre>
+</code></pre><p>垂直拆分：<br>　　解决问题：<br>　　表与表之间的io竞争<br>　　不解决问题：<br>　　单表中数据量增长出现的压力<br>　　方案：<br>　　把产品表和用户表放到一个server上<br>　　订单表单独放到一个server上<br>水平拆分：<br>　　解决问题：<br>　　单表中数据量增长出现的压力<br>　　不解决问题：<br>　　表与表之间的io争夺<br>　　方案：<br>　　用户表通过性别拆分为男用户表和女用户表<br>　　订单表通过已完成和完成中拆分为已完成订单和未完成订单<br>　　产品表 未完成订单放一个server上<br>　　已完成订单表盒男用户表放一个server上<br>　　女用户表放一个server上(女的爱购物)</p>
+
           
         
       
@@ -584,7 +1637,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:43:38+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:43:00+08:00">
                 2019-04-07
               </time>
             
@@ -595,394 +1648,27 @@
           </span>
 
           
-
-          
+            <span class="post-category">
             
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="一、HTTP的历史"><a href="#一、HTTP的历史" class="headerlink" title="一、HTTP的历史"></a>一、HTTP的历史</h2><p>早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。</p>
-<p><img src="\images\pasted-14.png" alt="upload successful"></p>
-<h2 id="二、HTTP的基本优化"><a href="#二、HTTP的基本优化" class="headerlink" title="二、HTTP的基本优化"></a>二、HTTP的基本优化</h2><p>影响一个 HTTP 网络请求的因素主要有两个：带宽和延迟。<br>带宽：如果说我们还停留在拨号上网的阶段，带宽可能会成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得带宽得到极大的提升，我们不再会担心由带宽而影响网速，那么就只剩下延迟了。<br>延迟：<br>浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。<br>DNS 查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。<br>建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。</p>
-<h2 id="三、HTTP1-0和HTTP1-1的一些区别"><a href="#三、HTTP1-0和HTTP1-1的一些区别" class="headerlink" title="三、HTTP1.0和HTTP1.1的一些区别"></a>三、HTTP1.0和HTTP1.1的一些区别</h2><p>HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。 主要区别主要体现在：</p>
-<p>1、缓存处理，在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</p>
-<p>2、带宽优化及网络连接的使用，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。<br>错误通知的管理，在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。<br>3、Host头处理，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。<br>4、长连接，HTTP 1.1支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。</p>
-<h2 id="四、HTTPS与HTTP的一些区别"><a href="#四、HTTPS与HTTP的一些区别" class="headerlink" title="四、HTTPS与HTTP的一些区别"></a>四、HTTPS与HTTP的一些区别</h2><p>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。<br>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。<br>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。<br><img src="\images\pasted-15.png" alt="upload successful"></p>
-<h2 id="五、SPDY：HTTP1-x的优化"><a href="#五、SPDY：HTTP1-x的优化" class="headerlink" title="五、SPDY：HTTP1.x的优化"></a>五、SPDY：HTTP1.x的优化</h2><p>2012年google如一声惊雷提出了SPDY的方案，优化了HTTP1.X的请求延迟，解决了HTTP1.X的安全性，具体如下：<br>1、降低延迟，针对HTTP高延迟的问题，SPDY优雅的采取了多路复用（multiplexing）。多路复用通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking的问题，降低了延迟同时提高了带宽的利用率。<br>2、请求优先级（request prioritization）。多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。比如浏览器加载首页，首页的html内容应该优先展示，之后才是各种静态资源文件，脚本文件等加载，这样可以保证用户能第一时间看到网页内容。<br>3、header压缩。前面提到HTTP1.x的header很多时候都是重复多余的。选择合适的压缩算法可以减小包的大小和数量。<br>4、基于HTTPS的加密协议传输，大大提高了传输数据的可靠性。<br>5、服务端推送（server push），采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。SPDY构成图：</p>
-<p><img src="\images\pasted-16.png" alt="upload successful"></p>
-<p>SPDY位于HTTP之下，TCP和SSL之上，这样可以轻松兼容老版本的HTTP协议(将HTTP1.x的内容封装成一种新的frame格式)，同时可以使用已有的SSL功能。</p>
-<h2 id="六、HTTP2-0性能惊人"><a href="#六、HTTP2-0性能惊人" class="headerlink" title="六、HTTP2.0性能惊人"></a>六、HTTP2.0性能惊人</h2><p>HTTP/2: the Future of the Internet <a href="https://link.zhihu.com/?target=https://http2.akamai.com/demo" target="_blank" rel="noopener">https://link.zhihu.com/?target=https://http2.akamai.com/demo</a> 是 Akamai 公司建立的一个官方的演示，用以说明 HTTP/2 相比于之前的 HTTP/1.1 在性能上的大幅度提升。 同时请求 379 张图片，从Load time 的对比可以看出 HTTP/2 在速度上的优势。</p>
-<h2 id="七、HTTP2-0：SPDY的升级版"><a href="#七、HTTP2-0：SPDY的升级版" class="headerlink" title="七、HTTP2.0：SPDY的升级版"></a>七、HTTP2.0：SPDY的升级版</h2><p>HTTP2.0可以说是SPDY的升级版（其实原本也是基于SPDY设计的），但是，HTTP2.0 跟 SPDY 仍有不同的地方，如下：</p>
-<p>HTTP2.0和SPDY的区别：<br>HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPS<br>HTTP2.0 消息头的压缩算法采用 HPACK <a href="http://http2.github.io/http2-spec/compression.html，而非" target="_blank" rel="noopener">http://http2.github.io/http2-spec/compression.html，而非</a> SPDY 采用的 DEFLATE <a href="http://zh.wikipedia.org/wiki/DEFLATE" target="_blank" rel="noopener">http://zh.wikipedia.org/wiki/DEFLATE</a></p>
-<h2 id="八、HTTP2-0和HTTP1-X相比的新特性"><a href="#八、HTTP2-0和HTTP1-X相比的新特性" class="headerlink" title="八、HTTP2.0和HTTP1.X相比的新特性"></a>八、HTTP2.0和HTTP1.X相比的新特性</h2><p>新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。<br>多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。<br>header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。<br>服务端推送（server push），同SPDY一样，HTTP2.0也具有server push功能。</p>
-<h2 id="九、HTTP2-0的升级改造"><a href="#九、HTTP2-0的升级改造" class="headerlink" title="九、HTTP2.0的升级改造"></a>九、HTTP2.0的升级改造</h2><p>前文说了HTTP2.0其实可以支持非HTTPS的，但是现在主流的浏览器像chrome，firefox表示还是只支持基于 TLS 部署的HTTP2.0协议，所以要想升级成HTTP2.0还是先升级HTTPS为好。<br>当你的网站已经升级HTTPS之后，那么升级HTTP2.0就简单很多，如果你使用NGINX，只要在配置文件中启动相应的协议就可以了，可以参考NGINX白皮书，NGINX配置HTTP2.0官方指南 <a href="https://www.nginx.com/blog/nginx-1-9-5/。" target="_blank" rel="noopener">https://www.nginx.com/blog/nginx-1-9-5/。</a><br>使用了HTTP2.0那么，原本的HTTP1.x怎么办，这个问题其实不用担心，HTTP2.0完全兼容HTTP1.x的语义，对于不支持HTTP2.0的浏览器，NGINX会自动向下兼容的。</p>
-<h2 id="十、附注"><a href="#十、附注" class="headerlink" title="十、附注"></a>十、附注</h2><p>HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？<br>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；<br>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；<br>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；<br>具体如图：</p>
-<p><img src="\images\pasted-17.png" alt="upload successful"></p>
-<p>服务器推送到底是什么？<br>服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。正因为没有发起请求，建立连接等操作，所以静态资源通过服务端推送的方式可以极大地提升速度。具体如下：<br>普通的客户端请求过程：<br> <img src="\images\pasted-18.png" alt="upload successful"><br>服务端推送的过程：</p>
-<p><img src="\images\pasted-19.png" alt="upload successful"></p>
-<h2 id="为什么需要头部压缩？"><a href="#为什么需要头部压缩？" class="headerlink" title="为什么需要头部压缩？"></a>为什么需要头部压缩？</h2><p>假定一个页面有100个资源需要加载（这个数量对于今天的Web而言还是挺保守的）, 而每一次请求都有1kb的消息头（这同样也并不少见，因为Cookie和引用等东西的存在）, 则至少需要多消耗100kb来获取这些消息头。HTTP2.0可以维护一个字典，差量更新HTTP头部，大大降低因头部传输产生的流量。具体参考：HTTP/2 头部压缩技术介绍</p>
-<h2 id="HTTP2-0多路复用有多好？"><a href="#HTTP2-0多路复用有多好？" class="headerlink" title="HTTP2.0多路复用有多好？"></a>HTTP2.0多路复用有多好？</h2><p>HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我「调谐」，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。<br>HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/06/hp-PDO/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/06/hp-PDO/" itemprop="url">php PDO</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+              <span class="post-meta-divider">|</span>
             
               <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
+                <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">In</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-06T11:27:17+08:00">
-                2019-04-06
-              </time>
-            
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试必考/" itemprop="url" rel="index">
+                    <span itemprop="name">面试必考</span>
+                  </a>
+                </span>
 
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/jiuyue9561/article/details/80379910" target="_blank" rel="noopener">https://blog.csdn.net/jiuyue9561/article/details/80379910</a></p>
-<h2 id="什么是PDO？"><a href="#什么是PDO？" class="headerlink" title="什么是PDO？"></a>什么是PDO？</h2><p>PDO就是PHP data Object 提供了PHP操作多种1（12种）数据库的统一的接口</p>
-<h2 id="为什么使用PDO？"><a href="#为什么使用PDO？" class="headerlink" title="为什么使用PDO？"></a>为什么使用PDO？</h2><p>PDO是PHP5新加入的一个重大功能，我们的数据库服务器为MySQL，所有的程序代码的数据库操作全是一mysql(）或者mysqli()函数来操作，当我们的数据库 需要更换时比如换成，SQL、SERVER、PostgreSQL、MS 等，我们不可能去修改所有的程序代码！所以就要用到PDO，PDO很好的帮我们解决了这个问题，使用PDO操作非常方便，只需要修改数据源格式，和加载相应的驱动文件到PHP.ini即可；</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/握手四次挥手/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/03/握手四次挥手/" itemprop="url">三次握手四次挥手</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T20:10:38+08:00">
-                2019-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.nowcoder.com/ta/review-network" target="_blank" rel="noopener">https://www.nowcoder.com/ta/review-network</a><br>答:三次握手：<br>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。<br>四次挥手<br>与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次握手”。<br>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。<br>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。<br>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。<br>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。</p>
-<p><img src="\images\pasted-12.png" alt="upload successful"><br>1、TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态；<br>2、TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。<br>3、TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。<br>4、TCP客户进程收到确认后，还要向服务器给出确认。确认报文的ACK=1，ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。<br>当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。</p>
-<h2 id="为什么TCP客户端最后还要发送一次确认呢？"><a href="#为什么TCP客户端最后还要发送一次确认呢？" class="headerlink" title="为什么TCP客户端最后还要发送一次确认呢？"></a>为什么TCP客户端最后还要发送一次确认呢？</h2><p>一句话，主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。<br>如果使用的是两次握手建立连接，假设有这样一种场景，客户端发送了第一个请求连接并且没有丢失，只是因为在网络结点中滞留的时间太长了，由于TCP的客户端迟迟没有收到确认报文，以为服务器没有收到，此时重新向服务器发送这条报文，此后客户端和服务器经过两次握手完成连接，传输数据，然后关闭连接。此时此前滞留的那一次请求连接，网络通畅了到达了服务器，这个报文本该是失效的，但是，两次握手的机制将会让客户端和服务器再次建立连接，这将导致不必要的错误和资源的浪费。<br>如果采用的是三次握手，就算是那一次失效的报文传送过来了，服务端接受到了那条失效报文并且回复了确认报文，但是客户端不会再次发出确认。由于服务器收不到确认，就知道客户端并没有请求连接。</p>
-<p><img src="\images\pasted-13.png" alt="upload successful"><br>1、客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。<br>2、服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。<br>3、客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。<br>4、服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。<br>5、客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗      *∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。<br>6、服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。</p>
-<p>为什么客户端最后还要等待2MSL？</p>
-<p>MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。<br>第一，保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。<br>第二，防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。</p>
-<h2 id="为什么建立连接是三次握手，关闭连接确是四次挥手呢？"><a href="#为什么建立连接是三次握手，关闭连接确是四次挥手呢？" class="headerlink" title="为什么建立连接是三次握手，关闭连接确是四次挥手呢？"></a>为什么建立连接是三次握手，关闭连接确是四次挥手呢？</h2><p>建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。<br>而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。</p>
-<h2 id="如果已经建立了连接，但是客户端突然出现故障了怎么办？"><a href="#如果已经建立了连接，但是客户端突然出现故障了怎么办？" class="headerlink" title="如果已经建立了连接，但是客户端突然出现故障了怎么办？"></a>如果已经建立了连接，但是客户端突然出现故障了怎么办？</h2><p>TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/反转/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/02/反转/" itemprop="url">链表反转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
               
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T16:39:21+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
+            </span>
           
 
           
@@ -1012,504 +1698,18 @@
 
       
         
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*class ListNode&#123;</span></span><br><span class="line"><span class="comment">    var $val;</span></span><br><span class="line"><span class="comment">    var $next = NULL;</span></span><br><span class="line"><span class="comment">    function __construct($x)&#123;</span></span><br><span class="line"><span class="comment">        $this-&gt;val = $x;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReverseList</span><span class="params">($pHead)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span>($pHead==<span class="keyword">NULL</span>||$pHead-&gt;next==<span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> $pHead;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将原链表的元素一个个插入到新链表的头部</span></span><br><span class="line">    $pPre = <span class="keyword">NULL</span>;</span><br><span class="line">    $pCur = $pHead;</span><br><span class="line">    <span class="keyword">while</span> ($pCur-&gt;next != <span class="keyword">NULL</span>) &#123;</span><br><span class="line">        $pNext = $pCur-&gt;next;</span><br><span class="line">        $pCur-&gt;next = $pPre;</span><br><span class="line">        $pPre = $pCur;</span><br><span class="line">        $pCur = $pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    $pCur-&gt;next = $pPre;</span><br><span class="line">    <span class="keyword">return</span> $pCur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <h2 id="一、HTTP的历史"><a href="#一、HTTP的历史" class="headerlink" title="一、HTTP的历史"></a>一、HTTP的历史</h2><p>早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。</p>
+<p><img src="\images\pasted-14.png" alt="upload successful"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/07/ntitled/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/层次遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/层次遍历/" itemprop="url">树的层次遍历</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T14:08:23+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="\images\pasted-10.png" alt="upload successful"></p>
-<p>1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素<br>2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B<br>3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；<br>4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br><span class="line">PrintFromTopToBottom($re);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintFromTopToBottom</span><span class="params">($re)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $quene=<span class="keyword">array</span>();</span><br><span class="line">    $res=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span>($re==<span class="keyword">null</span>) <span class="keyword">return</span> $res;</span><br><span class="line">    array_push($quene,$re);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!<span class="keyword">empty</span>($quene))&#123;</span><br><span class="line">        <span class="comment">// quene出队，队头值赋值给tmp，最后打印tmp的val</span></span><br><span class="line">        <span class="comment">//这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B</span></span><br><span class="line">        $tmp=array_shift($quene);</span><br><span class="line">        <span class="comment">//左右节点依次入队</span></span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将tmp的val入队</span></span><br><span class="line">        array_push($res,$tmp-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($res) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/遍历与对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/遍历与对比/" itemprop="url">树的遍历与对比</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:47:39+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$pre1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>];</span><br><span class="line">$vin1 = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">$pRoot1 = reConstructBinaryTree($pre, $vin);</span><br><span class="line">$pRoot2 = reConstructBinaryTree($pre1,$vin1);</span><br><span class="line"><span class="keyword">echo</span> HasSubtree($pRoot1, $pRoot2);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HasSubtree</span><span class="params">($pRoot1, $pRoot2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        $re = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false</span></span><br><span class="line">        <span class="keyword">if</span>($pRoot1!=<span class="keyword">NULL</span>&amp;&amp;$pRoot2!=<span class="keyword">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//如果找到了对应Tree2的根节点的点</span></span><br><span class="line">            <span class="keyword">if</span>($pRoot1-&gt;val==$pRoot2-&gt;val)&#123;</span><br><span class="line">                <span class="comment">//以这个根节点为为起点判断是否包含Tree2</span></span><br><span class="line">                $re = judge($pRoot1,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;left,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果还找不到，那么就再去root的右儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;right,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $re;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">($pRoot1, $pRoot2)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果Tree2已经遍历完了都能对应的上，返回true</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot2 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果Tree2还没有遍历完，Tree1却遍历完了。返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果其中有一个点没有对应上，返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1-&gt;val != $pRoot2-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果根节点对应的上，那么就分别去子节点里面匹配</span></span><br><span class="line">    <span class="keyword">return</span> judge($pRoot1-&gt;left,$pRoot2-&gt;left)&amp;&amp;judge($pRoot1-&gt;right,$pRoot2-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/算加法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/01/算加法/" itemprop="url">位运算加法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T16:36:00+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Add</span><span class="params">($num1, $num2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">while</span>($num2)&#123;</span><br><span class="line">        <span class="comment">//相加之后的进位</span></span><br><span class="line">        $tmp = $num1 ^ $num2;</span><br><span class="line">        <span class="comment">//相加之后没有进位</span></span><br><span class="line">        $num2 = ($num1 &amp; $num2) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        $num1 = $tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $num1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先看十进制是如何做的： 5+7=12，三步走<br>第一步：相加各位的值，不算进位，得到2。<br>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。</p>
-<p>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
-<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。</p>
-<p>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。</p>
-<p>第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>     继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/p设计模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/01/p设计模式/" itemprop="url">五种常见的 PHP 设计模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T09:23:08+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>策略模式<br>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>策略模式的代码实例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">baseAgent</span> </span>&#123; <span class="comment">//抽象策略类</span></span><br><span class="line">        <span class="keyword">abstract</span> <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用于客户端是IE时调用的类（环境角色）</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">ieAgent</span> <span class="keyword">extends</span> <span class="title">baseAgent</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'IE'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//用于客户端不是IE时调用的类（环境角色）</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">otherAgent</span> <span class="keyword">extends</span> <span class="title">baseAgent</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">PrintPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'not IE'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Browser</span> </span>&#123; <span class="comment">//具体策略角色</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">call</span><span class="params">($object)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> $object-&gt;PrintPage ();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        $bro = <span class="keyword">new</span> Browser ();</span><br><span class="line">    <span class="keyword">echo</span> $bro-&gt;call ( <span class="keyword">new</span> ieAgent () );</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>工厂模式<br>    工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。<br>使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需更改该工厂方法内容即可，不需逐一寻找代码中具体实例化的地方（new处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">header(<span class="string">'Content-Type:text/html;charset=utf-8'</span>);</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *简单工厂模式（静态工厂方法模式）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Interface people 人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span>  <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span>  <span class="title">say</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class man 继承people的男人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">man</span> <span class="keyword">implements</span> <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体实现people的say方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'我是男人&lt;br&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class women 继承people的女人类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">women</span> <span class="keyword">implements</span> <span class="title">people</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 具体实现people的say方法</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">'我是女人&lt;br&gt;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Class SimpleFactoty 工厂类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SimpleFactoty</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// 简单工厂里的静态方法-用于创建男人对象</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createMan</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> man();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 简单工厂里的静态方法-用于创建女人对象</span></span><br><span class="line">    <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">createWomen</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> women();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 具体调用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$man = SimpleFactoty::createMan();</span><br><span class="line">$man-&gt;say();</span><br><span class="line">$woman = SimpleFactoty::createWomen();</span><br><span class="line">$woman-&gt;say();</span><br></pre></td></tr></table></figure>
-<p>单例模式<br>    单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。<br>单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。<br>单例模式分3种：懒汉式单例、饿汉式单例、登记式单例。<br>单例模式有以下3个特点：<br>1．只能有一个实例。<br>2．必须自行创建这个实例。<br>3．必须给其他对象提供这一实例。<br>那么为什么要使用PHP单例模式？<br>PHP一个主要应用场合就是应用程序与数据库打交道的场景，在一个应用中会存在大量的数据库操作，针对数据库句柄连接数据库的行为，使用单例模式可以避免大量的new操作。因为每一次new操作都会消耗系统和内存的资源。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Single</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $name;<span class="comment">//声明一个私有的实例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;<span class="comment">//声明私有构造方法为了防止外部代码使用new来创建对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">public</span> $instance;<span class="comment">//声明一个静态变量（保存在类中唯一的一个实例）</span></span><br><span class="line">        <span class="keyword">static</span> <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getinstance</span><span class="params">()</span></span>&#123;<span class="comment">//声明一个getinstance()静态方法，用于检测是否有实例对象</span></span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">self</span>::$instance) <span class="keyword">self</span>::$instance = <span class="keyword">new</span> <span class="keyword">self</span>();</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">self</span>::$instance;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setname</span><span class="params">($n)</span></span>&#123; <span class="keyword">$this</span>-&gt;name = $n; &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getname</span><span class="params">()</span></span>&#123; <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;name; &#125;</span><br><span class="line">&#125;</span><br><span class="line">$oa = Single::getinstance();</span><br><span class="line">$ob = Single::getinstance();</span><br><span class="line">$oa-&gt;setname(<span class="string">'hello world'</span>);</span><br><span class="line">$ob-&gt;setname(<span class="string">'good morning'</span>);</span><br><span class="line"><span class="keyword">echo</span> $oa-&gt;getname();<span class="comment">//good morning</span></span><br><span class="line"><span class="keyword">echo</span> $ob-&gt;getname();<span class="comment">//good morning</span></span><br></pre></td></tr></table></figure></p>
-<p>注册模式<br>注册模式，解决全局共享和交换对象。已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。将对象注册到全局的树上。任何地方直接去访问。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Register</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">static</span>  $objects;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">set</span><span class="params">($alias,$object)</span>//将对象注册到全局的树上</span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            <span class="keyword">self</span>::$objects[$alias]=$object;<span class="comment">//将对象放到树上</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">($name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>::$objects[$name];<span class="comment">//获取某个注册到树上的对象</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_unset</span><span class="params">($alias)</span></span></span><br><span class="line"><span class="function">　　</span>&#123;</span><br><span class="line">        <span class="keyword">unset</span>(<span class="keyword">self</span>::$objects[$alias]);<span class="comment">//移除某个注册到树上的对象。</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>适配器模式<br>将各种截然不同的函数接口封装成统一的API。<br>PHP中的数据库操作有MySQL,MySQLi,PDO三种，可以用适配器模式统一成一致，使不同的数据库操作，统一成一样的API。类似的场景还有cache适配器，可以将memcache,redis,file,apc等不同的缓存函数，统一成一致。<br>首先定义一个接口(有几个方法，以及相应的参数)。然后，有几种不同的情况，就写几个类实现该接口。将完成相似功能的函数，统一成一致的方法。</p>
-<p>接口 IDatabase<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MySQL</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>\<span class="title">Database</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">IMooc</span>\<span class="title">IDatabase</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQL</span> <span class="keyword">implements</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $conn;</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $conn = mysql_connect($host, $user, $passwd);</span><br><span class="line">            mysql_select_db($dbname, $conn);</span><br><span class="line">            <span class="keyword">$this</span>-&gt;conn = $conn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $res = mysql_query($sql, <span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">            <span class="keyword">return</span> $res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mysql_close(<span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MySQLi</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">IMooc</span>\<span class="title">Database</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">IMooc</span>\<span class="title">IDatabase</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MySQLi</span> <span class="keyword">implements</span> <span class="title">IDatabase</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">protected</span> $conn;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">connect</span><span class="params">($host, $user, $passwd, $dbname)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $conn = mysqli_connect($host, $user, $passwd, $dbname);</span><br><span class="line">        <span class="keyword">$this</span>-&gt;conn = $conn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($sql)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mysqli_query(<span class="keyword">$this</span>-&gt;conn, $sql);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">close</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        mysqli_close(<span class="keyword">$this</span>-&gt;conn);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>观察者模式<br>1：观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。<br>2：场景:一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。<br>3：观察者模式实现了低耦合，非侵入式的通知与更新机制。<br>定义一个事件触发抽象类。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">EventGenerator.php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">EventGenerator</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> $observers = <span class="keyword">array</span>();</span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">addObserver</span><span class="params">(Observer $observer)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;observers[]=$observer;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">notify</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;observers <span class="keyword">as</span> $observer)&#123;</span><br><span class="line">            $observer-&gt;update();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">定义一个观察者接口</span><br><span class="line"></span><br><span class="line">Observer.php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">require_once</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>;<span class="comment">//这里就是在事件发生后要执行的逻辑</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//一个实现了EventGenerator抽象类的类，用于具体定义某个发生的事件</span></span><br><span class="line"></span><br><span class="line">实现</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'Loader.php'</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Event</span> <span class="keyword">extends</span> <span class="title">EventGenerator</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">triger</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"Event&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer1</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"逻辑1&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Observer2</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">update</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"逻辑2&lt;br&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">$event = <span class="keyword">new</span> Event();</span><br><span class="line">$event-&gt;addObserver(<span class="keyword">new</span> Observer1());</span><br><span class="line">$event-&gt;addObserver(<span class="keyword">new</span> Observer2());</span><br><span class="line">$event-&gt;triger();</span><br><span class="line">$event-&gt;notify();</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
+    </p></div>
     
     
     
@@ -1592,7 +1792,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1603,7 +1803,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -1614,7 +1814,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="面试必考,">
 
 
 
@@ -78,6 +78,7 @@
 
 
 <meta name="description" content="https://www.cnblogs.com/firstdream/p/6728106.html当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。  切分模式： 垂直（纵向）拆分、水平拆分。 垂直拆分-专库">
+<meta name="keywords" content="面试必考">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据库垂直切分与水平切分">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/据库垂直切分与水平切分/index.html">
@@ -87,7 +88,7 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-20.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-21.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-22.png">
-<meta property="og:updated_time" content="2019-04-07T03:02:17.016Z">
+<meta property="og:updated_time" content="2019-04-09T12:41:22.142Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库垂直切分与水平切分">
 <meta name="twitter:description" content="https://www.cnblogs.com/firstdream/p/6728106.html当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。  切分模式： 垂直（纵向）拆分、水平拆分。 垂直拆分-专库">
@@ -326,7 +327,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:43+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:00+08:00">
                 2019-04-07
               </time>
             
@@ -336,6 +337,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -389,7 +412,8 @@
 2. 分片事务一致性难以解决。
 3. 数据多次扩展难度跟维护量极大。
 4. 跨库join性能较差。
-</code></pre>
+</code></pre><p>垂直拆分：<br>　　解决问题：<br>　　表与表之间的io竞争<br>　　不解决问题：<br>　　单表中数据量增长出现的压力<br>　　方案：<br>　　把产品表和用户表放到一个server上<br>　　订单表单独放到一个server上<br>水平拆分：<br>　　解决问题：<br>　　单表中数据量增长出现的压力<br>　　不解决问题：<br>　　表与表之间的io争夺<br>　　方案：<br>　　用户表通过性别拆分为男用户表和女用户表<br>　　订单表通过已完成和完成中拆分为已完成订单和未完成订单<br>　　产品表 未完成订单放一个server上<br>　　已完成订单表盒男用户表放一个server上<br>　　女用户表放一个server上(女的爱购物)</p>
+
       
     </div>
     
@@ -403,6 +427,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/面试必考/" rel="tag"># 面试必考</a>
+          
+        </div>
       
 
       
@@ -422,6 +452,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/07/ookie与sesseion/" rel="prev" title="cookie与sesseion">
+                cookie与sesseion <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -500,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -511,7 +545,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -522,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

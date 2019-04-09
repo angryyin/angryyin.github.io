@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[php设计模式]]></title>
+    <url>%2F2019%2F04%2F09%2Fp%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[策略模式策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。策略模式的三个角色：1．抽象策略角色2．具体策略角色3．环境角色（对抽象策略角色的引用）实现步骤：1．定义抽象角色类（定义好各个实现的共同抽象方法）2．定义具体策略类（具体实现父类的共同方法）3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）就在编程领域之外，有许多例子是关于策略模式的。例如：如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。策略模式的代码实例：123456789101112131415161718192021222324&lt;?php abstract class baseAgent &#123; //抽象策略类 abstract function PrintPage(); &#125; //用于客户端是IE时调用的类（环境角色） class ieAgent extends baseAgent &#123; function PrintPage() &#123; return 'IE'; &#125; &#125; //用于客户端不是IE时调用的类（环境角色） class otherAgent extends baseAgent &#123; function PrintPage() &#123; return 'not IE'; &#125; &#125; class Browser &#123; //具体策略角色 public function call($object) &#123; return $object-&gt;PrintPage (); &#125; &#125; $bro = new Browser (); echo $bro-&gt;call ( new ieAgent () );?&gt; 工厂模式工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需更改该工厂方法内容即可，不需逐一寻找代码中具体实例化的地方（new处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&lt;?phpheader('Content-Type:text/html;charset=utf-8');/** *简单工厂模式（静态工厂方法模式） *//** * Interface people 人类 */interface people&#123; public function say();&#125;/** * Class man 继承people的男人类 */class man implements people&#123; // 具体实现people的say方法 public function say() &#123; echo '我是男人&lt;br&gt;'; &#125;&#125;/** * Class women 继承people的女人类 */class women implements people&#123; // 具体实现people的say方法 public function say() &#123; echo '我是女人&lt;br&gt;'; &#125;&#125;/** * Class SimpleFactoty 工厂类 */class SimpleFactoty&#123; // 简单工厂里的静态方法-用于创建男人对象 static function createMan() &#123; return new man(); &#125; // 简单工厂里的静态方法-用于创建女人对象 static function createWomen() &#123; return new women(); &#125;&#125;/** * 具体调用 */$man = SimpleFactoty::createMan();$man-&gt;say();$woman = SimpleFactoty::createWomen();$woman-&gt;say(); 单例模式单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。 单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。单例模式分3种：懒汉式单例、饿汉式单例、登记式单例。单例模式有以下3个特点：1．只能有一个实例。2．必须自行创建这个实例。3．必须给其他对象提供这一实例。那么为什么要使用PHP单例模式？PHP一个主要应用场合就是应用程序与数据库打交道的场景，在一个应用中会存在大量的数据库操作，针对数据库句柄连接数据库的行为，使用单例模式可以避免大量的new操作。因为每一次new操作都会消耗系统和内存的资源。123456789101112131415161718class Single &#123; private $name;//声明一个私有的实例变量 private function __construct()&#123;//声明私有构造方法为了防止外部代码使用new来创建对象。 &#125; static public $instance;//声明一个静态变量（保存在类中唯一的一个实例） static public function getinstance()&#123;//声明一个getinstance()静态方法，用于检测是否有实例对象 if(!self::$instance) self::$instance = new self(); return self::$instance; &#125; public function setname($n)&#123; $this-&gt;name = $n; &#125; public function getname()&#123; return $this-&gt;name; &#125;&#125;$oa = Single::getinstance();$ob = Single::getinstance();$oa-&gt;setname('hello world');$ob-&gt;setname('good morning');echo $oa-&gt;getname();//good morningecho $ob-&gt;getname();//good morning 单例模式-懒汉1234567891011121314151617181920212223package Singleton;public class LazySingleton &#123; //懒汉式单例模式 //比较懒，在类加载时，不创建实例，因此类加载速度快，但运行时获取对象的速度慢 private static LazySingleton intance = null;//静态私用成员，没有初始化 private LazySingleton() &#123; //私有构造函数 &#125; public static synchronized LazySingleton getInstance() //静态，同步，公开访问点 &#123; if(intance == null) &#123; intance = new LazySingleton(); &#125; return intance; &#125;&#125; （类加载时不初始化）1）构造函数定义为私有—-不能在别的类中来获取该类的对象，只能在类自身中得到自己的对象 2）成员变量为static的，没有初始化—-类加载快，但访问类的唯一实例慢，static保证在自身类中获取自身对象 3）公开访问点getInstance： public和synchronized的—–public保证对外公开，同步保证多线程时的正确性（因为类变量不是在加载时初始化的） 单例模式-饿汉（在类加载时就完成了初始化，所以类加载较慢，但获取对象的速度快）1234567891011121314151617181920package Singleton;public class EagerSingleton &#123; //饿汉单例模式 //在类加载时就完成了初始化，所以类加载较慢，但获取对象的速度快 private static EagerSingleton instance = new EagerSingleton();//静态私有成员，已初始化 private EagerSingleton() &#123; //私有构造函数 &#125; public static EagerSingleton getInstance() //静态，不用同步（类加载时已初始化，不会有多线程的问题） &#123; return instance; &#125; &#125; 注册模式注册模式，解决全局共享和交换对象。已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。将对象注册到全局的树上。任何地方直接去访问。12345678910111213141516&lt;?phpclass Register&#123; protected static $objects; function set($alias,$object)//将对象注册到全局的树上 &#123; self::$objects[$alias]=$object;//将对象放到树上 &#125; static function get($name)&#123; return self::$objects[$name];//获取某个注册到树上的对象 &#125; function _unset($alias) &#123; unset(self::$objects[$alias]);//移除某个注册到树上的对象。 &#125;&#125; 适配器模式将各种截然不同的函数接口封装成统一的API。PHP中的数据库操作有MySQL,MySQLi,PDO三种，可以用适配器模式统一成一致，使不同的数据库操作，统一成一样的API。类似的场景还有cache适配器，可以将memcache,redis,file,apc等不同的缓存函数，统一成一致。首先定义一个接口(有几个方法，以及相应的参数)。然后，有几种不同的情况，就写几个类实现该接口。将完成相似功能的函数，统一成一致的方法。 接口 IDatabase1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556&lt;?phpnamespace IMooc;interface IDatabase&#123; function connect($host, $user, $passwd, $dbname); function query($sql); function close();&#125;MySQL&lt;?phpnamespace IMooc\Database;use IMooc\IDatabase;class MySQL implements IDatabase&#123; protected $conn; function connect($host, $user, $passwd, $dbname) &#123; $conn = mysql_connect($host, $user, $passwd); mysql_select_db($dbname, $conn); $this-&gt;conn = $conn; &#125; function query($sql) &#123; $res = mysql_query($sql, $this-&gt;conn); return $res; &#125; function close() &#123; mysql_close($this-&gt;conn); &#125;&#125;MySQLi&lt;?phpnamespace IMooc\Database;use IMooc\IDatabase;class MySQLi implements IDatabase&#123; protected $conn; function connect($host, $user, $passwd, $dbname) &#123; $conn = mysqli_connect($host, $user, $passwd, $dbname); $this-&gt;conn = $conn; &#125; function query($sql) &#123; return mysqli_query($this-&gt;conn, $sql); &#125; function close() &#123; mysqli_close($this-&gt;conn); &#125;&#125; 观察者模式1：观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。2：场景:一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。3：观察者模式实现了低耦合，非侵入式的通知与更新机制。定义一个事件触发抽象类。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748EventGenerator.php&lt;?phprequire_once 'Loader.php';abstract class EventGenerator&#123; private $observers = array(); function addObserver(Observer $observer)&#123; $this-&gt;observers[]=$observer; &#125; function notify()&#123; foreach ($this-&gt;observers as $observer)&#123; $observer-&gt;update(); &#125; &#125;&#125;定义一个观察者接口Observer.php&lt;?phprequire_once 'Loader.php';interface Observer&#123; function update();//这里就是在事件发生后要执行的逻辑&#125;//一个实现了EventGenerator抽象类的类，用于具体定义某个发生的事件实现require 'Loader.php';class Event extends EventGenerator&#123; function triger()&#123; echo "Event&lt;br&gt;"; &#125;&#125;class Observer1 implements Observer&#123; function update()&#123; echo "逻辑1&lt;br&gt;"; &#125;&#125;class Observer2 implements Observer&#123; function update()&#123; echo "逻辑2&lt;br&gt;"; &#125;&#125;$event = new Event();$event-&gt;addObserver(new Observer1());$event-&gt;addObserver(new Observer2());$event-&gt;triger();$event-&gt;notify();]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>面试必考</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Redis]]></title>
+    <url>%2F2019%2F04%2F09%2Fdis%2F</url>
+    <content type="text"><![CDATA[https://www.cnblogs.com/jasonZh/p/9513948.html Redis实际应用场景 Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。 转向Redis当然也是可取的，许多开发者从一开始就把Redis作为首选数据库；但设想如果你的开发环境已经搭建好，应用已经在上面运行了，那么更换数据库框架显然不那么容易。另外在一些需要大容量数据集的应用，Redis也并不适合，因为它的数据集不会超过系统可用的内存。所以如果你有大数据应用，而且主要是读取访问模式，那么Redis并不是正确的选择。 然而我喜欢Redis的一点就是你可以把它融入到你的系统中来，这就能够解决很多问题，比如那些你现有的数据库处理起来感到缓慢的任务。这些你就可以通过Redis来进行优化，或者为应用创建些新的功能。在本文中，我就想探讨一些怎样将Redis加入到现有的环境中，并利用它的原语命令等功能来解决 传统环境中碰到的一些常见问题。在这些例子中，Redis都不是作为首选数据库。 StringString数据结构是简单的key-value类型，value其实不仅可以是String，也可以是数字。常规key-value缓存应用；常规计数：微博数，粉丝数等。注意：一个键最大能存储512MB。 hash1、Redis hash是一个键值(key =&gt; value)对集合,是一个string类型的field和value的映射表2、hash特别适合用于存储对象。3、存储部分变更的数据，如用户信息等。应用场景：如要存储一个用户信息对象数据，包含以下信息：用户ID为查找的key，存储的value用户对象包含姓名，年龄，生日等信息，如果用普通的key/value结构来存储，主要有以下2种存储方式： 第一种方式将用户ID作为查找key,把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是，增加了序列化/反序列化的开销，并且在需要修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS等复杂问题。 第二种方法是这个用户信息对象有多少成员就存成多少个key-value，用用户ID+对应属性的名称作为唯一标识来取得对应属性的值，虽然省去了序列化开销和并发问题，但是用户ID为重复存储，如果存在大量这样的数据，内存浪费还是非常可观的。Redis提供的Hash很好的解决了这个问题，Redis的Hash实际是内部存储的Value为一个HashMap，并提供了直接存取这个Map成员的接口，如下图： Key仍然是用户ID, value是一个Map，这个Map的key是成员的属性名，value是属性值，这样对数据的修改和存取都可以直接通过其内部Map的Key(Redis里称内部Map的key为field), 也就是通过 key(用户ID) + field(属性标签) 就可以操作对应属性数据了，既不需要重复存储数据，也不会带来序列化和并发修改控制的问题，很好的解决了问题。 listRedis的list是每个子元素都是String类型的双向链表，可以通过push和pop操作从列表的头部或者尾部添加或者删除元素，这样List即可以作为栈，也可以作为队列。 消息队列：可以利用List的PUSH操作，将任务存在List中，然后工作线程再用POP操作将任务取出进行执行。使用sorted set甚至可以构建有优先级的队列系统。 Redis提供了操作List中某一段的api，可以直接查询，删除List中某一段的元素。 例子：将Redis用作日志收集器，实际上还是一个队列，多个端点将日志信息写入Redis，然后一个worker统一将所有日志写到磁盘。 取最新N个数据的操作123456//把当前登录人添加到链表里ret = r.lpush("login:last_login_times", uid)//保持链表只有N位ret = redis.ltrim("login:last_login_times", 0, N-1)//获得前N个最新登陆的用户Id列表last_login_list = r.lrange("login:last_login_times", 0, N-1) 比如sina微博:在Redis中最新微博ID使用了常驻缓存，这是一直更新的。但是做了限制不能超过5000个ID，因此获取ID的函数会一直询问Redis。只有在start/count参数超出了这个范围的时候，才需要去访问数据库。系统不会像传统方式那样“刷新”缓存，Redis实例中的信息永远是一致的。SQL数据库（或是硬盘上的其他类型数据库）只是在用户需要获取“很远”的数据时才会被触发，而主页或第一个评论页是不会麻烦到硬盘上的数据库了。 列表最多可存储 232 - 1 元素 (4294967295, 每个列表可存储40多亿)。 set集合，集合的概念就是一堆不重复值的组合。set中的元素是没有顺序的。案例：在微博应用中，可以将一个用户所有的关注人存在一个集合中，将其所有粉丝存在一个集合。Redis还为集合提供了求交集、并集、差集等操作，可以非常方便的实现如共同关注、共同喜好、二度好友等功能，对上面的所有集合操作，你还可以使用不同的命令选择将结果返回给客户端还是存集到一个新的集合中。交集，并集，差集 //book表存储book名称123456789101112131415set book:1:name "The Ruby Programming Language"set book:2:name "Ruby on rail"set book:3:name "Programming Erlang"//tag表使用集合来存储数据，因为集合擅长求交集、并集sadd tag:ruby 1sadd tag:ruby 2sadd tag:web 2sadd tag:erlang 3//即属于ruby又属于web的书？ inter_list = redis.sinter("tag:web", "tag:ruby")//即属于ruby，但不属于web的书？ diff_list = redis.sdiff("tag:ruby", "tag:web")//属于ruby和属于web的书的合集？ union_list = redis.sunion("tag:ruby", "tag:web") 获取某段时间所有数据去重值只需要不断地将数据往set中扔就行了，set为集合，所以会自动排重。 sorted set和set相比，sorted set增加了一个权重参数score，使得集合中的元素能够按score进行有序排列，比如一个存储全班同学成绩的sorted set，其集合value可以是同学的学号，而score就可以是其考试得分，这样在数据插入集合的时候，就已经进行了天然的排序。可以用sorted set来做带权重的队列，比如普通消息的score为1，重要消息的score为2，然后工作线程可以选择按score的倒序来获取工作任务。让重要的任务优先执行。排行榜应用，取TOP N操作这个需求与上面需求的不同之处在于，前面操作以时间为权重，这个是以某个条件为权重，比如按顶的次数排序，这时候就需要我们的sorted set出马了，将你要排序的值设置成sorted set的score，将具体的数据设置成相应的value，每次只需要执行一条ZADD命令即可。123456789//将登录次数和用户统一存储在一个sorted set里zadd login:login_times 5 1zadd login:login_times 1 2zadd login:login_times 2 3//当用户登录时，对该用户的登录次数自增1ret = r.zincrby("login:login_times", 1, uid)//那么如何获得登录次数最多的用户呢，逆序排列取得排名前N的用户ret = r.zrevrange("login:login_times", 0, N-1) 比如在线游戏的排行榜，根据得分你通常想要： 列出前100名高分选手 列出某用户当前的全球排名 这些操作对于Redis来说小菜一碟，即使你有几百万个用户，每分钟都会有几百万个新的得分。模式是这样的，每次获得新得分时，我们用这样的代码：ZADD leaderboard 你可能用userID来取代username，这取决于你是怎么设计的。得到前100名高分用户很简单：ZREVRANGE leaderboard 0 99 用户的全球排名也相似，只需要：ZRANK leaderboard 需要精准设定过期时间的应用 比如你可以把上面说到的sorted set的score值设置成过期时间的时间戳，那么就可以简单地通过过期时间排序，定时清除过期数据了，不仅是清除Redis中的过期数据，你完全可以把Redis里这个过期时间当成是对数据库中数据的索引，用Redis来找出哪些数据需要过期删除，然后再精准地从数据库中删除相应的记录。范围查找来自Redis在Google Group上的一个问题，有一位同学发贴求助，说要解决如下的一个问题：他有一个IP范围对应地址的列表，现在需要给出一个IP的情况下，迅速的查找到这个IP在哪个范围，也就是要判断此IP的所有地。 Pub/SubPub/Sub 从字面上理解就是发布（Publish）与订阅（Subscribe），在Redis中，你可以设定对某一个key值进行消息发布及消息订阅，当一个key值上进行了消息发布后，所有订阅它的客户端都会收到相应的消息。这一功能最明显的用法就是用作实时消息系统，比如普通的即时聊天，群聊等功能。使用场景Pub/Sub构建实时消息系统Redis的Pub/Sub系统可以构建实时的消息系统比如很多用Pub/Sub构建的实时聊天系统的例子。]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>nosql</tag>
+        <tag>redis</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php抽象类]]></title>
+    <url>%2F2019%2F04%2F09%2Fp%E6%8A%BD%E8%B1%A1%E7%B1%BB%2F</url>
+    <content type="text"><![CDATA[抽象类与接口紧密相关，它们不能实例化，并且常常部分实现或根本不实现。抽象类和接口之间的一个主要差别是：类可以实现无限个接口，但仅能从一个抽象（或任何其他类型）类继承。从抽象类派生的类仍可实现接口。可以在创建组件时使用抽象类，因为它们使您得以在某些方法中指定不变级功能，但直到需要该类的特定实现之后才实现其他方法。抽象类也制定版本，因为如果在派生类中需要附加功能，则可以将其添加到基类而不中断代码。PHP抽象类应用的定义：abstract class ClassName{} 什么是抽象方法我们在类里面定义的没有方法体的方法就是抽象方法，所谓的没有方法体指的是，在方法声明的时候没有大括号以及其中的内容，而是直接在声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字“abstract”来修饰； 什么是php抽象类只要一个类里面有一个方法是抽象方法，那么这个类就要定义为抽象类，抽象类也要使用“abstract”关键字来修饰；在抽象类里面可以有不是抽象的方法和成员属性，但只要有一个方法是抽象的方法，这个类就必须声明为抽象类，使用”abstract”来修饰。 PHP抽象类应用要点： 1.定义一些方法，子类必须完全实现这个抽象中所有的方法 2.不能从抽象类创建对象，它的意义在于被扩展 3.抽象类通常具有抽象方法，方法中没有大括号 PHP抽象类应用重点： 1.抽象方法不必实现具体的功能，由子类来完成 2.在子类实现抽象类的方法时，其子类的可见性必须大于或等于抽象方法的定义 3.抽象类的方法可以有参数，也可以为空 4.如果抽象方法有参数，那么子类的实现也必须有相同的参数个数 PHP抽象类应用示例：abstract public function_name(); //注意没有大括号 PHP抽象类规则：某个类只要至少含有一个抽象方法，就必须声明为抽象类抽象方法，不能够含有函数体继承抽象类的子类，实现抽象方法的，必须跟该抽象方法具有相同或者更低的访问级别继承抽象类的子类，如果不实现所有抽象方法，那么该子类也为抽象类 计算矩形的周长12345678910111213141516171819202122&lt; ?PHP abstract class Shape &#123; abstract protected function get_area(); //和一般的方法不同的是，这个方法没有大括号 //你不能创建这个抽象类的实例：$Shape_Rect= new Shape(); &#125; class Rectangle extends Shape&#123; private $width; private $height; function __construct($width=0,$height=0)&#123; $this-&gt;width=$width; $this-&gt;height=$height; &#125; function get_area()&#123; echo ($this-&gt;width+$this-&gt;height)*2; &#125; &#125; $Shape_Rect = new Rectangle(20,30); $Shape_Rect-&gt;get_area(); ?&gt;]]></content>
+      <categories>
+        <category>php</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[linux基础操作]]></title>
+    <url>%2F2019%2F04%2F08%2Finux%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[find操作将目前目录及其子目录下所有延伸档名是 c 的文件列出来。find . -name “*.c”将目前目录其其下子目录中所有一般文件列出find . -type f 递归查找find . -r -name “*.txt” grep操作grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）grep -r 1 *.md 找出程序运行的端口netstat -ap | grep ssh]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[cookie与sesseion]]></title>
+    <url>%2F2019%2F04%2F07%2Fookie%E4%B8%8Esesseion%2F</url>
+    <content type="text"><![CDATA[cookie位于用户的计算机上，用来维护用户计算机中的信息，直到用户删除。比如我们在网页上登录某个软件时输入用户名及密码时如果保存为cookie，则每次我们访问的时候就不需要登录网站了。我们可以在浏览器上保存任何文本，而且我们还可以随时随地的去阻止它或者删除。我们同样也可以禁用或者编辑cookie，但是有一点需要注意不要使用cookie来存储一些隐私数据，以防隐私泄露。 sessionsession称为会话信息，位于web服务器上，主要负责访问者与网站之间的交互，当访问浏览器请求http地址时，将传递到web服务器上并与访问信息进行匹配， 当关闭网站时就表示会话已经结束，网站无法访问该信息了，所以它无法保存永久数据，我们无法访问以及禁用网站 （1）Cookie以文本文件格式存储在浏览器中，而session存储在服务端它存储了限制数据量。它只允许4kb它没有在cookie中保存多个变量。（2）cookie的存储限制了数据量，只允许4KB，而session是无限量的（3）我们可以轻松访问cookie值但是我们无法轻松访问会话值，因此它更安全（4）设置cookie时间可以使cookie过期。但是使用session-destory（），我们将会销毁会话。 总结：如果我们需要经常登录一个站点时，最好用cookie来保存信息，要不然每次登陆都特别麻烦，如果对于需要安全性高的站点以及控制数据的能力时需要用会话效果更佳，当然我们也可以结合两者，使网站按照我们的想法进行运行]]></content>
+      <categories>
+        <category>http</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>面试必考</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[数据库垂直切分与水平切分]]></title>
     <url>%2F2019%2F04%2F07%2F%E6%8D%AE%E5%BA%93%E5%9E%82%E7%9B%B4%E5%88%87%E5%88%86%E4%B8%8E%E6%B0%B4%E5%B9%B3%E5%88%87%E5%88%86%2F</url>
-    <content type="text"><![CDATA[https://www.cnblogs.com/firstdream/p/6728106.html当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。 切分模式： 垂直（纵向）拆分、水平拆分。 垂直拆分-专库专用一个数据库由很多表的构成，每个表对应着不同的业务，垂直切分是指按照业务将表进行分类，分布到不同的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图： 优点： 1. 拆分后业务清晰，拆分规则明确。 2. 系统之间整合或扩展容易。 3. 数据维护简单。 缺点： 1. 部分业务表无法join，只能通过接口方式解决，提高了系统复杂度。 2. 受每种业务不同的限制存在单库性能瓶颈，不易数据扩展跟性能提高。 3. 事务处理复杂。 水平拆分垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而水平拆分是把同一个表拆到不同的数据库中。 相对于垂直拆分，水平拆分不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图： 优点： 1. 不存在单库大数据，高并发的性能瓶颈。 2. 对应用透明，应用端改造较少。 3. 按照合理拆分规则拆分，join操作基本避免跨库。 4. 提高了系统的稳定性跟负载能力。 缺点： 1. 拆分规则难以抽象。 2. 分片事务一致性难以解决。 3. 数据多次扩展难度跟维护量极大。 4. 跨库join性能较差。]]></content>
+    <content type="text"><![CDATA[https://www.cnblogs.com/firstdream/p/6728106.html当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。 切分模式： 垂直（纵向）拆分、水平拆分。 垂直拆分-专库专用一个数据库由很多表的构成，每个表对应着不同的业务，垂直切分是指按照业务将表进行分类，分布到不同的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图： 优点： 1. 拆分后业务清晰，拆分规则明确。 2. 系统之间整合或扩展容易。 3. 数据维护简单。 缺点： 1. 部分业务表无法join，只能通过接口方式解决，提高了系统复杂度。 2. 受每种业务不同的限制存在单库性能瓶颈，不易数据扩展跟性能提高。 3. 事务处理复杂。 水平拆分垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而水平拆分是把同一个表拆到不同的数据库中。 相对于垂直拆分，水平拆分不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图： 优点： 1. 不存在单库大数据，高并发的性能瓶颈。 2. 对应用透明，应用端改造较少。 3. 按照合理拆分规则拆分，join操作基本避免跨库。 4. 提高了系统的稳定性跟负载能力。 缺点： 1. 拆分规则难以抽象。 2. 分片事务一致性难以解决。 3. 数据多次扩展难度跟维护量极大。 4. 跨库join性能较差。 垂直拆分： 解决问题： 表与表之间的io竞争 不解决问题： 单表中数据量增长出现的压力 方案： 把产品表和用户表放到一个server上 订单表单独放到一个server上水平拆分： 解决问题： 单表中数据量增长出现的压力 不解决问题： 表与表之间的io争夺 方案： 用户表通过性别拆分为男用户表和女用户表 订单表通过已完成和完成中拆分为已完成订单和未完成订单 产品表 未完成订单放一个server上 已完成订单表盒男用户表放一个server上 女用户表放一个server上(女的爱购物)]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>面试必考</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[HTTP1.0、HTTP1.1 和 HTTP2.0 的区别]]></title>
     <url>%2F2019%2F04%2F07%2Fntitled%2F</url>
     <content type="text"><![CDATA[一、HTTP的历史早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。 二、HTTP的基本优化影响一个 HTTP 网络请求的因素主要有两个：带宽和延迟。带宽：如果说我们还停留在拨号上网的阶段，带宽可能会成为一个比较严重影响请求的问题，但是现在网络基础建设已经使得带宽得到极大的提升，我们不再会担心由带宽而影响网速，那么就只剩下延迟了。延迟：浏览器阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。DNS 查询（DNS Lookup）：浏览器需要知道目标服务器的 IP 才能建立连接。将域名解析为 IP 的这个系统就是 DNS。这个通常可以利用DNS缓存结果来达到减少这个时间的目的。建立连接（Initial connection）：HTTP 是基于 TCP 协议的，浏览器最快也要在第三次握手时才能捎带 HTTP 请求报文，达到真正的建立连接，但是这些连接无法复用会导致每次请求都经历三次握手和慢启动。三次握手在高延迟的场景下影响较明显，慢启动则对文件类大请求影响较大。 三、HTTP1.0和HTTP1.1的一些区别HTTP1.0最早在网页中使用是在1996年，那个时候只是使用一些较为简单的网页上和网络请求上，而HTTP1.1则在1999年才开始广泛应用于现在的各大浏览器网络请求中，同时HTTP1.1也是当前使用最为广泛的HTTP协议。 主要区别主要体现在： 1、缓存处理，在HTTP1.0中主要使用header里的If-Modified-Since,Expires来做为缓存判断的标准，HTTP1.1则引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。 2、带宽优化及网络连接的使用，HTTP1.0中，存在一些浪费带宽的现象，例如客户端只是需要某个对象的一部分，而服务器却将整个对象送过来了，并且不支持断点续传功能，HTTP1.1则在请求头引入了range头域，它允许只请求资源的某个部分，即返回码是206（Partial Content），这样就方便了开发者自由的选择以便于充分利用带宽和连接。错误通知的管理，在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。3、Host头处理，在HTTP1.0中认为每台服务器都绑定一个唯一的IP地址，因此，请求消息中的URL并没有传递主机名（hostname）。但随着虚拟主机技术的发展，在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址。HTTP1.1的请求消息和响应消息都应支持Host头域，且请求消息中如果没有Host头域会报告一个错误（400 Bad Request）。4、长连接，HTTP 1.1支持长连接（PersistentConnection）和请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟，在HTTP1.1中默认开启Connection： keep-alive，一定程度上弥补了HTTP1.0每次请求都要创建连接的缺点。 四、HTTPS与HTTP的一些区别HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。 五、SPDY：HTTP1.x的优化2012年google如一声惊雷提出了SPDY的方案，优化了HTTP1.X的请求延迟，解决了HTTP1.X的安全性，具体如下：1、降低延迟，针对HTTP高延迟的问题，SPDY优雅的采取了多路复用（multiplexing）。多路复用通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking的问题，降低了延迟同时提高了带宽的利用率。2、请求优先级（request prioritization）。多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。比如浏览器加载首页，首页的html内容应该优先展示，之后才是各种静态资源文件，脚本文件等加载，这样可以保证用户能第一时间看到网页内容。3、header压缩。前面提到HTTP1.x的header很多时候都是重复多余的。选择合适的压缩算法可以减小包的大小和数量。4、基于HTTPS的加密协议传输，大大提高了传输数据的可靠性。5、服务端推送（server push），采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。SPDY构成图： SPDY位于HTTP之下，TCP和SSL之上，这样可以轻松兼容老版本的HTTP协议(将HTTP1.x的内容封装成一种新的frame格式)，同时可以使用已有的SSL功能。 六、HTTP2.0性能惊人HTTP/2: the Future of the Internet https://link.zhihu.com/?target=https://http2.akamai.com/demo 是 Akamai 公司建立的一个官方的演示，用以说明 HTTP/2 相比于之前的 HTTP/1.1 在性能上的大幅度提升。 同时请求 379 张图片，从Load time 的对比可以看出 HTTP/2 在速度上的优势。 七、HTTP2.0：SPDY的升级版HTTP2.0可以说是SPDY的升级版（其实原本也是基于SPDY设计的），但是，HTTP2.0 跟 SPDY 仍有不同的地方，如下： HTTP2.0和SPDY的区别：HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPSHTTP2.0 消息头的压缩算法采用 HPACK http://http2.github.io/http2-spec/compression.html，而非 SPDY 采用的 DEFLATE http://zh.wikipedia.org/wiki/DEFLATE 八、HTTP2.0和HTTP1.X相比的新特性新的二进制格式（Binary Format），HTTP1.x的解析是基于文本。基于文本协议的格式解析存在天然缺陷，文本的表现形式有多样性，要做到健壮性考虑的场景必然很多，二进制则不同，只认0和1的组合。基于这种考虑HTTP2.0的协议解析决定采用二进制格式，实现方便且健壮。多路复用（MultiPlexing），即连接共享，即每一个request都是是用作连接共享机制的。一个request对应一个id，这样一个连接上可以有多个request，每个连接的request可以随机的混杂在一起，接收方可以根据request的 id将request再归属到各自不同的服务端请求里面。header压缩，如上文中所言，对前面提到过HTTP1.x的header带有大量信息，而且每次都要重复发送，HTTP2.0使用encoder来减少需要传输的header大小，通讯双方各自cache一份header fields表，既避免了重复header的传输，又减小了需要传输的大小。服务端推送（server push），同SPDY一样，HTTP2.0也具有server push功能。 九、HTTP2.0的升级改造前文说了HTTP2.0其实可以支持非HTTPS的，但是现在主流的浏览器像chrome，firefox表示还是只支持基于 TLS 部署的HTTP2.0协议，所以要想升级成HTTP2.0还是先升级HTTPS为好。当你的网站已经升级HTTPS之后，那么升级HTTP2.0就简单很多，如果你使用NGINX，只要在配置文件中启动相应的协议就可以了，可以参考NGINX白皮书，NGINX配置HTTP2.0官方指南 https://www.nginx.com/blog/nginx-1-9-5/。使用了HTTP2.0那么，原本的HTTP1.x怎么办，这个问题其实不用担心，HTTP2.0完全兼容HTTP1.x的语义，对于不支持HTTP2.0的浏览器，NGINX会自动向下兼容的。 十、附注HTTP2.0的多路复用和HTTP1.X中的长连接复用有什么区别？HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；具体如图： 服务器推送到底是什么？服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。正因为没有发起请求，建立连接等操作，所以静态资源通过服务端推送的方式可以极大地提升速度。具体如下：普通的客户端请求过程： 服务端推送的过程： 为什么需要头部压缩？假定一个页面有100个资源需要加载（这个数量对于今天的Web而言还是挺保守的）, 而每一次请求都有1kb的消息头（这同样也并不少见，因为Cookie和引用等东西的存在）, 则至少需要多消耗100kb来获取这些消息头。HTTP2.0可以维护一个字典，差量更新HTTP头部，大大降低因头部传输产生的流量。具体参考：HTTP/2 头部压缩技术介绍 HTTP2.0多路复用有多好？HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我「调谐」，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。]]></content>
+      <categories>
+        <category>面试必考</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>面试必考</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[php PDO]]></title>
@@ -18,37 +89,61 @@
   <entry>
     <title><![CDATA[三次握手四次挥手]]></title>
     <url>%2F2019%2F04%2F03%2F%E6%8F%A1%E6%89%8B%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%2F</url>
-    <content type="text"><![CDATA[https://www.nowcoder.com/ta/review-network答:三次握手：第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。四次挥手与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次握手”。第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。 1、TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态；2、TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。3、TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。4、TCP客户进程收到确认后，还要向服务器给出确认。确认报文的ACK=1，ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。 为什么TCP客户端最后还要发送一次确认呢？一句话，主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。如果使用的是两次握手建立连接，假设有这样一种场景，客户端发送了第一个请求连接并且没有丢失，只是因为在网络结点中滞留的时间太长了，由于TCP的客户端迟迟没有收到确认报文，以为服务器没有收到，此时重新向服务器发送这条报文，此后客户端和服务器经过两次握手完成连接，传输数据，然后关闭连接。此时此前滞留的那一次请求连接，网络通畅了到达了服务器，这个报文本该是失效的，但是，两次握手的机制将会让客户端和服务器再次建立连接，这将导致不必要的错误和资源的浪费。如果采用的是三次握手，就算是那一次失效的报文传送过来了，服务端接受到了那条失效报文并且回复了确认报文，但是客户端不会再次发出确认。由于服务器收不到确认，就知道客户端并没有请求连接。 1、客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。2、服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。3、客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。4、服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。5、客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗ *∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。6、服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。 为什么客户端最后还要等待2MSL？ MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。第一，保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。第二，防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。 为什么建立连接是三次握手，关闭连接确是四次挥手呢？建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。 如果已经建立了连接，但是客户端突然出现故障了怎么办？TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。]]></content>
+    <content type="text"><![CDATA[https://www.nowcoder.com/ta/review-network 三次握手第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。 四次挥手与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次挥手”。第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。 三次握手（细）1、TCP服务器进程先创建传输控制块TCB，时刻准备接受客户进程的连接请求，此时服务器就进入了LISTEN（监听）状态；TCP客户进程也是先创建传输控制块TCB，然后向服务器发出连接请求报文，这是报文首部中的同部位SYN=1，同时选择一个初始序列号 seq=x ，此时，TCP客户端进程进入了 SYN-SENT（同步已发送状态）状态。TCP规定，SYN报文段（SYN=1的报文段）不能携带数据，但需要消耗掉一个序号。2、TCP服务器收到请求报文后，如果同意连接，则发出确认报文。确认报文中应该 ACK=1，SYN=1，确认号是ack=x+1，同时也要为自己初始化一个序列号 seq=y，此时，TCP服务器进程进入了SYN-RCVD（同步收到）状态。这个报文也不能携带数据，但是同样要消耗一个序号。3、TCP客户进程收到确认后，还要向服务器给出确认。确认报文的ACK=1，ack=y+1，自己的序列号seq=x+1，此时，TCP连接建立，客户端进入ESTABLISHED（已建立连接）状态。TCP规定，ACK报文段可以携带数据，但是如果不携带数据则不消耗序号。当服务器收到客户端的确认后也进入ESTABLISHED状态，此后双方就可以开始通信了。 为什么TCP客户端最后还要发送一次确认呢？一句话，主要防止已经失效的连接请求报文突然又传送到了服务器，从而产生错误。如果使用的是两次握手建立连接，假设有这样一种场景，客户端发送了第一个请求连接并且没有丢失，只是因为在网络结点中滞留的时间太长了，由于TCP的客户端迟迟没有收到确认报文，以为服务器没有收到，此时重新向服务器发送这条报文，此后客户端和服务器经过两次握手完成连接，传输数据，然后关闭连接。此时此前滞留的那一次请求连接，网络通畅了到达了服务器，这个报文本该是失效的，但是，两次握手的机制将会让客户端和服务器再次建立连接，这将导致不必要的错误和资源的浪费。如果采用的是三次握手，就算是那一次失效的报文传送过来了，服务端接受到了那条失效报文并且回复了确认报文，但是客户端不会再次发出确认。由于服务器收不到确认，就知道客户端并没有请求连接。 四次挥手（细）1、客户端进程发出连接释放报文，并且停止发送数据。释放数据报文首部，FIN=1，其序列号为seq=u（等于前面已经传送过来的数据的最后一个字节的序号加1），此时，客户端进入FIN-WAIT-1（终止等待1）状态。 TCP规定，FIN报文段即使不携带数据，也要消耗一个序号。2、服务器收到连接释放报文，发出确认报文，ACK=1，ack=u+1，并且带上自己的序列号seq=v，此时，服务端就进入了CLOSE-WAIT（关闭等待）状态。TCP服务器通知高层的应用进程，客户端向服务器的方向就释放了，这时候处于半关闭状态，即客户端已经没有数据要发送了，但是服务器若发送数据，客户端依然要接受。这个状态还要持续一段时间，也就是整个CLOSE-WAIT状态持续的时间。3、客户端收到服务器的确认请求后，此时，客户端就进入FIN-WAIT-2（终止等待2）状态，等待服务器发送连接释放报文（在这之前还需要接受服务器发送的最后的数据）。4、服务器将最后的数据发送完毕后，就向客户端发送连接释放报文，FIN=1，ack=u+1，由于在半关闭状态，服务器很可能又发送了一些数据，假定此时的序列号为seq=w，此时，服务器就进入了LAST-ACK（最后确认）状态，等待客户端的确认。5、客户端收到服务器的连接释放报文后，必须发出确认，ACK=1，ack=w+1，而自己的序列号是seq=u+1，此时，客户端就进入了TIME-WAIT（时间等待）状态。注意此时TCP连接还没有释放，必须经过2∗∗ *∗MSL（最长报文段寿命）的时间后，当客户端撤销相应的TCB后，才进入CLOSED状态。6、服务器只要收到了客户端发出的确认，立即进入CLOSED状态。同样，撤销TCB后，就结束了这次的TCP连接。可以看到，服务器结束TCP连接的时间要比客户端早一些。 为什么客户端最后还要等待2MSL？MSL（Maximum Segment Lifetime），TCP允许不同的实现可以设置不同的MSL值。第一，保证客户端发送的最后一个ACK报文能够到达服务器，因为这个ACK报文可能丢失，站在服务器的角度看来，我已经发送了FIN+ACK报文请求断开了，客户端还没有给我回应，应该是我发送的请求断开报文它没有收到，于是服务器又会重新发送一次，而客户端就能在这个2MSL时间段内收到这个重传的报文，接着给出回应报文，并且会重启2MSL计时器。第二，防止类似与“三次握手”中提到了的“已经失效的连接请求报文段”出现在本连接中。客户端发送完最后一个确认报文后，在这个2MSL时间中，就可以使本连接持续的时间内所产生的所有报文段都从网络中消失。这样新的连接中不会出现旧连接的请求报文。 为什么建立连接是三次握手，关闭连接确是四次挥手呢？建立连接的时候， 服务器在LISTEN状态下，收到建立连接请求的SYN报文后，把ACK和SYN放在一个报文里发送给客户端。而关闭连接时，服务器收到对方的FIN报文时，仅仅表示对方不再发送数据了但是还能接收数据，而自己也未必全部数据都发送给对方了，所以己方可以立即关闭，也可以发送一些数据给对方后，再发送FIN报文给对方来表示同意现在关闭连接，因此，己方ACK和FIN一般都会分开发送，从而导致多了一次。 如果已经建立了连接，但是客户端突然出现故障了怎么办？TCP还设有一个保活计时器，显然，客户端如果出现故障，服务器不能一直等下去，白白浪费资源。服务器每收到一次客户端的请求后都会重新复位这个计时器，时间通常是设置为2小时，若两小时还没有收到客户端的任何数据，服务器就会发送一个探测报文段，以后每隔75秒发送一次。若一连发送10个探测报文仍然没反应，服务器就认为客户端出了故障，接着就关闭连接。]]></content>
+      <categories>
+        <category>面试必考</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+        <tag>面试必考</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[链表反转]]></title>
     <url>%2F2019%2F04%2F02%2F%E5%8F%8D%E8%BD%AC%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021222324252627&lt;?php/*class ListNode&#123; var $val; var $next = NULL; function __construct($x)&#123; $this-&gt;val = $x; &#125;&#125;*/function ReverseList($pHead)&#123; // write code here if($pHead==NULL||$pHead-&gt;next==NULL)&#123; return $pHead; &#125; //将原链表的元素一个个插入到新链表的头部 $pPre = NULL; $pCur = $pHead; while ($pCur-&gt;next != NULL) &#123; $pNext = $pCur-&gt;next; $pCur-&gt;next = $pPre; $pPre = $pCur; $pCur = $pNext; &#125; $pCur-&gt;next = $pPre; return $pCur;&#125;]]></content>
+      <categories>
+        <category>笔试</category>
+      </categories>
+      <tags>
+        <tag>笔试</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[树的层次遍历]]></title>
     <url>%2F2019%2F04%2F02%2F%E5%B1%82%E6%AC%A1%E9%81%8D%E5%8E%86%2F</url>
     <content type="text"><![CDATA[1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！ 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748&lt;?phpclass TreeNode&#123; var $val; var $left = NULL; var $right = NULL; function __construct($val)&#123; $this-&gt;val = $val; &#125;&#125;function reConstructBinaryTree($pre, $vin)&#123; // write code here if($pre &amp;&amp; $vin)&#123; $treeRoot = new TreeNode($pre[0]); $index = array_search($pre[0],$vin); $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,1,$index),array_slice($vin,0,$index)); $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+1),array_slice($vin,$index+1)); return $treeRoot; &#125;&#125;$pre = [1,2,4,7,3,5,6,8];$vin = [4,7,2,1,5,3,8,6];$re = reConstructBinaryTree($pre, $vin);PrintFromTopToBottom($re);function PrintFromTopToBottom($re)&#123; $quene=array(); $res=array(); if($re==null) return $res; array_push($quene,$re); while(!empty($quene))&#123; // quene出队，队头值赋值给tmp，最后打印tmp的val //这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B $tmp=array_shift($quene); //左右节点依次入队 if($tmp-&gt;left!=null)&#123; array_push($quene,$tmp-&gt;left); &#125; if($tmp-&gt;right!=null)&#123; array_push($quene,$tmp-&gt;right); &#125; //将tmp的val入队 array_push($res,$tmp-&gt;val); &#125; print_r($res) ;&#125;]]></content>
+      <categories>
+        <category>笔试</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>笔试</tag>
+        <tag>队列</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[树的遍历与对比]]></title>
     <url>%2F2019%2F04%2F02%2F%E9%81%8D%E5%8E%86%E4%B8%8E%E5%AF%B9%E6%AF%94%2F</url>
     <content type="text"><![CDATA[1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071&lt;?phpclass TreeNode&#123; var $val; var $left = NULL; var $right = NULL; function __construct($val)&#123; $this-&gt;val = $val; &#125;&#125;function reConstructBinaryTree($pre, $vin)&#123; // write code here if($pre &amp;&amp; $vin)&#123; $treeRoot = new TreeNode($pre[0]); $index = array_search($pre[0],$vin); $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,1,$index),array_slice($vin,0,$index)); $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+1),array_slice($vin,$index+1)); return $treeRoot; &#125;&#125;$pre = [1,2,4,7,3,5,6,8];$vin = [4,7,2,1,5,3,8,6];$pre1 = [1,2,4,7];$vin1 = [4,7,2,1];$pRoot1 = reConstructBinaryTree($pre, $vin);$pRoot2 = reConstructBinaryTree($pre1,$vin1);echo HasSubtree($pRoot1, $pRoot2);function HasSubtree($pRoot1, $pRoot2)&#123; $re = false; //当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false if($pRoot1!=NULL&amp;&amp;$pRoot2!=NULL)&#123; //如果找到了对应Tree2的根节点的点 if($pRoot1-&gt;val==$pRoot2-&gt;val)&#123; //以这个根节点为为起点判断是否包含Tree2 $re = judge($pRoot1,$pRoot2); &#125; if(!$re)&#123; //如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2 $re = HasSubtree($pRoot1-&gt;left,$pRoot2); &#125; if(!$re)&#123; //如果还找不到，那么就再去root的右儿子当作起点，去判断时候包含Tree2 $re = HasSubtree($pRoot1-&gt;right,$pRoot2); &#125; &#125; if($re == false)&#123; return 0; &#125;else&#123; return 1; &#125; return $re;&#125;function judge($pRoot1, $pRoot2)&#123; //如果Tree2已经遍历完了都能对应的上，返回true if($pRoot2 == NULL)&#123; return true; &#125; //如果Tree2还没有遍历完，Tree1却遍历完了。返回false if($pRoot1 == NULL)&#123; return false; &#125; //如果其中有一个点没有对应上，返回false if($pRoot1-&gt;val != $pRoot2-&gt;val)&#123; return false; &#125; //如果根节点对应的上，那么就分别去子节点里面匹配 return judge($pRoot1-&gt;left,$pRoot2-&gt;left)&amp;&amp;judge($pRoot1-&gt;right,$pRoot2-&gt;right);&#125;]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>树</tag>
+        <tag>遍历</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[位运算加法]]></title>
     <url>%2F2019%2F04%2F01%2F%E7%AE%97%E5%8A%A0%E6%B3%95%2F</url>
     <content type="text"><![CDATA[12345678910111213&lt;?phpfunction Add($num1, $num2)&#123; // write code here while($num2)&#123; //相加之后的进位 $tmp = $num1 ^ $num2; //相加之后没有进位 $num2 = ($num1 &amp; $num2) &lt;&lt; 1; $num1 = $tmp; &#125; return $num1;&#125; 首先看十进制是如何做的： 5+7=12，三步走第一步：相加各位的值，不算进位，得到2。第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。 第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。 同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。 第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。 第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。 继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[五种常见的 PHP 设计模式]]></title>
-    <url>%2F2019%2F04%2F01%2Fp%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%2F</url>
-    <content type="text"><![CDATA[策略模式策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。策略模式的三个角色：1．抽象策略角色2．具体策略角色3．环境角色（对抽象策略角色的引用）实现步骤：1．定义抽象角色类（定义好各个实现的共同抽象方法）2．定义具体策略类（具体实现父类的共同方法）3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）就在编程领域之外，有许多例子是关于策略模式的。例如：如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。策略模式的代码实例：123456789101112131415161718192021222324&lt;?php abstract class baseAgent &#123; //抽象策略类 abstract function PrintPage(); &#125; //用于客户端是IE时调用的类（环境角色） class ieAgent extends baseAgent &#123; function PrintPage() &#123; return 'IE'; &#125; &#125; //用于客户端不是IE时调用的类（环境角色） class otherAgent extends baseAgent &#123; function PrintPage() &#123; return 'not IE'; &#125; &#125; class Browser &#123; //具体策略角色 public function call($object) &#123; return $object-&gt;PrintPage (); &#125; &#125; $bro = new Browser (); echo $bro-&gt;call ( new ieAgent () );?&gt; 工厂模式 工厂模式是我们最常用的实例化对象模式，是用工厂方法代替new操作的一种模式。使用工厂模式的好处是，如果你想要更改所实例化的类名等，则只需更改该工厂方法内容即可，不需逐一寻找代码中具体实例化的地方（new处）修改了。为系统结构提供灵活的动态扩展机制，减少了耦合。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657&lt;?phpheader('Content-Type:text/html;charset=utf-8');/** *简单工厂模式（静态工厂方法模式） *//** * Interface people 人类 */interface people&#123; public function say();&#125;/** * Class man 继承people的男人类 */class man implements people&#123; // 具体实现people的say方法 public function say() &#123; echo '我是男人&lt;br&gt;'; &#125;&#125;/** * Class women 继承people的女人类 */class women implements people&#123; // 具体实现people的say方法 public function say() &#123; echo '我是女人&lt;br&gt;'; &#125;&#125;/** * Class SimpleFactoty 工厂类 */class SimpleFactoty&#123; // 简单工厂里的静态方法-用于创建男人对象 static function createMan() &#123; return new man(); &#125; // 简单工厂里的静态方法-用于创建女人对象 static function createWomen() &#123; return new women(); &#125;&#125;/** * 具体调用 */$man = SimpleFactoty::createMan();$man-&gt;say();$woman = SimpleFactoty::createWomen();$woman-&gt;say(); 单例模式 单例模式确保某个类只有一个实例，而且自行实例化并向整个系统提供这个实例。单例模式是一种常见的设计模式，在计算机系统中，线程池、缓存、日志对象、对话框、打印机、数据库操作、显卡的驱动程序常被设计成单例。单例模式分3种：懒汉式单例、饿汉式单例、登记式单例。单例模式有以下3个特点：1．只能有一个实例。2．必须自行创建这个实例。3．必须给其他对象提供这一实例。那么为什么要使用PHP单例模式？PHP一个主要应用场合就是应用程序与数据库打交道的场景，在一个应用中会存在大量的数据库操作，针对数据库句柄连接数据库的行为，使用单例模式可以避免大量的new操作。因为每一次new操作都会消耗系统和内存的资源。123456789101112131415161718class Single &#123; private $name;//声明一个私有的实例变量 private function __construct()&#123;//声明私有构造方法为了防止外部代码使用new来创建对象。 &#125; static public $instance;//声明一个静态变量（保存在类中唯一的一个实例） static public function getinstance()&#123;//声明一个getinstance()静态方法，用于检测是否有实例对象 if(!self::$instance) self::$instance = new self(); return self::$instance; &#125; public function setname($n)&#123; $this-&gt;name = $n; &#125; public function getname()&#123; return $this-&gt;name; &#125;&#125;$oa = Single::getinstance();$ob = Single::getinstance();$oa-&gt;setname('hello world');$ob-&gt;setname('good morning');echo $oa-&gt;getname();//good morningecho $ob-&gt;getname();//good morning 注册模式注册模式，解决全局共享和交换对象。已经创建好的对象，挂在到某个全局可以使用的数组上，在需要使用的时候，直接从该数组上获取即可。将对象注册到全局的树上。任何地方直接去访问。12345678910111213141516&lt;?phpclass Register&#123; protected static $objects; function set($alias,$object)//将对象注册到全局的树上 &#123; self::$objects[$alias]=$object;//将对象放到树上 &#125; static function get($name)&#123; return self::$objects[$name];//获取某个注册到树上的对象 &#125; function _unset($alias) &#123; unset(self::$objects[$alias]);//移除某个注册到树上的对象。 &#125;&#125; 适配器模式将各种截然不同的函数接口封装成统一的API。PHP中的数据库操作有MySQL,MySQLi,PDO三种，可以用适配器模式统一成一致，使不同的数据库操作，统一成一样的API。类似的场景还有cache适配器，可以将memcache,redis,file,apc等不同的缓存函数，统一成一致。首先定义一个接口(有几个方法，以及相应的参数)。然后，有几种不同的情况，就写几个类实现该接口。将完成相似功能的函数，统一成一致的方法。 接口 IDatabase1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556&lt;?phpnamespace IMooc;interface IDatabase&#123; function connect($host, $user, $passwd, $dbname); function query($sql); function close();&#125;MySQL&lt;?phpnamespace IMooc\Database;use IMooc\IDatabase;class MySQL implements IDatabase&#123; protected $conn; function connect($host, $user, $passwd, $dbname) &#123; $conn = mysql_connect($host, $user, $passwd); mysql_select_db($dbname, $conn); $this-&gt;conn = $conn; &#125; function query($sql) &#123; $res = mysql_query($sql, $this-&gt;conn); return $res; &#125; function close() &#123; mysql_close($this-&gt;conn); &#125;&#125;MySQLi&lt;?phpnamespace IMooc\Database;use IMooc\IDatabase;class MySQLi implements IDatabase&#123; protected $conn; function connect($host, $user, $passwd, $dbname) &#123; $conn = mysqli_connect($host, $user, $passwd, $dbname); $this-&gt;conn = $conn; &#125; function query($sql) &#123; return mysqli_query($this-&gt;conn, $sql); &#125; function close() &#123; mysqli_close($this-&gt;conn); &#125;&#125; 观察者模式1：观察者模式(Observer)，当一个对象状态发生变化时，依赖它的对象全部会收到通知，并自动更新。2：场景:一个事件发生后，要执行一连串更新操作。传统的编程方式，就是在事件的代码之后直接加入处理的逻辑。当更新的逻辑增多之后，代码会变得难以维护。这种方式是耦合的，侵入式的，增加新的逻辑需要修改事件的主体代码。3：观察者模式实现了低耦合，非侵入式的通知与更新机制。定义一个事件触发抽象类。123456789101112131415161718192021222324252627282930313233343536373839404142434445464748EventGenerator.php&lt;?phprequire_once 'Loader.php';abstract class EventGenerator&#123; private $observers = array(); function addObserver(Observer $observer)&#123; $this-&gt;observers[]=$observer; &#125; function notify()&#123; foreach ($this-&gt;observers as $observer)&#123; $observer-&gt;update(); &#125; &#125;&#125;定义一个观察者接口Observer.php&lt;?phprequire_once 'Loader.php';interface Observer&#123; function update();//这里就是在事件发生后要执行的逻辑&#125;//一个实现了EventGenerator抽象类的类，用于具体定义某个发生的事件实现require 'Loader.php';class Event extends EventGenerator&#123; function triger()&#123; echo "Event&lt;br&gt;"; &#125;&#125;class Observer1 implements Observer&#123; function update()&#123; echo "逻辑1&lt;br&gt;"; &#125;&#125;class Observer2 implements Observer&#123; function update()&#123; echo "逻辑2&lt;br&gt;"; &#125;&#125;$event = new Event();$event-&gt;addObserver(new Observer1());$event-&gt;addObserver(new Observer2());$event-&gt;triger();$event-&gt;notify();]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[php运行模式]]></title>
-    <url>%2F2019%2F04%2F01%2Fhp%2F</url>
-    <content type="text"><![CDATA[一、CGI：fork-and-excute CGI全称是“公共网关接口”(Common Gateway Interface)，HTTP服务器与你的或其它机器上的程序进行“交谈”的一种工具，其程序须运行在网络服务器上。CGI可以用任何一种语言编写，只要这种语言具有标准输入、输出和环境变量。如php,perl,tcl等。 CGI有很多缺点，每接收一个请求就要fork一个进程处理，只能接收一个请求作出一个响应。请求结束后该进程就会结束。 而FastCGI会事先启动起来，作为一个cgi的管理服务器存在，预先启动一系列的子进程来等待处理，然后等待web服务器发过来的请求，一旦接受到请求就交由子进程处理，这样由于不需要在接受到请求后启动cgi。FastCGI使用进程/线程池来处理一连串的请求。这些进程/线程由FastCGI服务器管理，而不是Web服务器。当进来一个请求时，Web服务器把环境变量和这个页面请求通过一个Socket长连接传递给FastCGI进程。在请求到达时不会花费时间去fork一个进程来处理。 二、FastCGI（协议）： FastCGI像是一个常驻(long-live)型的CGI，它可以一直执行着，只要激活后，不会每次都要花费时间去fork一次（这是CGI最为人诟病的fork-and-execute 分叉-执行模式）。它还支持分布式的运算，即 FastCGI 程序可以在网站服务器以外的主机上执行并且接受来自其它网站服务器来的请求。 FastCGI是语言无关的、可伸缩架构的CGI开放扩展，其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能。众所周知，CGI解释器的反复加载是CGI性能低下的主要原因，如果CGI解释器保持在内存中并接受FastCGI进程管理器调度，则可以提供良好的性能、伸缩性、Fail- Over特性等等。 FastCGI特点FastCGI具有语言无关性. FastCGI在进程中的应用程序，独立于核心web服务器运行，提供了一个比API更安全的环境。APIs把应用程序的代码与核心的web服务器链接在一起，这意味着在一个错误的API的应用程序可能会损坏其他应用程序或核心服务器。 恶意的API的应用程序代码甚至可以窃取另一个应用程序或核心服务器的密钥。 FastCGI技术目前支持语言有：C/C++、Java、Perl、Tcl、Python、SmallTalk、Ruby等。相关模块在Apache, ISS, Lighttpd等流行的服务器上也是可用的。FastCGI的不依赖于任何Web服务器的内部架构，因此即使服务器技术的变化, FastCGI依然稳定不变。 FastCGI的工作原理 1、Web Server启动时载入FastCGI进程管理器（IIS ISAPI或Apache Module)FastCGI进程管理器自身初始化，启动多个CGI解释器进程(可见多个php-cgi)并等待来自Web Server的连接。 2、当客户端请求到达Web Server时，FastCGI进程管理器选择并连接到一个CGI解释器。Web server将CGI环境变量和标准输入发送到FastCGI子进程php-cgi。 3、FastCGI子进程完成处理后将标准输出和错误信息从同一连接返回Web Server。当FastCGI子进程关闭连接时，请求便告处理完成。FastCGI子进程接着等待并处理来自FastCGI进程管理器(运行在Web Server中)的下一个连接。 在CGI模式中，php-cgi在此便退出了。 在上述情况中，你可以想象CGI通常有多慢。每一个Web请求PHP都必须重新解析php.ini、重新载入全部扩展并重初始化全部数据结构。使用FastCGI，所有这些都只在进程启动时发生一次。一个额外的好处是，持续数据库连接(Persistent database connection)可以工作。 FastCGI的不足 因为是多进程，所以比CGI多线程消耗更多的服务器内存，PHP-CGI解释器每进程消耗7至25兆内存，将这个数字乘以50或100就是很大的内存数。PHP-CGIPHP-CGI是PHP自带的FastCGI管理器。PHP-CGI的不足：php-cgi变更php.ini配置后需重启php-cgi才能让新的php-ini生效，不可以平滑重启。直接杀死php-cgi进程，php就不能运行了。(PHP-FPM和Spawn-FCGI就没有这个问题，守护进程会平滑从新生成新的子进程。） PHP-FPM（实现FASTCGI的程序）PHP-FPM是一个PHP FastCGI管理器，是只用于PHP的，可以在 http://php-fpm.org/download下载得到。PHP-FPM其实是PHP源代码的一个补丁，旨在将FastCGI进程管理整合进PHP包中。必须将它patch到你的PHP源代码中，在编译安装PHP后才可以使用。现在我们可以在最新的PHP 5.3.2的源码树里下载得到直接整合了PHP-FPM的分支，据说下个版本会融合进PHP的主分支去。相对Spawn-FCGI，PHP-FPM在CPU和内存方面的控制都更胜一筹，而且前者很容易崩溃，必须用crontab进行监控，而PHP-FPM则没有这种烦恼。PHP5.3.3已经集成php-fpm了，不再是第三方的包了。PHP-FPM提供了更好的PHP进程管理方式，可以有效控制内存和进程、可以平滑重载PHP配置，所以被PHP官方收录了。PHP-FPM的使用非常方便，配置都是在PHP-FPM.ini的文件内，而启动、重启都可以从php/sbin/PHP-FPM中进行。更方便的是修改php.ini后可以直接使用PHP-FPM reload进行加载，无需杀掉进程就可以完成php.ini的修改加载结果显示使用PHP-FPM可以使php有不小的性能提升。PHP-FPM控制的进程cpu回收的速度比较慢,内存分配的很均匀。而PHP-FPM合理的分配，导致总体响应的提到以及任务的平均。 三、 LoadModule（Apache独有）：在Apache配置文件httpd.conf里，通常加的LoadModule php7_module “D:/…/php71/php7apache2_4.dll”起到的作用就是这个 四、ISAPI（IIS独有）： 五、CLI：命令行模式CLI:就是命令行，例如可以在控制台或者是shell中键入命令 php -f index.php 总结：FastCGI 和 LoadModule 模式其实就是 CGI 模式的升级版，主要为了克服 CGI fork-and-execute 的弊端而产生的]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>笔试</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[mysql千行笔记]]></title>
@@ -91,7 +186,9 @@
         <category>高级算法</category>
       </categories>
       <tags>
+        <tag>算法</tag>
         <tag>动态规划</tag>
+        <tag>笔试</tag>
       </tags>
   </entry>
   <entry>
@@ -137,7 +234,7 @@
   <entry>
     <title><![CDATA[阿里一面凉经]]></title>
     <url>%2F2019%2F03%2F27%2F%E4%B8%80%E9%9D%A2%E5%87%89%E7%BB%8F%2F</url>
-    <content type="text"><![CDATA[输入密码，查看文章 Incorrect Password! No content to display! U2FsdGVkX185yT74y21ysyvEPDe7LSdi4zDWrTsRsj0oFJ+Tp4tZ5ovL5fi5OkC62zeQahRfU0qKZhi07Vdz5rgm3Gu2cXEBqv4m2e17HsVzaDbaL5rHzUb7+140/kFBxHMd190jVU2yWXK3czdH5heZrnU3OzVSY6gTkg8Q1JDzqexlu5pdh28DDxy/19EWTiEwv7aVbJsL0mTwhrGa5ViCx7DxqONiUUu2huC5OAi705mHLbKCZCKD4m8ZH3AY2W+o/xk84lgPKMfjhrk3RVEw/BWI2Z+rirAvGC9tB7R+HQMllWSst3uQcmu9HWJJfL+445/zEP5aD5yY686sKsFBnH+o0QpRakptL8ES2msI98PqxOr6wu8QkRztbhykkHBoh7cdRWo3hL8clXx8joR3JMHgWzonDiX7MC0lIYgNLXSwsyNufKYtn51IlIj8wNCiZhGu6iL6coaWPnmzv3xRIbQaU61XGHRQxtS15iysgy49wjw/tEZPsmMFmjrZUfjoRnqWeHKBtUkNn0J42K7nYW0NKwI1JdLdnL5QIKVa5xsjtSIUcbInaBnvbDUDqA0OpRd++MTxVIJpG0b0Wl6f//u0DYbIRA3/4mjApIiddI+WOWNwlNj7mtIjZvW+APZr8GtInuaFL4wYO1uHy05PJJE2WUm2CUyXu2MeXbD+sg9gGtIUJQWJsCyFtKH4R8IAxB6VQiPvQ9jq6RIg6he14u+nOnCL0wEFWunMwLrmc8EH8aCazChcbPcA49Jpba5tY7YZWXgwbXddYE4zREW6K2bFlABJdIZiSoFNt4SFjxkt07F0wfSCD13ueVyM1W+b4TDX6XpxB1fvoJGPAupRJXt4wccq39KlqjvmW3t98GH3q8ETX+vg42rGceGRg+XiBQU8tUP50pyFGVEd/IVhMBlPlmnBIMcHVM6Z+kVPtox3ACl1hoHsqu6tg+EObyYpWELHKKFUZrgbjcU0P/xUwfQaJ5f3twNEtLlnUm98TwbMLfuYCaABcviBryMwBx7QTbJpTwwxjInU0E9ZOTQ62a+ehgV9DakkkOia6/2dsOoBqSRwnzrzaw2IE2Jbe1+oo6ZLKSk9V0rzKDur2inR1HOzOGDxQggKE5TZw+LFI2cUeD7rIPC7UbPobk/APFJeHFiAlHxD2vGt/GQn7tVenPy93cqeSaG/jEczxbicZpeC83Lb/reC3TdXBOSZ3KpIFBo0/qoV2UkZ02WujLHntPkMQ4inSCExwX0WRzQFYuUwcmDYjvd6AXgZF84p]]></content>
+    <content type="text"><![CDATA[输入密码，查看文章 Incorrect Password! No content to display! U2FsdGVkX1+sXcl4ba3lTXw8oq/8TmsT63Iu0wZ/aToyMay2OeqJCVhR8XTr0swgIe0sUxZg74xak60EGKjWfJReW87mb0NzBChqFttC67NuBc2AX/TF/9T8bXmYDkX+vljU8cMflcEs/hvGs0vL4T6DkMAF2kuegRSxoIzH4odtgcnxojpT0p20lqW7G8F0cfCbQwFB9xFEP3vawj407kditYmnanVrYXyu33e9yIcj6IuQxejYFLgHXDRSmZOy42nm+04tsTV8r8G7JTLd0xVb/rdRKkjD2b6GPG0phEEXVBOvYdQxjSImRPRSasVRx5LICmHuRbZWRJFJslf5KIX7nuKQVYL8Uqly3vUUftGOWZIPDZLbdc5g3Y3WWkMis32WPiP5ZKYc38IdvWai6K6WNCrpNZF1a5thzS5fQIj035iIMBB6kasp8BtBHpUK5Vbolt035anAZT/GSwO5L2Jf4IoS+Nl7ksmAStnL1WMmk7yX76COhNebV9BUHUKzU5VrwWqX5yan3ows3jCH9tRt/p5NscJH+RsZsbpZ00qWNKMi32UrfMx6IiIgn1P72tfsQ3EUy8nCti7LIMNHQGmeSTr9V+athFWWZk337082ecKWz0GaVkONYSJuZXDGl2qHCG4XKKUR7wW0mdmRaEEo9ss32bxTm/wYO+Zq3MMTPaLVf3VdYY5mQiwViDymDLBouwzB56pTRxoxrfjtI1CXKKpMJLGaaoWDMVGwtJVc6AHAL7vk9O+jBK44xklfigWYP6ftp/Egwb7C/06yWP7zxZa0p1rcFjGAogwxx1LHmDwa4Gcy+KgTqL+hxhvtysgDD0DBosaYqShL2ns52iVHjLgVUjicWSaUGvGt6BJhSsxbRZyxm0jXbwnhvRfV9ATUJmsodGYV6p7J7mTMcxxVS3HvnUVzoOHiqND0ivJ8NZbn5mvK/ahmX7gStG7/PJmxGemlDWPOgPmBczlVa433uM+ISGpaPVw0Z5uU+Wf7gQjebhkjBTk2rEWqQV4CZGNQP1wDgVOwlPzneevBikHE73iYMxMgLg/a2W7xkP0/ZMbcF8KVxAB/7mgHHRzAbt2TNAdVJdd4/vfykzRrehIaxGvV8XY0ST6qLCzijxwJ9o881k6qR5hfzWDhs8R+Tvj2hX7g8ZRopNMB7qlreOxqwJkeN+OgFPHw15ms0OnTuXVYRDD6EitF430LqbTSjyxnHSkUg73JIm8WDnqILaqdHYtpM3v5sYExas7yr90FLbyz9ePb8+G8gvdJy8D5]]></content>
   </entry>
   <entry>
     <title><![CDATA[php多线程]]></title>
@@ -167,10 +264,11 @@
     <url>%2F2019%2F03%2F27%2Fp%E8%AF%B7%E6%B1%82%2F</url>
     <content type="text"><![CDATA[http协议的状态码 5xx（服务器错误）这些状态码表示服务器在处理请求时发生内部错误。这些错误可能是服务器本身的错误，而不是请求出错。 500（服务器内部错误）Internal Server Error服务器遇到错误，无法完成请求。 501（尚未实施）Not Implemented服务器不具备完成请求的功能。例如，服务器无法识别请求方法时可能会返回此代码。 502（错误网关）Bad Gateway服务器作为网关或代理，从上游服务器收到无效响应。 503（服务不可用）Service Unavailable服务器目前无法使用（由于超载或停机维护）。通常，这只是暂时状态。 504（网关超时）Gateway Timeout服务器作为网关或代理，但是没有及时从上游服务器收到请求。 505（HTTP 版本不受支持）HTTP Version Not Supported服务器不支持请求中所用的 HTTP 协议版本。1xx（临时响应）表示临时响应并需要请求者继续执行操作的状态码。 100（继续）continue请求者应当继续提出请求。服务器返回此代码表示已收到请求的第一部分，正在等待其余部分。101（切换协议）switch protocols请求者已要求服务器切换协议，服务器已确认并准备切换。 2xx（成功）表示成功处理了请求的状态码。 200（成功）OK服务器已成功处理了请求。通常，这表示服务器提供了请求的网页。如果是对您的 robots.txt 文件显示此状态码，则表示 Googlebot 已成功检索到该文件。201（已创建）Created请求成功并且服务器创建了新的资源。 202（已接受）Accepted服务器已接受请求，但尚未处理。 203（非授权信息）Non-Authoriative Information服务器已成功处理了请求，但返回的信息可能来自另一来源。 204（无内容）No Content服务器成功处理了请求，但没有返回任何内容。 205（重置内容）Reset Content服务器成功处理了请求，但没有返回任何内容。与 204 响应不同，此响应要求请求者重置文档视图（例如，清除表单内容以输入新内容）。 206（部分内容）Partial Content服务器成功处理了部分 GET 请求。 3xx（重定向）要完成请求，需要进一步操作。通常，这些状态码用来重定向。Google建议您在每次请求中使用重定向不要超过5次。您可以使用网站管理员工具查看一下 Googlebot在抓取重定向网页时是否遇到问题。诊断下的网络抓取页列出了由于重定向错误导致 Googlebot 无法抓取的网址。 300（多种选择）Multiple Choices针对请求，服务器可执行多种操作。服务器可根据请求者 (user agent) 选择一项操作，或提供操作列表供请求者选择。 301（永久移动）Moved Permanently请求的网页已永久移动到新位置。服务器返回此响应（对 GET 或 HEAD 请求的响应）时，会自动将请求者转到新位置。您应使用此代码告诉 Googlebot 某个网页或网站已永久移动到新位置。 302（临时移动）服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个网页或网站已经移动，因为 Googlebot 会继续抓取原有位置并编制索引。 303（查看其他位置）see other请求者应当对不同的位置使用单独的 GET 请求来检索响应时，服务器返回此代码。对于除 HEAD 之外的所有请求，服务器会自动转到其他位置。 304（未修改）Not Modified自从上次请求后，请求的网页未修改过。服务器返回此响应时，不会返回网页内容。如果网页自请求者上次请求后再也没有更改过，您应将服务器配置为返回此响应（称为 If-Modified-Since HTTP 标头）。服务器可以告诉 Googlebot 自从上次抓取后网页没有变更，进而节省带宽和开销。. 305（使用代理）Use Proxy请求者只能使用代理访问请求的网页。如果服务器返回此响应，还表示请求者应使用代理。 307（临时重定向）Temporary Redirect服务器目前从不同位置的网页响应请求，但请求者应继续使用原有位置来响应以后的请求。此代码与响应 GET 和 HEAD 请求的 301 代码类似，会自动将请求者转到不同的位置，但您不应使用此代码来告诉 Googlebot 某个页面或网站已经移动，因为 Googlebot 会继续抓取原有位置并编制索引。 4xx（请求错误）这些状态码表示请求可能出错，妨碍了服务器的处理。 400（错误请求）Bad Request服务器不理解请求的语法。 401（未授权）Unauthorized请求要求身份验证。对于登录后请求的网页，服务器可能返回此响应。 403（禁止）Forbidden服务器拒绝请求。如果您在 Googlebot 尝试抓取您网站上的有效网页时看到此状态码（您可以在 Google 网站管理员工具诊断下的网络抓取页面上看到此信息），可能是您的服务器或主机拒绝了 Googlebot 访问。 404（未找到）File Not Found服务器找不到请求的网页。例如，对于服务器上不存在的网页经常会返回此代码。如果您的网站上没有 robots.txt 文件，而您在 Google 网站管理员工具“诊断”标签的 robots.txt 页上看到此状态码，则这是正确的状态码。但是，如果您有 robots.txt 文件而又看到此状态码，则说明您的 robots.txt 文件可能命名错误或位于错误的位置（该文件应当位于顶级域，名为 robots.txt）。如果对于 Googlebot 抓取的网址看到此状态码（在”诊断”标签的 HTTP 错误页面上），则表示 Googlebot 跟随的可能是另一个页面的无效链接（是旧链接或输入有误的链接）。 405（方法禁用）Method Not Allowed禁用请求中指定的方法。 406（不接受）Not Acceptable无法使用请求的内容特性响应请求的网页。 407（需要代理授权）Proxy Authentication Required此状态码与 401（未授权）类似，但指定请求者应当授权使用代理。如果服务器返回此响应，还表示请求者应当使用代理。 408（请求超时）Request Time-out服务器等候请求时发生超时。 409（冲突）conflict服务器在完成请求时发生冲突。服务器必须在响应中包含有关冲突的信息。服务器在响应与前一个请求相冲突的 PUT 请求时可能会返回此代码，以及两个请求的差异列表。 410（已删除）Gone如果请求的资源已永久删除，服务器就会返回此响应。该代码与 404（未找到）代码类似，但在资源以前存在而现在不存在的情况下，有时会用来替代 404 代码。如果资源已永久移动，您应使用 301 指定资源的新位置。 411（需要有效长度）Length Required服务器不接受不含有效内容长度标头字段的请求。 412（未满足前提条件）Precondition Failed服务器未满足请求者在请求中设置的其中一个前提条件。 413（请求实体过大）Request Entity Too Large服务器无法处理请求，因为请求实体过大，超出服务器的处理能力。 414（请求的 URI 过长）Request-URL Too Large请求的 URI（通常为网址）过长，服务器无法处理。 415（不支持的媒体类型）Unsupported Media Type请求的格式不受请求页面的支持。 416（请求范围不符合要求）Requested range not statifiable如果页面无法提供请求的范围，则服务器会返回此状态码。 417（未满足期望值）Expectation Failed服务器未满足”期望”请求标头字段的要求。]]></content>
       <categories>
-        <category>http</category>
+        <category>面试必考</category>
       </categories>
       <tags>
         <tag>http</tag>
+        <tag>面试必考</tag>
       </tags>
   </entry>
   <entry>
@@ -178,18 +276,24 @@
     <url>%2F2019%2F03%2F27%2FET%E4%B8%8EPOST%E5%8C%BA%E5%88%AB%2F</url>
     <content type="text"><![CDATA[get post本质：HTTP协议里两种发送请求的方法get向服务器请求资源post 向服务器发送请求 通常情况参数的传送渠道的不同get放在url里面 post放在body里面get请求url有限制（字符串） post没有限制但是http其实没明确规定什么get/post方法要用什么样的方式传输数据 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。因为POST需要两步，时间上消耗的要多一点，但是在网络环境好的情况下，发一次包的时间和发两次包的时间差别基本可以无视。而在网络环境差的情况下，两次包的TCP在验证数据包完整性上，有非常大的优点。并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。]]></content>
       <categories>
-        <category>http</category>
+        <category>面试必考</category>
       </categories>
       <tags>
         <tag>http</tag>
+        <tag>面试必考</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[冒泡排序]]></title>
     <url>%2F2019%2F03%2F26%2Ftitled%2F</url>
     <content type="text"><![CDATA[123456789101112131415161718192021&lt;?php //送给心爱的她5201314 $arr = array('5','2','0','1','3','1','4'); function BubbleSort(array $arr) &#123; for ($i=0 ; $i &lt;count($arr) ; $i++) &#123; //设置一个空变量 $data = ''; for ($j=$i ; $j &lt; count($arr)-1 ; $j++) &#123; if ($arr[$i] &gt; $arr[$j+1]) &#123; $data = $arr[$i]; $arr[$i] = $arr[$j+1]; $arr[$j+1] = $data; &#125; &#125; &#125; return $arr; &#125; echo "&lt;pre&gt;"; print_r(BubbleSort($arr));]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
       <tags>
         <tag>排序</tag>
+        <tag>笔试</tag>
+        <tag>算法那</tag>
       </tags>
   </entry>
   <entry>
@@ -212,6 +316,7 @@
       </categories>
       <tags>
         <tag>排序</tag>
+        <tag>笔试</tag>
       </tags>
   </entry>
   <entry>
@@ -223,6 +328,8 @@
       </categories>
       <tags>
         <tag>算法</tag>
+        <tag>笔试</tag>
+        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
@@ -234,6 +341,7 @@
       </categories>
       <tags>
         <tag>排序</tag>
+        <tag>面试必考</tag>
       </tags>
   </entry>
   <entry>
@@ -245,6 +353,8 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
+        <tag>笔试</tag>
+        <tag>队列</tag>
       </tags>
   </entry>
   <entry>
@@ -252,10 +362,11 @@
     <url>%2F2019%2F03%2F25%2Fmysql%E4%BA%8B%E5%8A%A1%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[1、什么是事务事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。Atomicity原子性：要不全部成功，要不全部撤销Isolation隔离性：事务之间相互独立，互不干扰Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏Durability持久性：事务的提交结果，将持久保存在数据库中 pass：不可重复读与幻读的本质区别不可重复读是读取了其他事务更改的数据，针对update操作解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。passpass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。不可重复读：数据读错方读了两次数据库 幻读是读取了其他事务新增的数据，针对insert操作解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。 2、事务并发会产生什么问题1）第一类丢失更新：在没有事务隔离的情况下，两个事务都同时更新一行数据，但是第二个事务却中途失败退出，导致对数据的两个修改都失效了。例如： 张三的工资为5000，事务A中获取工资为5000，事务B获取工资为5000，汇入100，并提交数据库，工资变为5100， 随后事务A发生异常，回滚了，恢复张三的工资为5000，这样就导致事务B的更新丢失了。2）脏读：脏读就是指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。例如： 张三的工资为5000,事务A中把他的工资改为8000,但事务A尚未提交。 与此同时，事务B正在读取张三的工资，读取到张三的工资为8000。 随后，事务A发生异常，而回滚了事务。张三的工资又回滚为5000。 最后，事务B读取到的张三工资为8000的数据即为脏数据，事务B做了一次脏读。 3）不可重复读：是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。例如： 在事务A中，读取到张三的工资为5000，操作没有完成，事务还没提交。 与此同时，事务B把张三的工资改为8000，并提交了事务。 随后，在事务A中，再次读取张三的工资，此时工资变为8000。在一个事务中前后两次读取的结果并不致，导致了不可重复读。 4）第二类丢失更新：不可重复读的特例。有两个并发事务同时读取同一行数据，然后其中一个对它进行修改提交，而另一个也进行了修改提交。这就会造成第一次写操作失效。例如： 在事务A中，读取到张三的存款为5000，操作没有完成，事务还没提交。 与此同时，事务B，存储1000，把张三的存款改为6000，并提交了事务。 随后，在事务A中，存储500，把张三的存款改为5500，并提交了事务，这样事务A的更新覆盖了事务B的更新。5）幻读：是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。例如： 目前工资为5000的员工有10人，事务A读取所有工资为5000的人数为10人。 此时，事务B插入一条工资也为5000的记录。 这时，事务A再次读取工资为5000的员工，记录为11人。此时产生了幻读。 提醒：不可重复读的重点是修改，同样的条件，你读取过的数据，再次读取出来发现值不一样了幻读的重点在于新增或者删除，同样的条件，第 1 次和第 2 次读出来的记录数不一样 3、事务隔离级别，解决什么并发问题，以及存在什么并发问题（1）READ_UNCOMMITTED（读未提交） 这是事务最低的隔离级别，它充许另外一个事务可以看到这个事务未提交的数据。 解决第一类丢失更新的问题，但是会出现脏读、不可重复读、第二类丢失更新的问题，幻读 。（2）READ_COMMITTED（读已提交） 保证一个事务修改的数据提交后才能被另外一个事务读取，即另外一个事务不能读取该事务未提交的数据。 解决第一类丢失更新和脏读的问题，但会出现不可重复读、第二类丢失更新的问题，幻读问题（3）REPEATABLE_READ（重复读） 保证一个事务相同条件下前后两次获取的数据是一致的 解决第一类丢失更新，脏读、不可重复读、第二类丢失更新的问题，但会出幻读。（4）SERIALIZABLE（串行化） 事务被处理为顺序执行。 解决所有问题提醒：Mysql默认的事务隔离级别为repeatable_read 4、InnoDB引擎的锁机制（之所以以InnoDB为主介绍锁，是因为InnoDB支持事务，支持行锁和表锁用的比较多，Myisam不支持事务，只支持表锁）共享锁（S）：允许一个事务去读一行，阻止其他事务获得相同数据集的排他锁。排他锁（X)：允许获得排他锁的事务更新数据，阻止其他事务取得相同数据集的共享读锁和排他写锁。意向共享锁（IS）：事务打算给数据行加行共享锁，事务在给一个数据行加共享锁前必须先取得该表的IS锁。意向排他锁（IX）：事务打算给数据行加行排他锁，事务在给一个数据行加排他锁前必须先取得该表的IX锁。说明： 1）共享锁和排他锁都是行锁，意向锁都是表锁，应用中我们只会使用到共享锁和排他锁，意向锁是mysql内部使用的，不需要用户干预。2）对于UPDATE、DELETE和INSERT语句，InnoDB会自动给涉及数据集加排他锁（X)；对于普通SELECT语句，InnoDB不会加任何锁，事务可以通过以下语句显示给记录集加共享锁或排他锁。共享锁（S）：SELECT FROM table_name WHERE … LOCK IN SHARE MODE。排他锁（X)：SELECT FROM table_name WHERE … FOR UPDATE。3）InnoDB行锁是通过给索引上的索引项加锁来实现的，因此InnoDB这种行锁实现特点意味着：只有通过索引条件检索数据，InnoDB才使用行级锁，否则，InnoDB将使用表锁！。 乐观锁乐观锁需要自己去实现。乐观锁是指操作数据库时(更新操作)，想法很乐观，认为这次的操作不会导致冲突，在操作数据时，并不进行任何其他的特殊处理（也就是不加锁），而在进行更新后，再去判断是否有冲突了。 通常实现是这样的：在表中的数据进行操作时(更新)，先给数据表加一个版本(version)字段，每操作一次，将那条记录的版本号加1。也就是先查询出那条记录，获取出version字段,如果要对那条记录进行操作(更新),则先判断此刻version的值是否与刚刚查询出来时的version的值相等，如果相等，则说明这段期间，没有其他程序对其进行操作，则可以执行更新，将version字段的值加1；如果更新时发现此刻的version值与刚刚获取出来的version的值不相等，则说明这段期间已经有其他程序对其进行操作了，则不进行更新操作。 悲观锁与乐观锁相对应的就是悲观锁了。悲观锁就是在操作数据时，认为此操作会出现数据冲突，所以在进行每次操作时都要通过获取锁才能进行对相同数据的操作，这点跟java中的synchronized很相似，所以悲观锁需要耗费较多的时间。另外与乐观锁相对应的，悲观锁是由数据库自己实现了的，要用的时候，我们直接调用数据库的相关语句就可以了。 说到这里，由悲观锁涉及到的另外两个锁概念就出来了，它们就是共享锁与排它锁。共享锁和排它锁是悲观锁的不同的实现，它俩都属于悲观锁的范畴。 共享锁共享锁(S锁)又称为读锁，顾名思义，共享锁就是多个事务对于同一数据可以共享一把锁，都能访问到数据，但是只能读不能修改（读取）操作创建的锁。其他用户可以并发读取数据，但任何事物都不能获取数据上的排它锁，直到已释放所有共享锁。若事务T对数据对象A加上S锁，则事务T只能读A；其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S锁。这就保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。 排它锁排他锁又称为写锁，简称X锁，顾名思义，排他锁就是不能与其他锁并存，如一个事务获取了一个数据行的排他锁，其他事务就不能再获取该行的其他锁，包括共享锁和排他锁，但是获取排他锁的事务是可以对数据就行读取和修改。 若事物T对数据对象A加上X锁，则只允许T读取和修改A，其它任何事务都不能再对A加任何类型的锁，直到T释放A上的锁。它防止任何其它事务获取资源上的锁，直到在事务的末尾将资源上的原始锁释放为止。]]></content>
       <categories>
-        <category>数据库</category>
+        <category>面试必考</category>
       </categories>
       <tags>
         <tag>mysql</tag>
+        <tag>面试必考</tag>
       </tags>
   </entry>
   <entry>
@@ -278,6 +389,7 @@
       </categories>
       <tags>
         <tag>php</tag>
+        <tag>基础函数</tag>
       </tags>
   </entry>
   <entry>
@@ -289,6 +401,7 @@
       </categories>
       <tags>
         <tag>php</tag>
+        <tag>基础函数</tag>
       </tags>
   </entry>
   <entry>
@@ -311,6 +424,7 @@
       </categories>
       <tags>
         <tag>mysql</tag>
+        <tag>面试必考</tag>
       </tags>
   </entry>
   <entry>
