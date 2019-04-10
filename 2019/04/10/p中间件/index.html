@@ -77,18 +77,20 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
+<meta name="description" content="什么是中间件？中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等 图样 thinkphp5.1中间件thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。https://www.kancloud.cn/manual/thinkphp5_1/5">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入了解PHP闭包的使用以及实现">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/index.html">
+<meta property="og:title" content="php中间件（middleware）">
+<meta property="og:url" content="http://yoursite.com/2019/04/10/p中间件/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
+<meta property="og:description" content="什么是中间件？中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等 图样 thinkphp5.1中间件thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。https://www.kancloud.cn/manual/thinkphp5_1/5">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-30T12:26:57.194Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-36.png">
+<meta property="og:updated_time" content="2019-04-10T07:35:23.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入了解PHP闭包的使用以及实现">
-<meta name="twitter:description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
+<meta name="twitter:title" content="php中间件（middleware）">
+<meta name="twitter:description" content="什么是中间件？中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等 图样 thinkphp5.1中间件thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。https://www.kancloud.cn/manual/thinkphp5_1/5">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-36.png">
 
 
 
@@ -118,14 +120,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/10/p中间件/">
 
 
 
 
 
 
-  <title>深入了解PHP闭包的使用以及实现 | 殷航的博客</title>
+  <title>php中间件（middleware） | 殷航的博客</title>
   
 
 
@@ -294,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/p中间件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -311,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入了解PHP闭包的使用以及实现</h1>
+          <h1 class="post-title" itemprop="name headline">php中间件（middleware）</h1>
         
 
         <div class="post-meta">
@@ -323,8 +325,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:06:00+08:00">
-                2019-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T12:45:00+08:00">
+                2019-04-10
               </time>
             
 
@@ -383,9 +385,16 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/chenpingzhao/p/4553139.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpingzhao/p/4553139.html</a></p>
-<p><a href="https://www.cnblogs.com/XGHeaven/p/4245306.html" target="_blank" rel="noopener">https://www.cnblogs.com/XGHeaven/p/4245306.html</a></p>
-<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。 </p>
+        <h2 id="什么是中间件？"><a href="#什么是中间件？" class="headerlink" title="什么是中间件？"></a>什么是中间件？</h2><p>中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等</p>
+<h2 id="图样"><a href="#图样" class="headerlink" title="图样"></a>图样</h2><p><img src="\images\pasted-36.png" alt="upload successful"></p>
+<h2 id="thinkphp5-1中间件"><a href="#thinkphp5-1中间件" class="headerlink" title="thinkphp5.1中间件"></a>thinkphp5.1中间件</h2><p>thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。<br><a href="https://www.kancloud.cn/manual/thinkphp5_1/564279" target="_blank" rel="noopener">https://www.kancloud.cn/manual/thinkphp5_1/564279</a></p>
+<p>中间件是一个闭包，而且返回一个闭包。中间件为过滤进入应用的HTTP请求提供了一套便利的机制，可以分为前置中间件和后置中间件。常用于验证用户是否经过认证，添加响应头（跨域），记录请求日志等。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 框架核心应用层</span></span></span><br><span class="line"><span class="php">$application = <span class="function"><span class="keyword">function</span><span class="params">($name)</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"this is a &#123;$name&#125; application\n"</span>;</span></span><br><span class="line"><span class="php">&#125;;</span></span><br><span class="line"><span class="php"><span class="comment">// 前置校验中间件</span></span></span><br><span class="line"><span class="php">$auth = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; need a auth middleware\n"</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $handler($name);</span></span><br><span class="line"><span class="php">    &#125;;</span></span><br><span class="line"><span class="php">&#125;;</span></span><br><span class="line"><span class="php"><span class="comment">// 前置过滤中间件</span></span></span><br><span class="line"><span class="php">$filter = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; need a filter middleware\n"</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $handler($name);    &#125;;</span></span><br><span class="line"><span class="php">&#125;;</span></span><br><span class="line"><span class="php"><span class="comment">// 后置日志中间件</span></span></span><br><span class="line"><span class="php">$log = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        $return = $handler($name);</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; need a log middleware\n"</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $return;</span></span><br><span class="line"><span class="php">    &#125;;</span></span><br><span class="line"><span class="php">&#125;;</span></span><br><span class="line"><span class="php"><span class="comment">// 中间件栈</span></span></span><br><span class="line"><span class="php">$stack = [];</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">// 打包</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">pack_middleware</span><span class="params">($handler, $stack)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">foreach</span> (array_reverse($stack) <span class="keyword">as</span> $key =&gt; $middleware)&#123;</span></span><br><span class="line"><span class="php">        $handler = $middleware($handler);</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> $handler;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">// 注册中间件</span></span></span><br><span class="line"><span class="php"><span class="comment">//// 这里用的都是全局中间件，实际应用时还可以为指定路由注册局部中间件</span></span></span><br><span class="line"><span class="php">$stack[<span class="string">'log'</span>] = $log;</span></span><br><span class="line"><span class="php">$stack[<span class="string">'filter'</span>] = $filter;</span></span><br><span class="line"><span class="php">$stack[<span class="string">'auth'</span>] = $auth;</span></span><br><span class="line"><span class="php">$run = pack_middleware($application, $stack);</span></span><br><span class="line"><span class="php">$run(<span class="string">'Laravle'</span>);</span></span><br></pre></td></tr></table></figure>
+<p>输出： </p>
+<p>Laravle need a filter middleware<br>Laravle need a auth middleware<br>this is a Laravle application<br>Laravle need a log middleware</p>
+<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><p>中间件的执行顺序是由打包函数(pack_middleware)决定，这里返回的闭包实际上相当于:</p>
+<pre><code>$run = $log($filter($auth($application)));$run(&apos;Laravle&apos;);
+</code></pre><h2 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h2><p>中间件要要满足一定的规范：总是返回一个闭包，闭包中总是传入相同的参数（由主要逻辑决定）， 闭包总是返回句柄(handler)的执行结果；<br>如果中间件的逻辑在返回句柄return $handler($name)前完成，就是前置中间件，否则为后置中间件。</p>
 
       
     </div>
@@ -416,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/算法/" rel="next" title="动态规划与贪心算法的区别与联系">
-                <i class="fa fa-chevron-left"></i> 动态规划与贪心算法的区别与联系
+              <a href="/2019/04/09/I/" rel="next" title="OSI">
+                <i class="fa fa-chevron-left"></i> OSI
               </a>
             
           </div>
@@ -426,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/29/1背包问题/" rel="prev" title="php实现0-1背包问题">
-                php实现0-1背包问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/10/dis分布式锁/" rel="prev" title="Redis分布式锁">
+                Redis分布式锁 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -480,8 +489,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -543,6 +561,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是中间件？"><span class="nav-number">1.</span> <span class="nav-text">什么是中间件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图样"><span class="nav-number">2.</span> <span class="nav-text">图样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thinkphp5-1中间件"><span class="nav-number">3.</span> <span class="nav-text">thinkphp5.1中间件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">4.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包程序"><span class="nav-number">5.</span> <span class="nav-text">打包程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写规范"><span class="nav-number">6.</span> <span class="nav-text">编写规范</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
