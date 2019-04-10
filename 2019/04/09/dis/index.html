@@ -77,22 +77,22 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/jasonZh/p/9513948.html Redis实际应用场景　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。　　转向Redis当然也是可取的，许多开发者从一开始就把Re">
+<meta name="description" content="Redis实际应用场景">
 <meta name="keywords" content="nosql,redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis">
 <meta property="og:url" content="http://yoursite.com/2019/04/09/dis/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="https://www.cnblogs.com/jasonZh/p/9513948.html Redis实际应用场景　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。　　转向Redis当然也是可取的，许多开发者从一开始就把Re">
+<meta property="og:description" content="Redis实际应用场景">
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="http://yoursite.com/images/pasted-30.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-27.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-28.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-29.png">
-<meta property="og:updated_time" content="2019-04-09T12:35:29.572Z">
+<meta property="og:updated_time" content="2019-04-10T06:08:55.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis">
-<meta name="twitter:description" content="https://www.cnblogs.com/jasonZh/p/9513948.html Redis实际应用场景　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。　　转向Redis当然也是可取的，许多开发者从一开始就把Re">
+<meta name="twitter:description" content="Redis实际应用场景">
 <meta name="twitter:image" content="http://yoursite.com/images/pasted-30.png">
 
 
@@ -351,8 +351,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -388,8 +388,7 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/jasonZh/p/9513948.html" target="_blank" rel="noopener">https://www.cnblogs.com/jasonZh/p/9513948.html</a></p>
-<h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p>　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。<br>　　转向Redis当然也是可取的，许多开发者从一开始就把Redis作为首选数据库；但设想如果你的开发环境已经搭建好，应用已经在上面运行了，那么更换数据库框架显然不那么容易。另外在一些需要大容量数据集的应用，Redis也并不适合，因为它的数据集不会超过系统可用的内存。所以如果你有大数据应用，而且主要是读取访问模式，那么Redis并不是正确的选择。<br>　　然而我喜欢Redis的一点就是你可以把它融入到你的系统中来，这就能够解决很多问题，比如那些你现有的数据库处理起来感到缓慢的任务。这些你就可以通过Redis来进行优化，或者为应用创建些新的功能。在本文中，我就想探讨一些怎样将Redis加入到现有的环境中，并利用它的原语命令等功能来解决 传统环境中碰到的一些常见问题。在这些例子中，Redis都不是作为首选数据库。<br><img src="\images\pasted-30.png" alt="upload successful"><br><a id="more"></a></p>
+        <h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p><img src="\images\pasted-30.png" alt="upload successful"><br><a id="more"></a></p>
 <h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><p>String数据结构是简单的key-value类型，value其实不仅可以是String，也可以是数字。<br>常规key-value缓存应用；<br>常规计数：微博数，粉丝数等。<br>注意：一个键最大能存储512MB。</p>
 <h2 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h2><p>1、Redis hash是一个键值(key =&gt; value)对集合,是一个string类型的field和value的映射表<br>2、hash特别适合用于存储对象。<br>3、存储部分变更的数据，如用户信息等。<br>应用场景：如要存储一个用户信息对象数据，包含以下信息：<br>用户ID为查找的key，存储的value用户对象包含姓名，年龄，生日等信息，如果用普通的key/value结构来存储，主要有以下2种存储方式：</p>
 <p>第一种方式将用户ID作为查找key,把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是，增加了序列化/反序列化的开销，并且在需要修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS等复杂问题。<br><img src="\images\pasted-27.png" alt="upload successful"></p>
@@ -449,8 +448,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/09/p抽象类/" rel="next" title="php抽象类">
-                <i class="fa fa-chevron-left"></i> php抽象类
+              <a href="/2019/04/09/php设计模式/" rel="next" title="php设计模式">
+                <i class="fa fa-chevron-left"></i> php设计模式
               </a>
             
           </div>
@@ -459,8 +458,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/09/p设计模式/" rel="prev" title="php设计模式">
-                php设计模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/09/I/" rel="prev" title="OSI">
+                OSI <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,7 +539,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -409,7 +409,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/握手四次挥手/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/tp1-0-2-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -428,7 +428,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/03/握手四次挥手/" itemprop="url">三次握手四次挥手</a></h1>
+                <a class="post-title-link" href="/2019/04/10/tp1-0-2-0/" itemprop="url">http1.0/1.x/2.0</a></h1>
         
 
         <div class="post-meta">
@@ -440,8 +440,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-03T20:10:00+08:00">
-                2019-04-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T14:25:00+08:00">
+                2019-04-10
               </time>
             
 
@@ -501,161 +501,30 @@
 
       
         
-          <p><a href="https://www.nowcoder.com/ta/review-network" target="_blank" rel="noopener">https://www.nowcoder.com/ta/review-network</a></p>
-<h2 id="三次握手"><a href="#三次握手" class="headerlink" title="三次握手"></a>三次握手</h2><p>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；<br>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；<br>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。<br>握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。</p>
-<h2 id="四次挥手"><a href="#四次挥手" class="headerlink" title="四次挥手"></a>四次挥手</h2><p>与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次挥手”。<br>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。<br>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。<br>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。<br>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/03/握手四次挥手/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/ookie与sesseion/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/07/ookie与sesseion/" itemprop="url">cookie与sesseion</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T16:09:00+08:00">
-                2019-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="\images\pasted-23.png" alt="upload successful"></p>
-<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><p>位于用户的计算机上，用来维护用户计算机中的信息，直到用户删除。比如我们在网页上登录某个软件时输入用户名及密码时如果保存为cookie，则每次我们访问的时候就不需要登录网站了。我们可以在浏览器上保存任何文本，而且我们还可以随时随地的去阻止它或者删除。我们同样也可以禁用或者编辑cookie，但是有一点需要注意不要使用cookie来存储一些隐私数据，以防隐私泄露。</p>
-<p><img src="\images\pasted-24.png" alt="upload successful"></p>
-<h2 id="session"><a href="#session" class="headerlink" title="session"></a>session</h2><p>session称为会话信息，位于web服务器上，主要负责访问者与网站之间的交互，当访问浏览器请求http地址时，将传递到web服务器上并与访问信息进行匹配， 当关闭网站时就表示会话已经结束，网站无法访问该信息了，所以它无法保存永久数据，我们无法访问以及禁用网站</p>
-<p><img src="\images\pasted-25.png" alt="upload successful"><br>（1）Cookie以文本文件格式存储在浏览器中，而session存储在服务端它存储了限制数据量。它只允许4kb它没有在cookie中保存多个变量。<br>（2）cookie的存储限制了数据量，只允许4KB，而session是无限量的<br>（3）我们可以轻松访问cookie值但是我们无法轻松访问会话值，因此它更安全<br>（4）设置cookie时间可以使cookie过期。但是使用session-destory（），我们将会销毁会话。</p>
-<p>总结：如果我们需要经常登录一个站点时，最好用cookie来保存信息，要不然每次登陆都特别麻烦，如果对于需要安全性高的站点以及控制数据的能力时需要用会话效果更佳，当然我们也可以结合两者，使网站按照我们的想法进行运行</p>
+            <p><img src="\images\pasted-35.png" alt="upload successful"></p>
+<p>线头阻塞（HOL blocking）：浏览器会因为一些原因阻塞请求。浏览器对于同一个域名，同时只能有 4 个连接（这个根据浏览器内核不同可能会有所差异），超过浏览器最大连接数限制，后续请求就会被阻塞。</p>
+<h2 id="HTTP1-0和HTTP1-1"><a href="#HTTP1-0和HTTP1-1" class="headerlink" title="HTTP1.0和HTTP1.1"></a>HTTP1.0和HTTP1.1</h2><h2 id="缓存新特性"><a href="#缓存新特性" class="headerlink" title="缓存新特性"></a>缓存新特性</h2><p>当缓存对象的Age超过Expire时变为stale对象，cache不需要直接抛弃stale对象，而是与源服务器进行重新激活</p>
+<h2 id="节约带宽-100status"><a href="#节约带宽-100status" class="headerlink" title="节约带宽(100status)"></a>节约带宽(100status)</h2><p>1.1支持只发送header信息(不带任何body信息)，如果服务器认为客户端有权限请求服务器，则返回100，否则返回401。客户端如果接受到100，才开始把请求body发送到服务器。<br>这样当服务器返回401的时候，客户端就可以不用发送请求body了，节约了带宽。<br>另外HTTP还支持传送内容的一部分。这样当客户端已经有一部分的资源后，只需要跟服务器请求另外的部分资源即可。这是支持文件断点续传的基础</p>
+<h2 id="新增错误状态响应码"><a href="#新增错误状态响应码" class="headerlink" title="新增错误状态响应码"></a>新增错误状态响应码</h2><p>在HTTP1.1中新增了24个错误状态响应码，如409（Conflict）表示请求的资源与资源的当前状态发生冲突；410（Gone）表示服务器上的某个资源被永久性的删除。</p>
+<h2 id="host字段"><a href="#host字段" class="headerlink" title="host字段"></a>host字段</h2><p>一台物理服务器上可以存在多个虚拟主机，并且它们共享一个IP地址，但是HTTP1.0认为每台服务器都绑定一个唯一的IP地址。<br>web server上的多个虚拟站点可以共享同一个ip和端口。<br>HTTP1.0是没有host域的，HTTP1.1才支持这个参数。</p>
+<h2 id="长连接"><a href="#长连接" class="headerlink" title="长连接"></a>长连接</h2><p>HTTP 1.0规定浏览器与服务器只保持短暂的连接，浏览器的每次请求都需要与服务器建立一个TCP连接，服务器完成请求处理后立即断开TCP连接，服务器不跟踪每个客户也不记录过去的请求。<br>HTTP 1.1则支持持久连接Persistent Connection, 并且默认使用persistent  connection. 在同一个tcp的连接中可以传送多个HTTP请求和响应. 多个请求和响应可以重叠，多个请求和响应可以同时进行. 更加多的请求头和响应头(比如HTTP1.0没有host的字段)。</p>
+<h2 id="请求流水线"><a href="#请求流水线" class="headerlink" title="请求流水线"></a>请求流水线</h2><p>请求的流水线（Pipelining）处理，在一个TCP连接上可以传送多个HTTP请求和响应，减少了建立和关闭连接的消耗和延迟。<br>HTTP 1.1还允许客户端不用等待上一次请求结果返回，就可以发出下一次请求，但服务器端必须按照接收到客户端请求的先后顺序依次回送响应结果，以保证客户端能够区分出每次请求的响应内容。</p>
+<h2 id="HTTPS与HTTP的一些区别"><a href="#HTTPS与HTTP的一些区别" class="headerlink" title="HTTPS与HTTP的一些区别"></a>HTTPS与HTTP的一些区别</h2><p>HTTPS协议需要到CA申请证书，一般免费证书很少，需要交费。<br>HTTP协议运行在TCP之上，所有传输的内容都是明文，HTTPS运行在SSL/TLS之上，SSL/TLS运行在TCP之上，所有传输的内容都经过加密的。<br>HTTP和HTTPS使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>HTTPS可以有效的防止运营商劫持，解决了防劫持的一个大问题。<br><img src="\images\pasted-15.png" alt="upload successful"></p>
+<h2 id="https不是绝对安全的"><a href="#https不是绝对安全的" class="headerlink" title="https不是绝对安全的"></a>https不是绝对安全的</h2><p>HTTPS能保证的是连接的安全<br>但https保护不了中间人攻击，这个是由不可信的用户在客户机器与服务器之间伪造一个假的站点。</p>
+<h2 id="SPDY"><a href="#SPDY" class="headerlink" title="SPDY"></a>SPDY</h2><p>SPDY的方案，优化了HTTP1.X的请求延迟，解决了HTTP1.X的安全性，具体如下：<br>1、多路复用，通过多个请求stream共享一个tcp连接的方式，解决了HOL blocking的问题，降低了延迟同时提高了带宽的利用率。<br>2、请求优先级。多路复用带来一个新的问题是，在连接共享的基础之上有可能会导致关键请求被阻塞。SPDY允许给每个request设置优先级，这样重要的请求就会优先得到响应。如浏览器加载首页，首页的html-静态资源文件-脚本文件等加载第一时间看到网页内容。<br>3、HTTP1.1不支持header数据的压缩，HTTP2.0使用HPACK算法对header的数据进行压缩，这样数据体积小了，在网络上传输就会更快。<br>4、基于HTTPS的加密协议传输，大大提高了传输数据的可靠性。<br>5、服务端推送（server push），采用了SPDY的网页，例如我的网页有一个sytle.css的请求，在客户端收到sytle.css数据的同时，服务端会将sytle.js的文件推送给客户端，当客户端再次尝试获取sytle.js时就可以直接从缓存中获取到，不用再发请求了。SPDY构成图：</p>
+<p><img src="\images\pasted-16.png" alt="upload successful"></p>
+<p>SPDY位于HTTP之下，TCP和SSL之上，这样可以轻松兼容老版本的HTTP协议(将HTTP1.x的内容封装成一种新的frame格式)，同时可以使用已有的SSL功能。</p>
+<h2 id="HTTP2-0"><a href="#HTTP2-0" class="headerlink" title="HTTP2.0"></a>HTTP2.0</h2><p>基于SPDY协议<br>1、采用二进制格式而非文本格式（二进制协议解析起来更高效、“线上”更紧凑，更重要的是错误更少）<br>2、是完全多路复用的，而非有序并阻塞的——只需一个连接即可实现并行<br>3、使用报头压缩，HTTP/2降低了开销<br>4、2.0让服务器可以将响应主动“推送”到客户端缓存中</p>
+<h2 id="HTTP2-0与SPDY"><a href="#HTTP2-0与SPDY" class="headerlink" title="HTTP2.0与SPDY"></a>HTTP2.0与SPDY</h2><p>HTTP2.0 支持明文 HTTP 传输，而 SPDY 强制使用 HTTPS<br>HTTP2.0 消息头的压缩算法采用 HPACK 而非 SPDY 采用的 DEFLATE </p>
+<h2 id="为什么-HTTP2-0-需要多路传输"><a href="#为什么-HTTP2-0-需要多路传输" class="headerlink" title="为什么 HTTP2.0 需要多路传输?"></a>为什么 HTTP2.0 需要多路传输?</h2><p>HTTP/1.x 有个问题叫线端阻塞(head-of-line blocking), 它是指一个连接(connection)一次只提交一个请求的效率比较高, 多了就会变慢。 HTTP/1.1 试过用流水线(pipelining)来解决这个问题, 但是效果并不理想(数据量较大或者速度较慢的响应, 会阻碍排在他后面的请求). 此外, 由于网络媒介(intermediary )和服务器不能很好的支持流水线, 导致部署起来困难重重。而多路传输(Multiplexing)能很好的解决这些问题, 因为它能同时处理多个消息的请求和响应; 甚至可以在传输过程中将一个消息跟另外一个掺杂在一起。所以客户端只需要一个连接就能加载一个页面。</p>
+<p>HTTP 性能优化的关键并不在于高带宽，而是低延迟。TCP 连接会随着时间进行自我「调谐」，起初会限制连接的最大速度，如果数据成功传输，会随着时间的推移提高传输的速度。这种调谐则被称为 TCP 慢启动。由于这种原因，让原本就具有突发性和短时性的 HTTP 连接变的十分低效。</p>
+<p>HTTP/2 通过让所有数据流共用同一个连接，可以更有效地使用 TCP 连接，让高带宽也能真正的服务于 HTTP 的性能提升。</p>
+<h2 id="消息头为什么需要压缩"><a href="#消息头为什么需要压缩" class="headerlink" title="消息头为什么需要压缩?"></a>消息头为什么需要压缩?</h2><p>假定一个页面有80个资源需要加载（这个数量对于今天的Web而言还是挺保守的）, 而每一次请求都有1400字节的消息头（着同样也并不少见，因为Cookie和引用等东西的存在）, 至少要7到8个来回去“在线”获得这些消息头。这还不包括响应时间——那只是从客户端那里获取到它们所花的时间而已。这全都由于TCP的慢启动机制，它会基于对已知有多少个包，来确定还要来回去获取哪些包 – 这很明显的限制了最初的几个来回可以发送的数据包的数量。相比之下，即使是头部轻微的压缩也可以是让那些请求只需一个来回就能搞定——有时候甚至一个包就可以了。这种开销是可以被节省下来的，特别是当你考虑移动客户端应用的时候，即使是良好条件下，一般也会看到几百毫秒的来回延迟。</p>
+<h2 id="多路复用与长连接复用区别"><a href="#多路复用与长连接复用区别" class="headerlink" title="多路复用与长连接复用区别"></a>多路复用与长连接复用区别</h2><p>HTTP/1.* 一次请求-响应，建立一个连接，用完关闭；每一个请求都要建立一个连接；<br>HTTP/1.1 Pipeling解决方式为，若干个请求排队串行化单线程处理，后面的请求等待前面请求的返回才能获得执行机会，一旦有某请求超时等，后续请求只能被阻塞，毫无办法，也就是人们常说的线头阻塞；<br>HTTP/2多个请求可同时在一个连接上并行执行。某个请求任务耗时严重，不会影响到其它连接的正常执行；<br>具体如图：</p>
+<p><img src="\images\pasted-17.png" alt="upload successful"></p>
+<h2 id="服务器推送到底是什么？"><a href="#服务器推送到底是什么？" class="headerlink" title="服务器推送到底是什么？"></a>服务器推送到底是什么？</h2><p>服务端推送能把客户端所需要的资源伴随着index.html一起发送到客户端，省去了客户端重复请求的步骤。正因为没有发起请求，建立连接等操作，所以静态资源通过服务端推送的方式可以极大地提升速度。具体如下：<br>普通的客户端请求过程：<br> <img src="\images\pasted-18.png" alt="upload successful"><br>服务端推送的过程：</p>
+<p><img src="\images\pasted-19.png" alt="upload successful"></p>
 
           
         
@@ -704,7 +573,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/mysql事务总结/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/edis面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -723,7 +592,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/25/mysql事务总结/" itemprop="url">mysql事务、事务隔离、锁机制</a></h1>
+                <a class="post-title-link" href="/2019/04/10/edis面试题/" itemprop="url">Redis面试题</a></h1>
         
 
         <div class="post-meta">
@@ -735,8 +604,695 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T10:38:00+08:00">
-                2019-03-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:57:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/jasontec/p/9699242.html" target="_blank" rel="noopener">https://www.cnblogs.com/jasontec/p/9699242.html</a></p>
+<h2 id="什么是Redis持久化？Redis有哪几种持久化方式？优缺点是什么？"><a href="#什么是Redis持久化？Redis有哪几种持久化方式？优缺点是什么？" class="headerlink" title="什么是Redis持久化？Redis有哪几种持久化方式？优缺点是什么？"></a>什么是Redis持久化？Redis有哪几种持久化方式？优缺点是什么？</h2><p>持久化就是把内存的数据写到磁盘中去，防止服务宕机了内存数据丢失。<br>Redis 提供了两种持久化方式:RDB（默认） 和AOF </p>
+<h2 id="RDB："><a href="#RDB：" class="headerlink" title="RDB："></a>RDB：</h2><p>rdb是Redis DataBase缩写<br>功能核心函数rdbSave(生成RDB文件)和rdbLoad（从文件加载内存）两个函数</p>
+<h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF:"></a>AOF:</h2><p>Aof是Append-only file缩写<br>每当执行服务器(定时)任务或者函数时flushAppendOnlyFile 函数都会被调用， 这个函数执行以下两个工作</p>
+<h2 id="aof写入保存："><a href="#aof写入保存：" class="headerlink" title="aof写入保存："></a>aof写入保存：</h2><p>WRITE：根据条件，将 aof_buf 中的缓存写入到 AOF 文件</p>
+<p>SAVE：根据条件，调用 fsync 或 fdatasync 函数，将 AOF 文件保存到磁盘中。</p>
+<h2 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构:"></a>存储结构:</h2><p>  内容是redis通讯协议(RESP )格式的命令文本存储。</p>
+<p>比较：</p>
+<p>1、aof文件比rdb更新频率高，优先使用aof还原数据。</p>
+<p>2、aof比rdb更安全也更大</p>
+<p>3、rdb性能比aof好</p>
+<p>4、如果两个都配了优先加载AOF</p>
+<h2 id="resp"><a href="#resp" class="headerlink" title="resp"></a>resp</h2><p>刚刚上面你有提到redis通讯协议(RESP )，能解释下什么是RESP？有什么特点？（可以看到很多面试其实都是连环炮，面试官其实在等着你回答到这个点，如果你答上了对你的评价就又加了一分）</p>
+<p>RESP 是redis客户端和服务端之前使用的一种通讯协议；<br>RESP 的特点：实现简单、快速解析、可读性好<br>For Simple Strings the first byte of the reply is “+” 回复<br>For Errors the first byte of the reply is “-“ 错误<br>For Integers the first byte of the reply is “:” 整数<br>For Bulk Strings the first byte of the reply is “$” 字符串<br>For Arrays the first byte of the reply is “*” 数组</p>
+<h2 id="使用过Redis做异步队列么，你是怎么用的？有什么缺点？"><a href="#使用过Redis做异步队列么，你是怎么用的？有什么缺点？" class="headerlink" title="使用过Redis做异步队列么，你是怎么用的？有什么缺点？"></a>使用过Redis做异步队列么，你是怎么用的？有什么缺点？</h2><p>一般使用list结构作为队列，rpush生产消息，lpop消费消息。当lpop没有消息的时候，要适当sleep一会再重试。</p>
+<p>缺点：<br>在消费者下线的情况下，生产的消息会丢失，得使用专业的消息队列如rabbitmq等。</p>
+<h2 id="能不能生产一次消费多次呢？"><a href="#能不能生产一次消费多次呢？" class="headerlink" title="能不能生产一次消费多次呢？"></a>能不能生产一次消费多次呢？</h2><p>使用pub/sub主题订阅者模式，可以实现1:N的消息队列。</p>
+<h2 id="什么是缓存穿透？如何避免？什么是缓存雪崩？何如避免？"><a href="#什么是缓存穿透？如何避免？什么是缓存雪崩？何如避免？" class="headerlink" title="什么是缓存穿透？如何避免？什么是缓存雪崩？何如避免？"></a>什么是缓存穿透？如何避免？什么是缓存雪崩？何如避免？</h2><p>缓存穿透</p>
+<p>一般的缓存系统，都是按照key去缓存查询，如果不存在对应的value，就应该去后端系统查找（比如DB）。一些恶意的请求会故意查询不存在的key,请求量很大，就会对后端系统造成很大的压力。这就叫做缓存穿透。</p>
+<p>如何避免？</p>
+<p>1：对查询结果为空的情况也进行缓存，缓存时间设置短一点，或者该key对应的数据insert了之后清理缓存。</p>
+<p>2：对一定不存在的key进行过滤。可以把所有的可能存在的key放到一个大的Bitmap中，查询时通过该bitmap过滤。</p>
+<p>缓存雪崩</p>
+<p>当缓存服务器重启或者大量缓存集中在某一个时间段失效，这样在失效的时候，会给后端系统带来很大压力。导致系统崩溃。</p>
+<p>如何避免？</p>
+<p>1：在缓存失效后，通过加锁或者队列来控制读数据库写缓存的线程数量。比如对某个key只允许一个线程查询数据和写缓存，其他线程等待。</p>
+<p>2：做二级缓存，A1为原始缓存，A2为拷贝缓存，A1失效时，可以访问A2，A1缓存失效时间设置为短期，A2设置为长期</p>
+<p>3：不同的key，设置不同的过期时间，让缓存失效的时间点尽量均匀。</p>
+<h2 id="Redis常用命令？"><a href="#Redis常用命令？" class="headerlink" title="Redis常用命令？"></a>Redis常用命令？</h2><p>Keys pattern</p>
+<p>*表示区配所有</p>
+<p>以bit开头的</p>
+<p>查看Exists  key是否存在</p>
+<p>Set</p>
+<p>设置 key 对应的值为 string 类型的 value。</p>
+<p>setnx</p>
+<p>设置 key 对应的值为 string 类型的 value。如果 key 已经存在，返回 0，nx 是 not exist 的意思。</p>
+<p>删除某个key</p>
+<p>第一次返回1 删除了 第二次返回0</p>
+<p>Expire 设置过期时间（单位秒）</p>
+<p>TTL查看剩下多少时间</p>
+<p>返回负数则key失效，key不存在了</p>
+<p>Setex</p>
+<p>设置 key 对应的值为 string 类型的 value，并指定此键值对应的有效期。</p>
+<p>Mset</p>
+<p>一次设置多个 key 的值，成功返回 ok 表示所有的值都设置了，失败返回 0 表示没有任何值被设置。</p>
+<p>Getset</p>
+<p>设置 key 的值，并返回 key 的旧值。</p>
+<p>Mget</p>
+<p>一次获取多个 key 的值，如果对应 key 不存在，则对应返回 nil。</p>
+<p>Incr</p>
+<p>对 key 的值做加加操作,并返回新的值。注意 incr 一个不是 int 的 value 会返回错误，incr 一个不存在的 key，则设置 key 为 1</p>
+<p>incrby</p>
+<p>同 incr 类似，加指定值 ，key 不存在时候会设置 key，并认为原来的 value 是 0</p>
+<p>Decr</p>
+<p>对 key 的值做的是减减操作，decr 一个不存在 key，则设置 key 为-1</p>
+<p>Decrby</p>
+<p>同 decr，减指定值。</p>
+<p>Append</p>
+<p>给指定 key 的字符串值追加 value,返回新字符串值的长度。</p>
+<p>Strlen</p>
+<p>取指定 key 的 value 值的长度。</p>
+<p>persist xxx(取消过期时间)</p>
+<p>选择数据库（0-15库）</p>
+<p>Select 0 //选择数据库</p>
+<p>move age 1//把age 移动到1库</p>
+<p>Randomkey随机返回一个key</p>
+<p>Rename重命名</p>
+<p>Type 返回数据类型</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/redis常见数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/redis常见数据类型/" itemprop="url">Redis支持的数据类型？</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:55:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Redis支持的数据类型？</p>
+<h2 id="String字符串："><a href="#String字符串：" class="headerlink" title="String字符串："></a>String字符串：</h2><p>格式: set key value</p>
+<p>string类型是二进制安全的。意思是redis的string可以包含任何数据。比如jpg图片或者序列化的对象 。</p>
+<p>string类型是Redis最基本的数据类型，一个键最大能存储512MB。</p>
+<h2 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h2><p>格式: hmset name  key1 value1 key2 value2</p>
+<p>Redis hash 是一个键值(key=&gt;value)对集合。</p>
+<p>Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。</p>
+<h2 id="List（列表）"><a href="#List（列表）" class="headerlink" title="List（列表）"></a>List（列表）</h2><p>Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<p>格式: lpush  name  value</p>
+<p>在 key 对应 list 的头部添加字符串元素</p>
+<p>格式: rpush  name  value</p>
+<p>在 key 对应 list 的尾部添加字符串元素</p>
+<p>格式: lrem name  index</p>
+<p>key 对应 list 中删除 count 个和 value 相同的元素</p>
+<p>格式: llen name  </p>
+<p>返回 key 对应 list 的长度</p>
+<h2 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h2><p>格式: sadd  name  value</p>
+<p>Redis的Set是string类型的无序集合。</p>
+<p>集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。</p>
+<h2 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h2><p>格式: zadd  name score value</p>
+<p>Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。</p>
+<p>不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员进行从小到大的排序。</p>
+<p>zset的成员是唯一的,但分数(score)却可以重复。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/edis架构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/edis架构/" itemprop="url">Redis 有哪些架构模式？讲讲各自的特点</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:52:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="单机版"><a href="#单机版" class="headerlink" title="单机版"></a>单机版</h2><p>特点：简单<br>问题：<br>1、内存容量有限 2、处理能力有限 3、无法高可用。</p>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>Redis 的复制（replication）功能允许用户根据一个 Redis 服务器来创建任意多个该服务器的复制品，其中被复制的服务器为主服务器（master），而通过复制创建出来的服务器复制品则为从服务器（slave）。 只要主从服务器之间的网络连接正常，主从服务器两者会具有相同的数据，主服务器就会一直将发生在自己身上的数据更新同步 给从服务器，从而一直保证主从服务器的数据相同。</p>
+<p>特点：<br>1、master/slave 角色<br>2、master/slave 数据相同<br>3、降低 master 读压力在转交从库</p>
+<p>问题：<br>无法保证高可用<br>没有解决 master 写的压力</p>
+<h2 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h2><p>Redis sentinel 是一个分布式系统中监控 redis 主从服务器，并在主服务器下线时自动进行故障转移。其中三个特性：<br>1、监控（Monitoring）：Sentinel  会不断地检查你的主服务器和从服务器是否运作正常。<br>2、提醒（Notification）：当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。<br>3、自动故障迁移（Automatic failover）：当一个主服务器不能正常工作时， Sentinel 会开始一次自动故障迁移操作。</p>
+<p>特点：<br>1、保证高可用<br>2、监控各个节点<br>3、自动故障迁移<br>缺点：主从模式，切换需要时间丢数据<br>没有解决 master 写的压力</p>
+<h2 id="集群（proxy-型）"><a href="#集群（proxy-型）" class="headerlink" title="集群（proxy 型）"></a>集群（proxy 型）</h2><p>Twemproxy 是一个 Twitter 开源的一个 redis 和 memcache 快速/轻量级代理服务器； Twemproxy 是一个快速的单线程代理程序，支持 Memcached ASCII 协议和 redis 协议。<br>特点：<br>1、多种 hash 算法：MD5、CRC16、CRC32、CRC32a、hsieh、murmur、Jenkins<br>2、支持失败节点自动删除<br>3、后端 Sharding 分片逻辑对业务透明，业务方的读写方式和操作单个 Redis 一致<br>缺点：增加了新的 proxy，需要维护其高可用。<br>failover 逻辑需要自己实现，其本身不能支持故障的自动转移可扩展性差，进行扩缩容都需要手动干预</p>
+<h2 id="集群（直连型）："><a href="#集群（直连型）：" class="headerlink" title="集群（直连型）："></a>集群（直连型）：</h2><p>从redis 3.0之后版本支持redis-cluster集群，Redis-Cluster采用无中心结构，每个节点保存数据和整个集群状态,每个节点都和其他所有节点连接。</p>
+<p>特点：<br>1、无中心架构（不存在哪个节点影响性能瓶颈），少了 proxy 层。<br>2、数据按照 slot 存储分布在多个节点，节点间数据共享，可动态调整数据分布。<br>3、可扩展性，可线性扩展到 1000 个节点，节点可动态添加或删除。<br>4、高可用性，部分节点不可用时，集群仍可用。通过增加 Slave 做备份数据副本<br>5、实现故障自动 failover，节点之间通过 gossip 协议交换状态信息，用投票机制完成 Slave到 Master 的角色提升。</p>
+<p>缺点：<br>1、资源隔离性较差，容易出现相互影响的情况。<br>2、数据通过异步复制,不保证数据的强一致性</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/dis分布式锁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/dis分布式锁/" itemprop="url">Redis分布式锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:37:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>分布式锁一般有三种实现方式：</p>
+<ol>
+<li>数据库乐观锁</li>
+<li>基于Redis的分布式锁</li>
+<li>基于ZooKeeper的分布式锁</li>
+</ol>
+<p>为了确保分布式锁可用，我们至少要确保锁的实现同时满足以下四个条件：<br>1.互斥性。在任意时刻，只有一个客户端能持有锁。<br>2.不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。<br>3.具有容错性。只要大部分的Redis节点正常运行，客户端就可以加锁和解锁。<br>4.解铃还须系铃人。加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了。</p>
+<p>Q:使用过Redis分布式锁么，它是怎么实现的？<br>先拿setnx来争抢锁，抢到之后，再用expire给锁加一个过期时间防止锁忘记了释放。</p>
+<p>Q:如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？<br>set指令有非常复杂的参数，这个应该是可以同时把setnx和expire合成一条指令来用的！</p>
+<h2 id="SETNX命令简介"><a href="#SETNX命令简介" class="headerlink" title="SETNX命令简介"></a>SETNX命令简介</h2><p>命令格式<br>SETNX key value</p>
+<p>将 key 的值设为 value，当且仅当 key 不存在。<br>若给定的 key 已经存在，则 SETNX 不做任何动作。<br>SETNX 是SET if Not eXists的简写。</p>
+<p>返回值<br>返回整数，具体为<br>-1，当 key 的值被设置<br>-0，当 key 的值没被设置</p>
+<p>例子<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">1</span> </span><br><span class="line">    redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">0</span> </span><br><span class="line">    redis&gt; GET mykey </span><br><span class="line">    “hello” </span><br><span class="line">    redis&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用SETNX实现分布式锁"><a href="#使用SETNX实现分布式锁" class="headerlink" title="使用SETNX实现分布式锁"></a>使用SETNX实现分布式锁</h2><p>多个进程执行以下Redis命令：</p>
+<p>SETNX lock.foo <current 1 unix time + lock timeout></current></p>
+<p>如果 SETNX 返回1，说明该进程获得锁，SETNX将键 lock.foo 的值设置为锁的超时时间（当前时间 + 锁的有效时间）。<br>如果 SETNX 返回0，说明其他进程已经获得了锁，进程不能进入临界区。进程可以在一个循环中不断地尝试 SETNX 操作，以获得锁。</p>
+<h2 id="解决死锁"><a href="#解决死锁" class="headerlink" title="解决死锁"></a>解决死锁</h2><p>考虑一种情况，如果进程获得锁后，断开了与 Redis 的连接（可能是进程挂掉，或者网络中断），如果没有有效的释放锁的机制，那么其他进程都会处于一直等待的状态，即出现“死锁”。</p>
+<p>上面在使用 SETNX 获得锁时，我们将键 lock.foo 的值设置为锁的有效时间，进程获得锁后，其他进程还会不断的检测锁是否已超时，如果超时，那么等待的进程也将有机会获得锁。</p>
+<p>然而，锁超时时，我们不能简单地使用 DEL 命令删除键 lock.foo 以释放锁。考虑以下情况，进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。进程P2，P3正在不断地检测锁是否已释放或者已超时，执行流程如下：</p>
+<p>P2和P3进程读取键 lock.foo 的值，检测锁是否已超时（通过比较当前时间和键 lock.foo 的值来判断是否超时）<br>P2和P3进程发现锁 lock.foo 已超时<br>P2执行 DEL lock.foo命令<br>P2执行 SETNX lock.foo命令，并返回1，即P2获得锁<br>P3执行 DEL lock.foo命令将P2刚刚设置的键 lock.foo 删除（这步是由于P3刚才已检测到锁已超时）<br>P3执行 SETNX lock.foo命令，并返回1，即P3获得锁<br>P2和P3同时获得了锁<br>从上面的情况可以得知，在检测到锁超时后，进程不能直接简单地执行 DEL 删除键的操作以获得锁。</p>
+<p>为了解决上述算法可能出现的多个进程同时获得锁的问题，我们再来看以下的算法。<br>我们同样假设进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。接下来的情况：</p>
+<p>进程P4执行 SETNX lock.foo 以尝试获取锁<br>由于进程P1已获得了锁，所以P4执行 SETNX lock.foo 返回0，即获取锁失败<br>P4执行 GET lock.foo 来检测锁是否已超时，如果没超时，则等待一段时间，再次检测<br>如果P4检测到锁已超时，即当前的时间大于键 lock.foo 的值，P4会执行以下操作<br>GETSET lock.foo <current 1 unix timestamp + lock timeout><br>由于 GETSET 操作在设置键的值的同时，还会返回键的旧值，通过比较键 lock.foo 的旧值是否小于当前时间，可以判断进程是否已获得锁<br>假如另一个进程P5也检测到锁已超时，并在P4之前执行了 GETSET 操作，那么P4的 GETSET 操作返回的是一个大于当前时间的时间戳，这样P4就不会获得锁而继续等待。注意到，即使P4接下来将键 lock.foo 的值设置了比P5设置的更大的值也没影响。<br>另外，值得注意的是，在进程释放锁，即执行 DEL lock.foo 操作前，需要先判断锁是否已超时。如果锁已超时，那么锁可能已由其他进程获得，这时直接执行 DEL lock.foo 操作会导致把其他进程已获得的锁释放掉。</current></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">acquireLock</span><span class="params">(String lock)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 通过SETNX试图获取一个lock</span></span><br><span class="line">    <span class="keyword">boolean</span> success = <span class="keyword">false</span>;</span><br><span class="line">    Jedis jedis = pool.getResource();       </span><br><span class="line">    <span class="keyword">long</span> value = System.currentTimeMillis() + expired + <span class="number">1</span>;     </span><br><span class="line">    System.out.println(value);    </span><br><span class="line">    <span class="keyword">long</span> acquired = jedis.setnx(lock, String.valueOf(value));</span><br><span class="line">    <span class="comment">//SETNX成功，则成功获取一个锁</span></span><br><span class="line">    <span class="keyword">if</span> (acquired == <span class="number">1</span>)      </span><br><span class="line">        success = <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//SETNX失败，说明锁仍然被其他对象保持，检查其是否已经超时</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">long</span> oldValue = Long.valueOf(jedis.get(lock));</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//超时</span></span><br><span class="line">        <span class="keyword">if</span> (oldValue &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">            String getValue = jedis.getSet(lock, String.valueOf(value));               </span><br><span class="line">            <span class="comment">// 获取锁成功</span></span><br><span class="line">            <span class="keyword">if</span> (Long.valueOf(getValue) == oldValue) </span><br><span class="line">                success = <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">// 已被其他进程捷足先登了</span></span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                success = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//未超时，则直接返回失败</span></span><br><span class="line">        <span class="keyword">else</span>             </span><br><span class="line">            success = <span class="keyword">false</span>;</span><br><span class="line">    &#125;        </span><br><span class="line">    pool.returnResource(jedis);</span><br><span class="line">    <span class="keyword">return</span> success;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/I/" itemprop="url">OSI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T21:07:00+08:00">
+                2019-04-09
               </time>
             
 
@@ -796,165 +1352,24 @@
 
       
         
-          <h2 id="1、什么是事务"><a href="#1、什么是事务" class="headerlink" title="1、什么是事务"></a>1、什么是事务</h2><p>事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。<br>Atomicity原子性：要不全部成功，要不全部撤销<br>Isolation隔离性：事务之间相互独立，互不干扰<br>Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏<br>Durability持久性：事务的提交结果，将持久保存在数据库中</p>
-<p>pass：不可重复读与幻读的本质区别<br>不可重复读是读取了其他事务更改的数据，针对update操作<br>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>passpass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。<br>不可重复读：数据读错方读了两次数据库</p>
-<p>幻读是读取了其他事务新增的数据，针对insert操作<br>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/25/mysql事务总结/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="SI七层模型的划分"><a href="#SI七层模型的划分" class="headerlink" title="SI七层模型的划分"></a>SI七层模型的划分</h2><p>   OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。如下图。<br>   每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI的服务定义详细说明了各层所提供的服务。某一层的服务就是该层及其下各层的一种能力，它通过接口提供给更高一层。各层所提供的服务与这些服务是怎么实现的无关。<br><img src="\images\pasted-31.png" alt="upload successful"></p>
+<h2 id="各层功能定义"><a href="#各层功能定义" class="headerlink" title="各层功能定义"></a>各层功能定义</h2><p>   这里我们只对OSI各层进行功能上的大概阐述，不详细深究，因为每一层实际都是一个复杂的层。后面我也会根据个人方向展开部分层的深入学习。这里我们就大概了解一下。我们从最顶层——应用层 开始介绍。整个过程以公司A和公司B的一次商业报价单发送为例子进行讲解。</p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a><1>应用层</1></h2><p>   OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。<br>   实际公司A的老板就是我们所述的用户，而他要发送的商业报价单，就是应用层提供的一种网络服务，当然，老板也可以选择其他服务，比如说，发一份商业合同，发一份询价单，等等。</p>
+<h2 id="表示层"><a href="#表示层" class="headerlink" title=" 表示层"></a><2> 表示层</2></h2><p>  表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。<br>        由于公司A和公司B是不同国家的公司，他们之间的商定统一用英语作为交流的语言，所以此时表示层（公司的文秘），就是将应用层的传递信息转翻译成英语。同时为了防止别的公司看到，公司A的人也会对这份报价单做一些加密的处理。这就是表示的作用，将应用层的数据转换翻译等。</p>
+<h2 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a><3>会话层</3></h2><p>   会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。<br>   会话层的同事拿到表示层的同事转换后资料，（会话层的同事类似公司的外联部），会话层的同事那里可能会掌握本公司与其他好多公司的联系方式，这里公司就是实际传递过程中的实体。他们要管理本公司与外界好多公司的联系会话。当接收到表示层的数据后，会话层将会建立并记录本次会话，他首先要找到公司B的地址信息，然后将整份资料放进信封，并写上地址和联系方式。准备将资料寄出。等到确定公司B接收到此份报价单后，此次会话就算结束了，外联部的同事就会终止此次会话。</p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a><4>传输层</4></h2><p>   传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP UDP就是在这一层。端口号既是这里的“端”。<br>   传输层就相当于公司中的负责快递邮件收发的人，公司自己的投递员，他们负责将上一层的要寄出的资料投递到快递公司或邮局。</p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a><5>网络层</5></h2><p>   本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。IP协议是Internet的基础。<br>   网络层就相当于快递公司庞大的快递网络，全国不同的集散中心，比如说，从深圳发往北京的顺丰快递（陆运为例啊，空运好像直接就飞到北京了），首先要到顺丰的深圳集散中心，从深圳集散中心再送到武汉集散中心，从武汉集散中心再寄到北京顺义集散中心。这个每个集散中心，就相当于网络中的一个IP节点。</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a><6>数据链路层</6></h2><p>   将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。<br>   数据链路层又分为2个子层：逻辑链路控制子层（LLC）和媒体访问控制子层（MAC）。<br>   MAC子层处理CSMA/CD算法、数据出错校验、成帧等；LLC子层定义了一些字段使上次协议能共享数据链路层。 在实际使用中，LLC子层并非必需的。</p>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层  "></a><7>物理层  </7></h2><p>   实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。<br>   快递寄送过程中的交通工具，就相当于我们的物理层，例如汽车，火车，飞机，船。</p>
+<h2 id="通信特点：对等通信"><a href="#通信特点：对等通信" class="headerlink" title="通信特点：对等通信  "></a>通信特点：对等通信  </h2><p>对等通信，为了使数据分组从源传送到目的地，源端OSI模型的每一层都必须与目的端的对等层进行通信，这种通信方式称为对等层通信。在每一层通信过程中，使用本层自己协议进行通信。</p>
+<h2 id="TCP-IP五层协议和OSI的七层协议对应关系"><a href="#TCP-IP五层协议和OSI的七层协议对应关系" class="headerlink" title="TCP/IP五层协议和OSI的七层协议对应关系"></a>TCP/IP五层协议和OSI的七层协议对应关系</h2><p><img src="\images\pasted-32.png" alt="upload successful"><br>在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。</p>
+<p><img src="\images\pasted-33.png" alt="upload successful"></p>
+
+          
         
       
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/p设计模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/09/p设计模式/" itemprop="url">php设计模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
-                2019-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/09/p设计模式/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
+    </div>
     
     
     
@@ -1052,8 +1467,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -1090,11 +1505,156 @@
 
       
         
-          <p><a href="https://www.cnblogs.com/jasonZh/p/9513948.html" target="_blank" rel="noopener">https://www.cnblogs.com/jasonZh/p/9513948.html</a></p>
-<h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p>　　Redis在很多方面与其他数据库解决方案不同：它使用内存提供主存储支持，而仅使用硬盘做持久性的存储；它的数据模型非常独特，用的是单线程。另一个大区别在于，你可以在开发环境中使用Redis的功能，但却不需要转到Redis。<br>　　转向Redis当然也是可取的，许多开发者从一开始就把Redis作为首选数据库；但设想如果你的开发环境已经搭建好，应用已经在上面运行了，那么更换数据库框架显然不那么容易。另外在一些需要大容量数据集的应用，Redis也并不适合，因为它的数据集不会超过系统可用的内存。所以如果你有大数据应用，而且主要是读取访问模式，那么Redis并不是正确的选择。<br>　　然而我喜欢Redis的一点就是你可以把它融入到你的系统中来，这就能够解决很多问题，比如那些你现有的数据库处理起来感到缓慢的任务。这些你就可以通过Redis来进行优化，或者为应用创建些新的功能。在本文中，我就想探讨一些怎样将Redis加入到现有的环境中，并利用它的原语命令等功能来解决 传统环境中碰到的一些常见问题。在这些例子中，Redis都不是作为首选数据库。<br><img src="\images\pasted-30.png" alt="upload successful"><br>
+          <h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p><img src="\images\pasted-30.png" alt="upload successful"><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/09/dis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/php设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/php设计模式/" itemprop="url">php设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/php设计模式/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1281,470 +1841,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/inux基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/inux基础操作/" itemprop="url">linux基础操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T14:51:00+08:00">
-                2019-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="find操作"><a href="#find操作" class="headerlink" title="find操作"></a>find操作</h2><p>将目前目录及其子目录下所有延伸档名是 c 的文件列出来。<br>find . -name “*.c”<br><img src="\images\pasted-26.png" alt="upload successful"><br>将目前目录其其下子目录中所有一般文件列出<br>find . -type f</p>
-<p>递归查找<br>find . -r -name “*.txt”</p>
-<h2 id="grep操作"><a href="#grep操作" class="headerlink" title="grep操作"></a>grep操作</h2><p>grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）<br>grep -r 1 *.md</p>
-<p>找出程序运行的端口<br>netstat -ap | grep ssh</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/据库垂直切分与水平切分/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/07/据库垂直切分与水平切分/" itemprop="url">数据库垂直切分与水平切分</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:58:00+08:00">
-                2019-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.cnblogs.com/firstdream/p/6728106.html" target="_blank" rel="noopener">https://www.cnblogs.com/firstdream/p/6728106.html</a><br>当我们使用读写分离、缓存后，数据库的压力还是很大的时候，这就需要使用到数据库拆分了。<br>数据库拆分简单来说，就是指通过某种特定的条件，按照某个维度，将我们存放在同一个数据库中的数据分散存放到多个数据库（主机）上面以达到分散单库（主机）负载的效果。 </p>
-<p>切分模式： 垂直（纵向）拆分、水平拆分。</p>
-<h2 id="垂直拆分-专库专用"><a href="#垂直拆分-专库专用" class="headerlink" title="垂直拆分-专库专用"></a>垂直拆分-专库专用</h2><p>一个数据库由很多表的构成，每个表对应着不同的业务，垂直切分是指按照业务将表进行分类，分布到不同的数据库上面，这样也就将数据或者说压力分担到不同的库上面，如下图：</p>
-<p><img src="\images\pasted-20.png" alt="upload successful"></p>
-<p>优点：</p>
-<pre><code>1. 拆分后业务清晰，拆分规则明确。
-2. 系统之间整合或扩展容易。
-3. 数据维护简单。
-</code></pre><p>缺点：</p>
-<pre><code>1. 部分业务表无法join，只能通过接口方式解决，提高了系统复杂度。
-2. 受每种业务不同的限制存在单库性能瓶颈，不易数据扩展跟性能提高。
-3. 事务处理复杂。
-</code></pre><h2 id="水平拆分"><a href="#水平拆分" class="headerlink" title="水平拆分"></a>水平拆分</h2><p>垂直拆分后遇到单机瓶颈，可以使用水平拆分。相对于垂直拆分的区别是：垂直拆分是把不同的表拆到不同的数据库中，而水平拆分是把同一个表拆到不同的数据库中。</p>
-<p>相对于垂直拆分，水平拆分不是将表的数据做分类，而是按照某个字段的某种规则来分散到多个库之中，每个表中包含一部分数据。简单来说，我们可以将数据的水平切分理解为是按照数据行的切分，就是将表中 的某些行切分到一个数据库，而另外的某些行又切分到其他的数据库中，主要有分表，分库两种模式，如图：</p>
-<p><img src="\images\pasted-21.png" alt="upload successful"></p>
-<p><img src="\images\pasted-22.png" alt="upload successful"><br>优点：</p>
-<pre><code>1. 不存在单库大数据，高并发的性能瓶颈。
-2. 对应用透明，应用端改造较少。     
-3. 按照合理拆分规则拆分，join操作基本避免跨库。
-4. 提高了系统的稳定性跟负载能力。
-</code></pre><p>缺点：</p>
-<pre><code>1. 拆分规则难以抽象。
-2. 分片事务一致性难以解决。
-3. 数据多次扩展难度跟维护量极大。
-4. 跨库join性能较差。
-</code></pre><p>垂直拆分：<br>　　解决问题：<br>　　表与表之间的io竞争<br>　　不解决问题：<br>　　单表中数据量增长出现的压力<br>　　方案：<br>　　把产品表和用户表放到一个server上<br>　　订单表单独放到一个server上<br>水平拆分：<br>　　解决问题：<br>　　单表中数据量增长出现的压力<br>　　不解决问题：<br>　　表与表之间的io争夺<br>　　方案：<br>　　用户表通过性别拆分为男用户表和女用户表<br>　　订单表通过已完成和完成中拆分为已完成订单和未完成订单<br>　　产品表 未完成订单放一个server上<br>　　已完成订单表盒男用户表放一个server上<br>　　女用户表放一个server上(女的爱购物)</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/ntitled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/07/ntitled/" itemprop="url">HTTP1.0、HTTP1.1 和 HTTP2.0 的区别</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-07T10:43:00+08:00">
-                2019-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/面试必考/" itemprop="url" rel="index">
-                    <span itemprop="name">面试必考</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="一、HTTP的历史"><a href="#一、HTTP的历史" class="headerlink" title="一、HTTP的历史"></a>一、HTTP的历史</h2><p>早在 HTTP 建立之初，主要就是为了将超文本标记语言(HTML)文档从Web服务器传送到客户端的浏览器。也是说对于前端来说，我们所写的HTML页面将要放在我们的 web 服务器上，用户端通过浏览器访问url地址来获取网页的显示内容，但是到了 WEB2.0 以来，我们的页面变得复杂，不仅仅单纯的是一些简单的文字和图片，同时我们的 HTML 页面有了 CSS，Javascript，来丰富我们的页面展示，当 ajax 的出现，我们又多了一种向服务器端获取数据的方法，这些其实都是基于 HTTP 协议的。同样到了移动互联网时代，我们页面可以跑在手机端浏览器里面，但是和 PC 相比，手机端的网络情况更加复杂，这使得我们开始了不得不对 HTTP 进行深入理解并不断优化过程中。</p>
-<p><img src="\images\pasted-14.png" alt="upload successful"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/07/ntitled/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1792,7 +1893,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
