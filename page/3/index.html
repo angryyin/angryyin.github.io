@@ -290,6 +290,745 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/I/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/I/" itemprop="url">OSI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T21:07:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/面试必考/" itemprop="url" rel="index">
+                    <span itemprop="name">面试必考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SI七层模型的划分"><a href="#SI七层模型的划分" class="headerlink" title="SI七层模型的划分"></a>SI七层模型的划分</h2><p>   OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。如下图。<br>   每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI的服务定义详细说明了各层所提供的服务。某一层的服务就是该层及其下各层的一种能力，它通过接口提供给更高一层。各层所提供的服务与这些服务是怎么实现的无关。<br><img src="\images\pasted-31.png" alt="upload successful"></p>
+<h2 id="各层功能定义"><a href="#各层功能定义" class="headerlink" title="各层功能定义"></a>各层功能定义</h2><p>   这里我们只对OSI各层进行功能上的大概阐述，不详细深究，因为每一层实际都是一个复杂的层。后面我也会根据个人方向展开部分层的深入学习。这里我们就大概了解一下。我们从最顶层——应用层 开始介绍。整个过程以公司A和公司B的一次商业报价单发送为例子进行讲解。</p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a><1>应用层</1></h2><p>   OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。<br>   实际公司A的老板就是我们所述的用户，而他要发送的商业报价单，就是应用层提供的一种网络服务，当然，老板也可以选择其他服务，比如说，发一份商业合同，发一份询价单，等等。</p>
+<h2 id="表示层"><a href="#表示层" class="headerlink" title=" 表示层"></a><2> 表示层</2></h2><p>  表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。<br>        由于公司A和公司B是不同国家的公司，他们之间的商定统一用英语作为交流的语言，所以此时表示层（公司的文秘），就是将应用层的传递信息转翻译成英语。同时为了防止别的公司看到，公司A的人也会对这份报价单做一些加密的处理。这就是表示的作用，将应用层的数据转换翻译等。</p>
+<h2 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a><3>会话层</3></h2><p>   会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。<br>   会话层的同事拿到表示层的同事转换后资料，（会话层的同事类似公司的外联部），会话层的同事那里可能会掌握本公司与其他好多公司的联系方式，这里公司就是实际传递过程中的实体。他们要管理本公司与外界好多公司的联系会话。当接收到表示层的数据后，会话层将会建立并记录本次会话，他首先要找到公司B的地址信息，然后将整份资料放进信封，并写上地址和联系方式。准备将资料寄出。等到确定公司B接收到此份报价单后，此次会话就算结束了，外联部的同事就会终止此次会话。</p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a><4>传输层</4></h2><p>   传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP UDP就是在这一层。端口号既是这里的“端”。<br>   传输层就相当于公司中的负责快递邮件收发的人，公司自己的投递员，他们负责将上一层的要寄出的资料投递到快递公司或邮局。</p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a><5>网络层</5></h2><p>   本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。IP协议是Internet的基础。<br>   网络层就相当于快递公司庞大的快递网络，全国不同的集散中心，比如说，从深圳发往北京的顺丰快递（陆运为例啊，空运好像直接就飞到北京了），首先要到顺丰的深圳集散中心，从深圳集散中心再送到武汉集散中心，从武汉集散中心再寄到北京顺义集散中心。这个每个集散中心，就相当于网络中的一个IP节点。</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a><6>数据链路层</6></h2><p>   将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。<br>   数据链路层又分为2个子层：逻辑链路控制子层（LLC）和媒体访问控制子层（MAC）。<br>   MAC子层处理CSMA/CD算法、数据出错校验、成帧等；LLC子层定义了一些字段使上次协议能共享数据链路层。 在实际使用中，LLC子层并非必需的。</p>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层  "></a><7>物理层  </7></h2><p>   实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。<br>   快递寄送过程中的交通工具，就相当于我们的物理层，例如汽车，火车，飞机，船。</p>
+<h2 id="通信特点：对等通信"><a href="#通信特点：对等通信" class="headerlink" title="通信特点：对等通信  "></a>通信特点：对等通信  </h2><p>对等通信，为了使数据分组从源传送到目的地，源端OSI模型的每一层都必须与目的端的对等层进行通信，这种通信方式称为对等层通信。在每一层通信过程中，使用本层自己协议进行通信。</p>
+<h2 id="TCP-IP五层协议和OSI的七层协议对应关系"><a href="#TCP-IP五层协议和OSI的七层协议对应关系" class="headerlink" title="TCP/IP五层协议和OSI的七层协议对应关系"></a>TCP/IP五层协议和OSI的七层协议对应关系</h2><p><img src="\images\pasted-32.png" alt="upload successful"><br>在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。</p>
+<p><img src="\images\pasted-33.png" alt="upload successful"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/dis/" itemprop="url">Redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p><img src="\images\pasted-30.png" alt="upload successful"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/dis/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/php设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/php设计模式/" itemprop="url">php设计模式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/php设计模式/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/p抽象类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/p抽象类/" itemprop="url">php抽象类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:28:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>抽象类与接口紧密相关，它们不能实例化，并且常常部分实现或根本不实现。抽象类和接口之间的一个主要差别是：类可以实现无限个接口，但仅能从一个抽象（或任何其他类型）类继承。从抽象类派生的类仍可实现接口。可以在创建组件时使用抽象类，因为它们使您得以在某些方法中指定不变级功能，但直到需要该类的特定实现之后才实现其他方法。抽象类也制定版本，因为如果在派生类中需要附加功能，则可以将其添加到基类而不中断代码。<br>PHP抽象类应用的定义：<br>abstract class ClassName{<br>}</p>
+<h2 id="什么是抽象方法"><a href="#什么是抽象方法" class="headerlink" title="什么是抽象方法"></a>什么是抽象方法</h2><p>我们在类里面定义的没有方法体的方法就是抽象方法，所谓的没有方法体指的是，在方法声明的时候没有大括号以及其中的内容，而是直接在声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字“abstract”来修饰；</p>
+<h2 id="什么是php抽象类"><a href="#什么是php抽象类" class="headerlink" title="什么是php抽象类"></a>什么是php抽象类</h2><p>只要一个类里面有一个方法是抽象方法，那么这个类就要定义为抽象类，抽象类也要使用“abstract”关键字来修饰；在抽象类里面可以有不是抽象的方法和成员属性，但只要有一个方法是抽象的方法，这个类就必须声明为抽象类，使用”abstract”来修饰。</p>
+<h2 id="PHP抽象类应用要点："><a href="#PHP抽象类应用要点：" class="headerlink" title="PHP抽象类应用要点："></a>PHP抽象类应用要点：</h2><p>　　1.定义一些方法，子类必须完全实现这个抽象中所有的方法<br>　　2.不能从抽象类创建对象，它的意义在于被扩展<br>　　3.抽象类通常具有抽象方法，方法中没有大括号</p>
+<h2 id="PHP抽象类应用重点："><a href="#PHP抽象类应用重点：" class="headerlink" title="PHP抽象类应用重点："></a>PHP抽象类应用重点：</h2><p>　　1.抽象方法不必实现具体的功能，由子类来完成<br>　　2.在子类实现抽象类的方法时，其子类的可见性必须大于或等于抽象方法的定义<br>　　3.抽象类的方法可以有参数，也可以为空<br>　　4.如果抽象方法有参数，那么子类的实现也必须有相同的参数个数</p>
+<p>PHP抽象类应用示例：<br>abstract public function_name(); //注意没有大括号</p>
+<h2 id="PHP抽象类规则："><a href="#PHP抽象类规则：" class="headerlink" title="PHP抽象类规则："></a>PHP抽象类规则：</h2><p>某个类只要至少含有一个抽象方法，就必须声明为抽象类<br>抽象方法，不能够含有函数体<br>继承抽象类的子类，实现抽象方法的，必须跟该抽象方法具有相同或者更低的访问级别<br>继承抽象类的子类，如果不实现所有抽象方法，那么该子类也为抽象类</p>
+<h2 id="计算矩形的周长"><a href="#计算矩形的周长" class="headerlink" title="计算矩形的周长"></a>计算矩形的周长</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt; ?PHP   </span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;   </span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>;   </span><br><span class="line"><span class="comment">//和一般的方法不同的是，这个方法没有大括号   </span></span><br><span class="line"><span class="comment">//你不能创建这个抽象类的实例：$Shape_Rect= new Shape(); </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;   </span><br><span class="line"><span class="keyword">private</span> $width;   </span><br><span class="line"><span class="keyword">private</span> $height;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($width=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">$height=<span class="number">0</span>)</span></span>&#123;   </span><br><span class="line"></span><br><span class="line">　　<span class="keyword">$this</span>-&gt;width=$width;   </span><br><span class="line">　　<span class="keyword">$this</span>-&gt;height=$height;   </span><br><span class="line">&#125;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>&#123;   </span><br><span class="line">　　<span class="keyword">echo</span> (<span class="keyword">$this</span>-&gt;width+<span class="keyword">$this</span>-&gt;height)*<span class="number">2</span>;   </span><br><span class="line">&#125;   </span><br><span class="line">&#125;   </span><br><span class="line">$Shape_Rect = <span class="keyword">new</span> Rectangle(<span class="number">20</span>,<span class="number">30</span>);   </span><br><span class="line">$Shape_Rect-&gt;get_area();   </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/inux基础操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/08/inux基础操作/" itemprop="url">linux基础操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T14:51:00+08:00">
+                2019-04-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="find操作"><a href="#find操作" class="headerlink" title="find操作"></a>find操作</h2><p>将目前目录及其子目录下所有延伸档名是 c 的文件列出来。<br>find . -name “*.c”<br><img src="\images\pasted-26.png" alt="upload successful"><br>将目前目录其其下子目录中所有一般文件列出<br>find . -type f</p>
+<p>递归查找<br>find . -r -name “*.txt”</p>
+<h2 id="grep操作"><a href="#grep操作" class="headerlink" title="grep操作"></a>grep操作</h2><p>grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）<br>grep -r 1 *.md</p>
+<p>找出程序运行的端口<br>netstat -ap | grep ssh</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/ookie与sesseion/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1002,757 +1741,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/层次遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/层次遍历/" itemprop="url">树的层次遍历</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T14:08:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔试/" itemprop="url" rel="index">
-                    <span itemprop="name">笔试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="\images\pasted-10.png" alt="upload successful"></p>
-<p>1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素<br>2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B<br>3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；<br>4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br><span class="line">PrintFromTopToBottom($re);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintFromTopToBottom</span><span class="params">($re)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $quene=<span class="keyword">array</span>();</span><br><span class="line">    $res=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span>($re==<span class="keyword">null</span>) <span class="keyword">return</span> $res;</span><br><span class="line">    array_push($quene,$re);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!<span class="keyword">empty</span>($quene))&#123;</span><br><span class="line">        <span class="comment">// quene出队，队头值赋值给tmp，最后打印tmp的val</span></span><br><span class="line">        <span class="comment">//这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B</span></span><br><span class="line">        $tmp=array_shift($quene);</span><br><span class="line">        <span class="comment">//左右节点依次入队</span></span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将tmp的val入队</span></span><br><span class="line">        array_push($res,$tmp-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($res) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/遍历与对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/遍历与对比/" itemprop="url">树的遍历与对比</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:47:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$pre1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>];</span><br><span class="line">$vin1 = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">$pRoot1 = reConstructBinaryTree($pre, $vin);</span><br><span class="line">$pRoot2 = reConstructBinaryTree($pre1,$vin1);</span><br><span class="line"><span class="keyword">echo</span> HasSubtree($pRoot1, $pRoot2);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HasSubtree</span><span class="params">($pRoot1, $pRoot2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        $re = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false</span></span><br><span class="line">        <span class="keyword">if</span>($pRoot1!=<span class="keyword">NULL</span>&amp;&amp;$pRoot2!=<span class="keyword">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//如果找到了对应Tree2的根节点的点</span></span><br><span class="line">            <span class="keyword">if</span>($pRoot1-&gt;val==$pRoot2-&gt;val)&#123;</span><br><span class="line">                <span class="comment">//以这个根节点为为起点判断是否包含Tree2</span></span><br><span class="line">                $re = judge($pRoot1,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;left,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果还找不到，那么就再去root的右儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;right,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $re;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">($pRoot1, $pRoot2)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果Tree2已经遍历完了都能对应的上，返回true</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot2 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果Tree2还没有遍历完，Tree1却遍历完了。返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果其中有一个点没有对应上，返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1-&gt;val != $pRoot2-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果根节点对应的上，那么就分别去子节点里面匹配</span></span><br><span class="line">    <span class="keyword">return</span> judge($pRoot1-&gt;left,$pRoot2-&gt;left)&amp;&amp;judge($pRoot1-&gt;right,$pRoot2-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/算加法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/01/算加法/" itemprop="url">位运算加法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-01T16:36:00+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Add</span><span class="params">($num1, $num2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">while</span>($num2)&#123;</span><br><span class="line">        <span class="comment">//相加之后的进位</span></span><br><span class="line">        $tmp = $num1 ^ $num2;</span><br><span class="line">        <span class="comment">//相加之后没有进位</span></span><br><span class="line">        $num2 = ($num1 &amp; $num2) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        $num1 = $tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $num1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>首先看十进制是如何做的： 5+7=12，三步走<br>第一步：相加各位的值，不算进位，得到2。<br>第二步：计算进位值，得到10. 如果这一步的进位值为0，那么第一步得到的值就是最终结果。</p>
-<p>第三步：重复上述两步，只是相加的值变成上述两步的得到的结果2和10，得到12。</p>
-<p>同样我们可以用三步走的方式计算二进制值相加： 5-101，7-111 第一步：相加各位的值，不算进位，得到010，二进制每位相加就相当于各位做异或操作，101^111。</p>
-<p>第二步：计算进位值，得到1010，相当于各位做与操作得到101，再向左移一位得到1010，(101&amp;111)&lt;&lt;1。</p>
-<p>第三步重复上述两步， 各位相加 010^1010=1000，进位值为100=(010&amp;1010)&lt;&lt;1。<br>     继续重复上述两步：1000^100 = 1100，进位值为0，跳出循环，1100为最终结果。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/ysql千行笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/30/ysql千行笔记/" itemprop="url">mysql千行笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T19:48:00+08:00">
-                2019-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Windows服务</p>
-<pre><code>-- 启动MySQL
-   net start mysql
--- 创建Windows服务
-   sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
-</code></pre><p>连接与断开服务器</p>
-<pre><code>mysql -h 地址 -P 端口 -u 用户名 -p 密码
-
-SHOW PROCESSLIST -- 显示哪些线程正在运行
-SHOW VARIABLES -- 显示系统变量信息
-</code></pre><p> 数据库操作</p>
-<pre><code>-- 查看当前数据库
-   SELECT DATABASE();
--- 显示当前时间、用户名、数据库版本
-   SELECT now(), user(), version();
--- 创建库
-   CREATE DATABASE[ IF NOT EXISTS] 数据库名 数据库选项
-   数据库选项：
-       CHARACTER SET charset_name
-       COLLATE collation_name
--- 查看已有库
-   SHOW DATABASES[ LIKE &apos;PATTERN&apos;]
--- 查看当前库信息
-   SHOW CREATE DATABASE 数据库名
--- 修改库的选项信息
-   ALTER DATABASE 库名 选项信息
--- 删除库
-   DROP DATABASE[ IF EXISTS] 数据库名
-       同时删除该数据库相关的目录及其目录内容
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/30/ysql千行笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/1背包问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/29/1背包问题/" itemprop="url">php实现0-1背包问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:12:00+08:00">
-                2019-03-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/高级算法/" itemprop="url" rel="index">
-                    <span itemprop="name">高级算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="/images/pasted-5.png" alt="upload successful"></p>
-<pre><code><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $a[<span class="string">'w'</span>] = [<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line">    $a[<span class="string">'v'</span>] = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span>];</span><br><span class="line">    $b =<span class="keyword">array</span>();</span><br><span class="line">    $n = <span class="number">6</span>;</span><br><span class="line">    $w = <span class="number">21</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $n;$i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($j=<span class="number">0</span>;$j &lt; $w;$j++)&#123;</span><br><span class="line">            $b[$i][$j] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>($k = <span class="number">1</span>; $k &lt; $n ;$k++)&#123;</span><br><span class="line">        <span class="keyword">for</span>($c = <span class="number">1</span>; $c &lt; $w ;$c++)&#123;</span><br><span class="line">            <span class="keyword">if</span>($a[<span class="string">'w'</span>][$k] &gt; $c)&#123;</span><br><span class="line">                $b[$k][$c] = $b[$k<span class="number">-1</span>][$c];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                $value1 = $b[$k<span class="number">-1</span>][$c-$a[<span class="string">'w'</span>][$k]] + $a[<span class="string">'v'</span>][$k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                $value2 = $b[$k<span class="number">-1</span>][$c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                $b[$k][$c] = max($value1,$value2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($b);</span><br><span class="line">&#125;</span><br><span class="line">back();</span><br></pre></td></tr></table></figure>
-</code></pre><p> JAVA实现</p>
-<pre><code><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">int</span>[] w = &#123; <span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">9</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span>[] v = &#123; <span class="number">0</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">10</span> &#125;;</span><br><span class="line">      <span class="keyword">int</span> N = <span class="number">6</span>, W = <span class="number">21</span>;</span><br><span class="line">      <span class="keyword">int</span>[][] b = <span class="keyword">new</span> <span class="keyword">int</span>[N][W];</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; N; k++) &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> c = <span class="number">1</span>; c &lt; W; c++) &#123;</span><br><span class="line">              <span class="keyword">if</span> (w[k] &gt; c) &#123;</span><br><span class="line">                  b[k][c] = b[k - <span class="number">1</span>][c];</span><br><span class="line">              &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                  <span class="keyword">int</span> value1 = b[k - <span class="number">1</span>][c - w[k]] + v[k]; <span class="comment">// 拿第k件物品</span></span><br><span class="line">                  <span class="keyword">int</span> value2 = b[k - <span class="number">1</span>][c]; <span class="comment">// 不拿第k件物品</span></span><br><span class="line">                  b[k][c] = Math.max(value1, value2);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(b[<span class="number">5</span>][<span class="number">20</span>]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1805,7 +1793,7 @@ SHOW VARIABLES -- 显示系统变量信息
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

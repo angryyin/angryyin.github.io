@@ -77,17 +77,17 @@
 
 
 
-<meta name="description" content="什么是锁？答：数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。 加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更">
+<meta name="description" content="什么是锁？加锁可以实现数据库并发控制。事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。 mysql有哪几种锁？Myisam支持表锁，innodb支持行锁与表锁，默认为行锁（需要索引） 表锁行锁区别？表锁：开销小，加锁快，不会出现死锁，锁粒度大，发送锁冲突概率最高，并发量最低。行级锁：开销">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql面试题">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/sql锁面试题/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="什么是锁？答：数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。 加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更">
+<meta property="og:description" content="什么是锁？加锁可以实现数据库并发控制。事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。 mysql有哪几种锁？Myisam支持表锁，innodb支持行锁与表锁，默认为行锁（需要索引） 表锁行锁区别？表锁：开销小，加锁快，不会出现死锁，锁粒度大，发送锁冲突概率最高，并发量最低。行级锁：开销">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-12T02:18:39.369Z">
+<meta property="og:updated_time" content="2019-04-14T06:46:00.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql面试题">
-<meta name="twitter:description" content="什么是锁？答：数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。 加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更">
+<meta name="twitter:description" content="什么是锁？加锁可以实现数据库并发控制。事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。 mysql有哪几种锁？Myisam支持表锁，innodb支持行锁与表锁，默认为行锁（需要索引） 表锁行锁区别？表锁：开销小，加锁快，不会出现死锁，锁粒度大，发送锁冲突概率最高，并发量最低。行级锁：开销">
 
 
 
@@ -360,23 +360,16 @@
       
 
       
-        <h2 id="什么是锁？"><a href="#什么是锁？" class="headerlink" title="什么是锁？"></a>什么是锁？</h2><p>答：数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。</p>
-<p>加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
-<p>基本锁类型：锁包括行级锁和表级锁</p>
+        <h2 id="什么是锁？"><a href="#什么是锁？" class="headerlink" title="什么是锁？"></a>什么是锁？</h2><p>加锁可以实现数据库并发控制。<br>事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
 <h2 id="mysql有哪几种锁？"><a href="#mysql有哪几种锁？" class="headerlink" title="mysql有哪几种锁？"></a>mysql有哪几种锁？</h2><p>Myisam支持表锁，innodb支持行锁与表锁，默认为行锁（需要索引）</p>
 <h2 id="表锁行锁区别？"><a href="#表锁行锁区别？" class="headerlink" title="表锁行锁区别？"></a>表锁行锁区别？</h2><p>表锁：开销小，加锁快，不会出现死锁，锁粒度大，发送锁冲突概率最高，并发量最低。<br>行级锁：开销大，加锁慢，会出现死锁。锁力度小，发生锁冲突的概率小，并发度最高</p>
-<h2 id="Mysql中有哪些不同的表格？"><a href="#Mysql中有哪些不同的表格？" class="headerlink" title="Mysql中有哪些不同的表格？"></a>Mysql中有哪些不同的表格？</h2><p>MyISAM<br>Heap<br>Merge<br>INNODB<br>ISAM</p>
+<h2 id="Mysql数据库表类型？"><a href="#Mysql数据库表类型？" class="headerlink" title="Mysql数据库表类型？"></a>Mysql数据库表类型？</h2><p>MyISAM（MySQL的默认数据表类型 事务不安全 不支持外键 假如忽略事务以及访问并发性的话，并且需要执行大量的SELECT检索语句的话，MyISAM将是最好的选择）<br>Heap（MySQL中存取数据最快的表。这是因为他们使用存储在动态内存中的一个散列索引，不过如果MySQL或服务器崩溃，这些内存数据将会丢失。）<br>Merge（MERGE表实际上是又一个MyISAM表的集合）<br>INNODB（事务安全，支持外键）<br>ISAM（早期MySQL版本的缺省表类型，直到MyIASM开发出来。建议不要再使用它）<br>DBD（支持事务处理的表）</p>
 <p>MyISAM是Mysql的默认存储引擎。</p>
-<h2 id="简述在MySQL数据库中MyISAM和InnoDB的区别"><a href="#简述在MySQL数据库中MyISAM和InnoDB的区别" class="headerlink" title="简述在MySQL数据库中MyISAM和InnoDB的区别"></a>简述在MySQL数据库中MyISAM和InnoDB的区别</h2><p>存储引擎是基于表的，而不是数据库。<br>InnoDB存储引擎: 行锁设计、支持外键,支持事务，支持并发，锁粒度是支持mvcc得行级锁；<br>MyISAM存储引擎: 是MySQL官方提供的存储引擎，主要面向OLAP(Online Analytical Processing,在线分析处理)方面的应用，不支持事务，锁粒度是支持并发插入得表级锁，支持表所和全文索引。操作速度快，不能读写操作太频繁。</p>
+<h2 id="简述在MySQL数据库中MyISAM和InnoDB的区别"><a href="#简述在MySQL数据库中MyISAM和InnoDB的区别" class="headerlink" title="简述在MySQL数据库中MyISAM和InnoDB的区别"></a>简述在MySQL数据库中MyISAM和InnoDB的区别</h2><p>存储引擎是基于表的，而不是数据库。<br>InnoDB存储引擎: 行锁设计、支持外键,支持事务，支持并发，锁粒度是支持mvcc的行级锁；<br>MyISAM存储引擎: MySQL官方存储引擎，主要面向在线分析处理方面的应用，不支持事务，锁粒度是支持并发插入得表级锁，支持表锁和全文索引。操作速度快，不能读写操作太频繁。</p>
 <h2 id="四种事务隔离级别"><a href="#四种事务隔离级别" class="headerlink" title="四种事务隔离级别"></a>四种事务隔离级别</h2><p>read uncommited ：读到未提交数据<br>read committed：脏读，不可重复读<br>repeatable read：可重读<br>serializable ：串行事物</p>
-<h2 id="数据库中的事务是什么"><a href="#数据库中的事务是什么" class="headerlink" title="数据库中的事务是什么?"></a>数据库中的事务是什么?</h2><p>事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。</p>
-<h2 id="事务特性："><a href="#事务特性：" class="headerlink" title="事务特性："></a>事务特性：</h2><p>（1）原子性：即不可分割性，事务要么全部被执行，要么就全部不被执行。</p>
-<p>（2）一致性或可串性。事务的执行使得数据库从一种正确状态转换成另一种正确状态</p>
-<p>（3）隔离性。在事务正确提交之前，不允许把该事务对数据的任何改变提供给任何其他事务，</p>
-<p>（4） 持久性。事务正确提交后，其结果将永久保存在数据库中，即使在事务提交后有了其他故障，事务的处理结果也会得到保存。</p>
-<p>或者这样理解：</p>
-<p>事务就是被绑定在一起作为一个逻辑工作单元的SQL语句分组，如果任何一个语句操作失败那么整个操作就被失败，以后操作就会回滚到操作前状态，或者是上有个节点。为了确保要么执行，要么不执行，就可以使用事务。要将有组语句作为事务考虑，就需要通过ACID测试，即原子性，一致性，隔离性和持久性。</p>
-<h2 id="CHAR和VARCHAR的区别？"><a href="#CHAR和VARCHAR的区别？" class="headerlink" title="CHAR和VARCHAR的区别？"></a>CHAR和VARCHAR的区别？</h2><p>1.CHAR和VARCHAR类型在存储和检索方面有所不同<br>2.CHAR列长度固定为创建表时声明的长度，长度值范围是1到255<br>当CHAR值被存储时，它们被用空格填充到特定长度，检索CHAR值时需删除尾随空格。</p>
+<h2 id="事务特性："><a href="#事务特性：" class="headerlink" title="事务特性："></a>事务特性：</h2><p>事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。<br>（1）原子性：即不可分割性，事务要么全部被执行，要么就全部不被执行。<br>（2）一致性：事务的执行使得数据库从一种正确状态转换成另一种正确状态<br>（3）隔离性：在事务正确提交之前，不允许把该事务对数据的任何改变提供给任何其他事务，<br>（4）持久性：事务正确提交后，其结果将永久保存在数据库中，即使在事务提交后有了其他故障，事务的处理结果也会得到保存。</p>
+<p>要将组语句作为事务考虑，就需要通过ACID测试，即原子性，一致性，隔离性和持久性。</p>
+<h2 id="CHAR和VARCHAR的区别？"><a href="#CHAR和VARCHAR的区别？" class="headerlink" title="CHAR和VARCHAR的区别？"></a>CHAR和VARCHAR的区别？</h2><p>1、CHAR（M）定长，M取值0-255<br>2、当保存char值时，在它们的右边填充空格以达到指定的长度<br>3、当检索到char值时，尾部的空格被删除掉，char字段上的索引效率很高。<br>4、varchar的数据类型长度支持到了65535。起始位和结束位占去了3个字节，所以其整体最大长度为65532字节<br>5、varchar值保存时只保存需要的字符数，另加一个字节来记录长度（长度超过255时需要2个字节）</p>
 <h2 id="LIKE声明中的％和-是什么意思？"><a href="#LIKE声明中的％和-是什么意思？" class="headerlink" title="LIKE声明中的％和_是什么意思？"></a>LIKE声明中的％和_是什么意思？</h2><p>％对应于0个或更多字符，_只是LIKE语句中的一个字符。</p>
 <h2 id="如何在Unix和Mysql时间戳之间进行转换？"><a href="#如何在Unix和Mysql时间戳之间进行转换？" class="headerlink" title="如何在Unix和Mysql时间戳之间进行转换？"></a>如何在Unix和Mysql时间戳之间进行转换？</h2><p>UNIX_TIMESTAMP是从Mysql时间戳转换为Unix时间戳的命令<br>FROM_UNIXTIME是从Unix时间戳转换为Mysql时间戳的命令</p>
 <h2 id="列对比运算符是什么？"><a href="#列对比运算符是什么？" class="headerlink" title="列对比运算符是什么？"></a>列对比运算符是什么？</h2><p>在SELECT语句的列比较中使用=，&lt;&gt;，&lt;=，&lt;，&gt; =，&gt;，&lt;&lt;，&gt;&gt;，&lt;=&gt;，AND，OR或LIKE运算符。</p>
@@ -386,48 +379,23 @@
 <h2 id="可以使用多少列创建索引？"><a href="#可以使用多少列创建索引？" class="headerlink" title="可以使用多少列创建索引？"></a>可以使用多少列创建索引？</h2><p>任何标准表最多可以创建16个索引列。</p>
 <h2 id="如果一个表有一列定义为TIMESTAMP，将发生什么？"><a href="#如果一个表有一列定义为TIMESTAMP，将发生什么？" class="headerlink" title="如果一个表有一列定义为TIMESTAMP，将发生什么？"></a>如果一个表有一列定义为TIMESTAMP，将发生什么？</h2><p>每当行被更改时，时间戳字段将获取当前时间戳。</p>
 <h2 id="列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？"><a href="#列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？" class="headerlink" title="列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？"></a>列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？</h2><p>它会停止递增，任何进一步的插入都将产生错误，因为密钥已被使用。</p>
-<h2 id="什么是非标准字符串类型？"><a href="#什么是非标准字符串类型？" class="headerlink" title="什么是非标准字符串类型？"></a>什么是非标准字符串类型？</h2><p>TINYTEXT<br>TEXT<br>MEDIUMTEXT<br>LONGTEXT</p>
-<h2 id="列的字符串类型可以是什么？"><a href="#列的字符串类型可以是什么？" class="headerlink" title="列的字符串类型可以是什么？"></a>列的字符串类型可以是什么？</h2><p>SET<br>BLOB<br>ENUM<br>CHAR<br>TEXT</p>
-<h2 id="为表中得字段选择合适得数据类型"><a href="#为表中得字段选择合适得数据类型" class="headerlink" title="为表中得字段选择合适得数据类型"></a>为表中得字段选择合适得数据类型</h2><p>字段类型优先级: 整形&gt;date,time&gt;enum,char&gt;varchar&gt;blob,text</p>
-<p>优先考虑数字类型，其次是日期或者二进制类型，最后是字符串类型，同级别得数据类型，应该优先选择占用空间小的数据类型</p>
+<h2 id="为表中得字段选择合适得数据类型"><a href="#为表中得字段选择合适得数据类型" class="headerlink" title="为表中得字段选择合适得数据类型"></a>为表中得字段选择合适得数据类型</h2><p>字段类型优先级: 整形&gt;date,time&gt;enum,char&gt;varchar&gt;blob,text<br>优先考虑数字类型，其次是日期或者二进制类型，最后是字符串类型，同级别得数据类型，应该优先选择占用空间小的数据类型</p>
 <h2 id="NOW（）和CURRENT-DATE（）有什么区别？"><a href="#NOW（）和CURRENT-DATE（）有什么区别？" class="headerlink" title="NOW（）和CURRENT_DATE（）有什么区别？"></a>NOW（）和CURRENT_DATE（）有什么区别？</h2><p>NOW（）命令用于显示当前年份，月份，日期，小时，分钟和秒。<br>CURRENT_DATE（）仅显示当前年份，月份和日期。</p>
-<h2 id="什么是通用SQL函数？"><a href="#什么是通用SQL函数？" class="headerlink" title="什么是通用SQL函数？"></a>什么是通用SQL函数？</h2><p>CONCAT(A, B) – 连接两个字符串值以创建单个字符串输出。通常用于将两个或多个字段合并为一个字段。<br>FORMAT(X, D)- 格式化数字X到D有效数字。<br>CURRDATE(), CURRTIME()- 返回当前日期或时间。<br>NOW（） – 将当前日期和时间作为一个值返回。<br>MONTH（），DAY（），YEAR（），WEEK（），WEEKDAY（） – 从日期值中提取给定数据。<br>HOUR（），MINUTE（），SECOND（） – 从时间值中提取给定数据。<br>DATEDIFF（A，B） – 确定两个日期之间的差异，通常用于计算年龄<br>SUBTIMES（A，B） – 确定两次之间的差异。<br>FROMDAYS（INT） – 将整数天数转换为日期值。</p>
-<h2 id="MYSQL支持事务吗？"><a href="#MYSQL支持事务吗？" class="headerlink" title="MYSQL支持事务吗？"></a>MYSQL支持事务吗？</h2><p>在缺省模式下，MYSQL是autocommit模式的，所有的数据库更新操作都会即时提交，所以在缺省情况下，mysql是不支持事务的。</p>
-<p>但是如果你的MYSQL表类型是使用InnoDB Tables 或 BDB tables的话，你的MYSQL就可以使用事务处理,使用SET</p>
-<p>AUTOCOMMIT=0就可以使MYSQL允许在非autocommit模式，在非autocommit模式下，你必须使用COMMIT来提交你的更改，或者用ROLLBACK来回滚你的更改。</p>
-<h2 id="mysql里记录货币用什么字段类型好"><a href="#mysql里记录货币用什么字段类型好" class="headerlink" title="mysql里记录货币用什么字段类型好"></a>mysql里记录货币用什么字段类型好</h2><p>NUMERIC和DECIMAL类型被Mysql实现为同样的类型，这在SQL92标准允许。他们被用于保存值，该值的准确精度是极其重要的值，例如与金钱有关的数据。当声明一个类是这些类型之一时，精度和规模的能被(并且通常是)指定。</p>
-<p>例如：</p>
-<p>salary DECIMAL(9,2)</p>
-<p>在这个例子中，9(precision)代表将被用于存储值的总的小数位数，而2(scale)代表将被用于存储小数点后的位数。</p>
-<p>因此，在这种情况下，能被存储在salary列中的值的范围是从-9999999.99到9999999.99。</p>
 <h2 id="MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"><a href="#MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？" class="headerlink" title="MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"></a>MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？</h2><ol>
-<li><p>设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。</p>
-</li>
-<li><p>选择合适的表字段数据类型和存储引擎，适当的添加索引。</p>
-</li>
-<li><p>mysql库主从读写分离。</p>
-</li>
-<li><p>找规律分表，减少单表中的数据量提高查询速度。</p>
-</li>
-</ol>
-<p>5.添加缓存机制，比如memcached，apc等。</p>
-<ol start="6">
-<li><p>不经常改动的页面，生成静态页面。</p>
-</li>
-<li><p>书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</p>
-</li>
+<li>设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。</li>
+<li>选择合适的表字段数据类型和存储引擎，适当的添加索引。</li>
+<li>mysql库主从读写分离。</li>
+<li>找规律分表，减少单表中的数据量提高查询速度。</li>
+<li>添加缓存机制，比如memcached，apc等。</li>
+<li>不经常改动的页面，生成静态页面。</li>
+<li>书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</li>
 </ol>
 <h2 id="锁的优化策略"><a href="#锁的优化策略" class="headerlink" title="锁的优化策略"></a>锁的优化策略</h2><ol>
-<li><p>读写分离</p>
-</li>
-<li><p>分段加锁</p>
-</li>
-<li><p>减少锁持有的时间</p>
-</li>
-<li><p>多个线程尽量以相同的顺序去获取资源</p>
-</li>
+<li>读写分离</li>
+<li>分段加锁</li>
+<li>减少锁持有的时间</li>
+<li>多个线程尽量以相同的顺序去获取资源<br>不能将锁的粒度过于细化，不然可能会出现线程的加锁和释放次数过多，反而效率不如一次加一把大锁。</li>
 </ol>
-<p>不能将锁的粒度过于细化，不然可能会出现线程的加锁和释放次数过多，反而效率不如一次加一把大锁。</p>
 <h2 id="什么情况下设置了索引但无法使用"><a href="#什么情况下设置了索引但无法使用" class="headerlink" title="什么情况下设置了索引但无法使用"></a>什么情况下设置了索引但无法使用</h2><p>1.以“%”开头的LIKE语句，模糊匹配</p>
 <ol start="2">
 <li><p>OR语句前后没有同时使用索引</p>
@@ -436,12 +404,7 @@
 </li>
 </ol>
 <h2 id="实践中如何优化MySQL"><a href="#实践中如何优化MySQL" class="headerlink" title="实践中如何优化MySQL"></a>实践中如何优化MySQL</h2><p><a href="https://www.toutiao.com/i6599796228886626829/?group_id=6599796228886626829" target="_blank" rel="noopener">https://www.toutiao.com/i6599796228886626829/?group_id=6599796228886626829</a><br>最好是按照以下顺序优化：</p>
-<p>1.SQL语句及索引的优化</p>
-<ol start="2">
-<li>数据库表结构的优化</li>
-</ol>
-<p>3.系统配置的优化</p>
-<p>4.硬件的优化</p>
+<p>1.SQL语句及索引的优化<br>2.数据库表结构的优化<br>3.系统配置的优化<br>4.硬件的优化</p>
 <h2 id="优化数据库的方法"><a href="#优化数据库的方法" class="headerlink" title="优化数据库的方法"></a>优化数据库的方法</h2><p>选取最适用的字段属性，尽可能减少定义字段宽度，尽量把字段设置NOTNULL，例如’省份’、’性别’最好适用ENUM<br>使用连接(JOIN)来代替子查询<br>适用联合(UNION)来代替手动创建的临时表<br>事务处理<br>锁定表、优化事务处理<br>适用外键，优化锁定表<br>建立索引<br>优化查询语句</p>
 <h2 id="简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"><a href="#简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）" class="headerlink" title="简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"></a>简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。</p>
 <p>普通索引(由关键字KEY或INDEX定义的索引)的唯一任务是加快对数据的访问速度。</p>
@@ -449,98 +412,37 @@
 <p>主键，是一种特殊的唯一索引，在一张表中只能定义一个主键索引，主键用于唯一标识一条记录，使用关键字 PRIMARY KEY 来创建。</p>
 <p>索引可以覆盖多个数据列，如像INDEX(columnA, columnB)索引，这就是联合索引。</p>
 <p>索引可以极大的提高数据的查询速度，但是会降低插入、删除、更新表的速度，因为在执行这些写操作时，还要操作索引文件。</p>
-<h2 id="SQL注入漏洞产生的原因？如何防止？"><a href="#SQL注入漏洞产生的原因？如何防止？" class="headerlink" title="SQL注入漏洞产生的原因？如何防止？"></a>SQL注入漏洞产生的原因？如何防止？</h2><p>SQL注入产生的原因：程序开发过程中不注意规范书写sql语句和对特殊字符进行过滤，导致客户端可以通过全局变量POST和GET提交一些sql语句正常执行。</p>
-<p>防止SQL注入的方式：</p>
-<p>开启配置文件中的magic_quotes_gpc 和 magic_quotes_runtime设置</p>
-<p>执行sql语句时使用addslashes进行sql语句转换</p>
-<p>Sql语句书写尽量不要省略双引号和单引号。</p>
-<p>过滤掉sql语句中的一些关键词：update、insert、delete、select、 * 。</p>
-<p>提高数据库表和字段的命名技巧，对一些重要的字段根据程序的特点命名，取不易被猜到的。</p>
-<h2 id="存储时期"><a href="#存储时期" class="headerlink" title="存储时期"></a>存储时期</h2><p>Datatime:以 YYYY-MM-DD HH:MM:SS 格式存储时期时间，精确到秒，占用8个字节得存储空间，datatime类型与时区无关</p>
-<p>Timestamp:以时间戳格式存储，占用4个字节，范围小1970-1-1到2038-1-19，显示依赖于所指定得时区，默认在第一个列行的数据修改时可以自动得修改timestamp列得值</p>
-<p>Date:（生日）占用得字节数比使用字符串.datatime.int储存要少，使用date只需要3个字节，存储日期月份，还可以利用日期时间函数进行日期间得计算</p>
-<p>Time:存储时间部分得数据</p>
-<p>注意:不要使用字符串类型来存储日期时间数据（通常比字符串占用得储存空间小，在进行查找过滤可以利用日期得函数）</p>
-<p>使用int存储日期时间不如使用timestamp类型</p>
-<h2 id="索引的底层实现原理和优化"><a href="#索引的底层实现原理和优化" class="headerlink" title="索引的底层实现原理和优化"></a>索引的底层实现原理和优化</h2><p>B+树，经过优化的B+树</p>
-<p>主要是在所有的叶子结点中增加了指向下一个叶子节点的指针，因此InnoDB建议为大部分表使用默认自增的主键作为主索引。</p>
-<h2 id="索引的目的是什么？"><a href="#索引的目的是什么？" class="headerlink" title="索引的目的是什么？"></a>索引的目的是什么？</h2><p>快速访问数据表中的特定信息，提高检索速度</p>
-<p>创建唯一性索引，保证数据库表中每一行数据的唯一性。</p>
-<p>加速表和表之间的连接</p>
-<p>使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>1普通索引</p>
-<p>是最基本的索引，它没有任何限制。</p>
-<p>2唯一索引</p>
-<p>与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。</p>
-<p>3组合索引</p>
-<p>指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用。</p>
-<p>4主键索引</p>
-<p>是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在建表的时候同时创建主键索引</p>
-<p>5全文索引</p>
-<p>主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合match against操作使用，而不是一般的where语句加like。它可以在create table，alter table ，create index使用，不过目前只有char、varchar，text 列上可以创建全文索引。值得一提的是，在数据量较大时候，现将数据放入一个没有全局索引的表中，然后再用CREATE index创建fulltext索引，要比先为一张表建立fulltext然后再将数据写入的速度快很多。</p>
+<h2 id="SQL注入漏洞产生的原因？如何防止？"><a href="#SQL注入漏洞产生的原因？如何防止？" class="headerlink" title="SQL注入漏洞产生的原因？如何防止？"></a>SQL注入漏洞产生的原因？如何防止？</h2><p>SQL注入产生的原因：程序开发过程中不注意规范书写sql语句和对特殊字符进行过滤，导致客户端可以通过全局变量POST和GET提交一些sql语句正常执行。<br>防止SQL注入的方式：<br>开启配置文件中的magic_quotes_gpc 和 magic_quotes_runtime设置<br>执行sql语句时使用addslashes进行sql语句转换<br>Sql语句书写尽量不要省略双引号和单引号。<br>过滤掉sql语句中的一些关键词：update、insert、delete、select、 * 。<br>提高数据库表和字段的命名技巧，对一些重要的字段根据程序的特点命名，取不易被猜到的。</p>
+<h2 id="索引的底层实现原理和优化"><a href="#索引的底层实现原理和优化" class="headerlink" title="索引的底层实现原理和优化"></a>索引的底层实现原理和优化</h2><p>B+树，经过优化的B+树<br>主要是在所有的叶子结点中增加了指向下一个叶子节点的指针，因此InnoDB建议为大部分表使用默认自增的主键作为主索引。</p>
+<h2 id="索引的目的是什么？"><a href="#索引的目的是什么？" class="headerlink" title="索引的目的是什么？"></a>索引的目的是什么？</h2><p>快速访问数据表中的特定信息，提高检索速度<br>创建唯一性索引，保证数据库表中每一行数据的唯一性。<br>加速表和表之间的连接<br>使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间</p>
+<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>1普通索引<br>是最基本的索引，它没有任何限制。</p>
+<p>2唯一索引<br>与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。<br>3组合索引<br>指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用。</p>
+<p>4主键索引<br>是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在建表的时候同时创建主键索引</p>
+<p>5全文索引<br>主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合match against操作使用，而不是一般的where语句加like。它可以在create table，alter table ，create index使用，不过目前只有char、varchar，text 列上可以创建全文索引。值得一提的是，在数据量较大时候，现将数据放入一个没有全局索引的表中，然后再用CREATE index创建fulltext索引，要比先为一张表建立fulltext然后再将数据写入的速度快很多。</p>
 <h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2><p>只要列中含有NULL值，就最好不要在此例设置索引，复合索引如果有NULL值，此列在使用时也不会使用索引<br>尽量使用短索引，如果可以，应该制定一个前缀长度<br>对于经常在where子句使用的列，最好设置索引，这样会加快查找速度<br>对于有多个列where或者order by子句的，应该建立复合索引<br>对于like语句，以%或者‘-’开头的不会使用索引，以%结尾会使用索引<br>尽量不要在列上进行运算（函数操作和表达式操作）<br>尽量不要使用not in和&lt;&gt;操作</p>
-<h2 id="索引对数据库系统的负面影响是什么？"><a href="#索引对数据库系统的负面影响是什么？" class="headerlink" title="索引对数据库系统的负面影响是什么？"></a>索引对数据库系统的负面影响是什么？</h2><p>负面影响：</p>
-<p>创建索引和维护索引需要耗费时间，这个时间随着数据量的增加而增加；索引需要占用物理空间，不光是表需要占用数据空间，每个索引也需要占用物理空间；当对表进行增、删、改、的时候索引也要动态维护，这样就降低了数据的维护速度。</p>
-<h2 id="为数据表建立索引的原则有哪些？"><a href="#为数据表建立索引的原则有哪些？" class="headerlink" title="为数据表建立索引的原则有哪些？"></a>为数据表建立索引的原则有哪些？</h2><p>在最频繁使用的、用以缩小查询范围的字段上建立索引。</p>
-<p>在频繁使用的、需要排序的字段上建立索引</p>
-<h2 id="什么情况下不宜建立索引？"><a href="#什么情况下不宜建立索引？" class="headerlink" title="什么情况下不宜建立索引？"></a>什么情况下不宜建立索引？</h2><p>对于查询中很少涉及的列或者重复值比较多的列，不宜建立索引。</p>
-<p>对于一些特殊的数据类型，不宜建立索引，比如文本字段（text）等</p>
-<p>解释MySQL外连接、内连接与自连接的区别</p>
-<p>先说什么是交叉连接: 交叉连接又叫笛卡尔积，它是指不使用任何条件，直接将一个表的所有记录和另一个表中的所有记录一一匹配。</p>
-<p>内连接 则是只有条件的交叉连接，根据某个条件筛选出符合条件的记录，不符合条件的记录不会出现在结果集中，即内连接只连接匹配的行。</p>
-<p>外连接 其结果集中不仅包含符合连接条件的行，而且还会包括左表、右表或两个表中</p>
-<p>的所有数据行，这三种情况依次称之为左外连接，右外连接，和全外连接。</p>
-<p>左外连接，也称左连接，左表为主表，左表中的所有记录都会出现在结果集中，对于那些在右表中并没有匹配的记录，仍然要显示，右边对应的那些字段值以NULL来填充。右外连接，也称右连接，右表为主表，右表中的所有记录都会出现在结果集中。左连接和右连接可以互换，MySQL目前还不支持全外连接。</p>
+<h2 id="索引对数据库系统的负面影响是什么？"><a href="#索引对数据库系统的负面影响是什么？" class="headerlink" title="索引对数据库系统的负面影响是什么？"></a>索引对数据库系统的负面影响是什么？</h2><p>负面影响：<br>创建索引和维护索引需要耗费时间，这个时间随着数据量的增加而增加；索引需要占用物理空间；当对表进行增、删、改、的时候索引也要动态维护，这样就降低了数据的维护速度。</p>
+<h2 id="什么情况下不宜建立索引？"><a href="#什么情况下不宜建立索引？" class="headerlink" title="什么情况下不宜建立索引？"></a>什么情况下不宜建立索引？</h2><p>1、对于查询中很少涉及的列或者重复值比较多的列，不宜建立索引。<br>2、对于一些特殊的数据类型，不宜建立索引，比如文本字段（text）等</p>
 <h2 id="Mysql中的事务回滚机制概述"><a href="#Mysql中的事务回滚机制概述" class="headerlink" title="Mysql中的事务回滚机制概述"></a>Mysql中的事务回滚机制概述</h2><p>事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位，事务回滚是指将该事务已经完成的对数据库的更新操作撤销。</p>
 <p>要同时修改数据库中两个不同表时，如果它们不是一个事务的话，当第一个表修改完，可能第二个表修改过程中出现了异常而没能修改，此时就只有第二个表依旧是未修改之前的状态，而第一个表已经被修改完毕。而当你把它们设定为一个事务的时候，当第一个表修改完，第二表修改出现异常而没能修改，第一个表和第二个表都要回到未修改的状态，这就是所谓的事务回滚</p>
-<h2 id="SQL语言包括哪几部分？每部分都有哪些操作关键字？"><a href="#SQL语言包括哪几部分？每部分都有哪些操作关键字？" class="headerlink" title="SQL语言包括哪几部分？每部分都有哪些操作关键字？"></a>SQL语言包括哪几部分？每部分都有哪些操作关键字？</h2><p>SQL语言包括数据定义(DDL)、数据操纵(DML),数据控制(DCL)和数据查询（DQL）四个部分。</p>
-<p>数据定义：Create Table,Alter Table,Drop Table, Craete/Drop Index等</p>
-<p>数据操纵：Select ,insert,update,delete,</p>
-<p>数据控制：grant,revoke</p>
-<p>数据查询：select</p>
+<h2 id="SQL语言包括哪几部分？每部分都有哪些操作关键字？"><a href="#SQL语言包括哪几部分？每部分都有哪些操作关键字？" class="headerlink" title="SQL语言包括哪几部分？每部分都有哪些操作关键字？"></a>SQL语言包括哪几部分？每部分都有哪些操作关键字？</h2><p>SQL语言包括数据定义(DDL)、数据操纵(DML),数据控制(DCL)和数据查询（DQL）四个部分。<br>数据定义：Create Table,Alter Table,Drop Table, Craete/Drop Index等<br>数据操纵：Select ,insert,update,delete,<br>数据控制：grant,revoke<br>数据查询：select</p>
 <h2 id="完整性约束包括哪些？"><a href="#完整性约束包括哪些？" class="headerlink" title="完整性约束包括哪些？"></a>完整性约束包括哪些？</h2><p>数据完整性(Data Integrity)是指数据的精确(Accuracy)和可靠性(Reliability)。</p>
 <p>分为以下四类：</p>
-<p>1) 实体完整性：规定表的每一行在表中是惟一的实体。</p>
-<p>2) 域完整性：是指表中的列必须满足某种特定的数据类型约束，其中约束又包括取值范围、精度等规定。</p>
-<p>3) 参照完整性：是指两个表的主关键字和外关键字的数据应一致，保证了表之间的数据的一致性，防止了数据丢失或无意义的数据在数据库中扩散。</p>
-<p>4) 用户定义的完整性：不同的关系数据库系统根据其应用环境的不同，往往还需要一些特殊的约束条件。用户定义的完整性即是针对某个特定关系数据库的约束条件，它反映某一具体应用必须满足的语义要求。</p>
+<p>1) 实体完整性：规定表的每一行在表中是惟一的实体。<br>2) 域完整性：是指表中的列必须满足某种特定的数据类型约束，其中约束又包括取值范围、精度等规定。<br>3) 参照完整性：是指两个表的主关键字和外关键字的数据应一致，保证了表之间的数据的一致性，防止了数据丢失或无意义的数据在数据库中扩散。<br>4) 用户定义的完整性：不同的关系数据库系统根据其应用环境的不同，往往还需要一些特殊的约束条件。用户定义的完整性即是针对某个特定关系数据库的约束条件，它反映某一具体应用必须满足的语义要求。</p>
 <p>与表有关的约束：包括列约束(NOT NULL（非空约束）)和表约束(PRIMARY KEY、foreign key、check、UNIQUE) 。</p>
 <h2 id="什么叫视图？游标是什么？"><a href="#什么叫视图？游标是什么？" class="headerlink" title="什么叫视图？游标是什么？"></a>什么叫视图？游标是什么？</h2><p>答：视图是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作，视图通常是有一个表或者多个表的行或列的子集。对视图的修改不影响基本表。它使得我们获取数据更容易，相比多表查询。</p>
 <p>游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
 <h2 id="什么是存储过程？用什么来调用？"><a href="#什么是存储过程？用什么来调用？" class="headerlink" title="什么是存储过程？用什么来调用？"></a>什么是存储过程？用什么来调用？</h2><p>答：存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。可以用一个命令对象来调用存储过程。</p>
-<h2 id="如何通俗地理解三个范式？"><a href="#如何通俗地理解三个范式？" class="headerlink" title="如何通俗地理解三个范式？"></a>如何通俗地理解三个范式？</h2><p>答：第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解；</p>
-<p>第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性；</p>
-<p>第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余。。</p>
-<h2 id="范式化设计优缺点"><a href="#范式化设计优缺点" class="headerlink" title="范式化设计优缺点:"></a>范式化设计优缺点:</h2><p>优点:</p>
-<p>可以尽量得减少数据冗余，使得更新快，体积小</p>
-<p>缺点:对于查询需要多个表进行关联，减少写得效率增加读得效率，更难进行索引优化</p>
-<p>反范式化:</p>
-<p>优点:可以减少表得关联，可以更好得进行索引优化</p>
-<p>缺点:数据冗余以及数据异常，数据得修改需要更多的成本</p>
+<h2 id="如何通俗地理解三个范式？"><a href="#如何通俗地理解三个范式？" class="headerlink" title="如何通俗地理解三个范式？"></a>如何通俗地理解三个范式？</h2><p>第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解；<br>第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性；<br>第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余。。</p>
+<h2 id="范式化设计优缺点"><a href="#范式化设计优缺点" class="headerlink" title="范式化设计优缺点:"></a>范式化设计优缺点:</h2><p>优点:<br>可以尽量得减少数据冗余，使得更新快，体积小<br>缺点:对于查询需要多个表进行关联，减少写得效率增加读得效率，更难进行索引优化</p>
+<p>反范式化:<br>优点:可以减少表得关联，可以更好得进行索引优化<br>缺点:数据冗余以及数据异常，数据得修改需要更多的成本</p>
 <h2 id="什么是基本表？什么是视图？"><a href="#什么是基本表？什么是视图？" class="headerlink" title="什么是基本表？什么是视图？"></a>什么是基本表？什么是视图？</h2><p>答：基本表是本身独立存在的表，在 SQL 中一个关系就对应一个表。 视图是从一个或几个基本表导出的表。视图本身不独立存储在数据库中，是一个虚表</p>
 <h2 id="试述视图的优点？"><a href="#试述视图的优点？" class="headerlink" title="试述视图的优点？"></a>试述视图的优点？</h2><p>答：(1) 视图能够简化用户的操作 (2) 视图使用户能以多种角度看待同一数据； (3) 视图为数据库提供了一定程度的逻辑独立性； (4) 视图能够对机密数据提供安全保护。</p>
 <h2 id="NULL是什么意思"><a href="#NULL是什么意思" class="headerlink" title="NULL是什么意思"></a>NULL是什么意思</h2><p>答：NULL这个值表示UNKNOWN(未知):它不表示“”(空字符串)。对NULL这个值的任何比较都会生产一个NULL值。您不能把任何值与一个 NULL值进行比较，并在逻辑上希望获得一个答案。</p>
 <p>使用IS NULL来进行NULL判断</p>
-<h2 id="主键、外键和索引的区别？"><a href="#主键、外键和索引的区别？" class="headerlink" title="主键、外键和索引的区别？"></a>主键、外键和索引的区别？</h2><p>定义：<br>主键–唯一标识一条记录，不能有重复的，不允许为空</p>
-<p>外键–表的外键是另一表的主键, 外键可以有重复的, 可以是空值</p>
-<p>索引–该字段没有重复值，但可以有一个空值</p>
-<p>作用：</p>
-<p>主键–用来保证数据完整性</p>
-<p>外键–用来和其他表建立联系用的</p>
-<p>索引–是提高查询排序的速度</p>
-<p>个数：</p>
-<p>主键–主键只能有一个</p>
-<p>外键–一个表可以有多个外键</p>
-<p>索引–一个表可以有多个唯一索引</p>
-<h2 id="你可以用什么来确保表格里的字段只接受特定范围里的值"><a href="#你可以用什么来确保表格里的字段只接受特定范围里的值" class="headerlink" title="你可以用什么来确保表格里的字段只接受特定范围里的值?"></a>你可以用什么来确保表格里的字段只接受特定范围里的值?</h2><p>答：Check限制，它在数据库表格里被定义，用来限制输入该列的值。</p>
-<p>触发器也可以被用来限制数据库表格里的字段能够接受的值，但是这种办法要求触发器在表格里被定义，这可能会在某些情况下影响到性能。</p>
-<h2 id="说说对SQL语句优化有哪些方法？（选择几条）"><a href="#说说对SQL语句优化有哪些方法？（选择几条）" class="headerlink" title="说说对SQL语句优化有哪些方法？（选择几条）"></a>说说对SQL语句优化有哪些方法？（选择几条）</h2><p>（1）Where子句中：where表之间的连接必须写在其他Where条件之前，那些可以过滤掉最大数量记录的条件必须写在Where子句的末尾.HAVING最后。</p>
-<p>（2）用EXISTS替代IN、用NOT EXISTS替代NOT IN。</p>
-<p>（3） 避免在索引列上使用计算</p>
-<p>（4）避免在索引列上使用IS NULL和IS NOT NULL</p>
-<p>（5）对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。</p>
-<p>（6）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描</p>
-<p>（7）应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描</p>
+<h2 id="主键、外键和索引的区别？"><a href="#主键、外键和索引的区别？" class="headerlink" title="主键、外键和索引的区别？"></a>主键、外键和索引的区别？</h2><p>定义：<br>主键–唯一标识一条记录，不能有重复的，不允许为空<br>外键–表的外键是另一表的主键, 外键可以有重复的, 可以是空值<br>索引–该字段没有重复值，但可以有一个空值</p>
+<p>作用：<br>主键–用来保证数据完整性<br>外键–用来和其他表建立联系用的<br>索引–是提高查询排序的速度</p>
+<p>个数：<br>主键–主键只能有一个<br>外键–一个表可以有多个外键<br>索引–一个表可以有多个唯一索引</p>
+<h2 id="你可以用什么来确保表格里的字段只接受特定范围里的值"><a href="#你可以用什么来确保表格里的字段只接受特定范围里的值" class="headerlink" title="你可以用什么来确保表格里的字段只接受特定范围里的值?"></a>你可以用什么来确保表格里的字段只接受特定范围里的值?</h2><p>Check限制，它在数据库表格里被定义，用来限制输入该列的值。</p>
 
       
     </div>
@@ -656,7 +558,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -711,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁？"><span class="nav-number">1.</span> <span class="nav-text">什么是锁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql有哪几种锁？"><span class="nav-number">2.</span> <span class="nav-text">mysql有哪几种锁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表锁行锁区别？"><span class="nav-number">3.</span> <span class="nav-text">表锁行锁区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql中有哪些不同的表格？"><span class="nav-number">4.</span> <span class="nav-text">Mysql中有哪些不同的表格？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述在MySQL数据库中MyISAM和InnoDB的区别"><span class="nav-number">5.</span> <span class="nav-text">简述在MySQL数据库中MyISAM和InnoDB的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种事务隔离级别"><span class="nav-number">6.</span> <span class="nav-text">四种事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库中的事务是什么"><span class="nav-number">7.</span> <span class="nav-text">数据库中的事务是什么?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务特性："><span class="nav-number">8.</span> <span class="nav-text">事务特性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CHAR和VARCHAR的区别？"><span class="nav-number">9.</span> <span class="nav-text">CHAR和VARCHAR的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LIKE声明中的％和-是什么意思？"><span class="nav-number">10.</span> <span class="nav-text">LIKE声明中的％和_是什么意思？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在Unix和Mysql时间戳之间进行转换？"><span class="nav-number">11.</span> <span class="nav-text">如何在Unix和Mysql时间戳之间进行转换？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列对比运算符是什么？"><span class="nav-number">12.</span> <span class="nav-text">列对比运算符是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLOB和TEXT有什么区别？"><span class="nav-number">13.</span> <span class="nav-text">BLOB和TEXT有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-fetch-array和mysql-fetch-object的区别是什么？"><span class="nav-number">14.</span> <span class="nav-text">mysql_fetch_array和mysql_fetch_object的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyISAM表格将在哪里存储，并且还提供其存储格式？"><span class="nav-number">15.</span> <span class="nav-text">MyISAM表格将在哪里存储，并且还提供其存储格式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以使用多少列创建索引？"><span class="nav-number">16.</span> <span class="nav-text">可以使用多少列创建索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果一个表有一列定义为TIMESTAMP，将发生什么？"><span class="nav-number">17.</span> <span class="nav-text">如果一个表有一列定义为TIMESTAMP，将发生什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？"><span class="nav-number">18.</span> <span class="nav-text">列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是非标准字符串类型？"><span class="nav-number">19.</span> <span class="nav-text">什么是非标准字符串类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列的字符串类型可以是什么？"><span class="nav-number">20.</span> <span class="nav-text">列的字符串类型可以是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为表中得字段选择合适得数据类型"><span class="nav-number">21.</span> <span class="nav-text">为表中得字段选择合适得数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOW（）和CURRENT-DATE（）有什么区别？"><span class="nav-number">22.</span> <span class="nav-text">NOW（）和CURRENT_DATE（）有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是通用SQL函数？"><span class="nav-number">23.</span> <span class="nav-text">什么是通用SQL函数？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MYSQL支持事务吗？"><span class="nav-number">24.</span> <span class="nav-text">MYSQL支持事务吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql里记录货币用什么字段类型好"><span class="nav-number">25.</span> <span class="nav-text">mysql里记录货币用什么字段类型好</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"><span class="nav-number">26.</span> <span class="nav-text">MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的优化策略"><span class="nav-number">27.</span> <span class="nav-text">锁的优化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下设置了索引但无法使用"><span class="nav-number">28.</span> <span class="nav-text">什么情况下设置了索引但无法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践中如何优化MySQL"><span class="nav-number">29.</span> <span class="nav-text">实践中如何优化MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化数据库的方法"><span class="nav-number">30.</span> <span class="nav-text">优化数据库的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"><span class="nav-number">31.</span> <span class="nav-text">简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入漏洞产生的原因？如何防止？"><span class="nav-number">32.</span> <span class="nav-text">SQL注入漏洞产生的原因？如何防止？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储时期"><span class="nav-number">33.</span> <span class="nav-text">存储时期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的底层实现原理和优化"><span class="nav-number">34.</span> <span class="nav-text">索引的底层实现原理和优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的目的是什么？"><span class="nav-number">35.</span> <span class="nav-text">索引的目的是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引类型"><span class="nav-number">36.</span> <span class="nav-text">索引类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引优化"><span class="nav-number">37.</span> <span class="nav-text">索引优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引对数据库系统的负面影响是什么？"><span class="nav-number">38.</span> <span class="nav-text">索引对数据库系统的负面影响是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为数据表建立索引的原则有哪些？"><span class="nav-number">39.</span> <span class="nav-text">为数据表建立索引的原则有哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下不宜建立索引？"><span class="nav-number">40.</span> <span class="nav-text">什么情况下不宜建立索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql中的事务回滚机制概述"><span class="nav-number">41.</span> <span class="nav-text">Mysql中的事务回滚机制概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL语言包括哪几部分？每部分都有哪些操作关键字？"><span class="nav-number">42.</span> <span class="nav-text">SQL语言包括哪几部分？每部分都有哪些操作关键字？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整性约束包括哪些？"><span class="nav-number">43.</span> <span class="nav-text">完整性约束包括哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么叫视图？游标是什么？"><span class="nav-number">44.</span> <span class="nav-text">什么叫视图？游标是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">45.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何通俗地理解三个范式？"><span class="nav-number">46.</span> <span class="nav-text">如何通俗地理解三个范式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范式化设计优缺点"><span class="nav-number">47.</span> <span class="nav-text">范式化设计优缺点:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是基本表？什么是视图？"><span class="nav-number">48.</span> <span class="nav-text">什么是基本表？什么是视图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#试述视图的优点？"><span class="nav-number">49.</span> <span class="nav-text">试述视图的优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL是什么意思"><span class="nav-number">50.</span> <span class="nav-text">NULL是什么意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键、外键和索引的区别？"><span class="nav-number">51.</span> <span class="nav-text">主键、外键和索引的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你可以用什么来确保表格里的字段只接受特定范围里的值"><span class="nav-number">52.</span> <span class="nav-text">你可以用什么来确保表格里的字段只接受特定范围里的值?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说说对SQL语句优化有哪些方法？（选择几条）"><span class="nav-number">53.</span> <span class="nav-text">说说对SQL语句优化有哪些方法？（选择几条）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是锁？"><span class="nav-number">1.</span> <span class="nav-text">什么是锁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql有哪几种锁？"><span class="nav-number">2.</span> <span class="nav-text">mysql有哪几种锁？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表锁行锁区别？"><span class="nav-number">3.</span> <span class="nav-text">表锁行锁区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql数据库表类型？"><span class="nav-number">4.</span> <span class="nav-text">Mysql数据库表类型？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简述在MySQL数据库中MyISAM和InnoDB的区别"><span class="nav-number">5.</span> <span class="nav-text">简述在MySQL数据库中MyISAM和InnoDB的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四种事务隔离级别"><span class="nav-number">6.</span> <span class="nav-text">四种事务隔离级别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务特性："><span class="nav-number">7.</span> <span class="nav-text">事务特性：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CHAR和VARCHAR的区别？"><span class="nav-number">8.</span> <span class="nav-text">CHAR和VARCHAR的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LIKE声明中的％和-是什么意思？"><span class="nav-number">9.</span> <span class="nav-text">LIKE声明中的％和_是什么意思？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何在Unix和Mysql时间戳之间进行转换？"><span class="nav-number">10.</span> <span class="nav-text">如何在Unix和Mysql时间戳之间进行转换？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列对比运算符是什么？"><span class="nav-number">11.</span> <span class="nav-text">列对比运算符是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BLOB和TEXT有什么区别？"><span class="nav-number">12.</span> <span class="nav-text">BLOB和TEXT有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql-fetch-array和mysql-fetch-object的区别是什么？"><span class="nav-number">13.</span> <span class="nav-text">mysql_fetch_array和mysql_fetch_object的区别是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyISAM表格将在哪里存储，并且还提供其存储格式？"><span class="nav-number">14.</span> <span class="nav-text">MyISAM表格将在哪里存储，并且还提供其存储格式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可以使用多少列创建索引？"><span class="nav-number">15.</span> <span class="nav-text">可以使用多少列创建索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果一个表有一列定义为TIMESTAMP，将发生什么？"><span class="nav-number">16.</span> <span class="nav-text">如果一个表有一列定义为TIMESTAMP，将发生什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？"><span class="nav-number">17.</span> <span class="nav-text">列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为表中得字段选择合适得数据类型"><span class="nav-number">18.</span> <span class="nav-text">为表中得字段选择合适得数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NOW（）和CURRENT-DATE（）有什么区别？"><span class="nav-number">19.</span> <span class="nav-text">NOW（）和CURRENT_DATE（）有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"><span class="nav-number">20.</span> <span class="nav-text">MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#锁的优化策略"><span class="nav-number">21.</span> <span class="nav-text">锁的优化策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下设置了索引但无法使用"><span class="nav-number">22.</span> <span class="nav-text">什么情况下设置了索引但无法使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践中如何优化MySQL"><span class="nav-number">23.</span> <span class="nav-text">实践中如何优化MySQL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化数据库的方法"><span class="nav-number">24.</span> <span class="nav-text">优化数据库的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"><span class="nav-number">25.</span> <span class="nav-text">简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL注入漏洞产生的原因？如何防止？"><span class="nav-number">26.</span> <span class="nav-text">SQL注入漏洞产生的原因？如何防止？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的底层实现原理和优化"><span class="nav-number">27.</span> <span class="nav-text">索引的底层实现原理和优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引的目的是什么？"><span class="nav-number">28.</span> <span class="nav-text">索引的目的是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引类型"><span class="nav-number">29.</span> <span class="nav-text">索引类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引优化"><span class="nav-number">30.</span> <span class="nav-text">索引优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引对数据库系统的负面影响是什么？"><span class="nav-number">31.</span> <span class="nav-text">索引对数据库系统的负面影响是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么情况下不宜建立索引？"><span class="nav-number">32.</span> <span class="nav-text">什么情况下不宜建立索引？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mysql中的事务回滚机制概述"><span class="nav-number">33.</span> <span class="nav-text">Mysql中的事务回滚机制概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL语言包括哪几部分？每部分都有哪些操作关键字？"><span class="nav-number">34.</span> <span class="nav-text">SQL语言包括哪几部分？每部分都有哪些操作关键字？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#完整性约束包括哪些？"><span class="nav-number">35.</span> <span class="nav-text">完整性约束包括哪些？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么叫视图？游标是什么？"><span class="nav-number">36.</span> <span class="nav-text">什么叫视图？游标是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是存储过程？用什么来调用？"><span class="nav-number">37.</span> <span class="nav-text">什么是存储过程？用什么来调用？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何通俗地理解三个范式？"><span class="nav-number">38.</span> <span class="nav-text">如何通俗地理解三个范式？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#范式化设计优缺点"><span class="nav-number">39.</span> <span class="nav-text">范式化设计优缺点:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是基本表？什么是视图？"><span class="nav-number">40.</span> <span class="nav-text">什么是基本表？什么是视图？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#试述视图的优点？"><span class="nav-number">41.</span> <span class="nav-text">试述视图的优点？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL是什么意思"><span class="nav-number">42.</span> <span class="nav-text">NULL是什么意思</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主键、外键和索引的区别？"><span class="nav-number">43.</span> <span class="nav-text">主键、外键和索引的区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#你可以用什么来确保表格里的字段只接受特定范围里的值"><span class="nav-number">44.</span> <span class="nav-text">你可以用什么来确保表格里的字段只接受特定范围里的值?</span></a></li></ol></div>
             
 
           </div>
