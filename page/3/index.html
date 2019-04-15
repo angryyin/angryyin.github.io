@@ -290,6 +290,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/p中间件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/p中间件/" itemprop="url">php中间件（middleware）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T12:45:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是中间件？"><a href="#什么是中间件？" class="headerlink" title="什么是中间件？"></a>什么是中间件？</h2><p>中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等</p>
+<p>中间件是一个闭包，而且返回一个闭包。中间件为过滤进入应用的HTTP请求提供了一套便利的机制，可以分为前置中间件和后置中间件。常用于验证用户是否经过认证，添加响应头（跨域），记录请求日志等。</p>
+<p>如果你想修改请求，例如被传送到view中的HttpRequest对象。 或者你想修改view返回的HttpResponse对象，这些都可以通过中间件来实现。</p>
+<h2 id="中间件应用场景"><a href="#中间件应用场景" class="headerlink" title="中间件应用场景"></a>中间件应用场景</h2><p>1.做IP访问频率限制<br>某些IP访问服务器的频率过高，进行拦截，比如限制每分钟不能超过20次。<br>2.URL访问过滤<br>如果用户访问的是login视图（放过）<br>如果访问其他视图，需要检测是不是有session认证，已经有了放行，<br>没有返回login，这样就省得在多个视图函数上写装饰器了！</p>
+<h2 id="图样"><a href="#图样" class="headerlink" title="图样"></a>图样</h2><p><img src="\images\pasted-36.png" alt="upload successful"></p>
+<h2 id="thinkphp5-1中间件"><a href="#thinkphp5-1中间件" class="headerlink" title="thinkphp5.1中间件"></a>thinkphp5.1中间件</h2><p>thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。<br><a href="https://www.kancloud.cn/manual/thinkphp5_1/564279" target="_blank" rel="noopener">https://www.kancloud.cn/manual/thinkphp5_1/564279</a></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 框架核心应用层application</span></span><br><span class="line">$application = <span class="function"><span class="keyword">function</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"this is a &#123;$name&#125; 应用层\n"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置校验中间件auth</span></span><br><span class="line">$auth = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个校验中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置过滤中间件filter</span></span><br><span class="line">$filter = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个过滤中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 后置日志中间件log</span></span><br><span class="line">$log = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        $return = $handler($name);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个后置日志中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $return;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 中间件栈</span></span><br><span class="line">$stack = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打包</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pack_middleware</span><span class="params">($handler, $stack)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (array_reverse($stack) <span class="keyword">as</span> $key =&gt; $middleware)&#123;</span><br><span class="line">        $handler = $middleware($handler);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $handler;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册中间件</span></span><br><span class="line"><span class="comment">//// 这里用的都是全局中间件，实际应用时还可以为指定路由注册局部中间件</span></span><br><span class="line">$stack[<span class="string">'log'</span>] = $log;</span><br><span class="line">$stack[<span class="string">'filter'</span>] = $filter;</span><br><span class="line">$stack[<span class="string">'auth'</span>] = $auth;</span><br><span class="line">$run = pack_middleware($application, $stack);</span><br><span class="line">$run(<span class="string">'wtf'</span>);</span><br></pre></td></tr></table></figure>
+<p>输出： </p>
+<p>wtf 需要一个过滤中间件<br>wtf 需要一个校验中间件<br>this is a wtf 应用层<br>wtf 需要一个后置日志中间件</p>
+<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><p>中间件的执行顺序是由打包函数(pack_middleware)决定，这里返回的闭包实际上相当于:</p>
+<pre><code>$run = $log($filter($auth($application)));$run(&apos;Laravle&apos;);
+</code></pre><h2 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h2><p>中间件要要满足一定的规范：总是返回一个闭包，闭包中总是传入相同的参数（由主要逻辑决定）， 闭包总是返回句柄(handler)的执行结果；<br>如果中间件的逻辑在返回句柄return $handler($name)前完成，就是前置中间件，否则为后置中间件。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1588,149 +1741,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/层次遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/层次遍历/" itemprop="url">树的层次遍历</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T14:08:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔试/" itemprop="url" rel="index">
-                    <span itemprop="name">笔试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="\images\pasted-10.png" alt="upload successful"></p>
-<p>1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素<br>2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B<br>3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；<br>4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br><span class="line">PrintFromTopToBottom($re);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintFromTopToBottom</span><span class="params">($re)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $quene=<span class="keyword">array</span>();</span><br><span class="line">    $res=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span>($re==<span class="keyword">null</span>) <span class="keyword">return</span> $res;</span><br><span class="line">    array_push($quene,$re);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!<span class="keyword">empty</span>($quene))&#123;</span><br><span class="line">        <span class="comment">// quene出队，队头值赋值给tmp，最后打印tmp的val</span></span><br><span class="line">        <span class="comment">//这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B</span></span><br><span class="line">        $tmp=array_shift($quene);</span><br><span class="line">        <span class="comment">//左右节点依次入队</span></span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将tmp的val入队</span></span><br><span class="line">        array_push($res,$tmp-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($res) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1783,7 +1793,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
