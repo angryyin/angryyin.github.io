@@ -133,18 +133,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[OSI]]></title>
-    <url>%2F2019%2F04%2F09%2FI%2F</url>
-    <content type="text"><![CDATA[SI七层模型的划分 OSI定义了网络互连的七层框架（物理层、数据链路层、网络层、传输层、会话层、表示层、应用层），即ISO开放互连系统参考模型。如下图。 每一层实现各自的功能和协议，并完成与相邻层的接口通信。OSI的服务定义详细说明了各层所提供的服务。某一层的服务就是该层及其下各层的一种能力，它通过接口提供给更高一层。各层所提供的服务与这些服务是怎么实现的无关。 各层功能定义 这里我们只对OSI各层进行功能上的大概阐述，不详细深究，因为每一层实际都是一个复杂的层。后面我也会根据个人方向展开部分层的深入学习。这里我们就大概了解一下。我们从最顶层——应用层 开始介绍。整个过程以公司A和公司B的一次商业报价单发送为例子进行讲解。 应用层 OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。 实际公司A的老板就是我们所述的用户，而他要发送的商业报价单，就是应用层提供的一种网络服务，当然，老板也可以选择其他服务，比如说，发一份商业合同，发一份询价单，等等。 表示层 表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。 由于公司A和公司B是不同国家的公司，他们之间的商定统一用英语作为交流的语言，所以此时表示层（公司的文秘），就是将应用层的传递信息转翻译成英语。同时为了防止别的公司看到，公司A的人也会对这份报价单做一些加密的处理。这就是表示的作用，将应用层的数据转换翻译等。 会话层 会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。 会话层的同事拿到表示层的同事转换后资料，（会话层的同事类似公司的外联部），会话层的同事那里可能会掌握本公司与其他好多公司的联系方式，这里公司就是实际传递过程中的实体。他们要管理本公司与外界好多公司的联系会话。当接收到表示层的数据后，会话层将会建立并记录本次会话，他首先要找到公司B的地址信息，然后将整份资料放进信封，并写上地址和联系方式。准备将资料寄出。等到确定公司B接收到此份报价单后，此次会话就算结束了，外联部的同事就会终止此次会话。 传输层 传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP UDP就是在这一层。端口号既是这里的“端”。 传输层就相当于公司中的负责快递邮件收发的人，公司自己的投递员，他们负责将上一层的要寄出的资料投递到快递公司或邮局。 网络层 本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。IP协议是Internet的基础。 网络层就相当于快递公司庞大的快递网络，全国不同的集散中心，比如说，从深圳发往北京的顺丰快递（陆运为例啊，空运好像直接就飞到北京了），首先要到顺丰的深圳集散中心，从深圳集散中心再送到武汉集散中心，从武汉集散中心再寄到北京顺义集散中心。这个每个集散中心，就相当于网络中的一个IP节点。 数据链路层 将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。 数据链路层又分为2个子层：逻辑链路控制子层（LLC）和媒体访问控制子层（MAC）。 MAC子层处理CSMA/CD算法、数据出错校验、成帧等；LLC子层定义了一些字段使上次协议能共享数据链路层。 在实际使用中，LLC子层并非必需的。 物理层 实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。 快递寄送过程中的交通工具，就相当于我们的物理层，例如汽车，火车，飞机，船。 通信特点：对等通信 对等通信，为了使数据分组从源传送到目的地，源端OSI模型的每一层都必须与目的端的对等层进行通信，这种通信方式称为对等层通信。在每一层通信过程中，使用本层自己协议进行通信。 TCP/IP五层协议和OSI的七层协议对应关系在每一层都工作着不同的设备，比如我们常用的交换机就工作在数据链路层的，一般的路由器是工作在网络层的。]]></content>
-      <categories>
-        <category>面试必考</category>
-      </categories>
-      <tags>
-        <tag>http</tag>
-        <tag>面试必考</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Redis]]></title>
     <url>%2F2019%2F04%2F09%2Fdis%2F</url>
     <content type="text"><![CDATA[Redis实际应用场景 StringString数据结构是简单的key-value类型，value其实不仅可以是String，也可以是数字。常规key-value缓存应用；常规计数：微博数，粉丝数等。注意：一个键最大能存储512MB。 hash1、Redis hash是一个键值(key =&gt; value)对集合,是一个string类型的field和value的映射表2、hash特别适合用于存储对象。3、存储部分变更的数据，如用户信息等。应用场景：如要存储一个用户信息对象数据，包含以下信息：用户ID为查找的key，存储的value用户对象包含姓名，年龄，生日等信息，如果用普通的key/value结构来存储，主要有以下2种存储方式： 第一种方式将用户ID作为查找key,把其他信息封装成一个对象以序列化的方式存储，这种方式的缺点是，增加了序列化/反序列化的开销，并且在需要修改其中一项信息时，需要把整个对象取回，并且修改操作需要对并发进行保护，引入CAS等复杂问题。 第二种方法是这个用户信息对象有多少成员就存成多少个key-value，用用户ID+对应属性的名称作为唯一标识来取得对应属性的值，虽然省去了序列化开销和并发问题，但是用户ID为重复存储，如果存在大量这样的数据，内存浪费还是非常可观的。Redis提供的Hash很好的解决了这个问题，Redis的Hash实际是内部存储的Value为一个HashMap，并提供了直接存取这个Map成员的接口，如下图： Key仍然是用户ID, value是一个Map，这个Map的key是成员的属性名，value是属性值，这样对数据的修改和存取都可以直接通过其内部Map的Key(Redis里称内部Map的key为field), 也就是通过 key(用户ID) + field(属性标签) 就可以操作对应属性数据了，既不需要重复存储数据，也不会带来序列化和并发修改控制的问题，很好的解决了问题。 listRedis的list是每个子元素都是String类型的双向链表，可以通过push和pop操作从列表的头部或者尾部添加或者删除元素，这样List即可以作为栈，也可以作为队列。 消息队列：可以利用List的PUSH操作，将任务存在List中，然后工作线程再用POP操作将任务取出进行执行。使用sorted set甚至可以构建有优先级的队列系统。 Redis提供了操作List中某一段的api，可以直接查询，删除List中某一段的元素。 例子：将Redis用作日志收集器，实际上还是一个队列，多个端点将日志信息写入Redis，然后一个worker统一将所有日志写到磁盘。 取最新N个数据的操作123456//把当前登录人添加到链表里ret = r.lpush("login:last_login_times", uid)//保持链表只有N位ret = redis.ltrim("login:last_login_times", 0, N-1)//获得前N个最新登陆的用户Id列表last_login_list = r.lrange("login:last_login_times", 0, N-1) 比如sina微博:在Redis中最新微博ID使用了常驻缓存，这是一直更新的。但是做了限制不能超过5000个ID，因此获取ID的函数会一直询问Redis。只有在start/count参数超出了这个范围的时候，才需要去访问数据库。系统不会像传统方式那样“刷新”缓存，Redis实例中的信息永远是一致的。SQL数据库（或是硬盘上的其他类型数据库）只是在用户需要获取“很远”的数据时才会被触发，而主页或第一个评论页是不会麻烦到硬盘上的数据库了。 列表最多可存储 232 - 1 元素 (4294967295, 每个列表可存储40多亿)。 set集合，集合的概念就是一堆不重复值的组合。set中的元素是没有顺序的。案例：在微博应用中，可以将一个用户所有的关注人存在一个集合中，将其所有粉丝存在一个集合。Redis还为集合提供了求交集、并集、差集等操作，可以非常方便的实现如共同关注、共同喜好、二度好友等功能，对上面的所有集合操作，你还可以使用不同的命令选择将结果返回给客户端还是存集到一个新的集合中。交集，并集，差集 //book表存储book名称123456789101112131415set book:1:name "The Ruby Programming Language"set book:2:name "Ruby on rail"set book:3:name "Programming Erlang"//tag表使用集合来存储数据，因为集合擅长求交集、并集sadd tag:ruby 1sadd tag:ruby 2sadd tag:web 2sadd tag:erlang 3//即属于ruby又属于web的书？ inter_list = redis.sinter("tag:web", "tag:ruby")//即属于ruby，但不属于web的书？ diff_list = redis.sdiff("tag:ruby", "tag:web")//属于ruby和属于web的书的合集？ union_list = redis.sunion("tag:ruby", "tag:web") 获取某段时间所有数据去重值只需要不断地将数据往set中扔就行了，set为集合，所以会自动排重。 sorted set和set相比，sorted set增加了一个权重参数score，使得集合中的元素能够按score进行有序排列，比如一个存储全班同学成绩的sorted set，其集合value可以是同学的学号，而score就可以是其考试得分，这样在数据插入集合的时候，就已经进行了天然的排序。可以用sorted set来做带权重的队列，比如普通消息的score为1，重要消息的score为2，然后工作线程可以选择按score的倒序来获取工作任务。让重要的任务优先执行。排行榜应用，取TOP N操作这个需求与上面需求的不同之处在于，前面操作以时间为权重，这个是以某个条件为权重，比如按顶的次数排序，这时候就需要我们的sorted set出马了，将你要排序的值设置成sorted set的score，将具体的数据设置成相应的value，每次只需要执行一条ZADD命令即可。123456789//将登录次数和用户统一存储在一个sorted set里zadd login:login_times 5 1zadd login:login_times 1 2zadd login:login_times 2 3//当用户登录时，对该用户的登录次数自增1ret = r.zincrby("login:login_times", 1, uid)//那么如何获得登录次数最多的用户呢，逆序排列取得排名前N的用户ret = r.zrevrange("login:login_times", 0, N-1) 比如在线游戏的排行榜，根据得分你通常想要： 列出前100名高分选手 列出某用户当前的全球排名 这些操作对于Redis来说小菜一碟，即使你有几百万个用户，每分钟都会有几百万个新的得分。模式是这样的，每次获得新得分时，我们用这样的代码：ZADD leaderboard 你可能用userID来取代username，这取决于你是怎么设计的。得到前100名高分用户很简单：ZREVRANGE leaderboard 0 99 用户的全球排名也相似，只需要：ZRANK leaderboard 需要精准设定过期时间的应用 比如你可以把上面说到的sorted set的score值设置成过期时间的时间戳，那么就可以简单地通过过期时间排序，定时清除过期数据了，不仅是清除Redis中的过期数据，你完全可以把Redis里这个过期时间当成是对数据库中数据的索引，用Redis来找出哪些数据需要过期删除，然后再精准地从数据库中删除相应的记录。范围查找来自Redis在Google Group上的一个问题，有一位同学发贴求助，说要解决如下的一个问题：他有一个IP范围对应地址的列表，现在需要给出一个IP的情况下，迅速的查找到这个IP在哪个范围，也就是要判断此IP的所有地。 Pub/SubPub/Sub 从字面上理解就是发布（Publish）与订阅（Subscribe），在Redis中，你可以设定对某一个key值进行消息发布及消息订阅，当一个key值上进行了消息发布后，所有订阅它的客户端都会收到相应的消息。这一功能最明显的用法就是用作实时消息系统，比如普通的即时聊天，群聊等功能。使用场景Pub/Sub构建实时消息系统Redis的Pub/Sub系统可以构建实时的消息系统比如很多用Pub/Sub构建的实时聊天系统的例子。]]></content>
@@ -152,8 +140,8 @@
         <category>redis</category>
       </categories>
       <tags>
-        <tag>nosql</tag>
         <tag>redis</tag>
+        <tag>nosql</tag>
       </tags>
   </entry>
   <entry>
@@ -164,8 +152,8 @@
         <category>php</category>
       </categories>
       <tags>
-        <tag>php</tag>
         <tag>面试必考</tag>
+        <tag>php</tag>
       </tags>
   </entry>
   <entry>
@@ -318,8 +306,8 @@
         <category>高级算法</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>动态规划</tag>
+        <tag>算法</tag>
         <tag>笔试</tag>
       </tags>
   </entry>
@@ -362,11 +350,6 @@
       <tags>
         <tag>算法</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[阿里一面凉经]]></title>
-    <url>%2F2019%2F03%2F27%2F%E4%B8%80%E9%9D%A2%E5%87%89%E7%BB%8F%2F</url>
-    <content type="text"><![CDATA[输入密码，查看文章 Incorrect Password! No content to display! U2FsdGVkX1+sXcl4ba3lTXw8oq/8TmsT63Iu0wZ/aToyMay2OeqJCVhR8XTr0swgIe0sUxZg74xak60EGKjWfJReW87mb0NzBChqFttC67NuBc2AX/TF/9T8bXmYDkX+vljU8cMflcEs/hvGs0vL4T6DkMAF2kuegRSxoIzH4odtgcnxojpT0p20lqW7G8F0cfCbQwFB9xFEP3vawj407kditYmnanVrYXyu33e9yIcj6IuQxejYFLgHXDRSmZOy42nm+04tsTV8r8G7JTLd0xVb/rdRKkjD2b6GPG0phEEXVBOvYdQxjSImRPRSasVRx5LICmHuRbZWRJFJslf5KIX7nuKQVYL8Uqly3vUUftGOWZIPDZLbdc5g3Y3WWkMis32WPiP5ZKYc38IdvWai6K6WNCrpNZF1a5thzS5fQIj035iIMBB6kasp8BtBHpUK5Vbolt035anAZT/GSwO5L2Jf4IoS+Nl7ksmAStnL1WMmk7yX76COhNebV9BUHUKzU5VrwWqX5yan3ows3jCH9tRt/p5NscJH+RsZsbpZ00qWNKMi32UrfMx6IiIgn1P72tfsQ3EUy8nCti7LIMNHQGmeSTr9V+athFWWZk337082ecKWz0GaVkONYSJuZXDGl2qHCG4XKKUR7wW0mdmRaEEo9ss32bxTm/wYO+Zq3MMTPaLVf3VdYY5mQiwViDymDLBouwzB56pTRxoxrfjtI1CXKKpMJLGaaoWDMVGwtJVc6AHAL7vk9O+jBK44xklfigWYP6ftp/Egwb7C/06yWP7zxZa0p1rcFjGAogwxx1LHmDwa4Gcy+KgTqL+hxhvtysgDD0DBosaYqShL2ns52iVHjLgVUjicWSaUGvGt6BJhSsxbRZyxm0jXbwnhvRfV9ATUJmsodGYV6p7J7mTMcxxVS3HvnUVzoOHiqND0ivJ8NZbn5mvK/ahmX7gStG7/PJmxGemlDWPOgPmBczlVa433uM+ISGpaPVw0Z5uU+Wf7gQjebhkjBTk2rEWqQV4CZGNQP1wDgVOwlPzneevBikHE73iYMxMgLg/a2W7xkP0/ZMbcF8KVxAB/7mgHHRzAbt2TNAdVJdd4/vfykzRrehIaxGvV8XY0ST6qLCzijxwJ9o881k6qR5hfzWDhs8R+Tvj2hX7g8ZRopNMB7qlreOxqwJkeN+OgFPHw15ms0OnTuXVYRDD6EitF430LqbTSjyxnHSkUg73JIm8WDnqILaqdHYtpM3v5sYExas7yr90FLbyz9ePb8+G8gvdJy8D5]]></content>
   </entry>
   <entry>
     <title><![CDATA[php多线程]]></title>
@@ -472,8 +455,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>排序</tag>
         <tag>面试必考</tag>
+        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -484,9 +467,9 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
         <tag>笔试</tag>
         <tag>队列</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -497,8 +480,8 @@
         <category>面试必考</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>面试必考</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -555,8 +538,8 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>mysql</tag>
         <tag>面试必考</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
