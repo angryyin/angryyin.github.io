@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="php,">
 
 
 
@@ -78,13 +78,14 @@
 
 
 <meta name="description" content="如何理解TP中的单一入口文件？ThinkPHP采用单一入口模式进行项目部署和访问，无论完成什么功能，一个项目都有一个统一（但不一定是唯一）的入口。应该说，所有项目都是从入口文件开始的，并且所有的项目的入口文件是类似的。 入口文件中主要包括：（1）定义框架路径、项目路径和项目名称（可选）（2）定义调试模式和运行模式的相关常量（可选）（3）载入框架入口文件（必须） ThinkPHP中的MVC分层是什么">
+<meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="thinnkphp">
 <meta property="og:url" content="http://yoursite.com/2019/04/14/hinnkphp/index.html">
 <meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="如何理解TP中的单一入口文件？ThinkPHP采用单一入口模式进行项目部署和访问，无论完成什么功能，一个项目都有一个统一（但不一定是唯一）的入口。应该说，所有项目都是从入口文件开始的，并且所有的项目的入口文件是类似的。 入口文件中主要包括：（1）定义框架路径、项目路径和项目名称（可选）（2）定义调试模式和运行模式的相关常量（可选）（3）载入框架入口文件（必须） ThinkPHP中的MVC分层是什么">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-14T11:20:14.558Z">
+<meta property="og:updated_time" content="2019-04-17T12:22:02.523Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="thinnkphp">
 <meta name="twitter:description" content="如何理解TP中的单一入口文件？ThinkPHP采用单一入口模式进行项目部署和访问，无论完成什么功能，一个项目都有一个统一（但不一定是唯一）的入口。应该说，所有项目都是从入口文件开始的，并且所有的项目的入口文件是类似的。 入口文件中主要包括：（1）定义框架路径、项目路径和项目名称（可选）（2）定义调试模式和运行模式的相关常量（可选）（3）载入框架入口文件（必须） ThinkPHP中的MVC分层是什么">
@@ -322,7 +323,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T16:30:41+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T16:30:00+08:00">
                 2019-04-14
               </time>
             
@@ -332,6 +333,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -381,12 +404,9 @@
 <h2 id="什么是惯例配置？"><a href="#什么是惯例配置？" class="headerlink" title="什么是惯例配置？"></a>什么是惯例配置？</h2><p>所谓的惯例配置，便是框架的自带的配置文件。该文件在核心框架目录下的convention.php中，配置内容如下。由于该文件属于框架自带的配置文件，在实际的开发过程中，主要给我们做参考实例使用，我们很少去修改该文件的配置内容，更多的是根据需求来按照惯例配置中的字段定义和注释来在模块或者Common中自定义配置内容。</p>
 <h2 id="什么是SQL注入？（理解）"><a href="#什么是SQL注入？（理解）" class="headerlink" title="什么是SQL注入？（理解）"></a>什么是SQL注入？（理解）</h2><p>SQL注入攻击是黑客对数据库进行攻击的常用手段之一。</p>
 <p>一部分程序员在编写代码的时候，没有对用户输入数据的合法性进行判断，注入者可以在表单中输入一段数据库查询代码并提交，程序将提交的信息拼凑生成一个完整sql语句，服务器被欺骗而执行该条恶意的SQL命令。注入者根据程序返回的结果，成功获取一些敏感数据，甚至控制整个服务器，这就是SQL注入。</p>
-<p>8、ThinkPHP如何防止SQL注入？（理解）</p>
-<p>（1）查询条件尽量使用数组方式，这是更为安全的方式；<br>（2）如果不得已必须使用字符串查询条件，使用预处理机制；<br>（3）使用绑定参数<br>（4）开启数据字段类型验证，可以对数值数据类型做强制转换；（3.1版本开始已经强制进行字段类型验证了）<br>（5）使用自动验证和自动完成机制进行针对应用的自定义过滤；<br>（6）使用字段类型检查、自动验证和自动完成机制等避免恶意数据的输入。</p>
-<p>9、如何开启调试模式？调试模式有什么好处？</p>
-<p>开启调试模式很简单，只需要在入口文件中增加一行常量定义代码：<br>// 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false<br>define(‘APP_DEBUG’, true);<br>调试模式的优势在于： 开启日志记录，任何错误信息和调试信息都会详细记录，便于调试； 关闭模板缓存，模板修改可以即时生效； 记录SQL日志，方便分析SQL； 关闭字段缓存，数据表字段修改不受缓存影响； 严格检查文件大小写（即使是Windows平台），帮助你提前发现Linux部署问题； 可以方便用于开发过程的不同阶段，包括开发、测试和演示等任何需要的情况，不同的应用模式可以配置独立的项目配置文件。</p>
-<p>10、TP中支持哪些配置模式？优先级？</p>
-<p>惯例配置-&gt;应用配置-&gt;模式配置-&gt;调试配置-&gt;状态配置-&gt;模块配置-&gt;扩展配置-&gt;动态配置</p>
+<h2 id="ThinkPHP如何防止SQL注入？（理解）"><a href="#ThinkPHP如何防止SQL注入？（理解）" class="headerlink" title="ThinkPHP如何防止SQL注入？（理解）"></a>ThinkPHP如何防止SQL注入？（理解）</h2><p>（1）查询条件尽量使用数组方式，这是更为安全的方式；<br>（2）如果不得已必须使用字符串查询条件，使用预处理机制；<br>（3）使用绑定参数<br>（4）开启数据字段类型验证，可以对数值数据类型做强制转换；（3.1版本开始已经强制进行字段类型验证了）<br>（5）使用自动验证和自动完成机制进行针对应用的自定义过滤；<br>（6）使用字段类型检查、自动验证和自动完成机制等避免恶意数据的输入。</p>
+<h2 id="如何开启调试模式？调试模式有什么好处？"><a href="#如何开启调试模式？调试模式有什么好处？" class="headerlink" title="如何开启调试模式？调试模式有什么好处？"></a>如何开启调试模式？调试模式有什么好处？</h2><p>开启调试模式很简单，只需要在入口文件中增加一行常量定义代码：<br>// 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false<br>define(‘APP_DEBUG’, true);<br>调试模式的优势在于： 开启日志记录，任何错误信息和调试信息都会详细记录，便于调试； 关闭模板缓存，模板修改可以即时生效； 记录SQL日志，方便分析SQL； 关闭字段缓存，数据表字段修改不受缓存影响； 严格检查文件大小写（即使是Windows平台），帮助你提前发现Linux部署问题； 可以方便用于开发过程的不同阶段，包括开发、测试和演示等任何需要的情况，不同的应用模式可以配置独立的项目配置文件。</p>
+<h2 id="TP中支持哪些配置模式？优先级？"><a href="#TP中支持哪些配置模式？优先级？" class="headerlink" title="TP中支持哪些配置模式？优先级？"></a>TP中支持哪些配置模式？优先级？</h2><p>惯例配置-&gt;应用配置-&gt;模式配置-&gt;调试配置-&gt;状态配置-&gt;模块配置-&gt;扩展配置-&gt;动态配置</p>
 <p>以上是配置文件的加载顺序，因为后面的配置会覆盖之前的同名配置（在没有生效的前提下），所以优先顺序从右到左。</p>
 <h2 id="TP中的URL模式有哪几种？默认是哪种？"><a href="#TP中的URL模式有哪几种？默认是哪种？" class="headerlink" title="TP中的URL模式有哪几种？默认是哪种？"></a>TP中的URL模式有哪几种？默认是哪种？</h2><p>ThinkPHP支持四种URL模式，可以通过设置URL_MODEL参数来定义，包括普通模式、PATHINFO、REWRITE和兼容模式。<br>默认模式为：PATHINFO模式，设置URL_MODEL 为1</p>
 <h2 id="TP中系统变量有哪些？如何获取系统变量？"><a href="#TP中系统变量有哪些？如何获取系统变量？" class="headerlink" title="TP中系统变量有哪些？如何获取系统变量？"></a>TP中系统变量有哪些？如何获取系统变量？</h2><p>（1）系统变量：$_SERVER、$_ENV、 $_POST、 $_GET、 $_REQUEST、$_SESSION和 $_COOKIE变量</p>
@@ -410,6 +430,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
       
 
       
@@ -533,7 +559,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -566,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解TP中的单一入口文件？"><span class="nav-number">1.</span> <span class="nav-text">如何理解TP中的单一入口文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThinkPHP中的MVC分层是什么？（理解）"><span class="nav-number">2.</span> <span class="nav-text">ThinkPHP中的MVC分层是什么？（理解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何进行SQL优化？"><span class="nav-number">3.</span> <span class="nav-text">如何进行SQL优化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解-ThinkPHP-3-0-架构（核心-行为-驱动）中的行为？"><span class="nav-number">4.</span> <span class="nav-text">如何理解 ThinkPHP 3.0 架构（核心 + 行为 + 驱动）中的行为？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是惯例配置？"><span class="nav-number">5.</span> <span class="nav-text">什么是惯例配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SQL注入？（理解）"><span class="nav-number">6.</span> <span class="nav-text">什么是SQL注入？（理解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TP中的URL模式有哪几种？默认是哪种？"><span class="nav-number">7.</span> <span class="nav-text">TP中的URL模式有哪几种？默认是哪种？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TP中系统变量有哪些？如何获取系统变量？"><span class="nav-number">8.</span> <span class="nav-text">TP中系统变量有哪些？如何获取系统变量？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThinkPHP框架中D函数与M函数的区别是什么？"><span class="nav-number">9.</span> <span class="nav-text">ThinkPHP框架中D函数与M函数的区别是什么？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解TP中的单一入口文件？"><span class="nav-number">1.</span> <span class="nav-text">如何理解TP中的单一入口文件？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThinkPHP中的MVC分层是什么？（理解）"><span class="nav-number">2.</span> <span class="nav-text">ThinkPHP中的MVC分层是什么？（理解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何进行SQL优化？"><span class="nav-number">3.</span> <span class="nav-text">如何进行SQL优化？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何理解-ThinkPHP-3-0-架构（核心-行为-驱动）中的行为？"><span class="nav-number">4.</span> <span class="nav-text">如何理解 ThinkPHP 3.0 架构（核心 + 行为 + 驱动）中的行为？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是惯例配置？"><span class="nav-number">5.</span> <span class="nav-text">什么是惯例配置？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是SQL注入？（理解）"><span class="nav-number">6.</span> <span class="nav-text">什么是SQL注入？（理解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThinkPHP如何防止SQL注入？（理解）"><span class="nav-number">7.</span> <span class="nav-text">ThinkPHP如何防止SQL注入？（理解）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何开启调试模式？调试模式有什么好处？"><span class="nav-number">8.</span> <span class="nav-text">如何开启调试模式？调试模式有什么好处？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TP中支持哪些配置模式？优先级？"><span class="nav-number">9.</span> <span class="nav-text">TP中支持哪些配置模式？优先级？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TP中的URL模式有哪几种？默认是哪种？"><span class="nav-number">10.</span> <span class="nav-text">TP中的URL模式有哪几种？默认是哪种？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TP中系统变量有哪些？如何获取系统变量？"><span class="nav-number">11.</span> <span class="nav-text">TP中系统变量有哪些？如何获取系统变量？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ThinkPHP框架中D函数与M函数的区别是什么？"><span class="nav-number">12.</span> <span class="nav-text">ThinkPHP框架中D函数与M函数的区别是什么？</span></a></li></ol></div>
             
 
           </div>
