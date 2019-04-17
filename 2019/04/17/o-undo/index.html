@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="php,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -77,18 +77,17 @@
 
 
 
-<meta name="description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
-<meta name="keywords" content="php">
+<meta name="description" content="redo（重做）保障了数据库的持久性undo（撤销）保障了数据库的原子性 当数据库系统崩溃后，如何恢复？ 两个原则从前向后读取redo，重做所有已提交的事务从后往前读取undo，回滚未提交的事务 Undo + Redo事务的简化过程A.事务开始.B.记录A=1到undo log.C.修改A=3.D.记录A=3到redo log.E.记录B=2到undo log.F.修改B=4.G.记录B=4到re">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深入了解PHP闭包的使用以及实现">
-<meta property="og:url" content="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/index.html">
+<meta property="og:title" content="redo&amp;undo">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/o-undo/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
+<meta property="og:description" content="redo（重做）保障了数据库的持久性undo（撤销）保障了数据库的原子性 当数据库系统崩溃后，如何恢复？ 两个原则从前向后读取redo，重做所有已提交的事务从后往前读取undo，回滚未提交的事务 Undo + Redo事务的简化过程A.事务开始.B.记录A=1到undo log.C.修改A=3.D.记录A=3到redo log.E.记录B=2到undo log.F.修改B=4.G.记录B=4到re">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-03-30T12:26:57.194Z">
+<meta property="og:updated_time" content="2019-04-17T11:56:58.920Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="深入了解PHP闭包的使用以及实现">
-<meta name="twitter:description" content="https://www.cnblogs.com/chenpingzhao/p/4553139.html https://www.cnblogs.com/XGHeaven/p/4245306.html 匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。">
+<meta name="twitter:title" content="redo&amp;undo">
+<meta name="twitter:description" content="redo（重做）保障了数据库的持久性undo（撤销）保障了数据库的原子性 当数据库系统崩溃后，如何恢复？ 两个原则从前向后读取redo，重做所有已提交的事务从后往前读取undo，回滚未提交的事务 Undo + Redo事务的简化过程A.事务开始.B.记录A=1到undo log.C.修改A=3.D.记录A=3到redo log.E.记录B=2到undo log.F.修改B=4.G.记录B=4到re">
 
 
 
@@ -118,14 +117,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/17/o-undo/">
 
 
 
 
 
 
-  <title>深入了解PHP闭包的使用以及实现 | 殷航的博客</title>
+  <title>redo&undo | 殷航的博客</title>
   
 
 
@@ -294,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/深入了解PHP闭包的使用以及实现/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/o-undo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -311,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">深入了解PHP闭包的使用以及实现</h1>
+          <h1 class="post-title" itemprop="name headline">redo&undo</h1>
         
 
         <div class="post-meta">
@@ -323,8 +322,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T15:06:00+08:00">
-                2019-03-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T19:50:31+08:00">
+                2019-04-17
               </time>
             
 
@@ -333,28 +332,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -383,9 +360,10 @@
       
 
       
-        <p><a href="https://www.cnblogs.com/chenpingzhao/p/4553139.html" target="_blank" rel="noopener">https://www.cnblogs.com/chenpingzhao/p/4553139.html</a></p>
-<p><a href="https://www.cnblogs.com/XGHeaven/p/4245306.html" target="_blank" rel="noopener">https://www.cnblogs.com/XGHeaven/p/4245306.html</a></p>
-<p>匿名函数（Anonymous functions），也叫闭包函数（closures），允许 临时创建一个没有指定名称的函数。最经常用作回调函数（callback）参数的值。当然，也有其它应用的情况。 </p>
+        <p>redo（重做）保障了数据库的持久性<br>undo（撤销）保障了数据库的原子性</p>
+<p>当数据库系统崩溃后，如何恢复？</p>
+<p>两个原则<br>从前向后读取redo，重做所有已提交的事务<br>从后往前读取undo，回滚未提交的事务</p>
+<p>Undo + Redo事务的简化过程<br>A.事务开始.<br>B.记录A=1到undo log.<br>C.修改A=3.<br>D.记录A=3到redo log.<br>E.记录B=2到undo log.<br>F.修改B=4.<br>G.记录B=4到redo log.<br>H.将redo log写入磁盘。<br>I.事务提交</p>
 
       
     </div>
@@ -401,12 +379,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/php/" rel="tag"># php</a>
-          
-        </div>
-      
 
       
       
@@ -416,8 +388,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/29/算法/" rel="next" title="动态规划与贪心算法的区别与联系">
-                <i class="fa fa-chevron-left"></i> 动态规划与贪心算法的区别与联系
+              <a href="/2019/04/16/序算法/" rel="next" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
               </a>
             
           </div>
@@ -426,8 +398,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/29/1背包问题/" rel="prev" title="php实现0-1背包问题">
-                php实现0-1背包问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/17/ysql索引/" rel="prev" title="mysql索引">
+                mysql索引 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -498,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

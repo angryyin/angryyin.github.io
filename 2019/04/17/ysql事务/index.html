@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="排序,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -77,18 +77,17 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
-<meta name="keywords" content="排序">
+<meta name="description" content="什么是事务事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。Atomicity原子性：要不全部成功，要不全部撤销Isolation隔离性：事务之间相互独立，互不干扰Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏Durability持久性：事务的提交结果，将持久保存在数据库中 pass：不可重复读与幻读的本质区别不可重复读是读取了其他事务更改的数据，针">
 <meta property="og:type" content="article">
-<meta property="og:title" content="插入排序">
-<meta property="og:url" content="http://yoursite.com/2019/03/26/排序/index.html">
+<meta property="og:title" content="mysql事务">
+<meta property="og:url" content="http://yoursite.com/2019/04/17/ysql事务/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
+<meta property="og:description" content="什么是事务事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。Atomicity原子性：要不全部成功，要不全部撤销Isolation隔离性：事务之间相互独立，互不干扰Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏Durability持久性：事务的提交结果，将持久保存在数据库中 pass：不可重复读与幻读的本质区别不可重复读是读取了其他事务更改的数据，针">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-01T02:19:10.067Z">
+<meta property="og:updated_time" content="2019-04-17T12:15:49.363Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="插入排序">
-<meta name="twitter:description" content="1234567891011121314151617181920212223&amp;lt;?php    $arr = [2, 3, 1, 6, 4, 7, 5, 9];    var_dump(insertsort($arr));    function insertSort($arr) &amp;#123;        $len = count($arr);        for ($i = 1; $i &amp;">
+<meta name="twitter:title" content="mysql事务">
+<meta name="twitter:description" content="什么是事务事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。Atomicity原子性：要不全部成功，要不全部撤销Isolation隔离性：事务之间相互独立，互不干扰Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏Durability持久性：事务的提交结果，将持久保存在数据库中 pass：不可重复读与幻读的本质区别不可重复读是读取了其他事务更改的数据，针">
 
 
 
@@ -118,14 +117,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/26/排序/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/17/ysql事务/">
 
 
 
 
 
 
-  <title>插入排序 | 殷航的博客</title>
+  <title>mysql事务 | 殷航的博客</title>
   
 
 
@@ -294,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/排序/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/ysql事务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -311,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">插入排序</h1>
+          <h1 class="post-title" itemprop="name headline">mysql事务</h1>
         
 
         <div class="post-meta">
@@ -323,8 +322,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-26T20:15:00+08:00">
-                2019-03-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T20:15:45+08:00">
+                2019-04-17
               </time>
             
 
@@ -333,28 +332,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -383,7 +360,15 @@
       
 
       
-        <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>];</span><br><span class="line"></span><br><span class="line">    var_dump(insertsort($arr));</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($arr)</span> </span>&#123;</span><br><span class="line">        $len = count($arr);</span><br><span class="line">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span><br><span class="line">            <span class="comment">// 当前值</span></span><br><span class="line">            $key = $arr[$i];</span><br><span class="line">            <span class="comment">// 当前位置</span></span><br><span class="line">            $pos = $i;</span><br><span class="line">            <span class="comment">// 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值</span></span><br><span class="line">            <span class="keyword">while</span> ($pos &gt; <span class="number">0</span> &amp;&amp; $arr[$pos - <span class="number">1</span>] &gt; $key) &#123;</span><br><span class="line">                <span class="comment">// 当前值  =  前一个值</span></span><br><span class="line">                $arr[$pos] = $arr[$pos - <span class="number">1</span>];</span><br><span class="line">                <span class="comment">// 当前位置后移</span></span><br><span class="line">                $pos = $pos - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 找到当前值的位置</span></span><br><span class="line">            $arr[$pos] = $key;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2><p>事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。<br>Atomicity原子性：要不全部成功，要不全部撤销<br>Isolation隔离性：事务之间相互独立，互不干扰<br>Consistency一致性：数据库正确地改变状态后，数据库的一致性约束没有被破坏<br>Durability持久性：事务的提交结果，将持久保存在数据库中</p>
+<p>pass：不可重复读与幻读的本质区别<br>不可重复读是读取了其他事务更改的数据，针对update操作<br>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。<br>passpass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。<br>不可重复读：数据读错方读了两次数据库</p>
+<p>幻读是读取了其他事务新增的数据，针对insert操作<br>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。<br><a id="more"></a></p>
+<h2 id="事务并发会产生什么问题"><a href="#事务并发会产生什么问题" class="headerlink" title="事务并发会产生什么问题"></a>事务并发会产生什么问题</h2><p>1）第一类丢失更新：在没有事务隔离的情况下，两个事务都同时更新一行数据，但是第二个事务却中途失败退出，导致对数据的两个修改都失效了。<br>例如：<br>    张三的工资为5000，事务A中获取工资为5000，事务B获取工资为5000，汇入100，并提交数据库，工资变为5100，<br>    随后事务A发生异常，回滚了，恢复张三的工资为5000，这样就导致事务B的更新丢失了。<br>2）脏读：脏读就是指当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。<br>例如：<br>　　张三的工资为5000,事务A中把他的工资改为8000,但事务A尚未提交。<br>　　与此同时，事务B正在读取张三的工资，读取到张三的工资为8000。<br>　　随后，事务A发生异常，而回滚了事务。张三的工资又回滚为5000。<br>　　最后，事务B读取到的张三工资为8000的数据即为脏数据，事务B做了一次脏读。</p>
+<p>3）不可重复读：是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。<br>例如：<br>　　在事务A中，读取到张三的工资为5000，操作没有完成，事务还没提交。<br>　　与此同时，事务B把张三的工资改为8000，并提交了事务。<br>　　随后，在事务A中，再次读取张三的工资，此时工资变为8000。在一个事务中前后两次读取的结果并不致，导致了不可重复读。</p>
+<p>4）第二类丢失更新：不可重复读的特例。有两个并发事务同时读取同一行数据，然后其中一个对它进行修改提交，而另一个也进行了修改提交。这就会造成第一次写操作失效。<br>例如：<br>    在事务A中，读取到张三的存款为5000，操作没有完成，事务还没提交。<br>　　与此同时，事务B，存储1000，把张三的存款改为6000，并提交了事务。<br>　　随后，在事务A中，存储500，把张三的存款改为5500，并提交了事务，这样事务A的更新覆盖了事务B的更新。<br>5）幻读：是指当事务不是独立执行时发生的一种现象，例如第一个事务对一个表中的数据进行了修改，这种修改涉及到表中的全部数据行。同时，第二个事务也修改这个表中的数据，这种修改是向表中插入一行新数据。那么，以后就会发生操作第一个事务的用户发现表中还有没有修改的数据行，就好象发生了幻觉一样。<br>例如：<br>　　目前工资为5000的员工有10人，事务A读取所有工资为5000的人数为10人。<br>　　此时，事务B插入一条工资也为5000的记录。<br>　　这时，事务A再次读取工资为5000的员工，记录为11人。此时产生了幻读。</p>
+<p>提醒：<br>不可重复读的重点是修改，同样的条件，你读取过的数据，再次读取出来发现值不一样了<br>幻读的重点在于新增或者删除，同样的条件，第 1 次和第 2 次读出来的记录数不一样</p>
+<h2 id="事务隔离级别，解决什么并发问题，以及存在什么并发问题"><a href="#事务隔离级别，解决什么并发问题，以及存在什么并发问题" class="headerlink" title="事务隔离级别，解决什么并发问题，以及存在什么并发问题"></a>事务隔离级别，解决什么并发问题，以及存在什么并发问题</h2><p>（1）READ_UNCOMMITTED（读未提交）<br>　　这是事务最低的隔离级别，它充许另外一个事务可以看到这个事务未提交的数据。<br>　　解决第一类丢失更新的问题，但是会出现脏读、不可重复读、第二类丢失更新的问题，幻读 。<br>（2）READ_COMMITTED（读已提交）<br>　　保证一个事务修改的数据提交后才能被另外一个事务读取，即另外一个事务不能读取该事务未提交的数据。<br>　　解决第一类丢失更新和脏读的问题，但会出现不可重复读、第二类丢失更新的问题，幻读问题<br>（3）REPEATABLE_READ（重复读）<br>　　保证一个事务相同条件下前后两次获取的数据是一致的<br>    解决第一类丢失更新，脏读、不可重复读、第二类丢失更新的问题，但会出幻读。<br>（4）SERIALIZABLE（串行化）<br>　　事务被处理为顺序执行。<br>　　解决所有问题<br>提醒：<br>Mysql默认的事务隔离级别为repeatable_read</p>
+
       
     </div>
     
@@ -398,12 +383,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/排序/" rel="tag"># 排序</a>
-          
-        </div>
-      
 
       
       
@@ -413,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/26/速排序/" rel="next" title="快速排序">
-                <i class="fa fa-chevron-left"></i> 快速排序
+              <a href="/2019/04/17/ysql索引/" rel="next" title="mysql索引">
+                <i class="fa fa-chevron-left"></i> mysql索引
               </a>
             
           </div>
@@ -422,10 +401,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/27/ET与POST区别/" rel="prev" title="GET与POST区别">
-                GET与POST区别 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -477,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -495,7 +479,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,6 +524,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是事务"><span class="nav-number">1.</span> <span class="nav-text">什么是事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务并发会产生什么问题"><span class="nav-number">2.</span> <span class="nav-text">事务并发会产生什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事务隔离级别，解决什么并发问题，以及存在什么并发问题"><span class="nav-number">3.</span> <span class="nav-text">事务隔离级别，解决什么并发问题，以及存在什么并发问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
