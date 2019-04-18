@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="get post本质：HTTP协议里两种发送请求的方法 参数传送渠道不同 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把http header和data一并发送出">
+<meta name="description" content="get post本质：HTTP协议里两种发送请求的方法 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存4、后退页面反应：get无影响，post需要返回重新提交数据 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把">
 <meta name="keywords" content="http,面试必考">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GET与POST区别">
 <meta property="og:url" content="http://yoursite.com/2019/03/27/ET与POST区别/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="get post本质：HTTP协议里两种发送请求的方法 参数传送渠道不同 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把http header和data一并发送出">
+<meta property="og:description" content="get post本质：HTTP协议里两种发送请求的方法 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存4、后退页面反应：get无影响，post需要返回重新提交数据 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-14T06:53:19.329Z">
+<meta property="og:updated_time" content="2019-04-18T01:31:53.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GET与POST区别">
-<meta name="twitter:description" content="get post本质：HTTP协议里两种发送请求的方法 参数传送渠道不同 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把http header和data一并发送出">
+<meta name="twitter:description" content="get post本质：HTTP协议里两种发送请求的方法 1、get放在url里面 post放在body里面不可见2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大3、get 方式是可以缓存的，post 方式不可以缓存4、后退页面反应：get无影响，post需要返回重新提交数据 get产生一个TCP数据包 而post产生两个：对于GET方式的请求，浏览器会把">
 
 
 
@@ -384,8 +384,7 @@
 
       
         <p>get post本质：HTTP协议里两种发送请求的方法</p>
-<p>参数传送渠道不同</p>
-<p>1、get放在url里面 post放在body里面不可见<br>2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大<br>3、get 方式是可以缓存的，post 方式不可以缓存</p>
+<p>1、get放在url里面 post放在body里面不可见<br>2、get请求url有限制（字符串，2k-4k） post根据php.ini设定，可以无限大<br>3、get 方式是可以缓存的，post 方式不可以缓存<br>4、后退页面反应：get无影响，post需要返回重新提交数据</p>
 <p>get产生一个TCP数据包 而post产生两个：<br>对于GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200（返回数据）；<br>而对于POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok（返回数据）。<br>两次包的TCP在验证数据包完整性上，有非常大的优点。<br>并不是所有浏览器都会在POST中发送两次包，Firefox就只发送一次。</p>
 <p>建议：<br>1、get式安全性较Post式要差些包含机密信息建议用Post数据提交式；<br>2、做数据查询建议用Get式；做数据添加、修改或删除建议用Post方式；<br>百度使用的get方式，因为可以从它的URL中看出</p>
 
@@ -502,7 +501,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

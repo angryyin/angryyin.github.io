@@ -409,6 +409,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/SI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/SI/" itemprop="url">OSI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T08:58:09+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>物理层<br>数据链路层<br>网络层<br>传输层<br>会话层<br>表示层<br>应用层</p>
+<p><img src="\images\pasted-31.png" alt="upload successful"></p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>   OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。<br>   网际控制报文协议DHCP处于应用层</p>
+<h2 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h2><p>   表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。</p>
+<h2 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h2><p>   会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。 </p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p>   传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP UDP就是在这一层。端口号既是这里的“端”。</p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p>   本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。IP协议是Internet的基础。</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层 "></a>数据链路层 </h2><p>   将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。<br>   交换机内部的CPU会在每个端口成功连接时，通过ARP协议学习它的MAC地址，保存成一张 ARP表。</p>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层     "></a>物理层     </h2><p>   实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。</p>
+<p>TCP/IP模型<br><img src="\images\pasted-32.png" alt="upload successful"></p>
+<p><img src="\images\pasted-33.png" alt="upload successful"></p>
+<p>地址解析协议ARP<br>完成IP地址到MAC地址的映射 即询问目标IP对应的MAC地址</p>
+<p>逆地址解析协议RARP<br>完成MAC地址到IP地址的映射</p>
+<p>域名解析DNS<br>完成域名到ip地址映射，使用udp传输</p>
+<p>在浏览器中输入<a href="http://www.baidu.com后执行的全部过程" target="_blank" rel="noopener">www.baidu.com后执行的全部过程</a><br>1、客户端浏览器通过DNS解析到<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的IP地址220.181.27.48，通过这个IP地址找到客户端到服务器的路径。客户端浏览器发起一个HTTP会话到220.181.27.48，然后通过TCP进行封装数据包，输入到网络层。<br>2、在客户端的传输层，把HTTP会话请求分成报文段，添加源和目的端口，如服务器使用80端口监听客户端的请求，客户端由系统随机选择一个端口如5000，与服务器进行交换，服务器把相应的请求返回给客户端的5000端口。然后使用IP层的IP地址查找目的端。<br>3、客户端的网络层不用关心应用层或者传输层的东西，主要做的是通过查找路由表确定如何到达服务器，期间可能经过多个路由器，这些都是由路由器来完成的工作，我不作过多的描述，无非就是通过查找路由表决定通过那个路径到达服务器。<br>4、客户端的链路层，包通过链路层发送到路由器，通过邻居协议查找给定IP地址的MAC地址，然后发送ARP请求查找目的地址，如果得到回应后就可以使用ARP的请求应答交换的IP数据包现在就可以传输了，然后发送IP数据包到达服务器的地址。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/p-udp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/p-udp/" itemprop="url">tcp/udp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T08:40:50+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="面向连接与无连接"><a href="#面向连接与无连接" class="headerlink" title="面向连接与无连接"></a>面向连接与无连接</h2><p>TCP面向连接（如打电话要先拨号建立连接）;<br>UDP是无连接的，即发送数据之前不需要建立连接</p>
+<h2 id="数据可靠性"><a href="#数据可靠性" class="headerlink" title="数据可靠性"></a>数据可靠性</h2><p>TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付</p>
+<p>Tcp通过校验和，重传控制，序号标识，滑动窗口、确认应答实现可靠传输。如丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。</p>
+<h2 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h2><p>UDP具有较好的实时性，工作效率比TCP高，适用于对高速传输和实时性有较高的通信或广播通信。</p>
+<h2 id="tcp连接一对一"><a href="#tcp连接一对一" class="headerlink" title="tcp连接一对一"></a>tcp连接一对一</h2><p>每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信</p>
+<h2 id="占用资源"><a href="#占用资源" class="headerlink" title="占用资源"></a>占用资源</h2><p>TCP对系统资源要求较多，UDP对系统资源要求较少。</p>
+<p>TCP与UDP区别总结：<br>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接<br>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付<br>Tcp通过校验和，重传控制，序号标识，滑动窗口、确认应答实现可靠传输。如丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。<br>3、UDP具有较好的实时性，工作效率比TCP高，适用于对高速传输和实时性有较高的通信或广播通信。<br>4.每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信<br>5、TCP对系统资源要求较多，UDP对系统资源要求较少。</p>
+<h2 id="为什么UDP有时比TCP更有优势"><a href="#为什么UDP有时比TCP更有优势" class="headerlink" title="为什么UDP有时比TCP更有优势?"></a>为什么UDP有时比TCP更有优势?</h2><p>UDP以其简单、传输快的优势，在越来越多场景下取代了TCP,如实时游戏。<br>（1）网速的提升给UDP的稳定性提供可靠网络保障，丢包率很低，如果使用应用层重传，能够确保传输的可靠性。<br>（2）TCP为了实现网络通信的可靠性，使用了复杂的拥塞控制算法，建立了繁琐的握手过程，由于TCP内置的系统协议栈中，极难对其进行改进。<br>采用TCP，一旦发生丢包，TCP会将后续的包缓存起来，等前面的包重传并接收到后再继续发送，延时会越来越大，基于UDP对实时性要求较为严格的情况下，采用自定义重传机制，能够把丢包产生的延迟降到最低，尽量减少网络问题对游戏性造成影响。</p>
+<h2 id="TCP与UDP的适用场景"><a href="#TCP与UDP的适用场景" class="headerlink" title="TCP与UDP的适用场景"></a>TCP与UDP的适用场景</h2><p>TCP：<br>对数据传输的质量有较高要求，但对实时性要求不高。比如HTTP，HTTPS，FTP等传输文件的协议以及POP，SMTP等邮件传输的协议，应选用TCP协议。</p>
+<p>UDP：<br>只对数据传输的实时性要求较高，但不对传输质量有要求。比如视频传输、实时通信等，应选用UDP协议。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/ysql事务/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1359,340 +1622,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/hinnkphp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/hinnkphp/" itemprop="url">thinnkphp</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T16:30:00+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="如何理解TP中的单一入口文件？"><a href="#如何理解TP中的单一入口文件？" class="headerlink" title="如何理解TP中的单一入口文件？"></a>如何理解TP中的单一入口文件？</h2><p>ThinkPHP采用单一入口模式进行项目部署和访问，无论完成什么功能，一个项目都有一个统一（但不一定是唯一）的入口。应该说，所有项目都是从入口文件开始的，并且所有的项目的入口文件是类似的。</p>
-<p>入口文件中主要包括：<br>（1）定义框架路径、项目路径和项目名称（可选）<br>（2）定义调试模式和运行模式的相关常量（可选）<br>（3）载入框架入口文件（必须）</p>
-<h2 id="ThinkPHP中的MVC分层是什么？（理解）"><a href="#ThinkPHP中的MVC分层是什么？（理解）" class="headerlink" title="ThinkPHP中的MVC分层是什么？（理解）"></a>ThinkPHP中的MVC分层是什么？（理解）</h2><p>MVC 是一种将应用程序的逻辑层和表现层进行分离的方法。ThinkPHP 也是基于MVC设计模式的。MVC只是一个抽象的概念，并没有特别明确的规定，ThinkPHP中的MVC分层大致体现在：</p>
-<p>模型（M）：模型的定义由Model类来完成。</p>
-<p>控制器（C）：应用控制器（核心控制器App类）和Action控制器都承担了控制器的角色，Action控制器完成业务过程控制，而应用控制器负责调度控制。</p>
-<p>视图（V）：由View类和模板文件组成，模板做到了100％分离，可以独立预览和制作。</p>
-<p>但实际上，ThinkPHP并不依赖M或者V ，也就是说没有模型或者视图也一样可以工作。甚至也不依赖C，这是因为ThinkPHP在Action之上还有一个总控制器，即App控制器，负责应用的总调度。在没有C的情况下，必然存在视图V，否则就不再是一个完整的应用。<br>总而言之，ThinkPHP的MVC模式只是提供了一种敏捷开发的手段，而不是拘泥于MVC本身。</p>
-<h2 id="如何进行SQL优化？"><a href="#如何进行SQL优化？" class="headerlink" title="如何进行SQL优化？"></a>如何进行SQL优化？</h2><p>（1）选择正确的存储引擎<br>MyISAM 适合于一些需要大量查询的应用，但其对于有大量写操作并不是很好。甚至你只是需要update一个字段，整个表都会被锁起来，而别的进程，就算是读进程都无法操作直到读操作完成。另外，MyISAM 对于 SELECT COUNT(*) 这类的计算是超快无比的。<br>InnoDB 的趋势会是一个非常复杂的存储引擎，对于一些小的应用，它会比 MyISAM 还慢。但是它支持“行锁” ，于是在写操作比较多的时候，会更优秀。并且，他还支持更多的高级应用，比如：事务。</p>
-<p>（2）优化字段的数据类型<br>记住一个原则，越小的列会越快。如果一个表只会有几列罢了（比如说字典表，配置表），那么，我们就没有理由使用 INT 来做主键，使用 MEDIUMINT, SMALLINT 或是更小的 TINYINT 会更经济一些。如果你不需要记录时间，使用 DATE 要比 DATETIME 好得多。当然，你也需要留够足够的扩展空间。</p>
-<p>（3）为搜索字段添加索引<br>索引并不一定就是给主键或是唯一的字段。如果在你的表中，有某个字段你总要会经常用来做搜索，那么最好是为其建立索引，除非你要搜索的字段是大的文本字段，那应该建立全文索引。</p>
-<p>（4）避免使用Select <em>从数据库里读出越多的数据，那么查询就会变得越慢。并且，如果你的数据库服务器和WEB服务器是两台独立的服务器的话，这还会增加网络传输的负载。即使你要查询数据表的所有字段，也尽量不要用</em>通配符，善用内置提供的字段排除定义也许能给带来更多的便利。</p>
-<p>（5）使用 ENUM 而不是 VARCHAR<br>ENUM 类型是非常快和紧凑的。在实际上，其保存的是 TINYINT，但其外表上显示为字符串。这样一来，用这个字段来做一些选项列表变得相当的完美。例如，性别、民族、部门和状态之类的这些字段的取值是有限而且固定的，那么，你应该使用 ENUM 而不是 VARCHAR。</p>
-<p>（6）尽可能的使用 NOT NULL<br>除非你有一个很特别的原因去使用 NULL 值，你应该总是让你的字段保持 NOT NULL。 NULL其实需要额外的空间，并且，在你进行比较的时候，你的程序会更复杂。 当然，这里并不是说你就不能使用NULL了，现实情况是很复杂的，依然会有些情况下，你需要使用NULL值。</p>
-<p>（7）固定长度的表会更快<br>如果表中的所有字段都是“固定长度”的，整个表会被认为是 “static” 或 “fixed-length”。 例如，表中没有如下类型的字段： VARCHAR，TEXT，BLOB。只要你包括了其中一个这些字段，那么这个表就不是“固定长度静态表”了，这样，MySQL 引擎会用另一种方法来处理。</p>
-<p>固定长度的表会提高性能，因为MySQL搜寻得会更快一些，因为这些固定的长度是很容易计算下一个数据的偏移量的，所以读取的自然也会很快。而如果字段不是定长的，那么，每一次要找下一条的话，需要程序找到主键。<br>并且，固定长度的表也更容易被缓存和重建。不过，唯一的副作用是，固定长度的字段会浪费一些空间，因为定长的字段无论你用不用，他都是要分配那么多的空间。</p>
-<h2 id="如何理解-ThinkPHP-3-0-架构（核心-行为-驱动）中的行为？"><a href="#如何理解-ThinkPHP-3-0-架构（核心-行为-驱动）中的行为？" class="headerlink" title="如何理解 ThinkPHP 3.0 架构（核心 + 行为 + 驱动）中的行为？"></a>如何理解 ThinkPHP 3.0 架构（核心 + 行为 + 驱动）中的行为？</h2><p>（1）核心（Core）：就是框架的核心代码，不可缺少的东西，TP本身是基于MVC思想开发的框架。</p>
-<p>（2）行为（Behavior） ：行为在新版ThinkPHP的架构里面起着举足轻重的作用，在系统核心之上，设置了很多标签扩展位，而每个标签位置可以依次执行各自的独立行为。行为扩展就因此而诞生了，而且很多系统功能也是通过内置的行为扩展完成的，所有行为扩展都是可替换和增加的，由此形成了底层框架可组装的基础。</p>
-<p>（3）驱动（ Driver ）：数据库驱动、缓存驱动、标签库驱动和模板引擎驱动，以及外置的类扩展。</p>
-<h2 id="什么是惯例配置？"><a href="#什么是惯例配置？" class="headerlink" title="什么是惯例配置？"></a>什么是惯例配置？</h2><p>所谓的惯例配置，便是框架的自带的配置文件。该文件在核心框架目录下的convention.php中，配置内容如下。由于该文件属于框架自带的配置文件，在实际的开发过程中，主要给我们做参考实例使用，我们很少去修改该文件的配置内容，更多的是根据需求来按照惯例配置中的字段定义和注释来在模块或者Common中自定义配置内容。</p>
-<h2 id="什么是SQL注入？（理解）"><a href="#什么是SQL注入？（理解）" class="headerlink" title="什么是SQL注入？（理解）"></a>什么是SQL注入？（理解）</h2><p>SQL注入攻击是黑客对数据库进行攻击的常用手段之一。</p>
-<p>一部分程序员在编写代码的时候，没有对用户输入数据的合法性进行判断，注入者可以在表单中输入一段数据库查询代码并提交，程序将提交的信息拼凑生成一个完整sql语句，服务器被欺骗而执行该条恶意的SQL命令。注入者根据程序返回的结果，成功获取一些敏感数据，甚至控制整个服务器，这就是SQL注入。</p>
-<h2 id="ThinkPHP如何防止SQL注入？（理解）"><a href="#ThinkPHP如何防止SQL注入？（理解）" class="headerlink" title="ThinkPHP如何防止SQL注入？（理解）"></a>ThinkPHP如何防止SQL注入？（理解）</h2><p>（1）查询条件尽量使用数组方式，这是更为安全的方式；<br>（2）如果不得已必须使用字符串查询条件，使用预处理机制；<br>（3）使用绑定参数<br>（4）开启数据字段类型验证，可以对数值数据类型做强制转换；（3.1版本开始已经强制进行字段类型验证了）<br>（5）使用自动验证和自动完成机制进行针对应用的自定义过滤；<br>（6）使用字段类型检查、自动验证和自动完成机制等避免恶意数据的输入。</p>
-<h2 id="如何开启调试模式？调试模式有什么好处？"><a href="#如何开启调试模式？调试模式有什么好处？" class="headerlink" title="如何开启调试模式？调试模式有什么好处？"></a>如何开启调试模式？调试模式有什么好处？</h2><p>开启调试模式很简单，只需要在入口文件中增加一行常量定义代码：<br>// 开启调试模式 建议开发阶段开启 部署阶段注释或者设为false<br>define(‘APP_DEBUG’, true);<br>调试模式的优势在于： 开启日志记录，任何错误信息和调试信息都会详细记录，便于调试； 关闭模板缓存，模板修改可以即时生效； 记录SQL日志，方便分析SQL； 关闭字段缓存，数据表字段修改不受缓存影响； 严格检查文件大小写（即使是Windows平台），帮助你提前发现Linux部署问题； 可以方便用于开发过程的不同阶段，包括开发、测试和演示等任何需要的情况，不同的应用模式可以配置独立的项目配置文件。</p>
-<h2 id="TP中支持哪些配置模式？优先级？"><a href="#TP中支持哪些配置模式？优先级？" class="headerlink" title="TP中支持哪些配置模式？优先级？"></a>TP中支持哪些配置模式？优先级？</h2><p>惯例配置-&gt;应用配置-&gt;模式配置-&gt;调试配置-&gt;状态配置-&gt;模块配置-&gt;扩展配置-&gt;动态配置</p>
-<p>以上是配置文件的加载顺序，因为后面的配置会覆盖之前的同名配置（在没有生效的前提下），所以优先顺序从右到左。</p>
-<h2 id="TP中的URL模式有哪几种？默认是哪种？"><a href="#TP中的URL模式有哪几种？默认是哪种？" class="headerlink" title="TP中的URL模式有哪几种？默认是哪种？"></a>TP中的URL模式有哪几种？默认是哪种？</h2><p>ThinkPHP支持四种URL模式，可以通过设置URL_MODEL参数来定义，包括普通模式、PATHINFO、REWRITE和兼容模式。<br>默认模式为：PATHINFO模式，设置URL_MODEL 为1</p>
-<h2 id="TP中系统变量有哪些？如何获取系统变量？"><a href="#TP中系统变量有哪些？如何获取系统变量？" class="headerlink" title="TP中系统变量有哪些？如何获取系统变量？"></a>TP中系统变量有哪些？如何获取系统变量？</h2><p>（1）系统变量：$_SERVER、$_ENV、 $_POST、 $_GET、 $_REQUEST、$_SESSION和 $_COOKIE变量</p>
-<p>（2）获取系统变量：</p>
-<p>{$Think.server.script_name} // 输出$_SERVER[‘SCRIPT_NAME’]变量</p>
-<p>{$Think.session.user_id} // 输出$_SESSION[‘user_id’]变量</p>
-<p>{$Think.get.pageNumber} // 输出$_GET[‘pageNumber’]变量</p>
-<p>{$Think.cookie.name}  // 输出$_COOKIE[‘name’]变量</p>
-<h2 id="ThinkPHP框架中D函数与M函数的区别是什么？"><a href="#ThinkPHP框架中D函数与M函数的区别是什么？" class="headerlink" title="ThinkPHP框架中D函数与M函数的区别是什么？"></a>ThinkPHP框架中D函数与M函数的区别是什么？</h2><p>M方法实例化模型无需用户为每个数据表定义模型类，D方法可以自动检测模型类，如果存在自定义的模型类，则实例化自定义模型类，如果不存在，则会自动调用M方法去实例化Model基类。同时对于已实例化过的模型，不会重复去实例化（单例模式）。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/p-mysql函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/p-mysql函数/" itemprop="url">php mysql函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T15:18:14+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>　　mysql_affected_rows： 得到 MySQL 最后操作影响的列数目。<br>　　mysql_close： 关闭 MySQL 服务器连接。<br>　　mysql_connect： 打开 MySQL 服务器连接。<br>　　mysql_create_db： 建立一个 MySQL 新数据库。<br>　　mysql_data_seek： 移动内部返回指针。<br>　　mysql_db_query： 送查询字符串 (query) 到 MySQL 数据库。<br>　　mysql_drop_db： 移除数据库。<br>　　mysql_errno： 返回错误信息代码。<br>　　mysql_error： 返回错误信息。<br>　　mysql_fetch_array： 返回数组资料。<br>　　mysql_fetch_field： 取得字段信息。<br>　　mysql_fetch_lengths： 返回单列各栏资料最大长度。<br>　　mysql_fetch_object： 返回类资料。<br>　　mysql_fetch_row： 返回单列的各字段。<br>　　mysql_field_name： 返回指定字段的名称。<br>　　mysql_field_seek： 配置指针到返回值的某字段。<br>　　mysql_field_table： 获得目前字段的资料表 (table) 名称。<br>　　mysql_field_type： 获得目前字段的类型。<br>　　mysql_field_flags： 获得目前字段的标志。<br>　　mysql_field_len： 获得目前字段的长度。<br>　　mysql_free_result： 释放返回占用内存。<br>　　mysql_insert_id： 返回最后一次使用 INSERT 指令的 ID。<br>　　mysql_list_fields： 列出指定资料表的字段 (field)。<br>　　mysql_list_dbs： 列出 MySQL 服务器可用的数据库 (database)。<br>　　mysql_list_tables： 列出指定数据库的资料表 (table)。<br>　　mysql_num_fields： 取得返回字段的数目。<br>　　mysql_num_rows： 取得返回列的数目。<br>　　mysql_pconnect： 打开 MySQL 服务器持续连接。<br>　　mysql_query： 送出一个 query 字符串。<br>　　mysql_result： 取得查询 (query) 的结果。<br>　　mysql_select_db： 选择一个数据库。<br>　　mysql_tablename： 取得资料表名称。</p>
-<p>　　mysql_affected_rows　得到 MySQL 最后操作影响的列数目。<br>　　语法： int mysql_affected_rows(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　内容说明： 本函数可得到 MySQL 最后查询操作 INSERT、UPDATE 或 DELETE 所影响的列 (row) 数目。若最后的查询 (query) 是使用 DELETE 而且没有使用 WHERE 命令，则会删除全部资料，本函数将返回 0。若最后使用的是 SELECT，则用本函数不会得到预期的数目，因为要改变 MySQL 数据库本函数才有效，欲得到 SELECT 返回的数目需使用 mysql_num_rows() 函数。</p>
-<p>　　mysql_close　关闭 MySQL 服务器连接。<br>　　语法： int mysql_close(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数关闭与 MySQL 数据库服务器的连接。若无指定参数 link_identifier 则会关闭最后的一笔连接。用 mysql_pconnect() 连接则无法使用本函数关闭。实际上本函数不是一定需要的，当 PHP 整页程序结束后，将会自动关闭与数据库的非永久性 (non-persistent) 连接。成功返回 true、失败返回 false 值。<br>　　参考： mysql_connect() mysql_pconnect()</p>
-<p>　　mysql_connect　打开 MySQL 服务器连接。<br>　　语法： int mysql_connect(string [hostname] [：port], string [username], string [password]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数建立与 MySQL 服务器的连接。其中所有的参数都可省略。当使用本函数却不加任何参数时，参数 hostname 的默认值为 localhost、参数 username 的默认值为 PHP 执行行程的拥有者、参数 password 则为空字符串 (即没有密码)。而参数 hostname 后面可以加冒号与埠号，代表使用那个埠与 MySQL 连接。当然在使用数据库时，早点使用 mysql_close() 将连接关掉可以节省资源。</p>
-<p>　　 使用范例<br>　　&lt;?php<br>　　　　$dbh = mysql_connect(‘localhost：3306’,’mcclain’,’standard’);<br>　　　　mysql_select_db(‘admreqs’);<br>　　　　$query = “insert into requests(date, request, email, priority,status) values 　　　　(NOW(),’$description’, ‘$email’, ‘$priority’, ‘NEW’)”;<br>　　　　$res = mysql_query($query, $dbh);<br>　　　　$query = “select max(id) from requests”;<br>　　　　$res = mysql_query($query, $dbh);<br>　　　　$err = mysql_error();<br>　　　　if($err){<br>　　　　　　echo “发生错误，请通知<a href="mailto：webmaster@my.site">站长</a>“;<br>　　　　}<br>　　　　$row = mysql_fetch_row($res);<br>　　　　echo “未来您使用的号码为： “.$row[0];<br>　　?&gt;<br>　　参考： mysql_close() mysql_pconnect()</p>
-<p>　　mysql_create_db　建立一个 MySQL 新数据库。<br>　　语法： int mysql_create_db(string database name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来建立新的数据库 (database)。在建立前，必须先与服务器连接。<br>　　参考： mysql_drop_db()</p>
-<p>　　mysql_data_seek　移动内部返回指针。<br>　　语法： int mysql_data_seek(int result_identifier, int row_number);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可移动内部返回的列指针到指定的 row_number 去。之后若使用 mysql_fetch_row() 可以返回新列的值。成功返回 true、失败则返回 false。</p>
-<p>　　mysql_db_query　送查询字符串 (query) 到 MySQL 数据库。<br>　　语法： int mysql_db_query(string database, string query, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来送出查询字符串 (query) 到后端的 MySQL 数据库中。而可省略的参数 　　link_identifier 若不存在，程序会自动寻找其它 mysql_connect() 连接后的连接代码。发生错误时会返回 false，其它没错误时则返回它的返回代码。<br>　　参考： mysql_connect()</p>
-<p>　　mysql_drop_db　移除数据库。<br>　　语法： int mysql_drop_db(string database_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数移除已存在的数据库。成功返回 true、失败则返回 false。<br>　　参考： mysql_create_db()</p>
-<p>　　mysql_errno<br>　　返回错误信息代码。<br>　　语法： int mysql_errno(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能　<br>　　内容说明： 本函数可以得到 MySQL 数据库服务器的错误代码。通常用在 PHP 网页程序开发阶段，作为 PHP 与 MySQL 的除错用。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect(“marliesle”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　　　mysql_select_db(“nonexistentdb”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　　　$conn = mysql_query(“SELECT * FROM nonexistenttable”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　?&gt;<br>　　参考： mysql_error()</p>
-<p>　　mysql_error　返回错误信息。<br>　　语法： string mysql_error(int [link_identifier]);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到 MySQL 数据库服务器的错误信息。通常用在 PHP 网页程序开发阶段，与 mysql_errno() 一起作为PHP 与 MySQL 的除错用。<br>　　参考： mysql_errno()</p>
-<p>　　mysql_fetch_array　返回数组资料。<br>　　语法： array mysql_fetch_array(int result, int [result_typ]);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 拆到数组变量中。若 result 没有资料，则返回 false 值。而本函数可以说是 mysql_fetch_row() 的加强函数，除可以将返回列及数字索引放入数组之外，还可以将文字索引放入数组中。若是好几个返回字段都是相同的文字名称，则最后一个置入的字段有效，解 决方法是使用数字索引或者为这些同名的字段 (column) 取别名 (alias)。治募注意的是使用本函数的处理速度其实不会比 mysql_fetch_row() 函数慢，要用哪个函数还是看使用的需求决定。参数 result_typ 是一个常量值，有以下几种常量 MYSQL_ASSOC、MYSQL_NUM 与 MYSQL_BOTH。</p>
-<p>　　 使用范例<br>　　&lt;?php<br>　　　　mysql_connect($host,$user,$password);<br>　　　　$result = mysql_db_query(“database”,”select * from table”);<br>　　　　while($row = mysql_fetch_array($result)) {<br>　　　　　　echo $row[“user_id”];<br>　　　　　　echo $row[“fullname”];<br>　　　　}<br>　　　　mysql_free_result($result);<br>　　?&gt;</p>
-<p>　　mysql_fetch_field　取得字段信息。<br>　　语法： object mysql_fetch_field(int result, int [field_offset]);<br>　　返回值： 类<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数返回的类资料为 result 的字段 (Column) 信息。返回类的属性如下：</p>
-<p>　　name - 字段名称<br>　　table - 字段所在表格的资料表名称<br>　　max_length - 字段的最大长度<br>　　not_null - 若为 1 表示本字段不能是空的 (null)<br>　　primary_key - 若为 1 表示本字段是主要键 (primary key)<br>　　unique_key - 若为 1 表示本字段为不可重覆键 (unique key)<br>　　multiple_key - 若为 1 表示本字段为可重覆键 (non-unique key)<br>　　numeric - 若为 1 表示本字段为数字类型 (numeric)<br>　　blob - 若为 1 表示本字段为位类型 (BLOB)<br>　　type - 字段类型<br>　　unsigned - 若为 1 表示本字段为无记号 (unsigned)<br>　　zerofill - 若为 1 表示本字段为被零填满 (zero-filled)<br>　　参考： mysql_field_seek()</p>
-<p>　　mysql_fetch_lengths　返回单列各栏资料最大长度。<br>　　语法： array mysql_fetch_lengths(int result);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数将 mysql_fetch_row() 处理过的最后一列资料的各字段资料最大长度放在数组变量之中。若执行失败则返回 false 值。返回数组的第一笔资料索引值是 0。<br>　　参考： mysql_fetch_row()</p>
-<p>mysql_fetch_object　返回类资料。<br>　　语法： object mysql_fetch_object(int result, int [result_typ]);<br>　　返回值： 类<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 拆到类变量中。使用方法和 mysql_fetch_array() 几乎相同，不同的地方在于本函数返回资料是类而不是数组。若 result 没有资料，则返回 false 值。另外治募注意的地方是，取回的类资料的索引只能是文字而不能用数字，这是因为类的特性。类资料的特性中所有的属性 (property) 名称都不能是数字，因此只好乖乖使用文字字符串当索引了。参数 result_typ是一个常量值，有以下几种常量 MYSQL_ASSOC、MYSQL_NUM 与 MYSQL_BOTH。关于速度方面，本函数的处理速度几乎和 mysql_fetch_row() 及 mysql_fetch_array() 二函数差不多，要用哪个函数还是看使用的需求决定。</p>
-<p>　　 使用范例，下面的例子示范如使用返回的类。<br>　　&lt;?php<br>　　　　mysql_connect($host,$user,$password);<br>　　　　$result = mysql_db_query(“MyDatabase”,”select * from test”);<br>　　　　while($row = mysql_fetch_object($result)) {<br>　　　　　　echo $row-&gt;user_id;<br>　　　　　　echo $row-&gt;fullname;<br>　　　　}<br>　　　　mysql_free_result($result);<br>　　?&gt;<br>　　参考： mysql_fetch_array() mysql_fetch_row()</p>
-<p>　　mysql_fetch_row　返回单列的各字段。<br>　　语法： array mysql_fetch_row(int result);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 之单列拆到数组变量中。数组的索引是数字索引，第一个的索引值是 0。若 result 没有资料，则返回 false 值。<br>参考： mysql_fetch_array() mysql_fetch_object() mysql_data_seek() mysql_fetch_lengths() mysql_result()</p>
-<p>　　mysql_field_name　返回指定字段的名称。<br>　　语法： string mysql_field_name(int result, int field_index);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来取得指定字段的名称。</p>
-<p>　　使用范例<br>　　mysql_field_name($result,2); </p>
-<p>　　mysql_field_seek　配置指针到返回治募某字段。<br>　　语法： int mysql_field_seek(int result, int field_offset);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数配置目前的指针到返回治募特定字段中。<br>　　参考： mysql_fetch_field()</p>
-<p>　　mysql_field_table　获得目前字段的资料表 (table) 名称。<br>　　语法： string mysql_field_table(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的资料表名。</p>
-<p>　　mysql_field_type　获得目前字段的类型。<br>　　语法： string mysql_field_type(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的类型格式。返回的字符串为字段的类型，包括了 int、real、string、blob….等等，详见 MySQL 的相关文件中有关于类型的部份。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect(“localhost：3306”);<br>　　　　mysql_select_db(“wisconsin”);<br>　　　　$result = mysql_query(“SELECT * FROM onek”);<br>　　　　$fields = mysql_num_fields($result);<br>　　　　$rows = mysql_num_rows($result);<br>　　　　$i = 0;<br>　　　　$table = mysql_field_table($result, $i);<br>　　　　echo “资料表 ‘“.$table.”‘ 有 “.$fields.” 栏及 “.$rows.” 列。<br>“;<br>　　　　echo “本资料表的字段如下<br>“;<br>　　　　while ($i &lt; $fields) {<br>　　　　　　$type = mysql_field_type ($result, $i);<br>　　　　　　$name = mysql_field_name ($result, $i);<br>　　　　　　$len = mysql_field_len ($result, $i);<br>　　　　　　$flags = mysql_field_flags ($result, $i);<br>　　　　　　echo $type.” “.$name.” “.$len.” “.$flags.”<br>“;<br>　　　　　　$i++;<br>　　　　}<br>　　　　mysql_close();<br>　　?&gt;</p>
-<p>　　mysql_field_flags　获得目前字段的标志。<br>　　语法： string mysql_field_flags(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的标志。若一个字段有数种属性标志，则返回的标志为这些属性连起来的字符串，每个属性都用空格隔开，可以使用 explode() 切开这些字符串。返回的标志可能是：not_null、primary_key、unique_key、multiple_key、blob、 unsigned、zerofill、binary、enum、auto_increment、timestamp。</p>
-<p>　　mysql_field_len　获得目前字段的长度。<br>　　语法： int mysql_field_len(int result, int field_offset);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的长度。</p>
-<p>　　mysql_free_result　释放返回占用内存。<br>　　语法： boolean mysql_free_result(int result);<br>　　返回值： 布尔值<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以释放目前 MySQL 数据库 query 返回所占用的内存。一般只有在非常担心在内存的使用上可能会不足的情形下才会用本函数。PHP 程序会在结束时自动释放。</p>
-<p>　　mysql_insert_id　返回最后一次使用 INSERT 指令的 ID。<br>　　语法： int mysql_insert_id(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到最后一次使用 INSERT 到 MySQL 数据库的执行 ID。<a href="mailto:sleibowitz@btcwcu.org" target="_blank" rel="noopener">sleibowitz@btcwcu.org</a> (13-May-1999) 指出在 PHP 3.0.7版用 REPLACE 也和使用 INSERT 一样，可以使用本函数获得 ID。</p>
-<p>　　mysql_list_fields　列出指定资料表的字段 (field)。<br>　　语法： int mysql_list_fields(string database_name, string table_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到指定的资料表的所有字段。返回的字段信息可以供 mysql_field_flags()、mysql_field_len()、mysql_field_name() 及 mysql_field_type() 等函数使用。若有错误则返回 -1。</p>
-<p>　　mysql_list_dbs　列出 MySQL 服务器可用的数据库 (database)。<br>　　语法： int mysql_list_dbs(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到 MySQL 服务器的可用数据库。</p>
-<p>　　mysql_list_tables　列出指定数据库的资料表 (table)。<br>　　语法： int mysql_list_tables(string database, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到指定数据库中的所有资料表名称。</p>
-<p>　　mysql_num_fields　取得返回字段的数目。<br>　　语法： int mysql_num_fields(int result);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到返回字段的数目。<br>　　参考： mysql_db_query() mysql_query() mysql_fetch_field() mysql_num_rows()</p>
-<p>　　mysql_num_rows　取得返回列的数目。<br>　　语法： int mysql_num_rows(int result);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到返回列的数目。<br>　　参考： mysql_db_query() mysql_query() mysql_fetch_row()</p>
-<p>　　mysql_pconnect　打开 MySQL 服务器持续连接。<br>　　语法： int mysql_pconnect(string [hostname] [：port], string [username], string [password]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数和 mysql_connect() 雷同。不同的地方在于使用本函数打开数据库时，程序会先寻找是否曾经执行过本函数，若执行过则返回先前执行的 ID。另一个不同的地方是本函数无法使用 mysql_close() 关闭数据库。</p>
-<p>　　mysql_query　送出一个 query 字符串。<br>　　语法： int mysql_query(string query, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数送出 query 字符串供 MySQL 做相关的处理或者执行。若没有指定 link_identifier 参数，则程序会自动寻找最近打开的 ID。当 query 查询字符串是 UPDATE、INSERT 及 DELETE 时，返回的可能是 true 或者 false；查询的字符串是 SELECT 则返回新的 ID 值。<a href="mailto:joey@samaritan.com" target="_blank" rel="noopener">joey@samaritan.com</a> (09-Feb-1999) 指出，当返回 false 时，并不是执行成功但无返回值，而是查询的字符串有错误。<br>　　参考： mysql_db_query() mysql_select_db() mysql_connect() </p>
-<p>　　mysql_result　取得查询 (query) 的结果。<br>　　语法： int mysql_result(int result, int row, mixed field);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数取得一格 query 的结果。参数 field 可以是字段名称、顺序或者是 FieldName.TableName 的格式。在返回资料量少时，可以使用本函数来处理。当数据库大时，本函数的效率就有待考量了，这时可以使用较有效率的 mysql_fetch_row()、mysql_fetch_array() 及 mysql_fetch_object() 等函数。</p>
-<p>　　mysql_select_db　选择一个数据库。<br>　　语法： int mysql_select_db(string database_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数选择 MySQL 服务器中的数据库以供之后的资料查询作业 (query) 处理。成功返回 true，失败则返回 false。<br>　　参考： mysql_connect() mysql_pconnect() mysql_query()</p>
-<p>　　mysql_tablename　取得资料表名称。<br>　　语法： string mysql_tablename(int result, int i);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可取得资料表名称字符串，一般配合 mysql_list_tables() 函数使用，取得该函返回的数字的名称字符串。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect (“localhost：3306”);<br>　　　　$result = mysql_list_tables (“wisconsin”);<br>　　　　$i = 0;<br>　　　　while ($i &lt; mysql_num_rows ($result)) {<br>　　　　　　$tb_names[$i] = mysql_tablename ($result, $i);<br>　　　　　　echo $tb_names[$i] . “<br>“;<br>　　　　　　$i++;<br>　　　　}<br>　　?&gt;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1745,7 +1674,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
