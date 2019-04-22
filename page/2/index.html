@@ -290,6 +290,524 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/o-undo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/17/o-undo/" itemprop="url">redo&undo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T19:50:00+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>redo（重做）保障了数据库的持久性<br>undo（撤销）保障了数据库的原子性</p>
+<p>当数据库系统崩溃后，如何恢复？</p>
+<p>两个原则<br>从前向后读取redo，重做所有已提交的事务<br>从后往前读取undo，回滚未提交的事务</p>
+<p>Undo + Redo事务的简化过程<br>A.事务开始.<br>B.记录A=1到undo log.<br>C.修改A=3.<br>D.记录A=3到redo log.<br>E.记录B=2到undo log.<br>F.修改B=4.<br>G.记录B=4到redo log.<br>H.将redo log写入磁盘。<br>I.事务提交</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/16/序算法/" itemprop="url">排序算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T10:33:47+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//快速排序</span></span></span><br><span class="line"><span class="php"><span class="comment">//待排序数组</span></span></span><br><span class="line"><span class="php">$arr=<span class="keyword">array</span>(<span class="number">6</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">1</span>);</span></span><br><span class="line"><span class="php"><span class="comment">//函数实现快速排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">quick_sort</span><span class="params">($arr)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//递归出口:数组长度为1，直接返回数组</span></span></span><br><span class="line"><span class="php">   $length=count($arr);</span></span><br><span class="line"><span class="php">   <span class="keyword">if</span>($length&lt;=<span class="number">1</span>) <span class="keyword">return</span> $arr;</span></span><br><span class="line"><span class="php">   $left=$right=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">   <span class="keyword">for</span>($i=<span class="number">1</span>;$i&lt;$length;$i++)&#123;</span></span><br><span class="line"><span class="php">   <span class="keyword">if</span>($arr[$i]&lt;$arr[<span class="number">0</span>])&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//第一次排序，left为小于6的所有数</span></span></span><br><span class="line"><span class="php">   $left[] = $arr[$i];</span></span><br><span class="line"><span class="php">   &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//right为大于6的所有数</span></span></span><br><span class="line"><span class="php">   $right[] = $arr[$i];</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   $left = quick_sort($left);</span></span><br><span class="line"><span class="php">   $right = quick_sort($right);</span></span><br><span class="line"><span class="php">   <span class="keyword">return</span> array_merge($left,<span class="keyword">array</span>($arr[<span class="number">0</span>]),$right);</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   <span class="comment">//调用</span></span></span><br><span class="line"><span class="php">   <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span></span><br><span class="line"><span class="php">   print_r(quick_sort($arr));</span></span><br></pre></td></tr></table></figure>
+<h2 id="插排"><a href="#插排" class="headerlink" title="插排"></a>插排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>];</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    var_dump(insertsort($arr));</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($arr)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        $len = count($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span></span><br><span class="line"><span class="php">            <span class="comment">// 当前值</span></span></span><br><span class="line"><span class="php">            $key = $arr[$i];</span></span><br><span class="line"><span class="php">            <span class="comment">// 当前位置</span></span></span><br><span class="line"><span class="php">            $pos = $i;</span></span><br><span class="line"><span class="php">            <span class="comment">// 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值</span></span></span><br><span class="line"><span class="php">            <span class="keyword">while</span> ($pos &gt; <span class="number">0</span> &amp;&amp; $arr[$pos - <span class="number">1</span>] &gt; $key) &#123;</span></span><br><span class="line"><span class="php">                <span class="comment">// 当前值  =  前一个值</span></span></span><br><span class="line"><span class="php">                $arr[$pos] = $arr[$pos - <span class="number">1</span>];</span></span><br><span class="line"><span class="php">                <span class="comment">// 当前位置后移</span></span></span><br><span class="line"><span class="php">                $pos = $pos - <span class="number">1</span>;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="comment">// 找到当前值的位置</span></span></span><br><span class="line"><span class="php">            $arr[$pos] = $key;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $arr;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 冒泡排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">PrintMinNumber</span><span class="params">($numbers)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    $length = count($numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span>($length == <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="string">''</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $length<span class="number">-1</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($j = $i;$j &lt; $length;$j++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($numbers[$i].$numbers[$j] &gt; $numbers[$j].$numbers[$i])&#123;</span></span><br><span class="line"><span class="php">                $temp = $numbers[$i];</span></span><br><span class="line"><span class="php">                $numbers[$i] = $numbers[$j];</span></span><br><span class="line"><span class="php">                $numbers[$j] = $temp;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $a = implode(<span class="string">''</span>,$numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> $a;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$arr = [<span class="number">32</span>,<span class="number">3</span>,<span class="number">321</span>];</span></span><br><span class="line"><span class="php">PrintMinNumber($arr);</span></span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* mergeSort 归并排序</span></span><br><span class="line"><span class="comment">* 是开始递归函数的一个驱动函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 待排序的数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span><span class="params">(&amp;$arr)</span> </span>&#123;</span><br><span class="line">  $len = count($arr);<span class="comment">//求得数组长度</span></span><br><span class="line"> </span><br><span class="line">  mSort($arr, <span class="number">0</span>, $len<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 实际实现归并排序的程序</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 需要排序的数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left int 子序列的左下标值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right int 子序列的右下标值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mSort</span><span class="params">(&amp;$arr, $left, $right)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>($left &lt; $right) &#123;</span><br><span class="line">    <span class="comment">//说明子序列内存在多余1个的元素，那么需要拆分，分别排序，合并</span></span><br><span class="line">    <span class="comment">//计算拆分的位置，长度/2 去整</span></span><br><span class="line">    $center = floor(($left+$right) / <span class="number">2</span>);</span><br><span class="line">    <span class="comment">//递归调用对左边进行再次排序：</span></span><br><span class="line">    mSort($arr, $left, $center);</span><br><span class="line">    <span class="comment">//递归调用对右边进行再次排序</span></span><br><span class="line">    mSort($arr, $center+<span class="number">1</span>, $right);</span><br><span class="line">    <span class="comment">//合并排序结果</span></span><br><span class="line">    mergeArray($arr, $left, $center, $right);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将两个有序数组合并成一个有序数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr, 待排序的所有元素</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left, 排序子数组A的开始下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $center, 排序子数组A与排序子数组B的中间下标，也就是数组A的结束下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right, 排序子数组B的结束下标（开始为$center+1)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeArray</span><span class="params">(&amp;$arr, $left, $center, $right)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//设置两个起始位置标记</span></span><br><span class="line">  $a_i = $left;</span><br><span class="line">  $b_i = $center+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>($a_i&lt;=$center &amp;&amp; $b_i&lt;=$right) &#123;</span><br><span class="line">    <span class="comment">//当数组A和数组B都没有越界时</span></span><br><span class="line">    <span class="keyword">if</span>($arr[$a_i] &lt; $arr[$b_i]) &#123;</span><br><span class="line">      $temp[] = $arr[$a_i++];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $temp[] = $arr[$b_i++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组A内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($a_i &lt;= $center) &#123;</span><br><span class="line">    $temp[] = $arr[$a_i++];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组B内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($b_i &lt;= $right) &#123;</span><br><span class="line">    $temp[] = $arr[$b_i++];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">//将$arrC内排序好的部分，写入到$arr内：</span></span><br><span class="line">  <span class="keyword">for</span>($i=<span class="number">0</span>, $len=count($temp); $i&lt;$len; $i++) &#123;</span><br><span class="line">    $arr[$left+$i] = $temp[$i];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//do some test:</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="number">4</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">mergeSort($arr);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$arr=<span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">587</span>,<span class="number">93</span>,<span class="number">47</span>,<span class="number">59</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">83</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">65</span>,<span class="number">2</span>,<span class="number">18</span>,<span class="number">7</span>);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge_sort</span><span class="params">(&amp;$arr)</span></span>&#123;</span><br><span class="line">    $len=count($arr);</span><br><span class="line">    <span class="keyword">if</span>($len==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    $middle=intval($len/<span class="number">2</span>);</span><br><span class="line">    $left=array_slice($arr,<span class="number">0</span>,$middle);</span><br><span class="line">    $right=array_slice($arr,$middle);</span><br><span class="line">    merge_sort($left);</span><br><span class="line">    merge_sort($right);</span><br><span class="line">    $arr=merge($left,$right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span><span class="params">($leftarr,$rightarr)</span></span>&#123;</span><br><span class="line">    $arrmerge=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">while</span>(count($leftarr) &amp;&amp; count($rightarr))</span><br><span class="line">        $arrmerge[]=$leftarr[<span class="number">0</span>]&lt;$rightarr[<span class="number">0</span>]?array_shift($leftarr):array_shift($rightarr);</span><br><span class="line">    <span class="keyword">return</span> array_merge($arrmerge,$leftarr,$rightarr);</span><br><span class="line">&#125;</span><br><span class="line">merge_sort($arr);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printArr</span><span class="params">($arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr);$i++)</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">' '</span>.$arr[$i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/itled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/16/itled/" itemprop="url">isnull empty isset</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T09:15:48+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = [<span class="string">'null'</span>];</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">isset</span>($a)) ;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">empty</span>($a));</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(is_null($a));</span></span><br><span class="line"><span class="php"><span class="comment">//                  isset empty isnull</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=null            0     1     1</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=0               1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=false           1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=""              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="0"             1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=[]              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=1               1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="null"          1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a = ['null'];    1     0     0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//不定义            0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a=null;unset($a);0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a='1';unset($a); 0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//wrong&amp;1:</span></span></span><br><span class="line"><span class="php"><span class="comment">//Undefined variable: a</span></span></span><br><span class="line"><span class="php"><span class="comment">//1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=null或不定义a isest为0</span></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=1(not0)或a="有东西，null也算"(数组规则一样) empty为0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//is_null判断null 只有当a=null时才为1，当变量不存在时会报错并报1，其他都为false</span></span></span><br><span class="line"><span class="php"><span class="comment">//isset 判断存在  当a被赋值（除a=null） isset就为true 表示变量存在，不判断变量含义，含义空亦true</span></span></span><br><span class="line"><span class="php"><span class="comment">//empty 判断空    仅当a被赋值并且变量含义不为空 empty($var)才为false 其他都是true</span></span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/hp底层/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/15/hp底层/" itemprop="url">测开基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T20:59:31+08:00">
+                2019-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>一、Linux必备知识<br>linux作为现在最流行的软件环境系统，一定需要掌握，目前的招聘要求都需要有linux能力。</p>
+<p><img src="\\images\pasted-71.png\" alt="upload successful"><br>二、Shell脚本<br>掌握shell脚本，包括shell基础与应用、shell逻辑控制、shell逻辑函数等。</p>
+<p><img src="\images\pasted-72.png" alt="upload successful"><br>三、互联网程序原理<br>自动化必由之路：前端开发基础知识以及互联网网络必备知识。</p>
+<p><img src="\images\pasted-73.png" alt="upload successful"><br>四、Mysql数据库<br>软件测试工程师必备Mysql数据库知识，不仅仅停留在基本的“增删改查”。</p>
+<p><img src="\images\pasted-74.png" alt="upload successful"><br>五、抓包工具<br>Fiddler、Wireshark、Sniffer、Tcpdump各种抓包工具适用于各种项目，总有一款适合你。</p>
+<p><img src="\images\pasted-75.png" alt="upload successful"><br>六、接口测试工具<br>接口测试神器，你绕不开的强大工具：Jmeter。小巧灵活：Postman。</p>
+<p><img src="\images\pasted-76.png" alt="upload successful"><br>七、Web自动化测试Java&amp;Pyhton<br>了解自动化的目的，熟练掌握testng&amp;unittest自动化框架，以及断言与日志处理。</p>
+<p><img src="\images\pasted-77.png" alt="upload successful"><br>八、接口与手机自动化<br>专业接口调用、测试解决方案。组建完整的web和接口自动化框架，Appium整体使用</p>
+<p><img src="\images\pasted-78.png" alt="upload successful"><br>九、敏捷测试&amp;TestOps构建<br>揭开TestOps的神秘面纱，持续集成Jenkins框架烂熟于心。</p>
+<p><img src="\images\pasted-79.png" alt="upload successful"><br>十、性能测试&amp;安全测试<br>软件测试的彼岸：性能测试和安全测试，选对方向，努力爬坑吧！</p>
+<p><img src="\images\pasted-80.png" alt="upload successful"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/础/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1215,614 +1733,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/二叉树/" itemprop="url">平衡二叉树、二叉排序树、完全二叉树、满二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T20:55:41+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>来自二叉排序树的旋转<br>为了保证树不至于台倾斜，尽量保证两边平衡。<br>1、平衡二叉树要么是一棵空树<br>2、要么保证左右子树的高度之差不大于 1<br>3、子树也必须是一颗平衡二叉树<br>平衡二叉树在添加和删除时需要进行旋转保证整个树的平衡，使用平衡二叉树时，插入、查找时间复杂度都是O(logn)</p>
-<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p>完全二叉树：对于一个树高为h的二叉树，如果其第0层至第h-1层的节点都满。如果最下面一层节点不满，则所有的节点在左边的连续排列，空位都在右边。这样的二叉树就是一棵完全二叉树。<br>完全二叉树最重要的性质：如果n个节点的完全二叉树的节点按照层次并按从左到右的顺序从0开始编号，对于人一个绩点都有：</p>
-<p>·序号为0的节点是根<br>·对于i&gt;0，其父节点的编号为(i-1)/2。<br>·若2i+1&lt;n，其左子节点的序号为2i+1，否则没有左子节点。<br>·若2i+2&lt;n，其右子节点的序号为2i+2，否则没有右子节点。</p>
-<p><img src="\images\pasted-39.png" alt="upload successful"></p>
-<h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><p>满二叉树：树中每个分支结点（非叶结点）都有两棵非空子树</p>
-<p><img src="\images\pasted-40.png" alt="upload successful"><br>使二叉树可以方便的存入表或者数组，直接根绝元素下标就可以找到一个节点的子节点或者父节点(也就是可以完全确定二叉树的结构)，无须用额外的形式记录树结构信息。<br>使其可以方便地存入一系列连续位置，一般二叉树不能方便地映射到线性结构，完全二叉树到线性结构有定义非常自然的双向映射，可以方便地从其线性结构恢复完全二叉树。</p>
-<h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>在最好的情况下，二叉排序树的查找效率比较高，是 O(logn)，其访问性能近似于折半查找；</p>
-<p><img src="\images\pasted-41.png" alt="upload successful"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/cc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/cc/" itemprop="url">mvcc多版本并发控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T13:08:02+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/cef49aeff36b" target="_blank" rel="noopener">https://www.jianshu.com/p/cef49aeff36b</a><br><a href="https://www.cnblogs.com/phpper/p/6937650.html" target="_blank" rel="noopener">https://www.cnblogs.com/phpper/p/6937650.html</a></p>
-<p>MVCC，Multi-Version Concurrency Control，多版本并发控制。<br>MVCC 是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问；在编程语言中实现事务内存。<br>MVCC可以看作一种乐观锁的实现方式</p>
-<h2 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h2><p>每行数据都存在一个版本，每次数据更新时都更新该版本。<br>修改时Copy出当前版本随意修改，各个事务之间无干扰。<br>保存时比较版本号，如果成功（commit），则覆盖原记录；失败则放弃copy（rollback）</p>
-<p>InnoDB存储引擎MVCC的实现策略<br>在每一行数据中额外保存两个隐藏的列：当前行创建时的版本号和删除时的版本号（可能为空，其实还有一列称为回滚指针，用于事务回滚，不在本文范畴）。这里的版本号并不是实际的时间值，而是系统版本号。每开始新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询每行记录的版本号进行比较。</p>
-<p>每个事务又有自己的版本号，这样事务内执行CRUD操作时，就通过版本号的比较来达到数据版本控制的目的。</p>
-<h2 id="MVCC优缺点"><a href="#MVCC优缺点" class="headerlink" title="MVCC优缺点"></a>MVCC优缺点</h2><p>MVCC在大多数情况下代替了行锁，实现了对读的非阻塞，读不加锁，读写不冲突。缺点是每行记录都需要额外的存储空间，需要做更多的行维护和检查工作。</p>
-<h2 id="mvcc如何解决幻读"><a href="#mvcc如何解决幻读" class="headerlink" title="mvcc如何解决幻读"></a>mvcc如何解决幻读</h2><p>保证一个事务<br>读不了在它之后插入的数据，读不了在它之前删除的数据<br>读的了在它之前插入的数据，读的了在它之后删除的数据</p>
-<p>查询条件<br>1) 删除版本号未指定或者大于当前事务版本号，即查询事务开启后确保读取的行未被删除。(即上述事务id为2的事务查询时，依然能读取到事务id为3所删除的数据行)。不能读取&lt;=当前事务版本号的被删除数据</p>
-<p>2) 创建版本号&lt;=当前事务版本号 ，就是说记录创建是在当前事务中（等于的情况）或者在当前事务启动之前的其他事物进行的insert。 不能读取在当前事务之后创建的数据</p>
-<p>当前事务版本号为100，能够读取：数据的删除版本号&gt;100且创建版本号&lt;=100</p>
-<p>多版本并发控制。InnoDB为每行记录添加了一个版本号（系统版本号），每当修改数据时，版本号+1。<br>在读取事务开始时，系统会给事务一个当前版本号，事务会读取版本号&lt;=当前版本号的数据，这时就算另一个事务插入一个数据，并立马提交，新插入这条数据的版本号会比读取事务的版本号高，因此读取事务读的数据还是不会变。<br>例如：<br>此时books表中有5条数据，版本号为1<br>事务A，系统版本号2：select <em> from books；因为1&lt;=2所以此时会读取5条数据。<br>事务B，系统版本号3：insert into books …，插入一条数据，新插入的数据版本号为3，而其他的数据的版本号仍然是2，插入完成之后commit，事务结束。<br>事务A，系统版本号2：再次select </em> from books；只能读取&lt;=2的数据，事务B新插入的那条数据版本号为3，因此读不出来，解决了幻读的问题。</p>
-<p>1：当前读:给改条数据加锁(悲观锁),即读取的时候就加锁，防止其他事务读取该数据().它能保证读取的都是最新数据<br>2：快照读:mvcc，多版本并发控制，详细的原理就不说了，它使得读写不冲突，由于读的都是事务的当前版本的数据，因此重复读也不会发现数据被修改</p>
-<p>DELETE<br>InnoDB会为删除的每一行保存当前事务的ID作为删除标识.</p>
-<p>UPDATE<br>InnoDB执行UPDATE，实际上是新插入了一行记录，并保存其创建时间为当前事务的ID，同时保存当前事务ID到要UPDATE的行的删除时间。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/红黑树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/红黑树/" itemprop="url">红黑树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T11:15:05+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>红黑树<br>红黑树（Red Black Tree） 是一种自平衡二叉查找树<br>红黑树和AVL树类似，都是在进行插入和删除操作时通过特定操作保持二叉查找树的平衡，从而获得较高的查找性能。<br>二叉平衡树的严格平衡策略以牺牲建立查找结构(插入，删除操作)的代价，换来了稳定的O(logN) 的查找时间复杂度<br>它虽然是复杂的，但它的最坏情况运行时间也是非常良好的，并且在实践中是高效的： 它可以在O(log n)时间内做查找，插入和删除，这里的n 是树中元素的数目。</p>
-<p>(1) 每个节点或者是黑色，或者是红色。<br>(2) 根节点是黑色。<br>(3) 每个叶子节点是黑色。 [注意：这里叶子节点，是指为空的叶子节点！]<br>(4) 如果一个节点是红色的，则它的子节点必须是黑色的。<br>(5) 从一个节点到该节点的子孙节点的所有路径上包含相同数目的黑节点。</p>
-<p><img src="\images\pasted-52.png" alt="upload successful"></p>
-<p>由于父节点22是红色节点，因此这种情况打破了红黑树的规则4，必须作出调整，两种方式：变色，旋转<br><img src="\images\pasted-53.png" alt="upload successful"></p>
-<h2 id="变色"><a href="#变色" class="headerlink" title="变色"></a>变色</h2><p>为了符合红黑树的规则，会把节点红变黑，或者黑变红。下图节点25并非根节点，因为21和22连接出现红色，不符合规则4，所以把22红变黑<br>例子：<br><img src="\images\pasted-55.png" alt="upload successful"><br>但是这样还是不符合规则5，所以需要把25黑变红：</p>
-<p><img src="\images\pasted-56.png" alt="upload successful"><br>25和27又是两个连续的红色节点（规则4），所以需要将27红变黑</p>
-<p><img src="\images\pasted-57.png" alt="upload successful"><br>结束</p>
-<h2 id="左旋转"><a href="#左旋转" class="headerlink" title="左旋转"></a>左旋转</h2><p>逆时针旋转两个节点，使父节点被自己的右孩子取代，而自己成为自己的左孩子：<br><img src="\images\pasted-58.png" alt="upload successful"></p>
-<h2 id="右旋转"><a href="#右旋转" class="headerlink" title="右旋转"></a>右旋转</h2><p>顺时针旋转两个节点，使自己的父节点被左孩子取代，而自己成为自己的右孩子：</p>
-<p><img src="\images\pasted-59.png" alt="upload successful"></p>
-<p>还是以刚才的例子为例</p>
-<p><img src="\images\pasted-60.png" alt="upload successful"><br>首先开始变色，把节点25及以下的节点变色</p>
-<p><img src="\images\pasted-61.png" alt="upload successful"><br>由于17和25是连续的两个红色节点，那么把节点17变黑吗？这样会与规则4冲突，根据规则2也不能将13变成红色，变色已经不能解决问题了，所以只能进行旋转。13当成X，17当成Y，左旋转试试：</p>
-<p><img src="\images\pasted-62.png" alt="upload successful"></p>
-<p><img src="\images\pasted-63.png" alt="upload successful"></p>
-<p><img src="\images\pasted-64.png" alt="upload successful"></p>
-<p>由于根节点必须是黑色，所以需要变色</p>
-<p><img src="\images\pasted-65.png" alt="upload successful"><br>其中有两条路径（17-6-null）的黑色节点个数不是3，不符合规则，这时需要把13当做X，8当做Y，进行右旋转；</p>
-<p><img src="\images\pasted-66.png" alt="upload successful"></p>
-<p><img src="\images\pasted-67.png" alt="upload successful"></p>
-<p><img src="\images\pasted-68.png" alt="upload successful"><br>最后根据规则变色</p>
-<p><img src="\images\pasted-69.png" alt="upload successful"></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line">/**</span><br><span class="line"> * author:zhongjin</span><br><span class="line"> * time:2016/10/20 11:53</span><br><span class="line"> * description: 红黑树</span><br><span class="line"><span class="php"> */</span></span><br><span class="line"><span class="php"><span class="comment">//结点</span></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">Node</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $key;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $parent;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $left;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $right;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $IsRed;  <span class="comment">//分辨红节点或黑节点</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($key, $IsRed = TRUE)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;key = $key;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;parent = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;left = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;right = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        <span class="comment">//插入结点默认是红色</span></span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;IsRed = $IsRed;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//红黑树</span></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">Rbt</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> $root;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 初始化树结构</span><br><span class="line">     * @param $arr 初始化树结构的数组</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">($arr)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//根节点必须是黑色</span></span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;root = <span class="keyword">new</span> Node($arr[<span class="number">0</span>], <span class="keyword">FALSE</span>);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; count($arr); $i++) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;Insert($arr[$i]);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * （对内）中序遍历</span><br><span class="line">     * @param $root （树或子树的）根节点</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">mid_order</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($root != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;mid_order($root-&gt;left);</span></span><br><span class="line"><span class="php">            <span class="keyword">echo</span> $root-&gt;key . <span class="string">"-"</span> . ($root-&gt;IsRed ? <span class="string">'r'</span> : <span class="string">'b'</span>) . <span class="string">'  '</span>;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;mid_order($root-&gt;right);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * （对外）中序遍历</span><br><span class="line">     * @param null</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">MidOrder</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;mid_order(<span class="keyword">$this</span>-&gt;root);</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 查找树中是否存在$key对应的节点</span><br><span class="line">     * @param $key 待搜索数字</span><br><span class="line">     * @return $key对应的节点</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">search</span><span class="params">($key)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        $current = <span class="keyword">$this</span>-&gt;root;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($current != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span> ($current-&gt;key == $key) &#123;</span></span><br><span class="line"><span class="php">                <span class="keyword">return</span> $current;</span></span><br><span class="line"><span class="php">            &#125; <span class="keyword">elseif</span> ($current-&gt;key &gt; $key) &#123;</span></span><br><span class="line"><span class="php">                $current = $current-&gt;left;</span></span><br><span class="line"><span class="php">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                $current = $current-&gt;right;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="comment">//结点不存在</span></span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $current;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 将以$root为根节点的最小不平衡二叉树做右旋处理</span><br><span class="line">     * @param $root（树或子树）根节点</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">R_Rotate</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        $L = $root-&gt;left;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (!is_null($root-&gt;parent)) &#123;</span></span><br><span class="line"><span class="php">            $P = $root-&gt;parent;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($root == $P-&gt;left)&#123;</span></span><br><span class="line"><span class="php">                $P-&gt;left = $L;</span></span><br><span class="line"><span class="php">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">                $P-&gt;right = $L;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            $L-&gt;parent = $P;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">            $L-&gt;parent = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $root-&gt;parent = $L;</span></span><br><span class="line"><span class="php">        $root-&gt;left = $L-&gt;right;</span></span><br><span class="line"><span class="php">        $L-&gt;right = $root;</span></span><br><span class="line"><span class="php">        <span class="comment">//这句必须啊！</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($L-&gt;parent == <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root = $L;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 将以$root为根节点的最小不平衡二叉树做左旋处理</span><br><span class="line">     * @param $root（树或子树）根节点</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">L_Rotate</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        $R = $root-&gt;right;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (!is_null($root-&gt;parent)) &#123;</span></span><br><span class="line"><span class="php">            $P = $root-&gt;parent;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($root == $P-&gt;right)&#123;</span></span><br><span class="line"><span class="php">                $P-&gt;right = $R;</span></span><br><span class="line"><span class="php">            &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">                $P-&gt;left = $R;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            $R-&gt;parent = $P;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">            $R-&gt;parent = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $root-&gt;parent = $R;</span></span><br><span class="line"><span class="php">        $root-&gt;right = $R-&gt;left;</span></span><br><span class="line"><span class="php">        $R-&gt;left = $root;</span></span><br><span class="line"><span class="php">        <span class="comment">//这句必须啊！</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($R-&gt;parent == <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root = $R;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 查找树中的最小关键字</span><br><span class="line">     * @param $root 根节点</span><br><span class="line">     * @return 最小关键字对应的节点</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">search_min</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        $current = $root;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($current-&gt;left != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            $current = $current-&gt;left;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $current;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 查找树中的最大关键字</span><br><span class="line">     * @param $root 根节点</span><br><span class="line">     * @return 最大关键字对应的节点</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">search_max</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        $current = $root;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($current-&gt;right != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            $current = $current-&gt;right;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $current;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 查找某个$key在中序遍历时的直接前驱节点</span><br><span class="line">     * @param $x 待查找前驱节点的节点引用</span><br><span class="line">     * @return 前驱节点引用</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">predecessor</span><span class="params">($x)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//左子节点存在，直接返回左子节点的最右子节点</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($x-&gt;left != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;search_max($x-&gt;left);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="comment">//否则查找其父节点，直到当前结点位于父节点的右边</span></span></span><br><span class="line"><span class="php">        $p = $x-&gt;parent;</span></span><br><span class="line"><span class="php">        <span class="comment">//如果x是p的左孩子，说明p是x的后继，我们需要找的是p是x的前驱</span></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($p != <span class="keyword">NULL</span> &amp;&amp; $x == $p-&gt;left) &#123;</span></span><br><span class="line"><span class="php">            $x = $p;</span></span><br><span class="line"><span class="php">            $p = $p-&gt;parent;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $p;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 查找某个$key在中序遍历时的直接后继节点</span><br><span class="line">     * @param $x 待查找后继节点的节点引用</span><br><span class="line">     * @return 后继节点引用</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">successor</span><span class="params">($x)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($x-&gt;left != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;search_min($x-&gt;right);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $p = $x-&gt;parent;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($p != <span class="keyword">NULL</span> &amp;&amp; $x == $p-&gt;right) &#123;</span></span><br><span class="line"><span class="php">            $x = $p;</span></span><br><span class="line"><span class="php">            $p = $p-&gt;parent;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $p;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 将$key插入树中</span><br><span class="line">     * @param $key 待插入树的数字</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Insert</span><span class="params">($key)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (!is_null(<span class="keyword">$this</span>-&gt;search($key))) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'结点'</span> . $key . <span class="string">'已存在，不可插入！'</span>);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $root = <span class="keyword">$this</span>-&gt;root;</span></span><br><span class="line"><span class="php">        $inode = <span class="keyword">new</span> Node($key);</span></span><br><span class="line"><span class="php">        $current = $root;</span></span><br><span class="line"><span class="php">        $prenode = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">        <span class="comment">//为$inode找到合适的插入位置</span></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($current != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            $prenode = $current;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span> ($current-&gt;key &gt; $inode-&gt;key) &#123;</span></span><br><span class="line"><span class="php">                $current = $current-&gt;left;</span></span><br><span class="line"><span class="php">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                $current = $current-&gt;right;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        $inode-&gt;parent = $prenode;</span></span><br><span class="line"><span class="php">        <span class="comment">//如果$prenode == NULL， 则证明树是空树</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($prenode == <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root = $inode;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span> ($inode-&gt;key &lt; $prenode-&gt;key) &#123;</span></span><br><span class="line"><span class="php">                $prenode-&gt;left = $inode;</span></span><br><span class="line"><span class="php">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                $prenode-&gt;right = $inode;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//将它重新修正为一颗红黑树</span></span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;InsertFixUp($inode);</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 对插入节点的位置及往上的位置进行颜色调整</span><br><span class="line">     * @param $inode 插入的节点</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">InsertFixUp</span><span class="params">($inode)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//情况一：需要调整条件，父节点存在且父节点的颜色是红色</span></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> (($parent = $inode-&gt;parent) != <span class="keyword">NULL</span> &amp;&amp; $parent-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="comment">//祖父结点：</span></span></span><br><span class="line"><span class="php">            $gparent = $parent-&gt;parent;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">            <span class="comment">//如果父节点是祖父结点的左子结点，下面的else与此相反</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span> ($parent == $gparent-&gt;left) &#123;</span></span><br><span class="line"><span class="php">                <span class="comment">//叔叔结点</span></span></span><br><span class="line"><span class="php">                $uncle = $gparent-&gt;right;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case1:叔叔结点也是红色</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($uncle != <span class="keyword">NULL</span> &amp;&amp; $uncle-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//将父节点和叔叔结点都涂黑，将祖父结点涂红</span></span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $uncle-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $gparent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    <span class="comment">//将新节点指向祖父节点（现在祖父结点变红，可以看作新节点存在）</span></span></span><br><span class="line"><span class="php">                    $inode = $gparent;</span></span><br><span class="line"><span class="php">                    <span class="comment">//继续while循环，重新判断</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">continue</span>;   <span class="comment">//经过这一步之后，组父节点作为新节点存在（跳到case2）</span></span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case2:叔叔结点是黑色，且当前结点是右子节点</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($inode == $parent-&gt;right) &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//以父节点作为旋转结点做左旋转处理</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;L_Rotate($parent);</span></span><br><span class="line"><span class="php">                    <span class="comment">//在树中实际上已经转换，但是这里的变量的指向还没交换，</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将父节点和字节调换一下，为下面右旋做准备</span></span></span><br><span class="line"><span class="php">                    $temp = $parent;</span></span><br><span class="line"><span class="php">                    $parent = $inode;</span></span><br><span class="line"><span class="php">                    $inode = $temp;</span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case3:叔叔结点是黑色，而且当前结点是父节点的左子节点</span></span></span><br><span class="line"><span class="php">                $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                $gparent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                <span class="keyword">$this</span>-&gt;R_Rotate($gparent);</span></span><br><span class="line"><span class="php">            &#125; <span class="comment">//如果父节点是祖父结点的右子结点，与上面完全相反</span></span></span><br><span class="line"><span class="php">            <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                <span class="comment">//叔叔结点</span></span></span><br><span class="line"><span class="php">                $uncle = $gparent-&gt;left;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case1:叔叔结点也是红色</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($uncle != <span class="keyword">NULL</span> &amp;&amp; $uncle-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//将父节点和叔叔结点都涂黑，将祖父结点涂红</span></span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $uncle-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $gparent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    <span class="comment">//将新节点指向祖父节点（现在祖父结点变红，可以看作新节点存在）</span></span></span><br><span class="line"><span class="php">                    $inode = $gparent;</span></span><br><span class="line"><span class="php">                    <span class="comment">//继续while循环，重新判断</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">continue</span>;   <span class="comment">//经过这一步之后，组父节点作为新节点存在（跳到case2）</span></span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case2:叔叔结点是黑色，且当前结点是左子节点</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($inode == $parent-&gt;left) &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//以父节点作为旋转结点做右旋转处理</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;R_Rotate($parent);</span></span><br><span class="line"><span class="php">                    <span class="comment">//在树中实际上已经转换，但是这里的变量的指向还没交换，</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将父节点和字节调换一下，为下面右旋做准备</span></span></span><br><span class="line"><span class="php">                    $temp = $parent;</span></span><br><span class="line"><span class="php">                    $parent = $inode;</span></span><br><span class="line"><span class="php">                    $inode = $temp;</span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case3:叔叔结点是黑色，而且当前结点是父节点的右子节点</span></span></span><br><span class="line"><span class="php">                $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                $gparent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                <span class="keyword">$this</span>-&gt;L_Rotate($gparent);</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="comment">//情况二：原树是根节点（父节点为空），则只需将根节点涂黑</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($inode == <span class="keyword">$this</span>-&gt;root) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//情况三：插入节点的父节点是黑色，则什么也不用做</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($inode-&gt;parent != <span class="keyword">NULL</span> &amp;&amp; $inode-&gt;parent-&gt;IsRed == <span class="keyword">FALSE</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * （对外）删除指定节点</span><br><span class="line">     * @param $key 删除节点的key值</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">Delete</span><span class="params">($key)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (is_null(<span class="keyword">$this</span>-&gt;search($key))) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'结点'</span> . $key . <span class="string">"不存在，删除失败！"</span>);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $dnode = <span class="keyword">$this</span>-&gt;search($key);</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($dnode-&gt;left == <span class="keyword">NULL</span> || $dnode-&gt;right == <span class="keyword">NULL</span>) &#123; <span class="comment">#如果待删除结点无子节点或只有一个子节点，则c = dnode</span></span></span><br><span class="line"><span class="php">            $c = $dnode;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123; <span class="comment">#如果待删除结点有两个子节点，c置为dnode的直接后继，以待最后将待删除结点的值换为其后继的值</span></span></span><br><span class="line"><span class="php">            $c = <span class="keyword">$this</span>-&gt;successor($dnode);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//为了后面颜色处理做准备</span></span></span><br><span class="line"><span class="php">        $parent = $c-&gt;parent;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//无论前面情况如何，到最后c只剩下一边子结点</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($c-&gt;left != <span class="keyword">NULL</span>) &#123;    <span class="comment">//这里不会出现，除非选择的是删除结点的前驱</span></span></span><br><span class="line"><span class="php">            $s = $c-&gt;left;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">            $s = $c-&gt;right;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($s != <span class="keyword">NULL</span>) &#123; <span class="comment">#将c的子节点的父母结点置为c的父母结点，此处c只可能有1个子节点，因为如果c有两个子节点，则c不可能是dnode的直接后继</span></span></span><br><span class="line"><span class="php">            $s-&gt;parent = $c-&gt;parent;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($c-&gt;parent == <span class="keyword">NULL</span>) &#123; <span class="comment">#如果c的父母为空，说明c=dnode是根节点，删除根节点后直接将根节点置为根节点的子节点，此处dnode是根节点，且拥有两个子节点，则c是dnode的后继结点，c的父母就不会为空，就不会进入这个if</span></span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root = $s;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> ($c == $c-&gt;parent-&gt;left) &#123; <span class="comment">#如果c是其父节点的左右子节点，则将c父母的左右子节点置为c的左右子节点</span></span></span><br><span class="line"><span class="php">            $c-&gt;parent-&gt;left = $s;</span></span><br><span class="line"><span class="php">        &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">            $c-&gt;parent-&gt;right = $s;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        $dnode-&gt;key = $c-&gt;key;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        $node = $s;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//c的结点颜色是黑色，那么会影响路径上的黑色结点的数量，必须进行调整</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($c-&gt;IsRed == <span class="keyword">FALSE</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;DeleteFixUp($node,$parent);</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * 删除节点后对接点周围的其他节点进行调整</span><br><span class="line">     * @param $key 删除节点的子节点和父节点</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">DeleteFixUp</span><span class="params">($node,$parent)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//如果待删结点的子节点为红色，直接将子节点涂黑</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($node != <span class="keyword">NULL</span> &amp;&amp; $node-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">            $node-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//如果是根节点，那就直接将根节点置为黑色即可</span></span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> (($node == <span class="keyword">NULL</span> || $node-&gt;IsRed == <span class="keyword">FALSE</span>) &amp;&amp; ($node != <span class="keyword">$this</span>-&gt;root)) &#123;</span></span><br><span class="line"><span class="php">            <span class="comment">//node是父节点的左子节点，下面else与这里相反</span></span></span><br><span class="line"><span class="php">            <span class="keyword">if</span> ($node == $parent-&gt;left) &#123;</span></span><br><span class="line"><span class="php">                $brother = $parent-&gt;right;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case1:兄弟结点颜色是红色（父节点和兄弟孩子结点都是黑色）</span></span></span><br><span class="line"><span class="php">                <span class="comment">//将父节点涂红，将兄弟结点涂黑，然后对父节点进行左旋处理（经过这一步，情况转换为兄弟结点颜色为黑色的情况）</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($brother-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;L_Rotate($parent);</span></span><br><span class="line"><span class="php">                    <span class="comment">//将情况转化为其他的情况</span></span></span><br><span class="line"><span class="php">                    $brother = $parent-&gt;right;  <span class="comment">//在左旋处理后，$parent-&gt;right指向的是原来兄弟结点的左子节点</span></span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//以下是兄弟结点为黑色的情况</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case2:兄弟结点是黑色，且兄弟结点的两个子节点都是黑色</span></span></span><br><span class="line"><span class="php">                <span class="comment">//将兄弟结点涂红，将当前结点指向其父节点，将其父节点指向当前结点的祖父结点。</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> (($brother-&gt;left == <span class="keyword">NULL</span> || $brother-&gt;left-&gt;IsRed == <span class="keyword">FALSE</span>) &amp;&amp; ($brother-&gt;right == <span class="keyword">NULL</span> || $brother-&gt;right-&gt;IsRed == <span class="keyword">FALSE</span>)) &#123;</span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    $node = $parent;</span></span><br><span class="line"><span class="php">                    $parent = $node-&gt;parent;</span></span><br><span class="line"><span class="php">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//case3:兄弟结点是黑色，兄弟结点的左子节点是红色，右子节点为黑色</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将兄弟结点涂红，将兄弟节点的左子节点涂黑，然后对兄弟结点做右旋处理（经过这一步，情况转换为兄弟结点颜色为黑色，右子节点为红色的情况）</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">if</span> ($brother-&gt;right == <span class="keyword">NULL</span> || $brother-&gt;right-&gt;IsRed == <span class="keyword">FALSE</span>) &#123;</span></span><br><span class="line"><span class="php">                        $brother-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                        $brother-&gt;left-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                        <span class="keyword">$this</span>-&gt;R_Rotate($brother);</span></span><br><span class="line"><span class="php">                        <span class="comment">//将情况转换为其他情况</span></span></span><br><span class="line"><span class="php">                        $brother = $parent-&gt;right;</span></span><br><span class="line"><span class="php">                    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                    <span class="comment">//case4:兄弟结点是黑色，且兄弟结点的右子节点为红色，左子节点为任意颜色</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将兄弟节点涂成父节点的颜色，再把父节点涂黑，将兄弟结点的右子节点涂黑，然后对父节点做左旋处理</span></span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = $parent-&gt;IsRed;</span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                    $brother-&gt;right-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;L_Rotate($parent);</span></span><br><span class="line"><span class="php">                    <span class="comment">//到了第四种情况，已经是最基本的情况了，可以直接退出了</span></span></span><br><span class="line"><span class="php">                    $node = <span class="keyword">$this</span>-&gt;root;</span></span><br><span class="line"><span class="php">                    <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php">            &#125; <span class="comment">//node是父节点的右子节点</span></span></span><br><span class="line"><span class="php">            <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                $brother = $parent-&gt;left;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case1:兄弟结点颜色是红色（父节点和兄弟孩子结点都是黑色）</span></span></span><br><span class="line"><span class="php">                <span class="comment">//将父节点涂红，将兄弟结点涂黑，然后对父节点进行右旋处理（经过这一步，情况转换为兄弟结点颜色为黑色的情况）</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> ($brother-&gt;IsRed == <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;R_Rotate($parent);</span></span><br><span class="line"><span class="php">                    <span class="comment">//将情况转化为其他的情况</span></span></span><br><span class="line"><span class="php">                    $brother = $parent-&gt;left;  <span class="comment">//在右旋处理后，$parent-&gt;left指向的是原来兄弟结点的右子节点</span></span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//以下是兄弟结点为黑色的情况</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                <span class="comment">//case2:兄弟结点是黑色，且兄弟结点的两个子节点都是黑色</span></span></span><br><span class="line"><span class="php">                <span class="comment">//将兄弟结点涂红，将当前结点指向其父节点，将其父节点指向当前结点的祖父结点。</span></span></span><br><span class="line"><span class="php">                <span class="keyword">if</span> (($brother-&gt;left == <span class="keyword">NULL</span> || $brother-&gt;left-&gt;IsRed == <span class="keyword">FALSE</span>) &amp;&amp; ($brother-&gt;right == <span class="keyword">NULL</span> || $brother-&gt;right-&gt;IsRed == <span class="keyword">FALSE</span>)) &#123;</span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                    $node = $parent;</span></span><br><span class="line"><span class="php">                    $parent = $node-&gt;parent;</span></span><br><span class="line"><span class="php">                &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">                    <span class="comment">//case3:兄弟结点是黑色，兄弟结点的右子节点是红色，左子节点为黑色</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将兄弟结点涂红，将兄弟节点的左子节点涂黑，然后对兄弟结点做左旋处理（经过这一步，情况转换为兄弟结点颜色为黑色，右子节点为红色的情况）</span></span></span><br><span class="line"><span class="php">                    <span class="keyword">if</span> ($brother-&gt;left == <span class="keyword">NULL</span> || $brother-&gt;left-&gt;IsRed == <span class="keyword">FALSE</span>) &#123;</span></span><br><span class="line"><span class="php">                        $brother-&gt;IsRed = <span class="keyword">TRUE</span>;</span></span><br><span class="line"><span class="php">                        $brother-&gt;right = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                        <span class="keyword">$this</span>-&gt;L_Rotate($brother);</span></span><br><span class="line"><span class="php">                        <span class="comment">//将情况转换为其他情况</span></span></span><br><span class="line"><span class="php">                        $brother = $parent-&gt;left;</span></span><br><span class="line"><span class="php">                    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">                    <span class="comment">//case4:兄弟结点是黑色，且兄弟结点的左子节点为红色，右子节点为任意颜色</span></span></span><br><span class="line"><span class="php">                    <span class="comment">//将兄弟节点涂成父节点的颜色，再把父节点涂黑，将兄弟结点的右子节点涂黑，然后对父节点左左旋处理</span></span></span><br><span class="line"><span class="php">                    $brother-&gt;IsRed = $parent-&gt;IsRed;</span></span><br><span class="line"><span class="php">                    $parent-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    $brother-&gt;left-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">                    <span class="keyword">$this</span>-&gt;R_Rotate($parent);</span></span><br><span class="line"><span class="php">                    $node = <span class="keyword">$this</span>-&gt;root;</span></span><br><span class="line"><span class="php">                    <span class="keyword">break</span>;</span></span><br><span class="line"><span class="php">                &#125;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($node != <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">$this</span>-&gt;root-&gt;IsRed = <span class="keyword">FALSE</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * （对内）获取树的深度</span><br><span class="line">     * @param $root 根节点</span><br><span class="line">     * @return 树的深度</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">getdepth</span><span class="params">($root)</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($root == <span class="keyword">NULL</span>) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">return</span> <span class="number">0</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        $dl = <span class="keyword">$this</span>-&gt;getdepth($root-&gt;left);</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        $dr = <span class="keyword">$this</span>-&gt;getdepth($root-&gt;right);</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> ($dl &gt; $dr ? $dl : $dr) + <span class="number">1</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line">    /**</span><br><span class="line">     * （对外）获取树的深度</span><br><span class="line">     * @param null</span><br><span class="line">     * @return null</span><br><span class="line"><span class="php">     */</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">Depth</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">    &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;getdepth(<span class="keyword">$this</span>-&gt;root);</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/sql锁面试题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/sql锁面试题/" itemprop="url">mysql面试题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T08:55:37+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="什么是锁？"><a href="#什么是锁？" class="headerlink" title="什么是锁？"></a>什么是锁？</h2><p>加锁可以实现数据库并发控制。<br>事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
-<h2 id="mysql有哪几种锁？"><a href="#mysql有哪几种锁？" class="headerlink" title="mysql有哪几种锁？"></a>mysql有哪几种锁？</h2><p>Myisam支持表锁，innodb支持行锁与表锁，默认为行锁（需要索引）</p>
-<h2 id="表锁行锁区别？"><a href="#表锁行锁区别？" class="headerlink" title="表锁行锁区别？"></a>表锁行锁区别？</h2><p>表锁：开销小，加锁快，不会出现死锁，锁粒度大，发送锁冲突概率最高，并发量最低。<br>行级锁：开销大，加锁慢，会出现死锁。锁力度小，发生锁冲突的概率小，并发度最高</p>
-<h2 id="Mysql数据库表类型？"><a href="#Mysql数据库表类型？" class="headerlink" title="Mysql数据库表类型？"></a>Mysql数据库表类型？</h2><p>MyISAM（MySQL的默认数据表类型 事务不安全 不支持外键 假如忽略事务以及访问并发性的话，并且需要执行大量的SELECT检索语句的话，MyISAM将是最好的选择）<br>Heap（MySQL中存取数据最快的表。这是因为他们使用存储在动态内存中的一个散列索引，不过如果MySQL或服务器崩溃，这些内存数据将会丢失。）<br>Merge（MERGE表实际上是又一个MyISAM表的集合）<br>INNODB（事务安全，支持外键）<br>ISAM（早期MySQL版本的缺省表类型，直到MyIASM开发出来。建议不要再使用它）<br>DBD（支持事务处理的表）</p>
-<p>MyISAM是Mysql的默认存储引擎。</p>
-<h2 id="简述在MySQL数据库中MyISAM和InnoDB的区别"><a href="#简述在MySQL数据库中MyISAM和InnoDB的区别" class="headerlink" title="简述在MySQL数据库中MyISAM和InnoDB的区别"></a>简述在MySQL数据库中MyISAM和InnoDB的区别</h2><p>存储引擎是基于表的，而不是数据库。<br>InnoDB存储引擎: 行锁设计、支持外键,支持事务，支持并发，锁粒度是支持mvcc的行级锁；<br>MyISAM存储引擎: MySQL官方存储引擎，主要面向在线分析处理方面的应用，不支持事务，锁粒度是支持并发插入得表级锁，支持表锁和全文索引。操作速度快，不能读写操作太频繁。</p>
-<h2 id="四种事务隔离级别"><a href="#四种事务隔离级别" class="headerlink" title="四种事务隔离级别"></a>四种事务隔离级别</h2><p>read uncommited ：读到未提交数据<br>read committed：脏读，不可重复读<br>repeatable read：可重读<br>serializable ：串行事物</p>
-<h2 id="事务特性："><a href="#事务特性：" class="headerlink" title="事务特性："></a>事务特性：</h2><p>事务（transaction）是作为一个单元的一组有序的数据库操作。如果组中的所有操作都成功，则认为事务成功，即使只有一个操作失败，事务也不成功。如果所有操作完成，事务则提交，其修改将作用于所有其他数据库进程。如果一个操作失败，则事务将回滚，该事务所有操作的影响都将取消。<br>（1）原子性：即不可分割性，事务要么全部被执行，要么就全部不被执行。<br>（2）一致性：事务的执行使得数据库从一种正确状态转换成另一种正确状态<br>（3）隔离性：在事务正确提交之前，不允许把该事务对数据的任何改变提供给任何其他事务，<br>（4）持久性：事务正确提交后，其结果将永久保存在数据库中，即使在事务提交后有了其他故障，事务的处理结果也会得到保存。</p>
-<p>要将组语句作为事务考虑，就需要通过ACID测试，即原子性，一致性，隔离性和持久性。</p>
-<h2 id="CHAR和VARCHAR的区别？"><a href="#CHAR和VARCHAR的区别？" class="headerlink" title="CHAR和VARCHAR的区别？"></a>CHAR和VARCHAR的区别？</h2><p>1、CHAR（M）定长，M取值0-255<br>2、当保存char值时，在它们的右边填充空格以达到指定的长度<br>3、当检索到char值时，尾部的空格被删除掉，char字段上的索引效率很高。<br>4、varchar的数据类型长度支持到了65535。起始位和结束位占去了3个字节，所以其整体最大长度为65532字节<br>5、varchar值保存时只保存需要的字符数，另加一个字节来记录长度（长度超过255时需要2个字节）</p>
-<h2 id="LIKE声明中的％和-是什么意思？"><a href="#LIKE声明中的％和-是什么意思？" class="headerlink" title="LIKE声明中的％和_是什么意思？"></a>LIKE声明中的％和_是什么意思？</h2><p>％对应于0个或更多字符，_只是LIKE语句中的一个字符。</p>
-<h2 id="如何在Unix和Mysql时间戳之间进行转换？"><a href="#如何在Unix和Mysql时间戳之间进行转换？" class="headerlink" title="如何在Unix和Mysql时间戳之间进行转换？"></a>如何在Unix和Mysql时间戳之间进行转换？</h2><p>UNIX_TIMESTAMP是从Mysql时间戳转换为Unix时间戳的命令<br>FROM_UNIXTIME是从Unix时间戳转换为Mysql时间戳的命令</p>
-<h2 id="列对比运算符是什么？"><a href="#列对比运算符是什么？" class="headerlink" title="列对比运算符是什么？"></a>列对比运算符是什么？</h2><p>在SELECT语句的列比较中使用=，&lt;&gt;，&lt;=，&lt;，&gt; =，&gt;，&lt;&lt;，&gt;&gt;，&lt;=&gt;，AND，OR或LIKE运算符。</p>
-<h2 id="BLOB和TEXT有什么区别？"><a href="#BLOB和TEXT有什么区别？" class="headerlink" title="BLOB和TEXT有什么区别？"></a>BLOB和TEXT有什么区别？</h2><p>BLOB是一个二进制对象，可以容纳可变数量的数据。TEXT是一个不区分大小写的BLOB。<br>BLOB和TEXT类型之间的唯一区别在于对BLOB值进行排序和比较时区分大小写，对TEXT值不区分大小写。</p>
-<h2 id="mysql-fetch-array和mysql-fetch-object的区别是什么？"><a href="#mysql-fetch-array和mysql-fetch-object的区别是什么？" class="headerlink" title="mysql_fetch_array和mysql_fetch_object的区别是什么？"></a>mysql_fetch_array和mysql_fetch_object的区别是什么？</h2><p>mysql_fetch_array（） – 将结果行作为关联数组或来自数据库的常规数组返回。<br>mysql_fetch_object – 从数据库返回结果行作为对象。</p>
-<h2 id="MyISAM表格将在哪里存储，并且还提供其存储格式？"><a href="#MyISAM表格将在哪里存储，并且还提供其存储格式？" class="headerlink" title="MyISAM表格将在哪里存储，并且还提供其存储格式？"></a>MyISAM表格将在哪里存储，并且还提供其存储格式？</h2><p>每个MyISAM表格以三种格式存储在磁盘上：<br>·“.frm”文件存储表定义<br>·数据文件具有“.MYD”（MYData）扩展名<br>·索引文件具有“.MYI”（MYIndex）扩展名</p>
-<h2 id="可以使用多少列创建索引？"><a href="#可以使用多少列创建索引？" class="headerlink" title="可以使用多少列创建索引？"></a>可以使用多少列创建索引？</h2><p>任何标准表最多可以创建16个索引列。</p>
-<h2 id="如果一个表有一列定义为TIMESTAMP，将发生什么？"><a href="#如果一个表有一列定义为TIMESTAMP，将发生什么？" class="headerlink" title="如果一个表有一列定义为TIMESTAMP，将发生什么？"></a>如果一个表有一列定义为TIMESTAMP，将发生什么？</h2><p>每当行被更改时，时间戳字段将获取当前时间戳。</p>
-<h2 id="列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？"><a href="#列设置为AUTO-INCREMENT时，如果在表中达到最大值，会发生什么情况？" class="headerlink" title="列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？"></a>列设置为AUTO INCREMENT时，如果在表中达到最大值，会发生什么情况？</h2><p>它会停止递增，任何进一步的插入都将产生错误，因为密钥已被使用。</p>
-<h2 id="为表中得字段选择合适得数据类型"><a href="#为表中得字段选择合适得数据类型" class="headerlink" title="为表中得字段选择合适得数据类型"></a>为表中得字段选择合适得数据类型</h2><p>字段类型优先级: 整形&gt;date,time&gt;enum,char&gt;varchar&gt;blob,text<br>优先考虑数字类型，其次是日期或者二进制类型，最后是字符串类型，同级别得数据类型，应该优先选择占用空间小的数据类型</p>
-<h2 id="NOW（）和CURRENT-DATE（）有什么区别？"><a href="#NOW（）和CURRENT-DATE（）有什么区别？" class="headerlink" title="NOW（）和CURRENT_DATE（）有什么区别？"></a>NOW（）和CURRENT_DATE（）有什么区别？</h2><p>NOW（）命令用于显示当前年份，月份，日期，小时，分钟和秒。<br>CURRENT_DATE（）仅显示当前年份，月份和日期。</p>
-<h2 id="MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"><a href="#MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？" class="headerlink" title="MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？"></a>MySQL数据库作发布系统的存储，数据量增大的情况，怎么优化？</h2><ol>
-<li>设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。</li>
-<li>选择合适的表字段数据类型和存储引擎，适当的添加索引。</li>
-<li>mysql库主从读写分离。</li>
-<li>找规律分表，减少单表中的数据量提高查询速度。</li>
-<li>添加缓存机制，比如memcached，apc等。</li>
-<li>不经常改动的页面，生成静态页面。</li>
-<li>书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</li>
-</ol>
-<h2 id="锁的优化策略"><a href="#锁的优化策略" class="headerlink" title="锁的优化策略"></a>锁的优化策略</h2><ol>
-<li>读写分离</li>
-<li>分段加锁</li>
-<li>减少锁持有的时间</li>
-<li>多个线程尽量以相同的顺序去获取资源<br>不能将锁的粒度过于细化，不然可能会出现线程的加锁和释放次数过多，反而效率不如一次加一把大锁。</li>
-</ol>
-<h2 id="什么情况下设置了索引但无法使用"><a href="#什么情况下设置了索引但无法使用" class="headerlink" title="什么情况下设置了索引但无法使用"></a>什么情况下设置了索引但无法使用</h2><p>1.以“%”开头的LIKE语句，模糊匹配</p>
-<ol start="2">
-<li><p>OR语句前后没有同时使用索引</p>
-</li>
-<li><p>数据类型出现隐式转化（如varchar不加单引号的话可能会自动转换为int型）</p>
-</li>
-</ol>
-<h2 id="实践中如何优化MySQL"><a href="#实践中如何优化MySQL" class="headerlink" title="实践中如何优化MySQL"></a>实践中如何优化MySQL</h2><p><a href="https://www.toutiao.com/i6599796228886626829/?group_id=6599796228886626829" target="_blank" rel="noopener">https://www.toutiao.com/i6599796228886626829/?group_id=6599796228886626829</a><br>最好是按照以下顺序优化：</p>
-<p>1.SQL语句及索引的优化<br>2.数据库表结构的优化<br>3.系统配置的优化<br>4.硬件的优化</p>
-<h2 id="优化数据库的方法"><a href="#优化数据库的方法" class="headerlink" title="优化数据库的方法"></a>优化数据库的方法</h2><p>选取最适用的字段属性，尽可能减少定义字段宽度，尽量把字段设置NOTNULL，例如’省份’、’性别’最好适用ENUM<br>使用连接(JOIN)来代替子查询<br>适用联合(UNION)来代替手动创建的临时表<br>事务处理<br>锁定表、优化事务处理<br>适用外键，优化锁定表<br>建立索引<br>优化查询语句</p>
-<h2 id="简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"><a href="#简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）" class="headerlink" title="简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）"></a>简单描述mysql中，索引，主键，唯一索引，联合索引的区别，对数据库的性能有什么影响（从读写两方面）</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它们包含着对数据表里所有记录的引用指针。</p>
-<p>普通索引(由关键字KEY或INDEX定义的索引)的唯一任务是加快对数据的访问速度。</p>
-<p>普通索引允许被索引的数据列包含重复的值。如果能确定某个数据列将只包含彼此各不相同的值，在为这个数据列创建索引的时候就应该用关键字UNIQUE把它定义为一个唯一索引。也就是说，唯一索引可以保证数据记录的唯一性。</p>
-<p>主键，是一种特殊的唯一索引，在一张表中只能定义一个主键索引，主键用于唯一标识一条记录，使用关键字 PRIMARY KEY 来创建。</p>
-<p>索引可以覆盖多个数据列，如像INDEX(columnA, columnB)索引，这就是联合索引。</p>
-<p>索引可以极大的提高数据的查询速度，但是会降低插入、删除、更新表的速度，因为在执行这些写操作时，还要操作索引文件。</p>
-<h2 id="SQL注入漏洞产生的原因？如何防止？"><a href="#SQL注入漏洞产生的原因？如何防止？" class="headerlink" title="SQL注入漏洞产生的原因？如何防止？"></a>SQL注入漏洞产生的原因？如何防止？</h2><p>SQL注入产生的原因：程序开发过程中不注意规范书写sql语句和对特殊字符进行过滤，导致客户端可以通过全局变量POST和GET提交一些sql语句正常执行。<br>防止SQL注入的方式：<br>开启配置文件中的magic_quotes_gpc 和 magic_quotes_runtime设置<br>执行sql语句时使用addslashes进行sql语句转换<br>Sql语句书写尽量不要省略双引号和单引号。<br>过滤掉sql语句中的一些关键词：update、insert、delete、select、 * 。<br>提高数据库表和字段的命名技巧，对一些重要的字段根据程序的特点命名，取不易被猜到的。</p>
-<h2 id="索引的底层实现原理和优化"><a href="#索引的底层实现原理和优化" class="headerlink" title="索引的底层实现原理和优化"></a>索引的底层实现原理和优化</h2><p>B+树，经过优化的B+树<br>主要是在所有的叶子结点中增加了指向下一个叶子节点的指针，因此InnoDB建议为大部分表使用默认自增的主键作为主索引。</p>
-<h2 id="索引的目的是什么？"><a href="#索引的目的是什么？" class="headerlink" title="索引的目的是什么？"></a>索引的目的是什么？</h2><p>快速访问数据表中的特定信息，提高检索速度<br>创建唯一性索引，保证数据库表中每一行数据的唯一性。<br>加速表和表之间的连接<br>使用分组和排序子句进行数据检索时，可以显著减少查询中分组和排序的时间</p>
-<h2 id="索引类型"><a href="#索引类型" class="headerlink" title="索引类型"></a>索引类型</h2><p>1普通索引<br>是最基本的索引，它没有任何限制。</p>
-<p>2唯一索引<br>与前面的普通索引类似，不同的就是：索引列的值必须唯一，但允许有空值。如果是组合索引，则列值的组合必须唯一。<br>3组合索引<br>指多个字段上创建的索引，只有在查询条件中使用了创建索引时的第一个字段，索引才会被使用。</p>
-<p>4主键索引<br>是一种特殊的唯一索引，一个表只能有一个主键，不允许有空值。一般是在建表的时候同时创建主键索引</p>
-<p>5全文索引<br>主要用来查找文本中的关键字，而不是直接与索引中的值相比较。fulltext索引跟其它索引大不相同，它更像是一个搜索引擎，而不是简单的where语句的参数匹配。fulltext索引配合match against操作使用，而不是一般的where语句加like。它可以在create table，alter table ，create index使用，不过目前只有char、varchar，text 列上可以创建全文索引。值得一提的是，在数据量较大时候，现将数据放入一个没有全局索引的表中，然后再用CREATE index创建fulltext索引，要比先为一张表建立fulltext然后再将数据写入的速度快很多。</p>
-<h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2><p>只要列中含有NULL值，就最好不要在此例设置索引，复合索引如果有NULL值，此列在使用时也不会使用索引<br>尽量使用短索引，如果可以，应该制定一个前缀长度<br>对于经常在where子句使用的列，最好设置索引，这样会加快查找速度<br>对于有多个列where或者order by子句的，应该建立复合索引<br>对于like语句，以%或者‘-’开头的不会使用索引，以%结尾会使用索引<br>尽量不要在列上进行运算（函数操作和表达式操作）<br>尽量不要使用not in和&lt;&gt;操作</p>
-<h2 id="索引对数据库系统的负面影响是什么？"><a href="#索引对数据库系统的负面影响是什么？" class="headerlink" title="索引对数据库系统的负面影响是什么？"></a>索引对数据库系统的负面影响是什么？</h2><p>负面影响：<br>创建索引和维护索引需要耗费时间，这个时间随着数据量的增加而增加；索引需要占用物理空间；当对表进行增、删、改、的时候索引也要动态维护，这样就降低了数据的维护速度。</p>
-<h2 id="什么情况下不宜建立索引？"><a href="#什么情况下不宜建立索引？" class="headerlink" title="什么情况下不宜建立索引？"></a>什么情况下不宜建立索引？</h2><p>1、对于查询中很少涉及的列或者重复值比较多的列，不宜建立索引。<br>2、对于一些特殊的数据类型，不宜建立索引，比如文本字段（text）等</p>
-<h2 id="Mysql中的事务回滚机制概述"><a href="#Mysql中的事务回滚机制概述" class="headerlink" title="Mysql中的事务回滚机制概述"></a>Mysql中的事务回滚机制概述</h2><p>事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位，事务回滚是指将该事务已经完成的对数据库的更新操作撤销。</p>
-<p>要同时修改数据库中两个不同表时，如果它们不是一个事务的话，当第一个表修改完，可能第二个表修改过程中出现了异常而没能修改，此时就只有第二个表依旧是未修改之前的状态，而第一个表已经被修改完毕。而当你把它们设定为一个事务的时候，当第一个表修改完，第二表修改出现异常而没能修改，第一个表和第二个表都要回到未修改的状态，这就是所谓的事务回滚</p>
-<h2 id="SQL语言包括哪几部分？每部分都有哪些操作关键字？"><a href="#SQL语言包括哪几部分？每部分都有哪些操作关键字？" class="headerlink" title="SQL语言包括哪几部分？每部分都有哪些操作关键字？"></a>SQL语言包括哪几部分？每部分都有哪些操作关键字？</h2><p>SQL语言包括数据定义(DDL)、数据操纵(DML),数据控制(DCL)和数据查询（DQL）四个部分。<br>数据定义：Create Table,Alter Table,Drop Table, Craete/Drop Index等<br>数据操纵：Select ,insert,update,delete,<br>数据控制：grant,revoke<br>数据查询：select</p>
-<h2 id="完整性约束包括哪些？"><a href="#完整性约束包括哪些？" class="headerlink" title="完整性约束包括哪些？"></a>完整性约束包括哪些？</h2><p>数据完整性(Data Integrity)是指数据的精确(Accuracy)和可靠性(Reliability)。</p>
-<p>分为以下四类：</p>
-<p>1) 实体完整性：规定表的每一行在表中是惟一的实体。<br>2) 域完整性：是指表中的列必须满足某种特定的数据类型约束，其中约束又包括取值范围、精度等规定。<br>3) 参照完整性：是指两个表的主关键字和外关键字的数据应一致，保证了表之间的数据的一致性，防止了数据丢失或无意义的数据在数据库中扩散。<br>4) 用户定义的完整性：不同的关系数据库系统根据其应用环境的不同，往往还需要一些特殊的约束条件。用户定义的完整性即是针对某个特定关系数据库的约束条件，它反映某一具体应用必须满足的语义要求。</p>
-<p>与表有关的约束：包括列约束(NOT NULL（非空约束）)和表约束(PRIMARY KEY、foreign key、check、UNIQUE) 。</p>
-<h2 id="什么叫视图？游标是什么？"><a href="#什么叫视图？游标是什么？" class="headerlink" title="什么叫视图？游标是什么？"></a>什么叫视图？游标是什么？</h2><p>答：视图是一种虚拟的表，具有和物理表相同的功能。可以对视图进行增，改，查，操作，视图通常是有一个表或者多个表的行或列的子集。对视图的修改不影响基本表。它使得我们获取数据更容易，相比多表查询。</p>
-<p>游标：是对查询出来的结果集作为一个单元来有效的处理。游标可以定在该单元中的特定行，从结果集的当前行检索一行或多行。可以对结果集当前行做修改。一般不使用游标，但是需要逐条处理数据的时候，游标显得十分重要。</p>
-<h2 id="什么是存储过程？用什么来调用？"><a href="#什么是存储过程？用什么来调用？" class="headerlink" title="什么是存储过程？用什么来调用？"></a>什么是存储过程？用什么来调用？</h2><p>答：存储过程是一个预编译的SQL语句，优点是允许模块化的设计，就是说只需创建一次，以后在该程序中就可以调用多次。如果某次操作需要执行多次SQL，使用存储过程比单纯SQL语句执行要快。可以用一个命令对象来调用存储过程。</p>
-<h2 id="如何通俗地理解三个范式？"><a href="#如何通俗地理解三个范式？" class="headerlink" title="如何通俗地理解三个范式？"></a>如何通俗地理解三个范式？</h2><p>第一范式：1NF是对属性的原子性约束，要求属性具有原子性，不可再分解；<br>第二范式：2NF是对记录的惟一性约束，要求记录有惟一标识，即实体的惟一性；<br>第三范式：3NF是对字段冗余性的约束，即任何字段不能由其他字段派生出来，它要求字段没有冗余。。</p>
-<h2 id="范式化设计优缺点"><a href="#范式化设计优缺点" class="headerlink" title="范式化设计优缺点:"></a>范式化设计优缺点:</h2><p>优点:<br>可以尽量得减少数据冗余，使得更新快，体积小<br>缺点:对于查询需要多个表进行关联，减少写得效率增加读得效率，更难进行索引优化</p>
-<p>反范式化:<br>优点:可以减少表得关联，可以更好得进行索引优化<br>缺点:数据冗余以及数据异常，数据得修改需要更多的成本</p>
-<h2 id="什么是基本表？什么是视图？"><a href="#什么是基本表？什么是视图？" class="headerlink" title="什么是基本表？什么是视图？"></a>什么是基本表？什么是视图？</h2><p>答：基本表是本身独立存在的表，在 SQL 中一个关系就对应一个表。 视图是从一个或几个基本表导出的表。视图本身不独立存储在数据库中，是一个虚表</p>
-<h2 id="试述视图的优点？"><a href="#试述视图的优点？" class="headerlink" title="试述视图的优点？"></a>试述视图的优点？</h2><p>答：(1) 视图能够简化用户的操作 (2) 视图使用户能以多种角度看待同一数据； (3) 视图为数据库提供了一定程度的逻辑独立性； (4) 视图能够对机密数据提供安全保护。</p>
-<h2 id="NULL是什么意思"><a href="#NULL是什么意思" class="headerlink" title="NULL是什么意思"></a>NULL是什么意思</h2><p>答：NULL这个值表示UNKNOWN(未知):它不表示“”(空字符串)。对NULL这个值的任何比较都会生产一个NULL值。您不能把任何值与一个 NULL值进行比较，并在逻辑上希望获得一个答案。</p>
-<p>使用IS NULL来进行NULL判断</p>
-<h2 id="主键、外键和索引的区别？"><a href="#主键、外键和索引的区别？" class="headerlink" title="主键、外键和索引的区别？"></a>主键、外键和索引的区别？</h2><p>定义：<br>主键–唯一标识一条记录，不能有重复的，不允许为空<br>外键–表的外键是另一表的主键, 外键可以有重复的, 可以是空值<br>索引–该字段没有重复值，但可以有一个空值</p>
-<p>作用：<br>主键–用来保证数据完整性<br>外键–用来和其他表建立联系用的<br>索引–是提高查询排序的速度</p>
-<p>个数：<br>主键–主键只能有一个<br>外键–一个表可以有多个外键<br>索引–一个表可以有多个唯一索引</p>
-<h2 id="你可以用什么来确保表格里的字段只接受特定范围里的值"><a href="#你可以用什么来确保表格里的字段只接受特定范围里的值" class="headerlink" title="你可以用什么来确保表格里的字段只接受特定范围里的值?"></a>你可以用什么来确保表格里的字段只接受特定范围里的值?</h2><p>Check限制，它在数据库表格里被定义，用来限制输入该列的值。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1870,7 +1785,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -409,6 +409,539 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/hp-hashtable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/hp-hashtable/" itemprop="url">php hashtable</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T20:09:28+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>php中键值对的映射是用hashtable实现的<br><a href="https://blog.csdn.net/xiaolei1982/article/details/52292866" target="_blank" rel="noopener">https://blog.csdn.net/xiaolei1982/article/details/52292866</a></p>
+<h2 id="hashtable原理"><a href="#hashtable原理" class="headerlink" title="hashtable原理"></a>hashtable原理</h2><p>1、字符串的键先会被传递给一个hash函数（散列函数）<br>2、这个函数会返回一个整数（我们把它叫做hash值），而这个整数就是“通常”的数组的索引。<br>问题是对于两个不同的字符串，调用hash函数会得到同一个hash值，而现实情况是任意字符串都可以作为键，所以键会有无数个，而数组的大小必须是提前设定好的，因为hash值必须小于数组索引的最大值，所以可以生成的hash值必须是有限的。这样用有限的hash值表示无限的键，必然会导致冲突。我们把两个不同的键的hash值是一样的情况称为冲突，任何Hashtable算法都必须提供某种机制解决这种冲突。</p>
+<h2 id="解决hash值冲突的办法"><a href="#解决hash值冲突的办法" class="headerlink" title="解决hash值冲突的办法"></a>解决hash值冲突的办法</h2><p>1、开放定址法<br>当冲突发生的时候，冲突的元素会被保存到一个不同的索引中；<br>2、链接法<br>所有拥有相同的hash值的元素，它们都会被保存到一个链表中。<br>PHP使用的就是第二种方法。<br><a href="http://www.phpinternalsbook.com/hashtables/basic_structure.html" target="_blank" rel="noopener">http://www.phpinternalsbook.com/hashtables/basic_structure.html</a><br>该方法仅将具有相同散列的所有元素存储在链表中。当查找密钥时，PHP将计算哈希值，然后浏览“可能”值的链接列表，直到找到匹配的条目。以下是链接冲突解决方案的说明（旧）：<br><img src="\images\pasted-94.png" alt="upload successful"></p>
+<p>考虑如何从这样的结构中删除元素：假设你有一个指向桶的指针”c”并想要删除它。要做到这一点你必须设置指针来自何处”a”来NULL。因此，您需要”a”通过遍历哈希值的链接列表或者反向存储指针来检索您可以执行的存储桶。后者就是PHP所做的：每个桶都包含指向下一个bucket（pNext）和前一个bucket（）的指针pLast。如下图所示：</p>
+<p><img src="\images\pasted-95.png" alt="upload successful"><br>此外，PHP哈希表是有序的：如果遍历一个数组，你将获得插入它们的顺序相同的元素。为了支持这一点，存储桶必须是指定顺序的另一个链表的一部分。由于与上述相同的原因（并以相反的顺序支持遍历），这又是一个双重链表。前向指针存储在pListNext后向指针中pListLast。另外，哈希表结构有一个指向list（pListHead）开头和list（）结尾的指针pListLast。下面是这个链表可能看起来怎么样的元素的例子”a”，”b”，”c”（按顺序）：</p>
+<p><img src="\images\pasted-96.png" alt="upload successful"></p>
+<h2 id="老版hashtable结构低效"><a href="#老版hashtable结构低效" class="headerlink" title="老版hashtable结构低效"></a>老版hashtable结构低效</h2><p>1、Bukets需要分开分配。内存分配总是低效的，而且每次还额外需要分配8/16个字节，这是内存分配的冗余。分开分配也意味着这些buckets会分布在内存空间的不同地址中，这又会降低缓存的效率（可以去了解下缓存的局部性原理，下面还会提到，这篇文章说的缓存基本都是指CPU缓存）。<br>2、Zvals也需要分开分配。上面已经说明这种方式很低效，它也会产生一些额外的头开销冗余（header overhead）。另外这需要在每个bucket中保存一个指向zval结构的指针，由于老的实现过于考虑通用性，所以不止需要一个指针，而是两个指针。<br>3、双向链表中的每个bucket需要4个指针用于链表的连接，这会带来16/32个字节的开销，遍历这种链表也不利于缓存（cache-unfriendly）操作。</p>
+<h2 id="新的zval实现"><a href="#新的zval实现" class="headerlink" title="新的zval实现"></a>新的zval实现</h2><p>新的zval结构的定义如下：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">_zval_struct</span> &#123;</span></span><br><span class="line">    zend_value value;</span><br><span class="line">    <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">            ZEND_ENDIAN_LOHI_4(</span><br><span class="line">                zend_uchar <span class="keyword">type</span>,</span><br><span class="line">                zend_uchar type_flags,</span><br><span class="line">                zend_uchar const_flags,</span><br><span class="line">                zend_uchar reserved</span><br><span class="line">            )</span><br><span class="line">        &#125; v;</span><br><span class="line">        uint32_t type_info;</span><br><span class="line">    &#125; u1;</span><br><span class="line">    <span class="class"><span class="keyword">union</span> &#123;</span></span><br><span class="line">        uint32_t var_flags;</span><br><span class="line">        uint32_t <span class="keyword">next</span>;       <span class="regexp">/* hash collision chain */</span></span><br><span class="line">        uint32_t cache_slot; <span class="regexp">/* literal cache slot */</span></span><br><span class="line">        uint32_t lineno;     <span class="regexp">/* line number (for ast nodes) */</span></span><br><span class="line">    &#125; u2;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>zval结构有三个部分：<br>一、8个字节的value<br>zend_value可以保存任何类型的值，包括整数、字符串、数组等。具体保存什么取决于zval的类型。<br>二、4字节的type_info<br>它包含变量的真正类型（类似于IS_STRING、IS_ARRAY），以及一系列的标志位，用于提供跟类型相关的信息。例如，如果zval保存的是一个对象，那么这些类型标志位会说明它是一个非常量（non-constant）、可引用计数（refcounted）、可垃圾回收（garbage-collectible）、不可复制（non-copying）的类型。<br>三、最后部分<br>占有4个字节，通常情况下不会被用到（它只是用于填充内存，如果不存在的话，编译器也会自动实现）（可以搜索内存对齐）。然而，在某些特殊情况下，这些空间也会被用于存放一些额外的信息。例如，AST（抽象语法树）的节点使用它来存放行号，VM（虚拟机）常量使用它来存放缓冲槽的索引，以及Hashtable使用它来保存冲突处理链上的下一个元素——这一部分才是我们要重点关注的。</p>
+<p>新的zval的实现跟老的比较，最大的一点差别是：没有refcount字段。这是因为新的zval将不会被单独分配，它会被直接嵌入到任何需要存放它的地方（例如，一个hashtable bucket中）。<br>所以zvals将不再需要使用引用计数（refcounting），复杂数据类型例如字符串、数组、对象和资源（resources）仍需要使用。所以新的zval的设计将引用计数（包括跟垃圾回收相关的信息）从zval转移到了数组/对象/等中。这种方式有很多优点，在此列出几点：<br>1、保存简单的值（例如，boolean、integer或者float）的zval将不再需要额外分配内存。所以避免内存分配的头部冗余（allocation header overhead），以及减少不必要的内存分配和内存释放，可以提高缓存的局部性，从而提高性能。<br>2、保存简单的值的zval不需要保存refcount和GC的根缓冲区。<br>3、避免两次引用计数。例如，以前的对象即使用了zval的引用计数，又使用额外的对象的引用计数，对于支持按对象传递的语义而言，这是必须的。<br>    现在所有的复杂的值都内嵌一个引用计数，它们可以不依赖于zval的机制而进行共享。特别是字符串现在也有可能共享。这对于hashtable的实现也很重要，因为这样就不用再拷贝非interned字符串的键了。</p>
+<h2 id="bucket结构体："><a href="#bucket结构体：" class="headerlink" title="bucket结构体："></a>bucket结构体：</h2><figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">typedef struct _Bucket &#123;</span><br><span class="line">    zend_ulong        h<span class="comment">;</span></span><br><span class="line">    zend_string      *key<span class="comment">;</span></span><br><span class="line">    zval              val<span class="comment">;</span></span><br><span class="line">&#125; Bucket<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<p>待续</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/p-hashtable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/p-hashtable/" itemprop="url">php 底层探究</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T19:16:03+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Zend hash table<br>hashtable有键值对形式的散列结构，也有双向链表模式</p>
+<h2 id="散列结构"><a href="#散列结构" class="headerlink" title="散列结构"></a>散列结构</h2><p>1、zend 散列结构为hash表，通过链表方式来解决冲突<br>2、自增数据结构，当hash表数目满了之后，其本身会动态以2倍的方式扩容并重置原始位置，初始大小为8<br>3、以nkeylength标识key长度来作快速判定（空间换时间）</p>
+<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>双向链表结构主要目的是实现快速删除，避免遍历</p>
+<h2 id="php关联数组"><a href="#php关联数组" class="headerlink" title="php关联数组"></a>php关联数组</h2><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getKeyHashValue h; </span><br><span class="line">index = n &amp; nTableMask; </span><br><span class="line">Bucket *p = arBucket[index];                                 </span><br><span class="line"><span class="keyword">while</span> (p) &#123;     </span><br><span class="line">    <span class="function"><span class="title">if</span> ((p-&gt;</span><span class="function"><span class="title">h</span> == h) &amp; (p-&gt;</span>nKeyLength == nKeyLength))&#123;</span><br><span class="line">   		RETURN <span class="function"><span class="title">p</span>-&gt;</span><span class="keyword">data</span>;    </span><br><span class="line">   	&#125;         </span><br><span class="line">    <span class="function"><span class="title">p</span>=p-&gt;</span>next; </span><br><span class="line">&#125;</span><br><span class="line">RETURN FALTURE;</span><br></pre></td></tr></table></figure>
+<h2 id="php索引数组"><a href="#php索引数组" class="headerlink" title="php索引数组"></a>php索引数组</h2><p>索引数组就是我们常见的数组，通过下标访问。<br>Zend HashTable内部进行了归一化处理，对于index类型key同样分配了hash值和nKeyLength(为0)。内部成员变量nNextFreeElement就是当前分配到的最大id，每次push后自动加一。<br>正是这种归一化处理，PHP才能够实现关联和非关联的混合。<br>由于push操作的特殊性，索引key在PHP数组中先后顺序并不是通过下标大小来决定，而是由push的先后决定。</p>
+<h2 id="php变量zval"><a href="#php变量zval" class="headerlink" title="php变量zval"></a>php变量zval</h2><p>PHP是一门弱类型语言，本身不严格区分变量的类型。PHP在变量申明的时候不需要指定类型。PHP在程序运行期间可能进行变量类型的隐示转换。和其他强类型语言一样，程序中也可以进行显示的类型转换。PHP变量可以分为简单类型(int、string、bool)、集合类型(array resource object)和常量(const)。以上所有的变量在底层都是同一种结构 zval。<br>Zval是zend中另一个非常重要的数据结构，用来标识并实现PHP变量，其数据结构如下：</p>
+<p><img src="\images\pasted-91.png" alt="upload successful"></p>
+<p>Zval主要由三部分组成：<br>type：指定了变量所述的类型（整数、字符串、数组等）<br>refcount&amp;is_ref：用来实现引用计数(后面具体介绍)<br>value：核心部分，存储了变量的实际数据<br>Zvalue是用来保存一个变量的实际数据。因为要存储多种类型，所以zvalue是一个union，也由此实现了弱类型。</p>
+<h2 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h2><p>引用计数在内存回收、字符串操作等地方使用非常广泛。PHP中的变量就是引用计数的典型应用。<br>Zval的引用计数通过成员变量is_ref和ref_count实现，通过引用计数，多个变量可以共享同一份数据。避免频繁拷贝带来的大量消耗。</p>
+<p>在进行赋值操作时，zend将变量指向相同的zval同时ref_count++，在unset操作时，对应的ref_count-1。只有ref_count减为0时才会真正执行销毁操作。如果是引用赋值，则zend会修改is_ref为1。</p>
+<h2 id="如果共享变量其中的一个变量被改变"><a href="#如果共享变量其中的一个变量被改变" class="headerlink" title="如果共享变量其中的一个变量被改变"></a>如果共享变量其中的一个变量被改变</h2><p>当试图写入一个变量时，Zend若发现该变量指向的zval被多个变量共享，则为其复制一份ref_count为1的zval，并递减原zval的refcount，这个过程称为“zval分离”</p>
+<p>对于引用型变量，其要求和非引用型相反，引用赋值的变量间必须是捆绑的，修改一个变量就修改了所有捆绑变量。</p>
+<h2 id="整数和浮点数"><a href="#整数和浮点数" class="headerlink" title="整数和浮点数"></a>整数和浮点数</h2><p>整数类型，和c等强类型语言不同，PHP是不区分int、unsigned int、long、long long等类型的，对它来说，整数只有一种类型也就是long。<br>浮点数，类似整数，它也不区分float和double而是统一只有double一种类型。<br>在PHP里面，整数的取值范围是由编译器位数来决定而不是固定不变的。</p>
+<h2 id="如果整数范围越界了怎么办？"><a href="#如果整数范围越界了怎么办？" class="headerlink" title="如果整数范围越界了怎么办？"></a>如果整数范围越界了怎么办？</h2><p>这种情况下会自动转换为double类型，这个一定要小心，很多trick都是由此产生。</p>
+<h2 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h2><p>在PHP中，字符串是由指向实际数据的指针和长度结构体组成<br>和c不同，它的字符串可以是2进制数据（包含\0），同时在PHP中，求字符串长度strlen是O(1)操作。<br>在新增、修改、追加字符串操作时，PHP都会重新分配内存生成新的字符串。最后，出于安全考虑，PHP在生成一个字符串时末尾仍然会添加\0。<br>假设有如下4个变量：<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">$strA</span> = '123';</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$strB</span> = '456';</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$intA</span> = 123;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$intB</span> = 456;</span></span><br></pre></td></tr></table></figure></p>
+<p>现在对如下的几种字符串拼接方式做一个比较和说明：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 下面两张情况，zend会重新malloc一块内存并进行相应处理，其速度一般</span><br><span class="line">$res = $strA . $strB</span><br><span class="line">$res = <span class="string">"$strA$strB"</span></span><br><span class="line">// 这种是速度最快的，zend会在当前strA基础上直接relloc，避免重复拷贝</span><br><span class="line">$strA = $strA . $strB</span><br><span class="line"></span><br><span class="line">// 这种速度较慢，因为需要做隐式的格式转换，实际编写程序中也应该注意尽量避免</span><br><span class="line">$res = $intA . $intB</span><br><span class="line"></span><br><span class="line">// 这会是最慢的一种方式，因为<span class="keyword">sprintf</span>在PHP中并不是一个语言结构，</span><br><span class="line">// 本身对于格式识别和处理就需要耗费比较多时间，另外本身机制也是malloc。</span><br><span class="line">// 不过<span class="keyword">sprintf</span>的方式最具可读性，实际中可以根据具体情况灵活选择。</span><br><span class="line">$strA = <span class="keyword">sprintf</span> (<span class="string">"%s%s"</span>, $strA . $strB);</span><br></pre></td></tr></table></figure></p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>PHP的数组通过Zend HashTable来天然实现。<br>foreach操作如何实现？对一个数组的foreach就是通过遍历hashtable中的双向链表完成。对于索引数组，通过foreach遍历效率比for高很多，省去了key-&gt;value的查找。<br>count操作直接调用HashTable-&gt;NumOfElements，O(1)操作。对于 ‘123’ 这样的字符串，zend会转换为其整数形式。$arr[‘123’]和$arr[123]是等价的。</p>
+<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>资源类型变量是PHP中最复杂的一种变量，也是一种复合型结构。<br>PHP的zval可以表示广泛的数据类型，但是对于自定义的数据类型却很难充分描述。由于没有有效的方式描绘这些复合结构，因此也没有办法对它们使用传统的操作符。要解决这个问题，只需要通过一个本质上任意的标识符（label）引用指针，这种方式被称为资源。<br>在zval中，对于resource，lval作为指针来使用，直接指向资源所在的地址。Resource可以是任意的复合结构，我们熟悉的mysqli、fsock、memcached等都是资源。<br>如何使用资源：<br>注册：对于一个自定义的数据类型，要想将它作为资源。首先需要进行注册，zend会为它分配全局唯一标示。<br>获取一个资源变量：对于资源，zend维护了一个id-&gt;实际数据的hash_tale。对于一个resource，在zval中只记录了它的id。fetch的时候通过id在hash_table中找到具体的值返回。<br>资源销毁：资源的数据类型是多种多样的。Zend本身没有办法销毁它。因此需要用户在注册资源的时候提供销毁函数。当unset资源时，zend调用相应的函数完成析构。同时从全局资源表中删除它。<br>资源可以长期驻留，不只是在所有引用它的变量超出作用域之后，甚至是在一个请求结束了并且新的请求产生之后。这些资源称为持久资源，因为它们贯通SAPI的整个生命周期持续存在，除非特意销毁。很多情况下，持久化资源可以在一定程度上提高性能。比如我们常见的mysql_pconnect ,持久化资源通过pemalloc分配内存，这样在请求结束的时候不会释放。 对zend来说，对两者本身并不区分。</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>PHP中的局部变量和全局变量是如何实现的？对于一个请求，任意时刻PHP都可以看到两个符号表(symbol_table和active_symbol_table)，其中前者用来维护全局变量。后者是一个指针，指向当前活动的变量符号表，当程序进入到某个函数中时，zend就会为它分配一个符号表x同时将active_symbol_table指向a。通过这样的方式实现全局、局部变量的区分。</p>
+<h2 id="函数中使用全局变量"><a href="#函数中使用全局变量" class="headerlink" title="函数中使用全局变量"></a>函数中使用全局变量</h2><p>在函数中，我们可以通过显式申明global来使用全局变量。在active_symbol_table中创建symbol_table中同名变量的引用，如果symbol_table中没有同名变量则会先创建。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/hp单例封装redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/hp单例封装redis/" itemprop="url">php单例封装redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T08:49:53+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>三私一公<br>私有静态属性<br>私有构造方法<br>私有克隆方法<br>公有静态方法<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">Handle</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> $handle = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="keyword">static</span> $_instance = <span class="keyword">NULL</span>;        <span class="comment">//定义私有的属性变量</span></span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span> </span>&#123;   <span class="comment">//定义公用的静态方法</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (<span class="keyword">NULL</span> == <span class="keyword">self</span>::$_instance) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">self</span>::$_instance = <span class="keyword">new</span> <span class="keyword">self</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="keyword">self</span>::$_instance;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="php">    $redis = <span class="keyword">new</span> Redis();          <span class="comment">//实例化redis</span></span></span><br><span class="line"><span class="php">    $redis-&gt;connect(<span class="string">'127.0.0.1'</span>,<span class="number">6379</span>);</span></span><br><span class="line"><span class="php">    <span class="comment">//$redis-&gt;auth(Conf::AUTH);</span></span></span><br><span class="line"><span class="php">    <span class="keyword">$this</span>-&gt;handle = &amp;$redis;       <span class="comment">//将变量与redis通过引用符关联在一起，以后直接使用handle即可，相当于将redis付给一个变量，这是另一种写法</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;handle-&gt;close();</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hget</span><span class="params">($k,$v)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;handle-&gt;hget($k , $v);  <span class="comment">//获取redis键名</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">$test = Handle::getInstance();</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $test-&gt;hget(<span class="number">1</span>,<span class="number">1</span>);</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/tp请求/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/tp请求/" itemprop="url">http请求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T14:42:41+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="\images\pasted-88.png" alt="upload successful"><br>①是请求方法，GET和POST是最常见的HTTP方法，除此以外还包括DELETE、HEAD、OPTIONS、PUT、TRACE。不过，当前的大多数浏览器只支持GET和POST，Spring 3.0提供了一个HiddenHttpMethodFilter，允许你通过“_method”的表单参数指定这些特殊的HTTP方法（实际上还是通过POST提交表单）。服务端配置了HiddenHttpMethodFilter后，Spring会根据_method参数指定的值模拟出相应的HTTP方法，这样，就可以使用这些HTTP方法对处理方法进行映射了。 </p>
+<p>②为请求对应的URL地址，它和报文头的Host属性组成完整的请求URL，③是协议名称及版本号。 </p>
+<p>④是HTTP的报文头，报文头包含若干个属性，格式为“属性名:属性值”，服务端据此获取客户端的信息。 </p>
+<p>⑤是报文体，它将一个页面表单中的组件值通过param1=value1&amp;param2=value2的键值对形式编码成一个格式化串，它承载多个请求参数的数据。不但报文体可以传递请求参数，请求URL也可以通过类似于“/chapter15/user.html? param1=value1&amp;param2=value2”的方式传递请求参数。 </p>
+<p>对照上面的请求报文，我们把它进一步分解，你可以看到一幅更详细的结构图： </p>
+<p><img src="\images\pasted-89.png" alt="upload successful"></p>
+<h2 id="请求头"><a href="#请求头" class="headerlink" title="请求头"></a>请求头</h2><h2 id="Accept"><a href="#Accept" class="headerlink" title="Accept "></a>Accept </h2><p>请求报文可通过一个“Accept”报文头属性告诉服务端 客户端接受什么类型的响应。 </p>
+<p>如下报文头相当于告诉服务端，俺客户端能够接受的响应类型仅为纯文本数据啊，你丫别发其它什么图片啊，视频啊过来，那样我会歇菜的~~~： </p>
+<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie "></a>Cookie </h2><p>客户端的Cookie就是通过这个报文头属性传给服务端的哦！如下所示：<br>Cookie: $Version=1; Skin=new;jsessionid=5F4771183629C9834F8382E23BE13C4C  </p>
+<p>服务端是怎么知道客户端的多个请求是隶属于一个Session呢？注意到后台的那个jsessionid=5F4771183629C9834F8382E23BE13C4C木有？原来就是通过HTTP请求报文头的Cookie属性的jsessionid的值关联起来的！（当然也可以通过重写URL的方式将会话ID附带在每个URL的后面哦）。</p>
+<h2 id="Referer"><a href="#Referer" class="headerlink" title="Referer "></a>Referer </h2><p>表示这个请求是从哪个URL过来的，假如你通过google搜索出一个商家的广告页面，你对这个广告页面感兴趣，鼠标一点发送一个请求报文到商家的网站，这个请求报文的Referer报文头属性值就是<a href="http://www.google.com。" target="_blank" rel="noopener">http://www.google.com。</a> </p>
+<h2 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control "></a>Cache-Control </h2><p>对缓存进行控制，如一个请求希望响应返回的内容在客户端要被缓存一年，或不希望被缓存就可以通过这个报文头达到目的。 </p>
+<h2 id="php如何访问请求报文头"><a href="#php如何访问请求报文头" class="headerlink" title="php如何访问请求报文头 "></a>php如何访问请求报文头 </h2><h2 id="HTTP响应报文解剖"><a href="#HTTP响应报文解剖" class="headerlink" title="HTTP响应报文解剖 "></a>HTTP响应报文解剖 </h2><p>HTTP的响应报文也由三部分组成（响应行+响应头+响应体）： </p>
+<p><img src="\images\pasted-90.png" alt="upload successful"></p>
+<p>响应状态码 </p>
+<p>和请求报文相比，响应报文多了一个“响应状态码”，它以“清晰明确”的语言告诉客户端本次请求的处理结果。 </p>
+<p>HTTP的响应状态码由5段组成： </p>
+<p>1xx 消息，一般是告诉客户端，请求已经收到了，正在处理，别急…<br>2xx 处理成功，一般表示：请求收悉、我明白你要的、请求已受理、已经处理完成等信息.<br>3xx 重定向到其它地方。它让客户端再发起一个请求以完成整个处理。<br>4xx 处理发生错误，责任在客户端，如客户端的请求一个不存在的资源，客户端未被授权，禁止访问等。<br>5xx 处理发生错误，责任在服务端，如服务端抛出异常，路由出错，HTTP版本不支持等。</p>
+<h2 id="常见的HTTP响应报文头属性"><a href="#常见的HTTP响应报文头属性" class="headerlink" title="常见的HTTP响应报文头属性 "></a>常见的HTTP响应报文头属性 </h2><h2 id="Cache-Control-1"><a href="#Cache-Control-1" class="headerlink" title="Cache-Control "></a>Cache-Control </h2><p>响应输出到客户端后，服务端通过该报文头属告诉客户端如何控制响应内容的缓存。 </p>
+<p>下面，的设置让客户端对响应内容缓存3600秒，也即在3600秒内，如果客户再次访问该资源，直接从客户端的缓存中返回内容给客户，不要再从服务端获取（当然，这个功能是靠客户端实现的，服务端只是通过这个属性提示客户端“应该这么做”，做不做，还是决定于客户端，如果是自己宣称支持HTTP的客户端，则就应该这样实现）。 </p>
+<h2 id="ETag"><a href="#ETag" class="headerlink" title="ETag "></a>ETag </h2><p>一个代表响应服务端资源（如页面）版本的报文头属性，如果某个服务端资源发生变化了，这个ETag就会相应发生变化。它是Cache-Control的有益补充，可以让客户端“更智能”地处理什么时候要从服务端取资源，什么时候可以直接从缓存中返回响应。 </p>
+<p>关于ETag的说明，你可以参见：<a href="http://en.wikipedia.org/wiki/HTTP_ETag。" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/HTTP_ETag。</a><br>Spring 3.0还专门为此提供了一个org.springframework.web.filter.ShallowEtagHeaderFilter（实现原理很简单，对JSP输出的内容MD5，这样内容有变化ETag就相应变化了），用于生成响应的ETag，因为这东东确实可以帮助减少请求和响应的交互。 </p>
+<h2 id="Location"><a href="#Location" class="headerlink" title="Location "></a>Location </h2><p>我们在JSP中让页面Redirect到一个某个A页面中，其实是让客户端再发一个请求到A页面，这个需要Redirect到的A页面的URL，其实就是通过响应报文头的Location属性告知客户端的，如下的报文头属性，将使客户端redirect到iteye的首页中： </p>
+<h2 id="Set-Cookie"><a href="#Set-Cookie" class="headerlink" title="Set-Cookie "></a>Set-Cookie </h2><p>服务端可以设置客户端的Cookie，其原理就是通过这个响应报文头属性实现的： </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/TTP响应报头/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1087,529 +1620,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/o-undo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/17/o-undo/" itemprop="url">redo&undo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T19:50:00+08:00">
-                2019-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>redo（重做）保障了数据库的持久性<br>undo（撤销）保障了数据库的原子性</p>
-<p>当数据库系统崩溃后，如何恢复？</p>
-<p>两个原则<br>从前向后读取redo，重做所有已提交的事务<br>从后往前读取undo，回滚未提交的事务</p>
-<p>Undo + Redo事务的简化过程<br>A.事务开始.<br>B.记录A=1到undo log.<br>C.修改A=3.<br>D.记录A=3到redo log.<br>E.记录B=2到undo log.<br>F.修改B=4.<br>G.记录B=4到redo log.<br>H.将redo log写入磁盘。<br>I.事务提交</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/序算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/序算法/" itemprop="url">排序算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T10:33:47+08:00">
-                2019-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//快速排序</span></span></span><br><span class="line"><span class="php"><span class="comment">//待排序数组</span></span></span><br><span class="line"><span class="php">$arr=<span class="keyword">array</span>(<span class="number">6</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">9</span>,<span class="number">5</span>,<span class="number">1</span>);</span></span><br><span class="line"><span class="php"><span class="comment">//函数实现快速排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">quick_sort</span><span class="params">($arr)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//递归出口:数组长度为1，直接返回数组</span></span></span><br><span class="line"><span class="php">   $length=count($arr);</span></span><br><span class="line"><span class="php">   <span class="keyword">if</span>($length&lt;=<span class="number">1</span>) <span class="keyword">return</span> $arr;</span></span><br><span class="line"><span class="php">   $left=$right=<span class="keyword">array</span>();</span></span><br><span class="line"><span class="php">   <span class="keyword">for</span>($i=<span class="number">1</span>;$i&lt;$length;$i++)&#123;</span></span><br><span class="line"><span class="php">   <span class="keyword">if</span>($arr[$i]&lt;$arr[<span class="number">0</span>])&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//第一次排序，left为小于6的所有数</span></span></span><br><span class="line"><span class="php">   $left[] = $arr[$i];</span></span><br><span class="line"><span class="php">   &#125;<span class="keyword">else</span>&#123;</span></span><br><span class="line"><span class="php">   <span class="comment">//right为大于6的所有数</span></span></span><br><span class="line"><span class="php">   $right[] = $arr[$i];</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   $left = quick_sort($left);</span></span><br><span class="line"><span class="php">   $right = quick_sort($right);</span></span><br><span class="line"><span class="php">   <span class="keyword">return</span> array_merge($left,<span class="keyword">array</span>($arr[<span class="number">0</span>]),$right);</span></span><br><span class="line"><span class="php">   &#125;</span></span><br><span class="line"><span class="php">   <span class="comment">//调用</span></span></span><br><span class="line"><span class="php">   <span class="keyword">echo</span> <span class="string">"&lt;pre&gt;"</span>;</span></span><br><span class="line"><span class="php">   print_r(quick_sort($arr));</span></span><br></pre></td></tr></table></figure>
-<h2 id="插排"><a href="#插排" class="headerlink" title="插排"></a>插排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $arr = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">5</span>, <span class="number">9</span>];</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">    var_dump(insertsort($arr));</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($arr)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        $len = count($arr);</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; $len; $i++) &#123;</span></span><br><span class="line"><span class="php">            <span class="comment">// 当前值</span></span></span><br><span class="line"><span class="php">            $key = $arr[$i];</span></span><br><span class="line"><span class="php">            <span class="comment">// 当前位置</span></span></span><br><span class="line"><span class="php">            $pos = $i;</span></span><br><span class="line"><span class="php">            <span class="comment">// 如是当前位置 &gt;0 &amp;&amp; 当前值的前一个值 &gt; 当前值 选出最值</span></span></span><br><span class="line"><span class="php">            <span class="keyword">while</span> ($pos &gt; <span class="number">0</span> &amp;&amp; $arr[$pos - <span class="number">1</span>] &gt; $key) &#123;</span></span><br><span class="line"><span class="php">                <span class="comment">// 当前值  =  前一个值</span></span></span><br><span class="line"><span class="php">                $arr[$pos] = $arr[$pos - <span class="number">1</span>];</span></span><br><span class="line"><span class="php">                <span class="comment">// 当前位置后移</span></span></span><br><span class="line"><span class="php">                $pos = $pos - <span class="number">1</span>;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">            <span class="comment">// 找到当前值的位置</span></span></span><br><span class="line"><span class="php">            $arr[$pos] = $key;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> $arr;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br></pre></td></tr></table></figure>
-<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 冒泡排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">PrintMinNumber</span><span class="params">($numbers)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    $length = count($numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span>($length == <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="string">''</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $length<span class="number">-1</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($j = $i;$j &lt; $length;$j++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($numbers[$i].$numbers[$j] &gt; $numbers[$j].$numbers[$i])&#123;</span></span><br><span class="line"><span class="php">                $temp = $numbers[$i];</span></span><br><span class="line"><span class="php">                $numbers[$i] = $numbers[$j];</span></span><br><span class="line"><span class="php">                $numbers[$j] = $temp;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $a = implode(<span class="string">''</span>,$numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> $a;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$arr = [<span class="number">32</span>,<span class="number">3</span>,<span class="number">321</span>];</span></span><br><span class="line"><span class="php">PrintMinNumber($arr);</span></span><br></pre></td></tr></table></figure>
-<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* mergeSort 归并排序</span></span><br><span class="line"><span class="comment">* 是开始递归函数的一个驱动函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 待排序的数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span><span class="params">(&amp;$arr)</span> </span>&#123;</span><br><span class="line">  $len = count($arr);<span class="comment">//求得数组长度</span></span><br><span class="line"> </span><br><span class="line">  mSort($arr, <span class="number">0</span>, $len<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 实际实现归并排序的程序</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 需要排序的数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left int 子序列的左下标值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right int 子序列的右下标值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mSort</span><span class="params">(&amp;$arr, $left, $right)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>($left &lt; $right) &#123;</span><br><span class="line">    <span class="comment">//说明子序列内存在多余1个的元素，那么需要拆分，分别排序，合并</span></span><br><span class="line">    <span class="comment">//计算拆分的位置，长度/2 去整</span></span><br><span class="line">    $center = floor(($left+$right) / <span class="number">2</span>);</span><br><span class="line">    <span class="comment">//递归调用对左边进行再次排序：</span></span><br><span class="line">    mSort($arr, $left, $center);</span><br><span class="line">    <span class="comment">//递归调用对右边进行再次排序</span></span><br><span class="line">    mSort($arr, $center+<span class="number">1</span>, $right);</span><br><span class="line">    <span class="comment">//合并排序结果</span></span><br><span class="line">    mergeArray($arr, $left, $center, $right);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将两个有序数组合并成一个有序数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr, 待排序的所有元素</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left, 排序子数组A的开始下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $center, 排序子数组A与排序子数组B的中间下标，也就是数组A的结束下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right, 排序子数组B的结束下标（开始为$center+1)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeArray</span><span class="params">(&amp;$arr, $left, $center, $right)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//设置两个起始位置标记</span></span><br><span class="line">  $a_i = $left;</span><br><span class="line">  $b_i = $center+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>($a_i&lt;=$center &amp;&amp; $b_i&lt;=$right) &#123;</span><br><span class="line">    <span class="comment">//当数组A和数组B都没有越界时</span></span><br><span class="line">    <span class="keyword">if</span>($arr[$a_i] &lt; $arr[$b_i]) &#123;</span><br><span class="line">      $temp[] = $arr[$a_i++];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $temp[] = $arr[$b_i++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组A内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($a_i &lt;= $center) &#123;</span><br><span class="line">    $temp[] = $arr[$a_i++];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组B内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($b_i &lt;= $right) &#123;</span><br><span class="line">    $temp[] = $arr[$b_i++];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">//将$arrC内排序好的部分，写入到$arr内：</span></span><br><span class="line">  <span class="keyword">for</span>($i=<span class="number">0</span>, $len=count($temp); $i&lt;$len; $i++) &#123;</span><br><span class="line">    $arr[$left+$i] = $temp[$i];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//do some test:</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="number">4</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">mergeSort($arr);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$arr=<span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">587</span>,<span class="number">93</span>,<span class="number">47</span>,<span class="number">59</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">83</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">65</span>,<span class="number">2</span>,<span class="number">18</span>,<span class="number">7</span>);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge_sort</span><span class="params">(&amp;$arr)</span></span>&#123;</span><br><span class="line">    $len=count($arr);</span><br><span class="line">    <span class="keyword">if</span>($len==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    $middle=intval($len/<span class="number">2</span>);</span><br><span class="line">    $left=array_slice($arr,<span class="number">0</span>,$middle);</span><br><span class="line">    $right=array_slice($arr,$middle);</span><br><span class="line">    merge_sort($left);</span><br><span class="line">    merge_sort($right);</span><br><span class="line">    $arr=merge($left,$right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span><span class="params">($leftarr,$rightarr)</span></span>&#123;</span><br><span class="line">    $arrmerge=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">while</span>(count($leftarr) &amp;&amp; count($rightarr))</span><br><span class="line">        $arrmerge[]=$leftarr[<span class="number">0</span>]&lt;$rightarr[<span class="number">0</span>]?array_shift($leftarr):array_shift($rightarr);</span><br><span class="line">    <span class="keyword">return</span> array_merge($arrmerge,$leftarr,$rightarr);</span><br><span class="line">&#125;</span><br><span class="line">merge_sort($arr);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printArr</span><span class="params">($arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr);$i++)</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">' '</span>.$arr[$i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/itled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/16/itled/" itemprop="url">isnull empty isset</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T09:15:48+08:00">
-                2019-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = [<span class="string">'null'</span>];</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">isset</span>($a)) ;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">empty</span>($a));</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(is_null($a));</span></span><br><span class="line"><span class="php"><span class="comment">//                  isset empty isnull</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=null            0     1     1</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=0               1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=false           1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=""              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="0"             1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=[]              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=1               1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="null"          1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a = ['null'];    1     0     0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//不定义            0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a=null;unset($a);0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a='1';unset($a); 0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//wrong&amp;1:</span></span></span><br><span class="line"><span class="php"><span class="comment">//Undefined variable: a</span></span></span><br><span class="line"><span class="php"><span class="comment">//1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=null或不定义a isest为0</span></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=1(not0)或a="有东西，null也算"(数组规则一样) empty为0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//is_null判断null 只有当a=null时才为1，当变量不存在时会报错并报1，其他都为false</span></span></span><br><span class="line"><span class="php"><span class="comment">//isset 判断存在  当a被赋值（除a=null） isset就为true 表示变量存在，不判断变量含义，含义空亦true</span></span></span><br><span class="line"><span class="php"><span class="comment">//empty 判断空    仅当a被赋值并且变量含义不为空 empty($var)才为false 其他都是true</span></span></span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/15/hp底层/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/15/hp底层/" itemprop="url">测开基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-15T20:59:31+08:00">
-                2019-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一、Linux必备知识<br>linux作为现在最流行的软件环境系统，一定需要掌握，目前的招聘要求都需要有linux能力。</p>
-<p><img src="\\images\pasted-71.png\" alt="upload successful"><br>二、Shell脚本<br>掌握shell脚本，包括shell基础与应用、shell逻辑控制、shell逻辑函数等。</p>
-<p><img src="\images\pasted-72.png" alt="upload successful"><br>三、互联网程序原理<br>自动化必由之路：前端开发基础知识以及互联网网络必备知识。</p>
-<p><img src="\images\pasted-73.png" alt="upload successful"><br>四、Mysql数据库<br>软件测试工程师必备Mysql数据库知识，不仅仅停留在基本的“增删改查”。</p>
-<p><img src="\images\pasted-74.png" alt="upload successful"><br>五、抓包工具<br>Fiddler、Wireshark、Sniffer、Tcpdump各种抓包工具适用于各种项目，总有一款适合你。</p>
-<p><img src="\images\pasted-75.png" alt="upload successful"><br>六、接口测试工具<br>接口测试神器，你绕不开的强大工具：Jmeter。小巧灵活：Postman。</p>
-<p><img src="\images\pasted-76.png" alt="upload successful"><br>七、Web自动化测试Java&amp;Pyhton<br>了解自动化的目的，熟练掌握testng&amp;unittest自动化框架，以及断言与日志处理。</p>
-<p><img src="\images\pasted-77.png" alt="upload successful"><br>八、接口与手机自动化<br>专业接口调用、测试解决方案。组建完整的web和接口自动化框架，Appium整体使用</p>
-<p><img src="\images\pasted-78.png" alt="upload successful"><br>九、敏捷测试&amp;TestOps构建<br>揭开TestOps的神秘面纱，持续集成Jenkins框架烂熟于心。</p>
-<p><img src="\images\pasted-79.png" alt="upload successful"><br>十、性能测试&amp;安全测试<br>软件测试的彼岸：性能测试和安全测试，选对方向，努力爬坑吧！</p>
-<p><img src="\images\pasted-80.png" alt="upload successful"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1657,7 +1672,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
