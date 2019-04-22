@@ -290,6 +290,170 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php常用字符串函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/24/php常用字符串函数/" itemprop="url">php常用字符串函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T16:38:00+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度</p>
+<p>strtolower($str);//字母转小写</p>
+<p>strtoupper($str);//字母转大写</p>
+<p>ucwords($str);//每一个单词的首字母转大写</p>
+<p>ucfirst($str);//首字母转大写</p>
+<p>str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;</p>
+<p>str_ireplace(‘a’,’b’,$str);//替换 不区分大小写</p>
+<p>htmlspecialchars($str,ENT_NOQUOTES);//字符串转换为html 实体 ENT_COMPT(默认只编译双引号)ENT_QUOTES单引号双引号都编译,ENT_NOQUOTES不编译任何引号</p>
+<p>trim($str);//删除字符串前后（左右）空格</p>
+<p>ltrim($str);//只删除字符串左侧的空格</p>
+<p>rtrim($str);//只删除字符串右侧的空格<br>//trim加第二个参数 就是移除指定的字符集 如ltrim($str,’0..9’) 移除左侧数字开头的字符</p>
+<p>strpos($str,’a’);//字符串a 在$str 第一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>stripos($str,’a’);//同上 但是不区分大小写</p>
+<p>strrpos($str,’a’);//字符串a 在$str 最后一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>strripos($str,’a’);//同上 但是不区分大小写</p>
+<p>substr($str,0,3);//截取字符串 $str 的第一个字符 截取长度3 长度不填默认截取到最后  参数为负数则倒数</p>
+<p>strstr($str,’a’);//截取字符串 $str 中的第一个字符’a’后的字符串 如 sabc -&gt; abc</p>
+<p>strrchr($str,’a’);//截取字符串 $str 中最后一一个字符’a’后的字符串</p>
+<p>strrev($str);//字符串反转 abcd-&gt;dcba</p>
+<p>md5($str);//字符串MD5加密</p>
+<p>str_shuffle($str);//随机打乱字符串顺序</p>
+<p>explode(‘-‘,$str);//指定分隔符分割字符串 返回数组 ‘-’ 分割$str</p>
+<p>implode(‘-‘,$str);//数组拼接字符串 与explode()相反</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php拷贝机制/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -599,7 +763,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="php,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -77,22 +77,17 @@
 
 
 
-<meta name="description" content="转载： http://blog.csdn.net/u011957758/article/details/76864400 refcount：多少个变量是一样的用了相同的值，这个数值就是多少。is_ref：bool类型，当refcount大于2的时候，其中一个变量用了地址&amp;amp;的形式进行赋值，好了，它就变成1了。 unset并非一定会释放内存，当有两个变量指向的时候，并非会释放变量占用的内存，只">
-<meta name="keywords" content="php">
+<meta name="description" content="https://cloud.tencent.com/developer/article/1028995 PHP的运行模式：PHP两种运行模式是WEB模式、CLI模式。无论哪种模式，PHP工作原理都是一样的，作为一种SAPI运行。1、当我们在终端敲入php这个命令的时候，它使用的是CLI。它就像一个web服务器一样来支持php完成这个请求，请求完成后再重新把控制权交给终端。2、当使用Apache或者">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php垃圾回收机制">
-<meta property="og:url" content="http://yoursite.com/2019/03/24/php垃圾回收机制/index.html">
+<meta property="og:title" content="php生命周期">
+<meta property="og:url" content="http://yoursite.com/2019/04/22/hp生命周期/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="转载： http://blog.csdn.net/u011957758/article/details/76864400 refcount：多少个变量是一样的用了相同的值，这个数值就是多少。is_ref：bool类型，当refcount大于2的时候，其中一个变量用了地址&amp;amp;的形式进行赋值，好了，它就变成1了。 unset并非一定会释放内存，当有两个变量指向的时候，并非会释放变量占用的内存，只">
+<meta property="og:description" content="https://cloud.tencent.com/developer/article/1028995 PHP的运行模式：PHP两种运行模式是WEB模式、CLI模式。无论哪种模式，PHP工作原理都是一样的，作为一种SAPI运行。1、当我们在终端敲入php这个命令的时候，它使用的是CLI。它就像一个web服务器一样来支持php完成这个请求，请求完成后再重新把控制权交给终端。2、当使用Apache或者">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:image" content="http://yoursite.com/images/pasted-0.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-3.png">
-<meta property="og:image" content="http://yoursite.com/images/pasted-4.png">
-<meta property="og:updated_time" content="2019-03-27T00:33:19.727Z">
+<meta property="og:updated_time" content="2019-04-22T12:59:16.627Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php垃圾回收机制">
-<meta name="twitter:description" content="转载： http://blog.csdn.net/u011957758/article/details/76864400 refcount：多少个变量是一样的用了相同的值，这个数值就是多少。is_ref：bool类型，当refcount大于2的时候，其中一个变量用了地址&amp;amp;的形式进行赋值，好了，它就变成1了。 unset并非一定会释放内存，当有两个变量指向的时候，并非会释放变量占用的内存，只">
-<meta name="twitter:image" content="http://yoursite.com/images/pasted-0.png">
+<meta name="twitter:title" content="php生命周期">
+<meta name="twitter:description" content="https://cloud.tencent.com/developer/article/1028995 PHP的运行模式：PHP两种运行模式是WEB模式、CLI模式。无论哪种模式，PHP工作原理都是一样的，作为一种SAPI运行。1、当我们在终端敲入php这个命令的时候，它使用的是CLI。它就像一个web服务器一样来支持php完成这个请求，请求完成后再重新把控制权交给终端。2、当使用Apache或者">
 
 
 
@@ -122,14 +117,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/24/php垃圾回收机制/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/22/hp生命周期/">
 
 
 
 
 
 
-  <title>php垃圾回收机制 | 殷航的博客</title>
+  <title>php生命周期 | 殷航的博客</title>
   
 
 
@@ -298,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/24/php垃圾回收机制/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/hp生命周期/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -315,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">php垃圾回收机制</h1>
+          <h1 class="post-title" itemprop="name headline">php生命周期</h1>
         
 
         <div class="post-meta">
@@ -327,8 +322,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T20:03:00+08:00">
-                2019-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T20:39:54+08:00">
+                2019-04-22
               </time>
             
 
@@ -337,28 +332,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -387,28 +360,43 @@
       
 
       
-        <p>转载： <a href="http://blog.csdn.net/u011957758/article/details/76864400" target="_blank" rel="noopener">http://blog.csdn.net/u011957758/article/details/76864400</a></p>
-<p>refcount：多少个变量是一样的用了相同的值，这个数值就是多少。<br>is_ref：bool类型，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，好了，它就变成1了。</p>
-<p>unset并非一定会释放内存，当有两个变量指向的时候，并非会释放变量占用的内存，只是refcount减1.</p>
-<p><img src="/images/pasted-0.png" alt="upload successful"></p>
-<p>如果unset（$a）</p>
-<p><img src="/images/pasted-3.png" alt="upload successful"><br>如果在小于php5.3的版本就会出现一个问题：$a已经不在符号表了，没有变量再指向此zval容器，用户已无法访问，但是由于数组的refcount变为1而不是0，导致此部分内存不能被回收从而产生了内存泄漏。</p>
-<p>5.3之后版本处理垃圾<br>判断处理过程<br>1.如果一个zval的refcount增加，那么此zval还在使用，不属于垃圾<br>2.如果一个zval的refcount减少到0， 那么zval可以被释放掉，不属于垃圾<br>3.如果一个zval的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾</p>
-<p>白话文版：就是对此zval中的每个元素进行一次refcount减1操作，操作完成之后，如果zval的refcount=0，那么这个zval就是一个垃圾</p>
-<p><img src="/images/pasted-4.png" alt="upload successful"><br>A：为了避免每次变量的refcount减少的时候都调用GC的算法进行垃圾判断，此算法会先把所有前面准则3情况下的zval节点放入一个节点(root)缓冲区(root buffer)，并且将这些zval节点标记成紫色，同时算法必须确保每一个zval节点在缓冲区中之出现一次。当缓冲区被节点塞满的时候，GC才开始开始对缓冲区中的zval节点进行垃圾判断。</p>
-<p>B：当缓冲区满了之后，算法以深度优先对每一个节点所包含的zval进行减1操作，为了确保不会对同一个zval的refcount重复执行减1操作，一旦zval的refcount减1之后会将zval标记成灰色。需要强调的是，这个步骤中，起初节点zval本身不做减1操作，但是如果节点zval中包含的zval又指向了节点zval（环形引用），那么这个时候需要对节点zval进行减1操作。</p>
-<p>C：算法再次以深度优先判断每一个节点包含的zval的值，如果zval的refcount等于0，那么将其标记成白色(代表垃圾)，如果zval的refcount大于0，那么将对此zval以及其包含的zval进行refcount加1操作，这个是对非垃圾的还原操作，同时将这些zval的颜色变成黑色（zval的默认颜色属性）</p>
-<p>D：遍历zval节点，将C中标记成白色的节点zval释放掉。</p>
-<pre><code>&lt;?php
-$a = [&apos;one&apos;]; --- zval_a（将$a对应的zval，命名为zval_a）
-$a[] = &amp;$a; --- step1
-unset($a);  --- step2
-</code></pre><p>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。</p>
-<p>当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。</p>
-<p>算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。</p>
-<p>unset<br>unset只是断开一个变量到一块内存区域的连接，同时将该内存区域的引用计数-1；内存是否回收主要还是看refount是否到0了，以及gc算法判断。</p>
-<p>= null 操作；<br>a=null是直接将a 指向的数据结构置空，同时将其引用计数归0。</p>
-<p>脚本执行结束<br>脚本执行结束，该脚本中使用的所有内存都会被释放，不论是否有引用环。</p>
+        <p><a href="https://cloud.tencent.com/developer/article/1028995" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1028995</a></p>
+<h2 id="PHP的运行模式："><a href="#PHP的运行模式：" class="headerlink" title="PHP的运行模式："></a>PHP的运行模式：</h2><p>PHP两种运行模式是WEB模式、CLI模式。无论哪种模式，PHP工作原理都是一样的，作为一种SAPI运行。<br>1、当我们在终端敲入php这个命令的时候，它使用的是CLI。<br>它就像一个web服务器一样来支持php完成这个请求，请求完成后再重新把控制权交给终端。<br>2、当使用Apache或者别web服务器作为宿主时，当一个请求到来时，PHP会来支持完成这个请求。一般有：<br>多进程(通常编译为apache的模块来处理PHP请求)<br>多线程模式</p>
+<h2 id="一切的开始-SAPI接口"><a href="#一切的开始-SAPI接口" class="headerlink" title="一切的开始: SAPI接口"></a>一切的开始: SAPI接口</h2><p>通常我们编写php Web程序都是通过Apache或者Nginx这类Web服务器来测试脚本. 或者在命令行下通过php程序来执行PHP脚本. 执行完成脚本后，服务器应答，浏览器显示应答信息,或者在命令结束后在标准输出显示内容. 我们很少关心PHP解释器在哪里. 虽然通过Web服务器和命令行程序执行脚本看起来很不一样. 实际上她们的工作是一样的. 命令行程序和Web程序类似, 命令行参数传递给要执行的脚本,相当于通过url 请求一个PHP页面. 脚本戳里完成后返回响应结果,只不过命令行响应的结果是显示在终端上. 脚本执行的开始都是通过SAPI接口进行的.</p>
+<h2 id="启动apache"><a href="#启动apache" class="headerlink" title="启动apache"></a>启动apache</h2><p>当给定的SAPI启动时，例如在对/usr/local/apache/bin/apachectl start的响应中，PHP由初始化其内核子系统开始。在接近启动例程的末尾，它加载每个扩展的代码并调用其模块初始化例程（MINIT）。这使得每个扩展可以初始化内部变量、分配资源、注册资源处理器，以及向ZE注册自己的函数，以便于脚本调用这其中的函数时候ZE知道执行哪些代码。</p>
+<h2 id="请求处理初始化"><a href="#请求处理初始化" class="headerlink" title="请求处理初始化"></a>请求处理初始化</h2><p>接下来，PHP等待SAPI层请求要处理的页面。对于CGI或CLI等SAPI，这将立刻发生且只发生一次。对于Apache、IIS或其他成熟的web服务器SAPI，每次远程用户请求页面时都将发生，因此重复很多次，也可能并发。不管请求如何产生，PHP开始于要求ZE建立脚本的运行环境，然后调用每个扩展的请求初始化 （RINIT）函数。RINIT使得扩展有机会设定特定的环境变量，根据请求分配资源，或者执行其他任务，如审核。 session扩展中有个RINIT作用的典型示例，如果启用了session.auto_start选项，RINIT将自动触发用户空间的session_start()函数以及预组装$_SESSION变量。</p>
+<h2 id="执行php代码"><a href="#执行php代码" class="headerlink" title="执行php代码"></a>执行php代码</h2><p>一旦请求被初始化了，ZE开始接管控制权，将PHP脚本翻译成符号，最终形成操作码并逐步运行之。如任一操作码需要调用扩展的函数，ZE将会把参数绑定到该函数，并且临时交出控制权直到函数运行结束。</p>
+<h2 id="脚本结束"><a href="#脚本结束" class="headerlink" title="脚本结束"></a>脚本结束</h2><p>脚本运行结束后，PHP调用每个扩展的请求关闭（RSHUTDOWN）函数以执行最后的清理工作（如将session变量存入磁盘）。接下来，ZE执行清理过程（垃圾收集）－有效地对之前的请求期间用到的每个变量执行unset()。</p>
+<h2 id="sapi关闭"><a href="#sapi关闭" class="headerlink" title="sapi关闭"></a>sapi关闭</h2><p>一旦完成，PHP继续等待SAPI的其他文档请求或者是关闭信号。对于CGI和CLI等SAPI，没有“下一个请求”，所以SAPI立刻开始关闭。关闭期间，PHP再次遍历每个扩展，调用其模块关闭（MSHUTDOWN）函数，并最终关闭自己的内核子系统。</p>
+<h2 id="简要的过程"><a href="#简要的过程" class="headerlink" title="简要的过程"></a>简要的过程</h2><ol>
+<li>PHP是随着Apache的启动而运行的；</li>
+<li>PHP通过mod_php5.so模块和Apache相连（具体说来是SAPI，即服务器应用程序编程接口）；</li>
+<li>PHP总共有三个模块：内核、Zend引擎、以及扩展层；</li>
+<li>PHP内核用来处理请求、文件流、错误处理等相关操作；</li>
+<li>Zend引擎（ZE）用以将源文件转换成机器语言，然后在虚拟机上运行它；</li>
+<li>扩展层是一组函数、类库和流，PHP使用它们来执行一些特定的操作。比如，我们需要mysql扩展来连接MySQL数据库；</li>
+<li>当ZE执行程序时可能会需要连接若干扩展，这时ZE将控制权交给扩展，等处理完特定任务后再返还；</li>
+<li>最后，ZE将程序运行结果返回给PHP内核，它再将结果传送给SAPI层，最终输出到浏览器上。</li>
+</ol>
+<h2 id="php开始的两个过程"><a href="#php开始的两个过程" class="headerlink" title="php开始的两个过程"></a>php开始的两个过程</h2><p>第一个过程：apache启动的过程，即在任何请求到达之前就发生。是在整个SAPI生命周期内(例如Apache启动以后的整个生命周期内或者命令行程序整个执行过程中)的开始阶段(MINIT),该阶段只进行一次.。启动Apache后，PHP解释程序也随之启动； PHP调用各个扩展（模块）的MINIT方法，从而使这些扩展切换到可用状态。看看php.ini文件里打开了哪些扩展吧； MINIT的意思是“模块初始化”。各个模块都定义了一组函数、类库等用以处理其他请求。 模块在这个阶段可以进行一些初始化工作,例如注册常量, 定义模块使用的类等等.典型的的模块回调函数MINIT方法如下：</p>
+<pre><code>PHP_MINIT_FUNCTION(myphpextension) {/* Initialize functions, classes etc */}
+{
+// 注册常量或者类等初始化操作
+returnSUCCESS;
+}
+</code></pre><p>第二个过程发生在请求阶段,当一个页面请求发生时.则在每次请求之前都会进行初始化过程(RINIT请求开始).<br>请求到达之后，SAPI层将控制权交给PHP层，PHP初始化本次请求执行脚本所需的环境变量,例如创建一个执行环境,包括保存php运行过程中变量名称和变量值内容的符号表. 以及当前所有的函数以及类等信息的符号表.例如是Session模块的RINIT，如果在php.ini中启用了Session 模块，那在调用该模块的RINIT时就会初始化$_SESSION变量，并将相关内容读入；然后PHP会调用所有模块RINIT函数,即“请求初始化”。在这个阶段各个模块也可以执行一些相关的操作, 模块的RINIT函数和MINIT函数类似 ，RINIT方法可以看作是一个准备过程，在程序执行之间就会自动启动。</p>
+<h2 id="php结束的两个环节"><a href="#php结束的两个环节" class="headerlink" title="php结束的两个环节"></a>php结束的两个环节</h2><p>第一个环节：请求处理完后结束阶段：请求处理完后就进入了结束阶段，PHP就会启动清理程序。它会按顺序调用各个模块的RSHUTDOWN方法。 RSHUTDOWN用以清除程序运行时产生的符号表，也就是对每个变量调用unset函数。典型的RSHUTDOWN方法如下：</p>
+<pre><code>PHP_RSHUTDOWN_FUNCTION(myphpextension)
+{
+// 例如记录请求结束时间, 并把相应的信息写入到日至文件中.
+returnSUCCESS;
+}
+</code></pre><p>第二个环节：最后，所有的请求都已处理完毕，SAPI也准备关闭了， PHP调用每个扩展的MSHUTDOWN方法，这是各个模块最后一次释放内存的机会。（这个是对于CGI和CLI等SAPI，没有“下一个请求”，所以SAPI立刻开始关闭。）<br>典型的RSHUTDOWN方法如下：</p>
+<pre><code>PHP_MSHUTDOWN_FUNCTION(extension_name) {
+/* Free handlers and persistent memory etc */
+return SUCCESS;
+}
+</code></pre><p>这样，整个PHP生命周期就结束了。要注意的是，只有在服务器没有请求的情况下才会执行“启动第一步”和“关闭第二步”。</p>
 
       
     </div>
@@ -424,12 +412,6 @@ unset($a);  --- step2
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/php/" rel="tag"># php</a>
-          
-        </div>
-      
 
       
       
@@ -439,8 +421,8 @@ unset($a);  --- step2
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/24/php常用数组操作/" rel="next" title="php常用数组操作">
-                <i class="fa fa-chevron-left"></i> php常用数组操作
+              <a href="/2019/04/22/hp-hashtable/" rel="next" title="php hashtable">
+                <i class="fa fa-chevron-left"></i> php hashtable
               </a>
             
           </div>
@@ -448,10 +430,6 @@ unset($a);  --- step2
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/25/题-1/" rel="prev" title="环队列叫号问题">
-                环队列叫号问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -503,8 +481,17 @@ unset($a);  --- step2
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -566,6 +553,22 @@ unset($a);  --- step2
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP的运行模式："><span class="nav-number">1.</span> <span class="nav-text">PHP的运行模式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一切的开始-SAPI接口"><span class="nav-number">2.</span> <span class="nav-text">一切的开始: SAPI接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动apache"><span class="nav-number">3.</span> <span class="nav-text">启动apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求处理初始化"><span class="nav-number">4.</span> <span class="nav-text">请求处理初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#执行php代码"><span class="nav-number">5.</span> <span class="nav-text">执行php代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本结束"><span class="nav-number">6.</span> <span class="nav-text">脚本结束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sapi关闭"><span class="nav-number">7.</span> <span class="nav-text">sapi关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简要的过程"><span class="nav-number">8.</span> <span class="nav-text">简要的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php开始的两个过程"><span class="nav-number">9.</span> <span class="nav-text">php开始的两个过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#php结束的两个环节"><span class="nav-number">10.</span> <span class="nav-text">php结束的两个环节</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
