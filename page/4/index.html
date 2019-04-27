@@ -290,6 +290,139 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/cc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/cc/" itemprop="url">mvcc多版本并发控制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T13:08:02+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.jianshu.com/p/cef49aeff36b" target="_blank" rel="noopener">https://www.jianshu.com/p/cef49aeff36b</a><br><a href="https://www.cnblogs.com/phpper/p/6937650.html" target="_blank" rel="noopener">https://www.cnblogs.com/phpper/p/6937650.html</a></p>
+<p>MVCC，Multi-Version Concurrency Control，多版本并发控制。<br>MVCC 是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问；在编程语言中实现事务内存。<br>MVCC可以看作一种乐观锁的实现方式</p>
+<h2 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h2><p>每行数据都存在一个版本，每次数据更新时都更新该版本。<br>修改时Copy出当前版本随意修改，各个事务之间无干扰。<br>保存时比较版本号，如果成功（commit），则覆盖原记录；失败则放弃copy（rollback）</p>
+<p>InnoDB存储引擎MVCC的实现策略<br>在每一行数据中额外保存两个隐藏的列：当前行创建时的版本号和删除时的版本号（可能为空，其实还有一列称为回滚指针，用于事务回滚，不在本文范畴）。这里的版本号并不是实际的时间值，而是系统版本号。每开始新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询每行记录的版本号进行比较。</p>
+<p>每个事务又有自己的版本号，这样事务内执行CRUD操作时，就通过版本号的比较来达到数据版本控制的目的。</p>
+<h2 id="MVCC优缺点"><a href="#MVCC优缺点" class="headerlink" title="MVCC优缺点"></a>MVCC优缺点</h2><p>MVCC在大多数情况下代替了行锁，实现了对读的非阻塞，读不加锁，读写不冲突。缺点是每行记录都需要额外的存储空间，需要做更多的行维护和检查工作。</p>
+<h2 id="mvcc如何解决幻读"><a href="#mvcc如何解决幻读" class="headerlink" title="mvcc如何解决幻读"></a>mvcc如何解决幻读</h2><p>保证一个事务<br>读不了在它之后插入的数据，读不了在它之前删除的数据<br>读的了在它之前插入的数据，读的了在它之后删除的数据</p>
+<p>查询条件<br>1) 删除版本号未指定或者大于当前事务版本号，即查询事务开启后确保读取的行未被删除。(即上述事务id为2的事务查询时，依然能读取到事务id为3所删除的数据行)。不能读取&lt;=当前事务版本号的被删除数据</p>
+<p>2) 创建版本号&lt;=当前事务版本号 ，就是说记录创建是在当前事务中（等于的情况）或者在当前事务启动之前的其他事物进行的insert。 不能读取在当前事务之后创建的数据</p>
+<p>当前事务版本号为100，能够读取：数据的删除版本号&gt;100且创建版本号&lt;=100</p>
+<p>多版本并发控制。InnoDB为每行记录添加了一个版本号（系统版本号），每当修改数据时，版本号+1。<br>在读取事务开始时，系统会给事务一个当前版本号，事务会读取版本号&lt;=当前版本号的数据，这时就算另一个事务插入一个数据，并立马提交，新插入这条数据的版本号会比读取事务的版本号高，因此读取事务读的数据还是不会变。<br>例如：<br>此时books表中有5条数据，版本号为1<br>事务A，系统版本号2：select <em> from books；因为1&lt;=2所以此时会读取5条数据。<br>事务B，系统版本号3：insert into books …，插入一条数据，新插入的数据版本号为3，而其他的数据的版本号仍然是2，插入完成之后commit，事务结束。<br>事务A，系统版本号2：再次select </em> from books；只能读取&lt;=2的数据，事务B新插入的那条数据版本号为3，因此读不出来，解决了幻读的问题。</p>
+<p>1：当前读:给改条数据加锁(悲观锁),即读取的时候就加锁，防止其他事务读取该数据().它能保证读取的都是最新数据<br>2：快照读:mvcc，多版本并发控制，详细的原理就不说了，它使得读写不冲突，由于读的都是事务的当前版本的数据，因此重复读也不会发现数据被修改</p>
+<p>DELETE<br>InnoDB会为删除的每一行保存当前事务的ID作为删除标识.</p>
+<p>UPDATE<br>InnoDB执行UPDATE，实际上是新插入了一行记录，并保存其创建时间为当前事务的ID，同时保存当前事务ID到要UPDATE的行的删除时间。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/红黑树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1671,164 +1804,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/p中间件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/10/p中间件/" itemprop="url">php中间件（middleware）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T12:45:00+08:00">
-                2019-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="什么是中间件？"><a href="#什么是中间件？" class="headerlink" title="什么是中间件？"></a>什么是中间件？</h2><p>中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等</p>
-<p>中间件是一个闭包，而且返回一个闭包。中间件为过滤进入应用的HTTP请求提供了一套便利的机制，可以分为前置中间件和后置中间件。常用于验证用户是否经过认证，添加响应头（跨域），记录请求日志等。</p>
-<p>如果你想修改请求，例如被传送到view中的HttpRequest对象。 或者你想修改view返回的HttpResponse对象，这些都可以通过中间件来实现。</p>
-<h2 id="中间件应用场景"><a href="#中间件应用场景" class="headerlink" title="中间件应用场景"></a>中间件应用场景</h2><p>1.做IP访问频率限制<br>某些IP访问服务器的频率过高，进行拦截，比如限制每分钟不能超过20次。<br>2.URL访问过滤<br>如果用户访问的是login视图（放过）<br>如果访问其他视图，需要检测是不是有session认证，已经有了放行，<br>没有返回login，这样就省得在多个视图函数上写装饰器了！</p>
-<h2 id="图样"><a href="#图样" class="headerlink" title="图样"></a>图样</h2><p><img src="\images\pasted-36.png" alt="upload successful"></p>
-<h2 id="thinkphp5-1中间件"><a href="#thinkphp5-1中间件" class="headerlink" title="thinkphp5.1中间件"></a>thinkphp5.1中间件</h2><p>thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。<br><a href="https://www.kancloud.cn/manual/thinkphp5_1/564279" target="_blank" rel="noopener">https://www.kancloud.cn/manual/thinkphp5_1/564279</a></p>
-<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 框架核心应用层application</span></span><br><span class="line">$application = <span class="function"><span class="keyword">function</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"this is a &#123;$name&#125; 应用层\n"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置校验中间件auth</span></span><br><span class="line">$auth = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个校验中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置过滤中间件filter</span></span><br><span class="line">$filter = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个过滤中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 后置日志中间件log</span></span><br><span class="line">$log = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        $return = $handler($name);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个后置日志中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $return;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 中间件栈</span></span><br><span class="line">$stack = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打包</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pack_middleware</span><span class="params">($handler, $stack)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (array_reverse($stack) <span class="keyword">as</span> $key =&gt; $middleware)&#123;</span><br><span class="line">        $handler = $middleware($handler);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $handler;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册中间件</span></span><br><span class="line"><span class="comment">//// 这里用的都是全局中间件，实际应用时还可以为指定路由注册局部中间件</span></span><br><span class="line">$stack[<span class="string">'log'</span>] = $log;</span><br><span class="line">$stack[<span class="string">'filter'</span>] = $filter;</span><br><span class="line">$stack[<span class="string">'auth'</span>] = $auth;</span><br><span class="line">$run = pack_middleware($application, $stack);</span><br><span class="line">$run(<span class="string">'wtf'</span>);</span><br></pre></td></tr></table></figure>
-<p>输出： </p>
-<p>wtf 需要一个过滤中间件<br>wtf 需要一个校验中间件<br>this is a wtf 应用层<br>wtf 需要一个后置日志中间件</p>
-<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><p>中间件的执行顺序是由打包函数(pack_middleware)决定，这里返回的闭包实际上相当于:</p>
-<pre><code>$run = $log($filter($auth($application)));$run(&apos;Laravle&apos;);
-</code></pre><h2 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h2><p>中间件要要满足一定的规范：总是返回一个闭包，闭包中总是传入相同的参数（由主要逻辑决定）， 闭包总是返回句柄(handler)的执行结果；<br>如果中间件的逻辑在返回句柄return $handler($name)前完成，就是前置中间件，否则为后置中间件。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1876,7 +1856,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
