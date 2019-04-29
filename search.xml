@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[hexo重新部署的方法]]></title>
+    <url>%2F2019%2F04%2F29%2Fxo%E9%87%8D%E6%96%B0%E9%83%A8%E7%BD%B2%E7%9A%84%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[安装Git Bash百度git安装 安装NodeJs百度 安装hexonpm install hexo-cli -g 生成SSH并添加到githubgit config –global user.name “yourname”git config –global user.email youremail@example.comssh-keygen -t rsa -C “youremail@example.com“拷贝秘钥到GitHub上，替换秘钥 上传npm install hexo-deployer-git –save]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[分布式session]]></title>
     <url>%2F2019%2F04%2F24%2F%E5%B8%83%E5%BC%8Fsession%2F</url>
     <content type="text"><![CDATA[(1) 应用服务器间的session复制共享（如tomcat session共享）(2) 基于cache DB缓存的session共享 应用服务器间的session复制共享 session复制共享，主要是指集群环境下，多台应用服务器之间同步session，使session保持一致，对外透明。 如果其中一台服务器发生故障，根据负载均衡的原理，web服务器（apache/nginx）会遍历寻找可用节点，分发请求，由于session已同步，故能保证用户的session信息不会丢失。 此方案的不足之处： 技术复杂,必须在同一种中间件之间完成(如:tomcat-tomcat之间).session复制带来的性能损失会快速增加.特别是当session中保存了较大的对象,而且对象变化较快时, 性能下降更加显著. 这种特性使得web应用的水平扩展受到了限制。Session内容序列化（serialize），会消耗系统性能。Session内容通过广播同步给成员，会造成网络流量瓶颈，即便是内网瓶颈。 基于cache DB缓存的session共享即使用cacheDB存取session信息，应用服务器接受新请求将session信息保存在cache DB中，当应用服务器发生故障时，web服务器（apache/nginx）会遍历寻找可用节点，分发请求，当应用服务器发现session不在本机内存时，则去cache DB中查找，如果找到则复制到本机，这样实现session共享和高可用。 目前有开源的msm用于解决tomcat之间的session共享：Memcached_Session_Manager（MSM） http://code.google.com/p/memcached-session-manager/一个高可用的Tomcat session共享解决方案，除了可以从本机内存快速读取Session信息(仅针对黏性Session)外，同时可使用memcached存取Session，以实现高可用。 特性支持Tomcat6、Tomcat7支持黏性、非黏性Session无单一故障点可处理tomcat故障转移可处理memcached故障转移插件式session序列化允许异步保存session，以提升响应速度只有当session有修改时，才会将session写回memcachedJMX管理&amp;监控该方案的不足之处： memcache支持的数据结构比较单一memcache的内存必须足够大，否则会出现用户session从Cache中被清除需要定期的刷新缓存服务器故障时，存在于内存的memcache数据将会丢失 为了解决基于memcache中存在的不足，故提出了下面的一种解决方案： 基于redis缓存的session共享 结合上面的 MSM 思想，由 redis负责 session 数据的存储，而我们自己实现的 session manager 将负责 session 生命周期的管理。 一般的系统架构:]]></content>

@@ -409,6 +409,130 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/xo重新部署的方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/29/xo重新部署的方法/" itemprop="url">hexo重新部署的方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T09:35:21+08:00">
+                2019-04-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装Git-Bash"><a href="#安装Git-Bash" class="headerlink" title="安装Git Bash"></a>安装Git Bash</h2><p>百度git安装</p>
+<h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>百度</p>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>npm install hexo-cli -g </p>
+<h2 id="生成SSH并添加到github"><a href="#生成SSH并添加到github" class="headerlink" title="生成SSH并添加到github"></a>生成SSH并添加到github</h2><p>git config –global user.name “yourname”<br>git config –global user.email <a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a><br>ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“<br>拷贝秘钥到GitHub上，替换秘钥</p>
+<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>npm install hexo-deployer-git –save</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/布式session/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1434,136 +1558,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/ethink-权限块/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/ethink-权限块/" itemprop="url">vuethink 基础配置详解</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T07:48:00+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>原创by殷航<br>最开始的vuethink数据库如下，实现了权限管理，群组，用户信息，系统配置等功能<br>在实际使用中具体用到其中6张表</p>
-<p><img src="\images\pasted-97.png" alt="upload successful"></p>
-<h2 id="user表-用户数据"><a href="#user表-用户数据" class="headerlink" title="user表-用户数据"></a>user表-用户数据</h2><p><img src="\images\pasted-107.png" alt="upload successful"></p>
-<p><img src="\images\pasted-99.png" alt="upload successful"><br>user表存储用户账号，自定义名称，以及一些外键</p>
-<h2 id="rule表-定义接口"><a href="#rule表-定义接口" class="headerlink" title="rule表-定义接口"></a>rule表-定义接口</h2><p>存储菜单名称，接口名称 菜单等级 继承菜单id 使用状态<br>以树结构表示的菜单，此处id标记为rule_id<br>php config下的基础框架路由配置文件：<br><img src="\images\pasted-109.png" alt="upload successful"><br>rule表：<br><img src="\images\pasted-110.png" alt="upload successful"><br>规则：<br>1、vuethink中每次在controller中写一个接口都需要到配置文件进行注册，否则超管无法访问。<br>2、一个路由在配置文件中写好了，如果不在rule表注册并分配权限给其他用户的话，只能超管访问（越级）。<br>3、同2，任何一个普通用户都离不开接口权限的赋予</p>
-<h2 id="group表-定义用户接口权限"><a href="#group表-定义用户接口权限" class="headerlink" title="group表-定义用户接口权限"></a>group表-定义用户接口权限</h2><p>group表要用到rule_id，来标识一个用户可以使用接口的权限<br><img src="\images\pasted-101.png" alt="upload successful"><br>此处是zl配置好菜单后的权限表，其中：<br>1、超管拥有1-10的菜单，1-10应该是默认的内置权限，菜单的功能处于最底层<br>2、vuethink内置了对这张表的可视化管理界面，可以自行勾选，也可以直接在数据库里改<br>3、后台对rules字段进行explode分割即可，这样存储十分方便<br>4、接口在后台注册，没有权限访问不了url</p>
-<h2 id="access表-使用权限"><a href="#access表-使用权限" class="headerlink" title="access表-使用权限"></a>access表-使用权限</h2><p>group表定义了权限，access表为用户id制定哪一种group权限<br>access表与user表的id是一样的，access仅有两个字段，分离两张表是为了系统在查找用户权限的时候速度更快<br><img src="\images\pasted-105.png" alt="upload successful"></p>
-<h2 id="menu表-后台根菜单"><a href="#menu表-后台根菜单" class="headerlink" title="menu表-后台根菜单"></a>menu表-后台根菜单</h2><p><img src="\images\pasted-103.png" alt="upload successful"><br>如图所示，材料表定义后台左区域菜单路由，即定义：<br>1、菜单名称<br>2、菜单icon<br>3、菜单id<br>4、菜单id之间继承关系<br>5、菜单url<br>如id52是树根，继承52的有系统配置、用户中心、材料管理等<br>继承材料管理的是所有材料 添加材料等</p>
-<p>点击菜单显示的内容在route.js中配置并关联vue前台文件</p>
-<h2 id="config表-系统设置"><a href="#config表-系统设置" class="headerlink" title="config表-系统设置"></a>config表-系统设置</h2><p><img src="\images\pasted-104.png" alt="upload successful"><br>可以设置logo与名称，以及session过期时间，这同样在vuethink后台中可视化了</p>
-<p>总结：<br>access表存储：某个用户 拥有 某个权限（rulename）<br>rule表定义route接口名称，每一个接口有一个接口id 以及层级关系<br>group表定义权限rulename具体是什么，具体的说，就是某一个rulename包含哪些接口id</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1616,7 +1610,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

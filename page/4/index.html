@@ -290,6 +290,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/二叉树/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/二叉树/" itemprop="url">平衡二叉树、二叉排序树、完全二叉树、满二叉树</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T20:55:41+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>来自二叉排序树的旋转<br>为了保证树不至于台倾斜，尽量保证两边平衡。<br>1、平衡二叉树要么是一棵空树<br>2、要么保证左右子树的高度之差不大于 1<br>3、子树也必须是一颗平衡二叉树<br>平衡二叉树在添加和删除时需要进行旋转保证整个树的平衡，使用平衡二叉树时，插入、查找时间复杂度都是O(logn)</p>
+<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p>完全二叉树：对于一个树高为h的二叉树，如果其第0层至第h-1层的节点都满。如果最下面一层节点不满，则所有的节点在左边的连续排列，空位都在右边。这样的二叉树就是一棵完全二叉树。<br>完全二叉树最重要的性质：如果n个节点的完全二叉树的节点按照层次并按从左到右的顺序从0开始编号，对于人一个绩点都有：</p>
+<p>·序号为0的节点是根<br>·对于i&gt;0，其父节点的编号为(i-1)/2。<br>·若2i+1&lt;n，其左子节点的序号为2i+1，否则没有左子节点。<br>·若2i+2&lt;n，其右子节点的序号为2i+2，否则没有右子节点。</p>
+<p><img src="\images\pasted-39.png" alt="upload successful"></p>
+<h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><p>满二叉树：树中每个分支结点（非叶结点）都有两棵非空子树</p>
+<p><img src="\images\pasted-40.png" alt="upload successful"><br>使二叉树可以方便的存入表或者数组，直接根绝元素下标就可以找到一个节点的子节点或者父节点(也就是可以完全确定二叉树的结构)，无须用额外的形式记录树结构信息。<br>使其可以方便地存入一系列连续位置，一般二叉树不能方便地映射到线性结构，完全二叉树到线性结构有定义非常自然的双向映射，可以方便地从其线性结构恢复完全二叉树。</p>
+<h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>在最好的情况下，二叉排序树的查找效率比较高，是 O(logn)，其访问性能近似于折半查找；</p>
+<p><img src="\images\pasted-41.png" alt="upload successful"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/cc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1641,169 +1768,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/dis分布式锁/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/10/dis分布式锁/" itemprop="url">Redis分布式锁</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:37:00+08:00">
-                2019-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index">
-                    <span itemprop="name">redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>分布式锁一般有三种实现方式：</p>
-<ol>
-<li>数据库乐观锁</li>
-<li>基于Redis的分布式锁</li>
-<li>基于ZooKeeper的分布式锁</li>
-</ol>
-<p>为了确保分布式锁可用，我们至少要确保锁的实现同时满足以下四个条件：<br>1.互斥性。在任意时刻，只有一个客户端能持有锁。<br>2.不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。<br>3.具有容错性。只要大部分的Redis节点正常运行，客户端就可以加锁和解锁。<br>4.解铃还须系铃人。加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了。</p>
-<p>Q:使用过Redis分布式锁么，它是怎么实现的？<br>先拿setnx来争抢锁，抢到之后，再用expire给锁加一个过期时间防止锁忘记了释放。</p>
-<p>Q:如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？<br>set指令有非常复杂的参数，这个应该是可以同时把setnx和expire合成一条指令来用的！</p>
-<h2 id="SETNX命令简介"><a href="#SETNX命令简介" class="headerlink" title="SETNX命令简介"></a>SETNX命令简介</h2><p>命令格式<br>SETNX key value</p>
-<p>将 key 的值设为 value，当且仅当 key 不存在。<br>若给定的 key 已经存在，则 SETNX 不做任何动作。<br>SETNX 是SET if Not eXists的简写。</p>
-<p>返回值<br>返回整数，具体为<br>-1，当 key 的值被设置<br>-0，当 key 的值没被设置</p>
-<p>例子<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">1</span> </span><br><span class="line">    redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">0</span> </span><br><span class="line">    redis&gt; GET mykey </span><br><span class="line">    “hello” </span><br><span class="line">    redis&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="使用SETNX实现分布式锁"><a href="#使用SETNX实现分布式锁" class="headerlink" title="使用SETNX实现分布式锁"></a>使用SETNX实现分布式锁</h2><p>多个进程执行以下Redis命令：</p>
-<p>SETNX lock.foo <current 1 unix time + lock timeout></current></p>
-<p>如果 SETNX 返回1，说明该进程获得锁，SETNX将键 lock.foo 的值设置为锁的超时时间（当前时间 + 锁的有效时间）。<br>如果 SETNX 返回0，说明其他进程已经获得了锁，进程不能进入临界区。进程可以在一个循环中不断地尝试 SETNX 操作，以获得锁。</p>
-<h2 id="解决死锁"><a href="#解决死锁" class="headerlink" title="解决死锁"></a>解决死锁</h2><p>考虑一种情况，如果进程获得锁后，断开了与 Redis 的连接（可能是进程挂掉，或者网络中断），如果没有有效的释放锁的机制，那么其他进程都会处于一直等待的状态，即出现“死锁”。</p>
-<p>上面在使用 SETNX 获得锁时，我们将键 lock.foo 的值设置为锁的有效时间，进程获得锁后，其他进程还会不断的检测锁是否已超时，如果超时，那么等待的进程也将有机会获得锁。</p>
-<p>然而，锁超时时，我们不能简单地使用 DEL 命令删除键 lock.foo 以释放锁。考虑以下情况，进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。进程P2，P3正在不断地检测锁是否已释放或者已超时，执行流程如下：</p>
-<p>P2和P3进程读取键 lock.foo 的值，检测锁是否已超时（通过比较当前时间和键 lock.foo 的值来判断是否超时）<br>P2和P3进程发现锁 lock.foo 已超时<br>P2执行 DEL lock.foo命令<br>P2执行 SETNX lock.foo命令，并返回1，即P2获得锁<br>P3执行 DEL lock.foo命令将P2刚刚设置的键 lock.foo 删除（这步是由于P3刚才已检测到锁已超时）<br>P3执行 SETNX lock.foo命令，并返回1，即P3获得锁<br>P2和P3同时获得了锁<br>从上面的情况可以得知，在检测到锁超时后，进程不能直接简单地执行 DEL 删除键的操作以获得锁。</p>
-<p>为了解决上述算法可能出现的多个进程同时获得锁的问题，我们再来看以下的算法。<br>我们同样假设进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。接下来的情况：</p>
-<p>进程P4执行 SETNX lock.foo 以尝试获取锁<br>由于进程P1已获得了锁，所以P4执行 SETNX lock.foo 返回0，即获取锁失败<br>P4执行 GET lock.foo 来检测锁是否已超时，如果没超时，则等待一段时间，再次检测<br>如果P4检测到锁已超时，即当前的时间大于键 lock.foo 的值，P4会执行以下操作<br>GETSET lock.foo <current 1 unix timestamp + lock timeout><br>由于 GETSET 操作在设置键的值的同时，还会返回键的旧值，通过比较键 lock.foo 的旧值是否小于当前时间，可以判断进程是否已获得锁<br>假如另一个进程P5也检测到锁已超时，并在P4之前执行了 GETSET 操作，那么P4的 GETSET 操作返回的是一个大于当前时间的时间戳，这样P4就不会获得锁而继续等待。注意到，即使P4接下来将键 lock.foo 的值设置了比P5设置的更大的值也没影响。<br>另外，值得注意的是，在进程释放锁，即执行 DEL lock.foo 操作前，需要先判断锁是否已超时。如果锁已超时，那么锁可能已由其他进程获得，这时直接执行 DEL lock.foo 操作会导致把其他进程已获得的锁释放掉。</current></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">acquireLock</span><span class="params">(String lock)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 通过SETNX试图获取一个lock</span></span><br><span class="line">    <span class="keyword">boolean</span> success = <span class="keyword">false</span>;</span><br><span class="line">    Jedis jedis = pool.getResource();       </span><br><span class="line">    <span class="keyword">long</span> value = System.currentTimeMillis() + expired + <span class="number">1</span>;     </span><br><span class="line">    System.out.println(value);    </span><br><span class="line">    <span class="keyword">long</span> acquired = jedis.setnx(lock, String.valueOf(value));</span><br><span class="line">    <span class="comment">//SETNX成功，则成功获取一个锁</span></span><br><span class="line">    <span class="keyword">if</span> (acquired == <span class="number">1</span>)      </span><br><span class="line">        success = <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//SETNX失败，说明锁仍然被其他对象保持，检查其是否已经超时</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">long</span> oldValue = Long.valueOf(jedis.get(lock));</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//超时</span></span><br><span class="line">        <span class="keyword">if</span> (oldValue &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">            String getValue = jedis.getSet(lock, String.valueOf(value));               </span><br><span class="line">            <span class="comment">// 获取锁成功</span></span><br><span class="line">            <span class="keyword">if</span> (Long.valueOf(getValue) == oldValue) </span><br><span class="line">                success = <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">// 已被其他进程捷足先登了</span></span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                success = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//未超时，则直接返回失败</span></span><br><span class="line">        <span class="keyword">else</span>             </span><br><span class="line">            success = <span class="keyword">false</span>;</span><br><span class="line">    &#125;        </span><br><span class="line">    pool.returnResource(jedis);</span><br><span class="line">    <span class="keyword">return</span> success;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1856,7 +1820,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
