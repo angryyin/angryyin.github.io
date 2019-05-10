@@ -290,6 +290,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/14/试题/" itemprop="url">php面试题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T14:53:00+08:00">
+                2019-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726" target="_blank" rel="noopener">https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726</a></p>
+<h2 id="php常用框架、模板引擎"><a href="#php常用框架、模板引擎" class="headerlink" title="php常用框架、模板引擎"></a>php常用框架、模板引擎</h2><p>框架：如CI、Yii、Laravel，thinkphp<br>模板引擎：smarty</p>
+<h2 id="AJAX的优势？"><a href="#AJAX的优势？" class="headerlink" title="AJAX的优势？"></a>AJAX的优势？</h2><p>ajax是异步传输技术，可以通过javascript实现，也可以通过JQuery框架实现，实现局部刷新，减轻了服务器的压力，也提高了用户体验。</p>
+<h2 id="程序的开发中提高程序的运行效率？"><a href="#程序的开发中提高程序的运行效率？" class="headerlink" title="程序的开发中提高程序的运行效率？"></a>程序的开发中提高程序的运行效率？</h2><p>（1）优化SQL语句，查询语句中尽量不使用select *，用哪个字段查哪个字段；少用子查询可用表连接代替；少用模糊查询。<br>（2）数据表中创建索引。<br>（3）对程序中经常用到的数据生成缓存（比如使用redis缓存数据，比如使用ob进行动态页面静态化等等）。<br>（4）对mysql做主从复制，读写分离。（提高mysq执行效率和查询速度）<br>（5）使用nginx做负载均衡。（将访问压力平均分配到多态服务器）</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>①可以实现代码的重用性，避免产生代码冗余；<br>②M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式</p>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，json数据格式固定，可以被多种语言用作数据的传递。<br>PHP中处理json格式的函数为<br>json_decode( string $json [, bool $assoc ] ) ，接受一个 JSON格式的字符串并且把它转换为PHP变量，<br>Json_encode：将PHP变量转换成json格式。</p>
+<h2 id="Print、echo、print-r区别"><a href="#Print、echo、print-r区别" class="headerlink" title="Print、echo、print_r区别"></a>Print、echo、print_r区别</h2><p>（1） echo和print都可以做输出，不同的是，echo不是函数，没有返回值，而print是一个函数有返回值，所以相对而言如果只是输出echo会更快，而print_r通常用于打印变量的相关信息，通常在调试中使用。<br>（2） print 是打印字符串<br>（3）print_r 则是打印复合类型 如数组 对象</p>
+<h2 id="SESSION与COOKIE的区别？"><a href="#SESSION与COOKIE的区别？" class="headerlink" title="SESSION与COOKIE的区别？"></a>SESSION与COOKIE的区别？</h2><p>（1）存储位置：session存储于服务器，cookie存储于浏览器<br>（2）安全性：session安全性比cookie高<br>（3）session为‘会话服务’，在使用时需要开启服务，cookie不需要开启，可以直接用</p>
+<p>PHP操作文件的常用函数？（重点看函数的‘参数’和‘返回值’）</p>
+<p>（1）打开文件 fopen()<br>$file = fopen(“/home/test/test.txt”,”r”);<br><a href="http://www.w3school.com.cn/php/func_filesystem_fopen.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/php/func_filesystem_fopen.asp</a><br>（2）读取文件 fgets()  ;  注：file_get_contents()也是读取文件<br>fgets() 函数从文件指针中读取一行。<br>fgets(file,length)<br>（3）写入文件fwrite()  ;  注：file_put_contents()同样可以写入文件<br>（4）关闭文件句柄 fclose()<br>（5）移动 / 重命名文件 rename()<br>（6）复制文件 copy()<br>（7）创建文件 vim  或 touch<br>（8）删除文件 unlink()<br>（9）获取文件上次访问的时间 fileatime()<br>（10）获取文件上次修改的时间 filemtime()<br>（11）获取文件大小 filesize()<br>（12）获取文件类型  filetype()<br>（13）获取文件详细信息 state()<br>（14）判断是否是目录 is_dir()</p>
+<h2 id="试述视图的优点？"><a href="#试述视图的优点？" class="headerlink" title="试述视图的优点？"></a>试述视图的优点？</h2><p>(1) 视图能够简化用户的操作<br>(2) 视图使用户能以多种角度看待同一数据；<br>(3) 视图为数据库提供了一定程度的逻辑独立性；<br>(4) 视图能够对机密数据提供安全保护。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>MySQL数据库作发布系统的存储，一天五万条以上的增量，预计运维三年,怎么优化？<br>（1）设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。<br>（2） 选择合适的表字段数据类型和存储引擎，适当的添加索引。<br>（3） 做mysql主从复制读写分离。<br>（4）对数据表进行分表，减少单表中的数据量提高查询速度。<br>（5）添加缓存机制，比如redis，memcached等。<br>（6）对不经常改动的页面，生成静态页面（比如做ob缓存）。<br>（7）书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</p>
+<h2 id="简述-private、-protected、-public修饰符的访问权限。"><a href="#简述-private、-protected、-public修饰符的访问权限。" class="headerlink" title="简述 private、 protected、 public修饰符的访问权限。"></a>简述 private、 protected、 public修饰符的访问权限。</h2><p>private : 私有成员, 在类的内部才可以访问。</p>
+<p>protected : 保护成员，该类内部和继承类中可以访问。</p>
+<p>public : 公共成员，完全公开，没有访问限制。</p>
+<h2 id="堆和栈的区别？"><a href="#堆和栈的区别？" class="headerlink" title="堆和栈的区别？"></a>堆和栈的区别？</h2><p>栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；</p>
+<p>堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小。</p>
+<h2 id="XML-与-HTML-的主要区别"><a href="#XML-与-HTML-的主要区别" class="headerlink" title="XML 与 HTML 的主要区别"></a>XML 与 HTML 的主要区别</h2><p>语法要求不同：</p>
+<p>（1）在html中不区分大小写，在xml中严格区分。</p>
+<p>（2）在HTML中，有时不严格，如果上下文清楚地显示出段落或者列表键在何处结尾，那么你可以省略</p>或者之类的结束标记。在XML中，是严格的树状结构，绝对不能省略掉结束标记。<p></p>
+<p>（3） 在XML中，拥有单个标记而没有匹配的结束标记的元素必须用一个/ 字符作为结尾。这样分析器就知道不用查找结束标记了。</p>
+<p>（4）在XML中，属性值必须分装在引号中。在HTML中，引号是可用可不用的。 </p>
+<p>（5）在HTML中，可以拥有不带值的属性名。在XML中，所有的属性都必须带有相应的值。 </p>
+<p>（6） 在XML文档中，空白部分不会被解析器自动删除；但是html是过滤掉空格的。</p>
+<p>标记不同：</p>
+<p>（1）html使用固有的标记；而xml没有固有的标记。</p>
+<p>（2）Html标签是预定义的；XML标签是免费的、自定义的、可扩展的。</p>
+<p>作用不同：</p>
+<p>（1）html是用来显示数据的；xml是用来描述数据、存放数据的，所以可以作为持久化的介质！Html将数据和显示结合在一起，在页面中把这数据显示出来；xml则将数据和显示分开。 XML被设计用来描述数据，其焦点是数据的内容。HTML被设计用来显示数据，其焦点是数据的外观。</p>
+<p>（2）xml不是HTML的替代品，xml和html是两种不同用途的语言。 XML 不是要替换 HTML；实际上XML 可以视作对 HTML 的补充。XML 和HTML 的目标不同HTML 的设计目标是显示数据并集中于数据外观，而XML的设计目标是描述数据并集中于数据的内容。</p>
+<p>（3）对于XML最好的形容可能是: XML是一种跨平台的，与软、硬件无关的，处理与传输信息的工具。</p>
+<p>（4）XML未来将会无所不在。XML将成为最普遍的数据处理和数据传输的工具。</p>
+<h2 id="抽象类和接口的概念以及区别？"><a href="#抽象类和接口的概念以及区别？" class="headerlink" title="抽象类和接口的概念以及区别？"></a>抽象类和接口的概念以及区别？</h2><p>抽象类：它是一种特殊的，不能被实例化的类，只能作为其他类的父类使用。使用abstract关键字声明。<br>接口：它是一种特殊的抽象类，也是一个特殊的类，使用interface声明。</p>
+<p>区别：<br>（1）抽象类的操作通过继承关键字extends实现，而接口的使用是通过implements关键字来实现。<br>（2）抽象类中有数据成员，可以实现数据的封装，但是接口没有数据成员。<br>（3）抽象类中可以有构造方法，但是接口没有构造方法。<br>（4）抽象类的方法可以通过private、protected、public关键字修饰（抽象方法不能是private），而接口中的方法只能使用public关键字修饰。<br>（5）一个类只能继承于一个抽象类，而一个类可以同时实现多个接口。<br>（6）抽象类中可以有成员方法的实现代码，而接口中不可以有成员方法的实现代码。</p>
+<h2 id="什么是构造函数，什么是析构函数，作用是什么？"><a href="#什么是构造函数，什么是析构函数，作用是什么？" class="headerlink" title="什么是构造函数，什么是析构函数，作用是什么？"></a>什么是构造函数，什么是析构函数，作用是什么？</h2><p>构造函数（方法）是对象创建完成后第一个被对象自动调用的方法。它存在于每个声明的类中，是一个特殊的成员方法。作用是执行一些初始化的任务。Php中使用__construct()声明构造方法，并且只能声明一个。</p>
+<p>析构函数（方法）作用和构造方法正好相反，是对象被销毁之前最后一个被对象自动调用的方法。是PHP5中新添加的内容作用是用于实现在销毁一个对象之前执行一些特定的操作，诸如关闭文件和释放内存等。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/-树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1597,160 +1752,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/redis常见数据类型/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/10/redis常见数据类型/" itemprop="url">Redis数据类型与应用场景</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:55:00+08:00">
-                2019-04-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index">
-                    <span itemprop="name">redis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="String字符串："><a href="#String字符串：" class="headerlink" title="String字符串："></a>String字符串：</h2><p>格式: set key value<br>string类型是Redis最基本的数据类型，一个键最大能存储512MB，string类型是二进制安全的。所以redis的string可以包含任何数据。比如jpg图片或者序列化的对象。</p>
-<p>应用场景：<br>string 类型是 Redis 中最基本的数据类型，最常用的数据类型，甚至被很多玩家当成 redis 唯一的数据类型去使用。string 类型在 redis 中是二进制安全(binary safe)的,这意味着 string 值关心二进制的字符串，不关心具体格式，你可以用它存储 json 格式或 JPEG 图片格式的字符串。 </p>
-<h2 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h2><p><img src="\images\pasted-83.png" alt="upload successful"><br>Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。</p>
-<p>应用场景：<br>hash 类型十分适合存储对象类数据，相对于在 string 中介绍的把对象转化为 json 字符串存储，hash 的结构可以任意添加或删除‘字段名’，更加高效灵活。</p>
-<h2 id="List（列表）"><a href="#List（列表）" class="headerlink" title="List（列表）"></a>List（列表）</h2><p>list 是按照插入顺序排序的字符串链表，可以在头部和尾部插入新的元素（双向链表实现，两端添加元素的时间复杂度为 O(1)）。插入元素时，如果 key 不存在，redis 会为该 key 创建一个新的链表，如果链表中所有的元素都被移除，该 key 也会从 redis 中移除。</p>
-<p><img src="\images\pasted-81.png" alt="upload successful"><br>lpush 命令在 list 头部插入元素， 用 rpop 命令在 list 尾取出数据。 </p>
-<p>应用场景：<br>(1)消息队列<br>　　redis 的 list 数据类型对于大部分使用者来说，是实现队列服务的最经济，最简单的方式。<br>(2)最新内容<br>    因为 list 结构的数据查询两端附近的数据性能非常好，所以适合一些需要获取最新数据的场景，比如新闻类应用的 “最近新闻”。</p>
-<p>注：<br>list 是链表结构，所有如果在头部和尾部插入数据，性能会非常高，不受链表长度的影响；但如果在链表中插入数据，性能就会越来越差。</p>
-<h2 id="Set（集合）"><a href="#Set（集合）" class="headerlink" title="Set（集合）"></a>Set（集合）</h2><p>格式: sadd  name  value<br>Redis的Set是string类型的无序集合，集合是通过哈希表实现的，所以添加，删除，查找的复杂度都是O(1)。</p>
-<p>set 数据类型是一个string类型集合（没有排序，不重复），可以对set类型的数据进行添加、删除、判断是否存在等操作（时间复杂度是 O(1)）<br>set 集合不允许数据重复，如果添加的数据在 set 中已经存在，将只保留一份。<br>set 类型提供了多个 set 之间的聚合运算，如求交集、并集、补集，这些操作在 redis 内部完成，效率很高。<br><img src="\images\pasted-82.png" alt="upload successful"><br>set 类型的特点是——不重复且无序的一组数据，并且具有丰富的计算功能，在一些特定的场景中可以高效的解决一般关系型数据库不方便做的工作。</p>
-<p>应用场景：共同好友列表<br>　　社交类应用中，获取两个人或多个人的共同好友，两个人或多个人共同关注的微博这样类似的功能，用 MySQL 的话操作很复杂，可以把每个人的好友 id 存到集合中，获取共同好友的操作就可以简单到一个取交集的命令就搞定。<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里为了方便阅读，把 id 替换成姓名</span></span><br><span class="line">sadd <span class="string">user:</span>wade james melo paul kobe</span><br><span class="line">sadd <span class="string">user:</span>james wade melo paul kobe</span><br><span class="line">sadd <span class="string">user:</span>paul wade james melo kobe</span><br><span class="line">sadd <span class="string">user:</span>melo wade james paul kobe</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取 wade 和 james 的共同好友</span></span><br><span class="line">sinter <span class="string">user:</span>wade <span class="string">user:</span>james</span><br><span class="line"><span class="comment">/* 输出：</span></span><br><span class="line"><span class="comment"> *      1) "kobe"</span></span><br><span class="line"><span class="comment"> *      2) "paul"</span></span><br><span class="line"><span class="comment"> *      3) "melo"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 获取香蕉四兄弟的共同好友</span></span><br><span class="line"> sinter <span class="string">user:</span>wade <span class="string">user:</span>james <span class="string">user:</span>paul <span class="string">user:</span>melo</span><br><span class="line"> <span class="comment">/* 输出：</span></span><br><span class="line"><span class="comment"> *      1) "kobe"</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> </span><br><span class="line"> <span class="comment">/*</span></span><br><span class="line"><span class="comment">     类似的需求还有很多 , 必须把每个标签下的文章 id 存到集合中，可以很容易的求出几个不同标签下的共同文章；</span></span><br><span class="line"><span class="comment"> 把每个人的爱好存到集合中，可以很容易的求出几个人的共同爱好。 </span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="zset-sorted-set：有序集合"><a href="#zset-sorted-set：有序集合" class="headerlink" title="zset(sorted set：有序集合)"></a>zset(sorted set：有序集合)</h2><p>格式: zadd  name score value<br>Redis zset 和 set 一样也是string类型元素的集合,且不允许重复的成员。<br>不同的是每个元素都会关联一个double类型的分数，往有序集合中插入数据时会自动根据这个分数排序。zset的成员是唯一的,但分数(score)却可以重复。</p>
-<p>应用场景：<br>在集合类型的场景上加入排序就是有序集合的应用场景了。比如根据好友的“亲密度”排序显示好友列表。<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 输出：</span><br><span class="line"> *      <span class="number">1</span>) <span class="string">"wade"</span></span><br><span class="line"> *      <span class="number">2</span>) <span class="string">"paul"</span></span><br><span class="line"> *      <span class="number">3</span>) <span class="string">"melo"</span></span><br><span class="line"> *      <span class="number">4</span>) <span class="string">"james"</span></span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 增加好友的亲密度</span></span><br><span class="line">zincrby user:kobe <span class="number">15</span> james</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再次根据“亲密度”给好友排序</span></span><br><span class="line">zrevrange user:kobe <span class="number">0</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 输出：</span><br><span class="line"> *      <span class="number">1</span>) <span class="string">"james"</span></span><br><span class="line"> *      <span class="number">2</span>) <span class="string">"wade"</span></span><br><span class="line"> *      <span class="number">3</span>) <span class="string">"paul"</span></span><br><span class="line"> *      <span class="number">2</span>) <span class="string">"melo"</span></span><br><span class="line"> */</span><br><span class="line"> </span><br><span class="line"> <span class="comment">//类似的需求还出现在根据文章的阅读量或点赞量对文章列表排序</span></span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1803,7 +1804,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
