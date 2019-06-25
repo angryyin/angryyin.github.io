@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[北京day3 圆明园]]></title>
-    <url>%2F2019%2F05%2F12%2Fntitled%2F</url>
-    <content type="text"><![CDATA[2019.5.11圆明园其实还是以园林为主，如果排除掉西洋楼，我甚至以为回到了武汉的公园，不过我看的只是冰山一角，圆明园面积可是和故宫相当的。 我的路线，就这走马观花我走了三个小时随手拍的花卉 路边的大玩偶，适合拍照，可惜我只有一个人进入西洋楼景区，其实这只是圆明园的冰山一角。战火后的圆明园，只剩下了这些带不走搬不动的大石头任人凭吊，金银财宝，珍奇玉石都不复存在。谐奇趣海晏堂，这里摆放十二兽首的水龙头，这些国宝艺术价值不大，历史价值无价，是火烧圆明园的见证。大水法 我觉得圆明园是人文大于景观的，历史值得铭记，整个圆明园就是一本很好的教科书，告诉人们勿忘国耻，发愤图强。圆明园也适合我这种一人跑去游览，赶上周末唯一的好天气，算是幸运。 估计下周会去国家博物馆，北京的人文景观不是靠一次跟团游可以领略的，知道名字的胡同3600，不知名的胡同数不清，40多座博物馆，北大清华，24小时不打烊的三联韬奋书店，还有天安门，故宫，还有北方的小吃，有更多惊喜在等着我去探索]]></content>
+    <title><![CDATA[python知识积累]]></title>
+    <url>%2F2019%2F06%2F25%2Fython%E7%9F%A5%E8%AF%86%E7%A7%AF%E7%B4%AF%2F</url>
+    <content type="text"><![CDATA[scrapy pipline持久化 google baidu本身也是爬虫 代理ip与访问间隔 防止封ip 利用深度学习绕过机器图片检测 滑动进度条不匀速 js代码 模拟登陆 爬取数据必须登陆 携带cookie 反爬虫 检测是否访问js、css 自定义字体库 递归的url 蜜罐 只开放手机端 不开放其他接口]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql行转列case]]></title>
+    <url>%2F2019%2F06%2F25%2Fntitled%2F</url>
+    <content type="text"><![CDATA[123456789101112$sql_sort = "select keyword, sum(case when bhv_type='搜索' then pv else 0 end) search,sum(case when bhv_type='原创' then pv else 0 end) orgin,sum(case when bhv_type='转发' then pv else 0 end) trans,sum(case when bhv_type='评论' then pv else 0 end) `comment`,sum(case when bhv_type='赞' then pv else 0 end) `like`,sum(pv) `all`from t_result_dp_focus_analysiswhere job_id='$job_id' $datesqlgroup by keywordorder by $sort desclimit $offset, $count"; 数据如下 pv是计算的数据 执行sql_sort后12345678910111213141516171819202122232425262728293031323334353637&lt;pre&gt;Array( [0] =&gt; Array ( [keyword] =&gt; 奥迪 [search] =&gt; 1 [orgin] =&gt; 0 [trans] =&gt; 0 [comment] =&gt; 1 [like] =&gt; 37 [all] =&gt; 39 ) [1] =&gt; Array ( [keyword] =&gt; 奔驰 [search] =&gt; 0 [orgin] =&gt; 0 [trans] =&gt; 0 [comment] =&gt; 1 [like] =&gt; 94 [all] =&gt; 95 ) [2] =&gt; Array ( [keyword] =&gt; DS [search] =&gt; 0 [orgin] =&gt; 0 [trans] =&gt; 0 [comment] =&gt; 50 [like] =&gt; 3994 [all] =&gt; 4044 ))&lt;/pre&gt;]]></content>
   </entry>
   <entry>
     <title><![CDATA[北京之旅day3]]></title>

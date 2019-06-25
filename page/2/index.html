@@ -290,6 +290,146 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/ysql索引/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/23/ysql索引/" itemprop="url">mysql索引优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T15:02:56+08:00">
+                2019-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a>索引的优缺点</h2><p>优点<br>①类似大学图书馆的书目索引，提高数据的检索效率，降低数据库的IO成本。<br>②通过索引列对数据进行排序，降低数据的排序成本，从而降低CPU的消耗。<br>缺点<br>①索引实际上也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也要占用空间。<br>②虽然索引大大提高了查询效率，但是降低了更新表的速度，如insert、update和delete操作。因为更新表时，MySQL不仅要保存数据，还要保存索引文件每次更新的索引列字段，并且在更新操作后，会更新相应字段索引的信息。<br>③索引只是提高查询效率的一个因素，如果你的MySQL有大量的数据表，就需要花时间研究建立最优秀的索引或优化查询语句。</p>
+<h2 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h2><p>索引主要分为以下三类：<br>①单值索引：一个索引只包含单个列，一个表可以有多个单值索引。<br>②唯一索引：索引列的值必须唯一，但允许有空值，主键就是唯一索引。<br>③复合索引：一个索引包含多个列<br>索引的结构：<br>①BTREE索引；②Hash索引；③Full-Text索引；④R-Tree索引。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>①创建索引<br>create [unique] index indexname on tablename(columnname(length));</p>
+<p>alter table tablename add index indexname (columnname(length));<br>注：如果是char、varchar类型的字段，length可以小于字段实际长度；如果是blob、text类型，必须指定length。<br>②删除索引<br>drop index indexname on tablename;<br>③查看索引<br>show index from tablename;<br>④其他创建索引的方式</p>
+<p>1.添加主键索引<br>ALTER TABLE <code>table_name</code> ADD PRIMARY KEY (<code>column</code>) </p>
+<p>2.添加唯一索引<br>ALTER TABLE <code>table_name</code> ADD UNIQUE (<code>column</code>) </p>
+<p>3.添加全文索引<br>ALTER TABLE <code>table_name</code> ADD FULLTEXT (<code>column</code>) </p>
+<p>4.添加普通索引<br>ALTER TABLE <code>table_name</code> ADD INDEX index_name (<code>column</code> ) </p>
+<p>5.添加组合索引<br>ALTER TABLE <code>table_name</code> ADD INDEX index_name (<code>column1</code>, <code>column2</code>, <code>column3</code>)</p>
+<h2 id="建立索引与否的具体情况"><a href="#建立索引与否的具体情况" class="headerlink" title="建立索引与否的具体情况"></a>建立索引与否的具体情况</h2><p>①需建立索引的情况</p>
+<p>#1.主键自动建立唯一索引。</p>
+<p>#2.频繁作为查询条件的字段。</p>
+<p>#3.查询中与其他表关联的字段，外键关系建立索引。</p>
+<p>#4.高并发下趋向创建组合索引。</p>
+<p>#5.查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度。</p>
+<p>#6.查询中统计或分组字段。<br>②不需要创建索引的情况</p>
+<p>#1.表记录太少。（数据量太少MySQL自己就可以搞定了）</p>
+<p>#2.经常增删改的表。</p>
+<p>#3.数据重复且平均分配的字段，如国籍、性别，不适合创建索引。</p>
+<p>#4.频繁更新的字段不适合建立索引。</p>
+<p>#5.Where条件里用不到的字段不创建索引。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/ysql-orderby优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1468,159 +1608,6 @@ return SUCCESS;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/TTP响应报头/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/19/TTP响应报头/" itemprop="url">跨域请求</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T09:23:00+08:00">
-                2019-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/http/" itemprop="url" rel="index">
-                    <span itemprop="name">http</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>浏览器对于javascript的同源策略的限制,例如a.cn下面的js不能调用b.cn中的js,对象或数据(因为a.cn和b.cn是不同域),所以跨域就出现了.</p>
-<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>请求的url地址,必须与浏览器上的url地址处于同域上,也就是域名,端口,协议相同.<br>比如:我在本地上的域名是study.cn,请求另外一个域名一段数据，这个时候在浏览器上会报错</p>
-<p><img src="\images\pasted-86.png" alt="upload successful"></p>
-<p><img src="\images\pasted-85.png" alt="upload successful"></p>
-<p>p($header)每次请求打印出来的头部：<br><img src="\images\pasted-87.png" alt="upload successful"></p>
-<h2 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h2><p>该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。<br>如需允许所有资源都可以访问您的资源，您可以如此设置：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Access</span>-Control-Allow-Origin: *</span><br></pre></td></tr></table></figure></p>
-<p>如需允许<a href="https://developer.mozilla.org访问您的资源，您可以设置：" target="_blank" rel="noopener">https://developer.mozilla.org访问您的资源，您可以设置：</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-<span class="string">Origin:</span>  <span class="string">https:</span><span class="comment">//developer.mozilla.org</span></span><br></pre></td></tr></table></figure></p>
-<p>zl的origin为<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
-<h2 id="Access-Control-Allow-Credentials"><a href="#Access-Control-Allow-Credentials" class="headerlink" title="Access-Control-Allow-Credentials"></a>Access-Control-Allow-Credentials</h2><p>该字段可选。它的值是一个布尔值，表示是否允许发送Cookie。默认情况下，Cookie不包括在CORS请求之中。设为true，即表示服务器明确许可，Cookie可以包含在请求中，一起发给服务器。这个值也只能设为true，如果服务器不要浏览器发送Cookie，删除该字段即可。</p>
-<h2 id="Access-Control-Allow-Methods"><a href="#Access-Control-Allow-Methods" class="headerlink" title="Access-Control-Allow-Methods"></a>Access-Control-Allow-Methods</h2><p>响应首部 Access-Control-Allow-Methods 在对 preflight request.（预检请求）的应答中明确了客户端所要访问的资源允许使用的方法或方法列表。</p>
-<h2 id="Access-Control-Allow-Headers"><a href="#Access-Control-Allow-Headers" class="headerlink" title="Access-Control-Allow-Headers"></a>Access-Control-Allow-Headers</h2><p>预检请求,列出了将会在正式请求的 Access-Control-Expose-Headers 字段中出现的首部信息。</p>
-<h2 id="Access-Control-Expose-Headers"><a href="#Access-Control-Expose-Headers" class="headerlink" title="Access-Control-Expose-Headers"></a>Access-Control-Expose-Headers</h2><p>该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeader(‘FooBar’)可以返回FooBar字段的值。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1673,7 +1660,7 @@ return SUCCESS;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">76</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
