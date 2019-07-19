@@ -290,6 +290,251 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/11/hp生成器函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/11/hp生成器函数/" itemprop="url">php生成器函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-11T11:07:39+08:00">
+                2019-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>生成器函数的核心是yield关键字。它最简单的调用形式看起来像一个return申明，不同之处在于普通return会返回值并终止函数的执行，而yield会返回一个值给循环调用此生成器的代码并且只是暂停执行生成器函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">my_range</span><span class="params">($start,$limit)</span></span>&#123;    </span><br><span class="line">	<span class="keyword">for</span>($i=$start;$i&lt;=$limit;$i++)&#123;</span><br><span class="line">		<span class="keyword">yield</span> $i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>($arr <span class="keyword">as</span> $num)&#123;</span><br><span class="line">	<span class="keyword">echo</span> $num.PHP_EOL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/p闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/p闭包/" itemprop="url">php闭包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T15:15:33+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="闭包函数"><a href="#闭包函数" class="headerlink" title="闭包函数"></a>闭包函数</h2><p>闭包函数也叫匿名函数,是个无需函数名称的函数。也可以当函数参数使用,并且在做行参是无需分号结尾</p>
+<p>不是所有的匿名函数都是闭包。必须是使用use的匿名才属于闭包<br>闭包函数也可以当变量使用<br>闭包函数其实是自动化初始化Closure类<br>闭包函数拥有继承</p>
+<h2 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$test = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'nihao'</span>. PHP_EOL;</span><br><span class="line">&#125;;</span><br><span class="line">$test();</span><br><span class="line">var_dump($test);</span><br></pre></td></tr></table></figure>
+<p>输出<br>nihao<br>object(Closure)#1 (0) {<br>}</p>
+<h2 id="闭包函数继承"><a href="#闭包函数继承" class="headerlink" title="闭包函数继承"></a>闭包函数继承</h2><p>闭包函数可以采拥use接受父作用域的变量<br>php7.1后,不可传递 superglobals , $this 和 自己重名的变量<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$global = <span class="string">'global'</span>;</span><br><span class="line">$unUse = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'unUse_'</span>.$global;</span><br><span class="line">&#125;;</span><br><span class="line">$Use = <span class="function"><span class="keyword">function</span><span class="params">()</span> <span class="title">use</span><span class="params">($global )</span></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'Use_'</span>.$global;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">echo</span> $unUse();</span><br><span class="line"><span class="keyword">echo</span> PHP_EOL;</span><br><span class="line"><span class="keyword">echo</span> $Use();</span><br></pre></td></tr></table></figure></p>
+<p><img src="\images\pasted-37.png" alt="upload successful"><br>由此可见使用了use的可以进行变量值传递</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/tp1-0-2-0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1249,152 +1494,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/php设计模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/09/php设计模式/" itemprop="url">php设计模式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
-                2019-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/php/" itemprop="url" rel="index">
-                    <span itemprop="name">php</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/09/php设计模式/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1541,7 +1640,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/p抽象类/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/php设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -1560,7 +1659,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/09/p抽象类/" itemprop="url">php抽象类</a></h1>
+                <a class="post-title-link" href="/2019/04/09/php设计模式/" itemprop="url">php设计模式</a></h1>
         
 
         <div class="post-meta">
@@ -1572,7 +1671,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:28:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
                 2019-04-09
               </time>
             
@@ -1633,165 +1732,17 @@
 
       
         
-          
-            <p>抽象类与接口紧密相关，它们不能实例化，并且常常部分实现或根本不实现。抽象类和接口之间的一个主要差别是：类可以实现无限个接口，但仅能从一个抽象（或任何其他类型）类继承。从抽象类派生的类仍可实现接口。可以在创建组件时使用抽象类，因为它们使您得以在某些方法中指定不变级功能，但直到需要该类的特定实现之后才实现其他方法。抽象类也制定版本，因为如果在派生类中需要附加功能，则可以将其添加到基类而不中断代码。<br>PHP抽象类应用的定义：<br>abstract class ClassName{<br>}</p>
-<h2 id="什么是抽象方法"><a href="#什么是抽象方法" class="headerlink" title="什么是抽象方法"></a>什么是抽象方法</h2><p>我们在类里面定义的没有方法体的方法就是抽象方法，所谓的没有方法体指的是，在方法声明的时候没有大括号以及其中的内容，而是直接在声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字“abstract”来修饰；</p>
-<h2 id="什么是php抽象类"><a href="#什么是php抽象类" class="headerlink" title="什么是php抽象类"></a>什么是php抽象类</h2><p>只要一个类里面有一个方法是抽象方法，那么这个类就要定义为抽象类，抽象类也要使用“abstract”关键字来修饰；在抽象类里面可以有不是抽象的方法和成员属性，但只要有一个方法是抽象的方法，这个类就必须声明为抽象类，使用”abstract”来修饰。</p>
-<h2 id="PHP抽象类应用要点："><a href="#PHP抽象类应用要点：" class="headerlink" title="PHP抽象类应用要点："></a>PHP抽象类应用要点：</h2><p>　　1.定义一些方法，子类必须完全实现这个抽象中所有的方法<br>　　2.不能从抽象类创建对象，它的意义在于被扩展<br>　　3.抽象类通常具有抽象方法，方法中没有大括号</p>
-<h2 id="PHP抽象类应用重点："><a href="#PHP抽象类应用重点：" class="headerlink" title="PHP抽象类应用重点："></a>PHP抽象类应用重点：</h2><p>　　1.抽象方法不必实现具体的功能，由子类来完成<br>　　2.在子类实现抽象类的方法时，其子类的可见性必须大于或等于抽象方法的定义<br>　　3.抽象类的方法可以有参数，也可以为空<br>　　4.如果抽象方法有参数，那么子类的实现也必须有相同的参数个数</p>
-<p>PHP抽象类应用示例：<br>abstract public function_name(); //注意没有大括号</p>
-<h2 id="PHP抽象类规则："><a href="#PHP抽象类规则：" class="headerlink" title="PHP抽象类规则："></a>PHP抽象类规则：</h2><p>某个类只要至少含有一个抽象方法，就必须声明为抽象类<br>抽象方法，不能够含有函数体<br>继承抽象类的子类，实现抽象方法的，必须跟该抽象方法具有相同或者更低的访问级别<br>继承抽象类的子类，如果不实现所有抽象方法，那么该子类也为抽象类</p>
-<h2 id="计算矩形的周长"><a href="#计算矩形的周长" class="headerlink" title="计算矩形的周长"></a>计算矩形的周长</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt; ?PHP   </span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;   </span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>;   </span><br><span class="line"><span class="comment">//和一般的方法不同的是，这个方法没有大括号   </span></span><br><span class="line"><span class="comment">//你不能创建这个抽象类的实例：$Shape_Rect= new Shape(); </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;   </span><br><span class="line"><span class="keyword">private</span> $width;   </span><br><span class="line"><span class="keyword">private</span> $height;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($width=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">$height=<span class="number">0</span>)</span></span>&#123;   </span><br><span class="line"></span><br><span class="line">　　<span class="keyword">$this</span>-&gt;width=$width;   </span><br><span class="line">　　<span class="keyword">$this</span>-&gt;height=$height;   </span><br><span class="line">&#125;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>&#123;   </span><br><span class="line">　　<span class="keyword">echo</span> (<span class="keyword">$this</span>-&gt;width+<span class="keyword">$this</span>-&gt;height)*<span class="number">2</span>;   </span><br><span class="line">&#125;   </span><br><span class="line">&#125;   </span><br><span class="line">$Shape_Rect = <span class="keyword">new</span> Rectangle(<span class="number">20</span>,<span class="number">30</span>);   </span><br><span class="line">$Shape_Rect-&gt;get_area();   </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-          
+          <h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><p>策略模式是对象的行为模式，用意是对一组算法的封装。动态的选择需要的算法并使用。<br>策略模式指的是程序中涉及决策控制的一种模式。策略模式功能非常强大，因为这个设计模式本身的核心思想就是面向对象编程的多形性思想。<br>策略模式的三个角色：<br>1．抽象策略角色<br>2．具体策略角色<br>3．环境角色（对抽象策略角色的引用）<br>实现步骤：<br>1．定义抽象角色类（定义好各个实现的共同抽象方法）<br>2．定义具体策略类（具体实现父类的共同方法）<br>3．定义环境角色类（私有化申明抽象角色变量，重载构造方法，执行抽象方法）<br>就在编程领域之外，有许多例子是关于策略模式的。例如：<br>如果我需要在早晨从家里出发去上班，我可以有几个策略考虑：我可以乘坐地铁，乘坐公交车，走路或其它的途径。每个策略可以得到相同的结果，但是使用了不同的资源。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/php设计模式/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/inux基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/inux基础操作/" itemprop="url">linux基础操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T14:51:00+08:00">
-                2019-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="find操作"><a href="#find操作" class="headerlink" title="find操作"></a>find操作</h2><p>将目前目录及其子目录下所有延伸档名是 c 的文件列出来。<br>find . -name “*.c”<br><img src="\images\pasted-26.png" alt="upload successful"><br>将目前目录其其下子目录中所有一般文件列出<br>find . -type f</p>
-<p>递归查找<br>find . -r -name “*.txt”</p>
-<h2 id="grep操作"><a href="#grep操作" class="headerlink" title="grep操作"></a>grep操作</h2><p>grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）<br>grep -r 1 *.md</p>
-<p>找出程序运行的端口<br>netstat -ap | grep ssh</p>
-
-          
-        
-      
-    </div>
+    </p></div>
     
     
     
@@ -1874,7 +1825,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">76</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
