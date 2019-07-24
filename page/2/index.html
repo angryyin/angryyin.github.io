@@ -290,6 +290,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/引失效的情况/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/23/引失效的情况/" itemprop="url">索引失效的情况</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T15:55:37+08:00">
+                2019-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.隐式转换导致索引失效.这一点应当引起重视.也是开发中经常会犯的错误.<br> 由于表的字段tu_mdn定义为varchar2(20),但在查询时把该字段作为number类型以where条件传给Oracle,这样会导致索引失效.<br> 错误的例子：select <em> from test where tu_mdn=13333333333;<br> 正确的例子：select </em> from test where tu_mdn=’13333333333’;</p>
+<p>2.对索引列进行运算导致索引失效,我所指的对索引列进行运算包括(+，-，<em>，/，! 等)<br> 错误的例子：select </em> from test where id-1=9;<br> 正确的例子：select * from test where id=10;</p>
+<p>3.使用Oracle内部函数导致索引失效.对于这样情况应当创建基于函数的索引.<br> 错误的例子：select <em> from test where round(id)=10; 说明，此时id的索引已经不起作用了<br> 正确的例子：首先建立函数索引，create index test_id_fbi_idx on test(round(id));然后 select </em> from test where round(id)=10; 这时函数索引起作用了</p>
+<p>4.以下使用会使索引失效，应避免使用；<br> a. 使用 &lt;&gt; 、not in 、not exist、!=<br> b. like “%_” 百分号在前（可采用在建立索引时用reverse(columnName)这种方法处理）<br> c. 单独引用复合索引里非第一位置的索引列.应总是使用索引的第一个列，如果索引是建立在多个列上, 只有在它的第一个列被where子句引用时，优化器才会选择使用该索引。<br> d. 字符型字段为数字时在where条件里不添加引号.<br> e. 当变量采用的是times变量，而表的字段采用的是date变量时.或相反情况。</p>
+<p>5.不要将空的变量值直接与比较运算符（符号）比较。<br> 如果变量可能为空，应使用 IS NULL 或 IS NOT NULL 进行比较，或者使用 ISNULL 函数。</p>
+<p>6.不要在 SQL 代码中使用双引号。<br> 因为字符常量使用单引号。如果没有必要限定对象名称，可以使用（非 ANSI SQL 标准）括号将名称括起来。</p>
+<p>7.将索引所在表空间和数据所在表空间分别设于不同的磁盘chunk上，有助于提高索引查询的效率。</p>
+<ol start="8">
+<li><p>Oracle默认使用的基于代价的SQL优化器（CBO）非常依赖于统计信息，一旦统计信息不正常，会导致数据库查询时不使用索引或使用错误的索引。<br>一般来说，Oracle的自动任务里面会包含更新统计信息的语句，但如果表数据发生了比较大的变化（超过20%）,可以考虑立即手动更新统计信息，例如：analyze table abc compute statistics，但注意，更新   统计信息比较耗费系统资源，建议在系统空闲时执行。</p>
+</li>
+<li><p>Oracle在进行一次查询时，一般对一个表只会使用一个索引.<br>因此，有时候过多的索引可能导致Oracle使用错误的索引，降低查询效率。例如某表有索引1（Policyno）和索引2（classcode），如果查询条件为policyno = ‘xx’ and classcode = ‘xx’，则系统有可能会使用索   引2，相较于使用索引1，查询效率明显降低。</p>
+</li>
+<li><p>优先且尽可能使用分区索引。</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/库总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1469,145 +1603,6 @@ return SUCCESS;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/p-hashtable/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/22/p-hashtable/" itemprop="url">php 底层探究</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T19:16:03+08:00">
-                2019-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Zend hash table<br>hashtable有键值对形式的散列结构，也有双向链表模式</p>
-<h2 id="散列结构"><a href="#散列结构" class="headerlink" title="散列结构"></a>散列结构</h2><p>1、zend 散列结构为hash表，通过链表方式来解决冲突<br>2、自增数据结构，当hash表数目满了之后，其本身会动态以2倍的方式扩容并重置原始位置，初始大小为8<br>3、以nkeylength标识key长度来作快速判定（空间换时间）</p>
-<h2 id="双向链表"><a href="#双向链表" class="headerlink" title="双向链表"></a>双向链表</h2><p>双向链表结构主要目的是实现快速删除，避免遍历</p>
-<h2 id="php关联数组"><a href="#php关联数组" class="headerlink" title="php关联数组"></a>php关联数组</h2><figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getKeyHashValue h; </span><br><span class="line">index = n &amp; nTableMask; </span><br><span class="line">Bucket *p = arBucket[index];                                 </span><br><span class="line"><span class="keyword">while</span> (p) &#123;     </span><br><span class="line">    <span class="function"><span class="title">if</span> ((p-&gt;</span><span class="function"><span class="title">h</span> == h) &amp; (p-&gt;</span>nKeyLength == nKeyLength))&#123;</span><br><span class="line">   		RETURN <span class="function"><span class="title">p</span>-&gt;</span><span class="keyword">data</span>;    </span><br><span class="line">   	&#125;         </span><br><span class="line">    <span class="function"><span class="title">p</span>=p-&gt;</span>next; </span><br><span class="line">&#125;</span><br><span class="line">RETURN FALTURE;</span><br></pre></td></tr></table></figure>
-<h2 id="php索引数组"><a href="#php索引数组" class="headerlink" title="php索引数组"></a>php索引数组</h2><p>索引数组就是我们常见的数组，通过下标访问。<br>Zend HashTable内部进行了归一化处理，对于index类型key同样分配了hash值和nKeyLength(为0)。内部成员变量nNextFreeElement就是当前分配到的最大id，每次push后自动加一。<br>正是这种归一化处理，PHP才能够实现关联和非关联的混合。<br>由于push操作的特殊性，索引key在PHP数组中先后顺序并不是通过下标大小来决定，而是由push的先后决定。</p>
-<h2 id="php变量zval"><a href="#php变量zval" class="headerlink" title="php变量zval"></a>php变量zval</h2><p>PHP是一门弱类型语言，本身不严格区分变量的类型。PHP在变量申明的时候不需要指定类型。PHP在程序运行期间可能进行变量类型的隐示转换。和其他强类型语言一样，程序中也可以进行显示的类型转换。PHP变量可以分为简单类型(int、string、bool)、集合类型(array resource object)和常量(const)。以上所有的变量在底层都是同一种结构 zval。<br>Zval是zend中另一个非常重要的数据结构，用来标识并实现PHP变量，其数据结构如下：</p>
-<p><img src="\images\pasted-91.png" alt="upload successful"></p>
-<p>Zval主要由三部分组成：<br>type：指定了变量所述的类型（整数、字符串、数组等）<br>refcount&amp;is_ref：用来实现引用计数(后面具体介绍)<br>value：核心部分，存储了变量的实际数据<br>Zvalue是用来保存一个变量的实际数据。因为要存储多种类型，所以zvalue是一个union，也由此实现了弱类型。</p>
-<h2 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h2><p>引用计数在内存回收、字符串操作等地方使用非常广泛。PHP中的变量就是引用计数的典型应用。<br>Zval的引用计数通过成员变量is_ref和ref_count实现，通过引用计数，多个变量可以共享同一份数据。避免频繁拷贝带来的大量消耗。</p>
-<p>在进行赋值操作时，zend将变量指向相同的zval同时ref_count++，在unset操作时，对应的ref_count-1。只有ref_count减为0时才会真正执行销毁操作。如果是引用赋值，则zend会修改is_ref为1。</p>
-<h2 id="如果共享变量其中的一个变量被改变"><a href="#如果共享变量其中的一个变量被改变" class="headerlink" title="如果共享变量其中的一个变量被改变"></a>如果共享变量其中的一个变量被改变</h2><p>当试图写入一个变量时，Zend若发现该变量指向的zval被多个变量共享，则为其复制一份ref_count为1的zval，并递减原zval的refcount，这个过程称为“zval分离”</p>
-<p>对于引用型变量，其要求和非引用型相反，引用赋值的变量间必须是捆绑的，修改一个变量就修改了所有捆绑变量。</p>
-<h2 id="整数和浮点数"><a href="#整数和浮点数" class="headerlink" title="整数和浮点数"></a>整数和浮点数</h2><p>整数类型，和c等强类型语言不同，PHP是不区分int、unsigned int、long、long long等类型的，对它来说，整数只有一种类型也就是long。<br>浮点数，类似整数，它也不区分float和double而是统一只有double一种类型。<br>在PHP里面，整数的取值范围是由编译器位数来决定而不是固定不变的。</p>
-<h2 id="如果整数范围越界了怎么办？"><a href="#如果整数范围越界了怎么办？" class="headerlink" title="如果整数范围越界了怎么办？"></a>如果整数范围越界了怎么办？</h2><p>这种情况下会自动转换为double类型，这个一定要小心，很多trick都是由此产生。</p>
-<h2 id="字符和字符串"><a href="#字符和字符串" class="headerlink" title="字符和字符串"></a>字符和字符串</h2><p>在PHP中，字符串是由指向实际数据的指针和长度结构体组成<br>和c不同，它的字符串可以是2进制数据（包含\0），同时在PHP中，求字符串长度strlen是O(1)操作。<br>在新增、修改、追加字符串操作时，PHP都会重新分配内存生成新的字符串。最后，出于安全考虑，PHP在生成一个字符串时末尾仍然会添加\0。<br>假设有如下4个变量：<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"><span class="meta-keyword">$strA</span> = '123';</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$strB</span> = '456';</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$intA</span> = 123;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$intB</span> = 456;</span></span><br></pre></td></tr></table></figure></p>
-<p>现在对如下的几种字符串拼接方式做一个比较和说明：<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 下面两张情况，zend会重新malloc一块内存并进行相应处理，其速度一般</span><br><span class="line">$res = $strA . $strB</span><br><span class="line">$res = <span class="string">"$strA$strB"</span></span><br><span class="line">// 这种是速度最快的，zend会在当前strA基础上直接relloc，避免重复拷贝</span><br><span class="line">$strA = $strA . $strB</span><br><span class="line"></span><br><span class="line">// 这种速度较慢，因为需要做隐式的格式转换，实际编写程序中也应该注意尽量避免</span><br><span class="line">$res = $intA . $intB</span><br><span class="line"></span><br><span class="line">// 这会是最慢的一种方式，因为<span class="keyword">sprintf</span>在PHP中并不是一个语言结构，</span><br><span class="line">// 本身对于格式识别和处理就需要耗费比较多时间，另外本身机制也是malloc。</span><br><span class="line">// 不过<span class="keyword">sprintf</span>的方式最具可读性，实际中可以根据具体情况灵活选择。</span><br><span class="line">$strA = <span class="keyword">sprintf</span> (<span class="string">"%s%s"</span>, $strA . $strB);</span><br></pre></td></tr></table></figure></p>
-<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>PHP的数组通过Zend HashTable来天然实现。<br>foreach操作如何实现？对一个数组的foreach就是通过遍历hashtable中的双向链表完成。对于索引数组，通过foreach遍历效率比for高很多，省去了key-&gt;value的查找。<br>count操作直接调用HashTable-&gt;NumOfElements，O(1)操作。对于 ‘123’ 这样的字符串，zend会转换为其整数形式。$arr[‘123’]和$arr[123]是等价的。</p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><p>资源类型变量是PHP中最复杂的一种变量，也是一种复合型结构。<br>PHP的zval可以表示广泛的数据类型，但是对于自定义的数据类型却很难充分描述。由于没有有效的方式描绘这些复合结构，因此也没有办法对它们使用传统的操作符。要解决这个问题，只需要通过一个本质上任意的标识符（label）引用指针，这种方式被称为资源。<br>在zval中，对于resource，lval作为指针来使用，直接指向资源所在的地址。Resource可以是任意的复合结构，我们熟悉的mysqli、fsock、memcached等都是资源。<br>如何使用资源：<br>注册：对于一个自定义的数据类型，要想将它作为资源。首先需要进行注册，zend会为它分配全局唯一标示。<br>获取一个资源变量：对于资源，zend维护了一个id-&gt;实际数据的hash_tale。对于一个resource，在zval中只记录了它的id。fetch的时候通过id在hash_table中找到具体的值返回。<br>资源销毁：资源的数据类型是多种多样的。Zend本身没有办法销毁它。因此需要用户在注册资源的时候提供销毁函数。当unset资源时，zend调用相应的函数完成析构。同时从全局资源表中删除它。<br>资源可以长期驻留，不只是在所有引用它的变量超出作用域之后，甚至是在一个请求结束了并且新的请求产生之后。这些资源称为持久资源，因为它们贯通SAPI的整个生命周期持续存在，除非特意销毁。很多情况下，持久化资源可以在一定程度上提高性能。比如我们常见的mysql_pconnect ,持久化资源通过pemalloc分配内存，这样在请求结束的时候不会释放。 对zend来说，对两者本身并不区分。</p>
-<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><p>PHP中的局部变量和全局变量是如何实现的？对于一个请求，任意时刻PHP都可以看到两个符号表(symbol_table和active_symbol_table)，其中前者用来维护全局变量。后者是一个指针，指向当前活动的变量符号表，当程序进入到某个函数中时，zend就会为它分配一个符号表x同时将active_symbol_table指向a。通过这样的方式实现全局、局部变量的区分。</p>
-<h2 id="函数中使用全局变量"><a href="#函数中使用全局变量" class="headerlink" title="函数中使用全局变量"></a>函数中使用全局变量</h2><p>在函数中，我们可以通过显式申明global来使用全局变量。在active_symbol_table中创建symbol_table中同名变量的引用，如果symbol_table中没有同名变量则会先创建。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1660,7 +1655,7 @@ return SUCCESS;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
