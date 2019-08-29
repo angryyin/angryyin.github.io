@@ -290,6 +290,665 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/SI/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/SI/" itemprop="url">OSI</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T08:58:09+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>物理层<br>数据链路层<br>网络层<br>传输层<br>会话层<br>表示层<br>应用层</p>
+<p><img src="\images\pasted-31.png" alt="upload successful"></p>
+<h2 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h2><p>   OSI参考模型中最靠近用户的一层，是为计算机用户提供应用接口，也为用户直接提供各种网络服务。我们常见应用层的网络服务协议有：HTTP，HTTPS，FTP，POP3、SMTP等。<br>   网际控制报文协议DHCP处于应用层</p>
+<h2 id="表示层"><a href="#表示层" class="headerlink" title="表示层"></a>表示层</h2><p>   表示层提供各种用于应用层数据的编码和转换功能,确保一个系统的应用层发送的数据能被另一个系统的应用层识别。如果必要，该层可提供一种标准表示形式，用于将计算机内部的多种数据格式转换成通信中采用的标准表示形式。数据压缩和加密也是表示层可提供的转换功能之一。</p>
+<h2 id="会话层"><a href="#会话层" class="headerlink" title="会话层"></a>会话层</h2><p>   会话层就是负责建立、管理和终止表示层实体之间的通信会话。该层的通信由不同设备中的应用程序之间的服务请求和响应组成。 </p>
+<h2 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h2><p>   传输层建立了主机端到端的链接，传输层的作用是为上层协议提供端到端的可靠和透明的数据传输服务，包括处理差错控制和流量控制等问题。该层向高层屏蔽了下层数据通信的细节，使高层用户看到的只是在两个传输实体间的一条主机到主机的、可由用户控制和设定的、可靠的数据通路。我们通常说的，TCP UDP就是在这一层。端口号既是这里的“端”。</p>
+<h2 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h2><p>   本层通过IP寻址来建立两个节点之间的连接，为源端的运输层送来的分组，选择合适的路由和交换节点，正确无误地按照地址传送给目的端的运输层。就是通常说的IP层。这一层就是我们经常说的IP协议层。IP协议是Internet的基础。</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层 "></a>数据链路层 </h2><p>   将比特组合成字节,再将字节组合成帧,使用链路层地址 (以太网使用MAC地址)来访问介质,并进行差错检测。<br>   交换机内部的CPU会在每个端口成功连接时，通过ARP协议学习它的MAC地址，保存成一张 ARP表。</p>
+<h2 id="物理层"><a href="#物理层" class="headerlink" title="物理层     "></a>物理层     </h2><p>   实际最终信号的传输是通过物理层实现的。通过物理介质传输比特流。规定了电平、速度和电缆针脚。常用设备有（各种物理设备）集线器、中继器、调制解调器、网线、双绞线、同轴电缆。这些都是物理层的传输介质。</p>
+<p>TCP/IP模型<br><img src="\images\pasted-32.png" alt="upload successful"></p>
+<p><img src="\images\pasted-33.png" alt="upload successful"></p>
+<p>地址解析协议ARP<br>完成IP地址到MAC地址的映射 即询问目标IP对应的MAC地址</p>
+<p>逆地址解析协议RARP<br>完成MAC地址到IP地址的映射</p>
+<p>域名解析DNS<br>完成域名到ip地址映射，使用udp传输</p>
+<p>在浏览器中输入<a href="http://www.baidu.com后执行的全部过程" target="_blank" rel="noopener">www.baidu.com后执行的全部过程</a><br>1、客户端浏览器通过DNS解析到<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a> 的IP地址220.181.27.48，通过这个IP地址找到客户端到服务器的路径。客户端浏览器发起一个HTTP会话到220.181.27.48，然后通过TCP进行封装数据包，输入到网络层。<br>2、在客户端的传输层，把HTTP会话请求分成报文段，添加源和目的端口，如服务器使用80端口监听客户端的请求，客户端由系统随机选择一个端口如5000，与服务器进行交换，服务器把相应的请求返回给客户端的5000端口。然后使用IP层的IP地址查找目的端。<br>3、客户端的网络层不用关心应用层或者传输层的东西，主要做的是通过查找路由表确定如何到达服务器，期间可能经过多个路由器，这些都是由路由器来完成的工作，我不作过多的描述，无非就是通过查找路由表决定通过那个路径到达服务器。<br>4、客户端的链路层，包通过链路层发送到路由器，通过邻居协议查找给定IP地址的MAC地址，然后发送ARP请求查找目的地址，如果得到回应后就可以使用ARP的请求应答交换的IP数据包现在就可以传输了，然后发送IP数据包到达服务器的地址。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/p-udp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/p-udp/" itemprop="url">tcp/udp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T08:40:50+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="面向连接与无连接"><a href="#面向连接与无连接" class="headerlink" title="面向连接与无连接"></a>面向连接与无连接</h2><p>TCP面向连接（如打电话要先拨号建立连接）;<br>UDP是无连接的，即发送数据之前不需要建立连接</p>
+<h2 id="数据可靠性"><a href="#数据可靠性" class="headerlink" title="数据可靠性"></a>数据可靠性</h2><p>TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付</p>
+<p>Tcp通过校验和，重传控制，序号标识，滑动窗口、确认应答实现可靠传输。如丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。</p>
+<h2 id="速度"><a href="#速度" class="headerlink" title="速度"></a>速度</h2><p>UDP具有较好的实时性，工作效率比TCP高，适用于对高速传输和实时性有较高的通信或广播通信。</p>
+<h2 id="tcp连接一对一"><a href="#tcp连接一对一" class="headerlink" title="tcp连接一对一"></a>tcp连接一对一</h2><p>每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信</p>
+<h2 id="占用资源"><a href="#占用资源" class="headerlink" title="占用资源"></a>占用资源</h2><p>TCP对系统资源要求较多，UDP对系统资源要求较少。</p>
+<p>TCP与UDP区别总结：<br>1、TCP面向连接（如打电话要先拨号建立连接）;UDP是无连接的，即发送数据之前不需要建立连接<br>2、TCP提供可靠的服务。也就是说，通过TCP连接传送的数据，无差错，不丢失，不重复，且按序到达;UDP尽最大努力交付，即不保证可靠交付<br>Tcp通过校验和，重传控制，序号标识，滑动窗口、确认应答实现可靠传输。如丢包时的重发控制，还可以对次序乱掉的分包进行顺序控制。<br>3、UDP具有较好的实时性，工作效率比TCP高，适用于对高速传输和实时性有较高的通信或广播通信。<br>4.每一条TCP连接只能是点到点的;UDP支持一对一，一对多，多对一和多对多的交互通信<br>5、TCP对系统资源要求较多，UDP对系统资源要求较少。</p>
+<h2 id="为什么UDP有时比TCP更有优势"><a href="#为什么UDP有时比TCP更有优势" class="headerlink" title="为什么UDP有时比TCP更有优势?"></a>为什么UDP有时比TCP更有优势?</h2><p>UDP以其简单、传输快的优势，在越来越多场景下取代了TCP,如实时游戏。<br>（1）网速的提升给UDP的稳定性提供可靠网络保障，丢包率很低，如果使用应用层重传，能够确保传输的可靠性。<br>（2）TCP为了实现网络通信的可靠性，使用了复杂的拥塞控制算法，建立了繁琐的握手过程，由于TCP内置的系统协议栈中，极难对其进行改进。<br>采用TCP，一旦发生丢包，TCP会将后续的包缓存起来，等前面的包重传并接收到后再继续发送，延时会越来越大，基于UDP对实时性要求较为严格的情况下，采用自定义重传机制，能够把丢包产生的延迟降到最低，尽量减少网络问题对游戏性造成影响。</p>
+<h2 id="TCP与UDP的适用场景"><a href="#TCP与UDP的适用场景" class="headerlink" title="TCP与UDP的适用场景"></a>TCP与UDP的适用场景</h2><p>TCP：<br>对数据传输的质量有较高要求，但对实时性要求不高。比如HTTP，HTTPS，FTP等传输文件的协议以及POP，SMTP等邮件传输的协议，应选用TCP协议。</p>
+<p>UDP：<br>只对数据传输的实时性要求较高，但不对传输质量有要求。比如视频传输、实时通信等，应选用UDP协议。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/ysql事务/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/17/ysql事务/" itemprop="url">mysql事务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T20:15:00+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="什么是事务"><a href="#什么是事务" class="headerlink" title="什么是事务"></a>什么是事务</h2><p>事务是一条或多条数据库操作语句的组合，具备ACID，4个特点。</p>
+<p><img src="\images\pasted-118.png" alt="upload successful"></p>
+<p>pass:脏读是读到了未提交的数据(有其他用户在更改数据)，而不可重复读读的是已经提交的，但是违反了事务的一致性要求. 幻读的重点在于新增或者删除. 脏读：数据读错方只读了一次数据库。<br>不可重复读：数据读错方读了两次数据库</p>
+<p>pass：不可重复读与幻读的本质区别<br>不可重复读是读取了其他事务更改的数据，针对update操作<br>解决：使用行级锁，锁定该行，事务A多次读取操作完成后才释放该锁，这个时候才允许其他事务更改刚才的数据。</p>
+<p>幻读是读取了其他事务新增的数据，针对insert操作<br>解决：使用表级锁，锁定整张表，事务A多次读取数据总量之后才释放该锁，这个时候才允许其他事务新增数据。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/17/ysql事务/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/17/o-undo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/17/o-undo/" itemprop="url">redo&undo</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-17T19:50:00+08:00">
+                2019-04-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>redo（重做）保障了数据库的持久性<br>undo（撤销）保障了数据库的原子性</p>
+<p>当数据库系统崩溃后，如何恢复？</p>
+<p>两个原则<br>从前向后读取redo，重做所有已提交的事务<br>从后往前读取undo，回滚未提交的事务</p>
+<p>Undo + Redo事务的简化过程<br>A.事务开始.<br>B.记录A=1到undo log.<br>C.修改A=3.<br>D.记录A=3到redo log.<br>E.记录B=2到undo log.<br>F.修改B=4.<br>G.记录B=4到redo log.<br>H.将redo log写入磁盘。<br>I.事务提交</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/16/序算法/" itemprop="url">排序算法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-16T10:33:47+08:00">
+                2019-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="快排"><a href="#快排" class="headerlink" title="快排"></a>快排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//二路快排</span></span></span><br><span class="line"><span class="php">$ar = [<span class="number">34</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">555</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">14</span>, <span class="number">5</span>, <span class="number">88</span>, <span class="number">89</span>, <span class="number">54</span>];</span></span><br><span class="line"><span class="php">print_r(json_encode($ar));</span></span><br><span class="line"><span class="php">quick($ar);</span></span><br><span class="line"><span class="php">print_r(json_encode($ar));</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">quick</span><span class="params">(array &amp; $ar, $left = <span class="number">0</span>, $right = null)</span></span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($right === <span class="keyword">null</span>) &#123;</span></span><br><span class="line"><span class="php">        $right = sizeof($ar) - <span class="number">1</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($left &gt;= $right) &#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//not need to sort</span></span></span><br><span class="line"><span class="php"><span class="comment">//        echo "finish";</span></span></span><br><span class="line"><span class="php">        <span class="keyword">return</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $first_index = $left;</span></span><br><span class="line"><span class="php">    $last_index = $right;</span></span><br><span class="line"><span class="php">    $key = $ar[$left];</span></span><br><span class="line"><span class="php">    <span class="keyword">while</span> ($left != $right) &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($ar[$right] &gt;= $key &amp;&amp; $left &lt; $right) &#123;</span></span><br><span class="line"><span class="php">            $right--;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">while</span> ($ar[$left] &lt;= $key &amp;&amp; $left &lt; $right) &#123;</span></span><br><span class="line"><span class="php">            $left++;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> ($left &lt; $right) &#123;</span></span><br><span class="line"><span class="php">            <span class="comment">//swap</span></span></span><br><span class="line"><span class="php">            $t = $ar[$left]; $ar[$left] = $ar[$right]; $ar[$right] = $t; &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span> ($first_index != $left) &#123;</span></span><br><span class="line"><span class="php">        $ar[$first_index] = $ar[$left];</span></span><br><span class="line"><span class="php">        $ar [$left] = $key;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//left == right == mid</span></span></span><br><span class="line"><span class="php">    quick($ar, $first_index, $left - <span class="number">1</span>);</span></span><br><span class="line"><span class="php">    quick($ar, $left + <span class="number">1</span>, $last_index);</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="插排"><a href="#插排" class="headerlink" title="插排"></a>插排</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">//直接插入排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">swap</span><span class="params">(array &amp;$arr,$a,$b)</span></span>&#123;</span></span><br><span class="line"><span class="php">  $temp = $arr[$a];</span></span><br><span class="line"><span class="php">  $arr[$a] = $arr[$b];</span></span><br><span class="line"><span class="php">  $arr[$b] = $temp;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">InsertSort</span><span class="params">(array &amp;$arr)</span></span>&#123;</span></span><br><span class="line"><span class="php">  $count = count($arr);</span></span><br><span class="line"><span class="php">  <span class="comment">//数组中第一个元素作为一个已经存在的有序表</span></span></span><br><span class="line"><span class="php">  <span class="keyword">for</span>($i = <span class="number">1</span>;$i &lt; $count;$i ++)&#123;</span></span><br><span class="line"><span class="php">    $temp = $arr[$i];   <span class="comment">//设置哨兵</span></span></span><br><span class="line"><span class="php">    <span class="keyword">for</span>($j = $i - <span class="number">1</span>;$j &gt;= <span class="number">0</span> &amp;&amp; $arr[$j] &gt; $temp;$j --)&#123;</span></span><br><span class="line"><span class="php">      $arr[$j + <span class="number">1</span>] = $arr[$j];    <span class="comment">//记录后移</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $arr[$j + <span class="number">1</span>] = $temp;   <span class="comment">//插入到正确的位置</span></span></span><br><span class="line"><span class="php">  &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$arr = <span class="keyword">array</span>(<span class="number">9</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">2</span>);</span></span><br><span class="line"><span class="php">InsertSort($arr);</span></span><br><span class="line"><span class="php">var_dump($arr);</span></span><br></pre></td></tr></table></figure>
+<h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 冒泡排序</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">PrintMinNumber</span><span class="params">($numbers)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    $length = count($numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span>($length == <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="string">''</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i &lt; $length<span class="number">-1</span>;$i++)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">for</span>($j = $i;$j &lt; $length;$j++)&#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">if</span>($numbers[$i].$numbers[$j] &gt; $numbers[$j].$numbers[$i])&#123;</span></span><br><span class="line"><span class="php">                $temp = $numbers[$i];</span></span><br><span class="line"><span class="php">                $numbers[$i] = $numbers[$j];</span></span><br><span class="line"><span class="php">                $numbers[$j] = $temp;</span></span><br><span class="line"><span class="php">            &#125;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    $a = implode(<span class="string">''</span>,$numbers);</span></span><br><span class="line"><span class="php">    <span class="keyword">return</span> $a;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$arr = [<span class="number">32</span>,<span class="number">3</span>,<span class="number">321</span>];</span></span><br><span class="line"><span class="php">PrintMinNumber($arr);</span></span><br></pre></td></tr></table></figure>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* mergeSort 归并排序</span></span><br><span class="line"><span class="comment">* 是开始递归函数的一个驱动函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 待排序的数组</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeSort</span><span class="params">(&amp;$arr)</span> </span>&#123;</span><br><span class="line">  $len = count($arr);<span class="comment">//求得数组长度</span></span><br><span class="line"> </span><br><span class="line">  mSort($arr, <span class="number">0</span>, $len<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 实际实现归并排序的程序</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr array 需要排序的数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left int 子序列的左下标值</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right int 子序列的右下标值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mSort</span><span class="params">(&amp;$arr, $left, $right)</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">if</span>($left &lt; $right) &#123;</span><br><span class="line">    <span class="comment">//说明子序列内存在多余1个的元素，那么需要拆分，分别排序，合并</span></span><br><span class="line">    <span class="comment">//计算拆分的位置，长度/2 去整</span></span><br><span class="line">    $center = floor(($left+$right) / <span class="number">2</span>);</span><br><span class="line">    <span class="comment">//递归调用对左边进行再次排序：</span></span><br><span class="line">    mSort($arr, $left, $center);</span><br><span class="line">    <span class="comment">//递归调用对右边进行再次排序</span></span><br><span class="line">    mSort($arr, $center+<span class="number">1</span>, $right);</span><br><span class="line">    <span class="comment">//合并排序结果</span></span><br><span class="line">    mergeArray($arr, $left, $center, $right);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 将两个有序数组合并成一个有序数组</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &amp;$arr, 待排序的所有元素</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $left, 排序子数组A的开始下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $center, 排序子数组A与排序子数组B的中间下标，也就是数组A的结束下标</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $right, 排序子数组B的结束下标（开始为$center+1)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mergeArray</span><span class="params">(&amp;$arr, $left, $center, $right)</span> </span>&#123;</span><br><span class="line">  <span class="comment">//设置两个起始位置标记</span></span><br><span class="line">  $a_i = $left;</span><br><span class="line">  $b_i = $center+<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>($a_i&lt;=$center &amp;&amp; $b_i&lt;=$right) &#123;</span><br><span class="line">    <span class="comment">//当数组A和数组B都没有越界时</span></span><br><span class="line">    <span class="keyword">if</span>($arr[$a_i] &lt; $arr[$b_i]) &#123;</span><br><span class="line">      $temp[] = $arr[$a_i++];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $temp[] = $arr[$b_i++];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组A内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($a_i &lt;= $center) &#123;</span><br><span class="line">    $temp[] = $arr[$a_i++];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//判断 数组B内的元素是否都用完了，没有的话将其全部插入到C数组内：</span></span><br><span class="line">  <span class="keyword">while</span>($b_i &lt;= $right) &#123;</span><br><span class="line">    $temp[] = $arr[$b_i++];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="comment">//将$arrC内排序好的部分，写入到$arr内：</span></span><br><span class="line">  <span class="keyword">for</span>($i=<span class="number">0</span>, $len=count($temp); $i&lt;$len; $i++) &#123;</span><br><span class="line">    $arr[$left+$i] = $temp[$i];</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">//do some test:</span></span><br><span class="line">$arr = <span class="keyword">array</span>(<span class="number">4</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">mergeSort($arr);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$arr=<span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">587</span>,<span class="number">93</span>,<span class="number">47</span>,<span class="number">59</span>,<span class="number">8</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">83</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">65</span>,<span class="number">2</span>,<span class="number">18</span>,<span class="number">7</span>);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;hr&gt;"</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge_sort</span><span class="params">(&amp;$arr)</span></span>&#123;</span><br><span class="line">    $len=count($arr);</span><br><span class="line">    <span class="keyword">if</span>($len==<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> $arr;</span><br><span class="line">    $middle=intval($len/<span class="number">2</span>);</span><br><span class="line">    $left=array_slice($arr,<span class="number">0</span>,$middle);</span><br><span class="line">    $right=array_slice($arr,$middle);</span><br><span class="line">    merge_sort($left);</span><br><span class="line">    merge_sort($right);</span><br><span class="line">    $arr=merge($left,$right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">merge</span><span class="params">($leftarr,$rightarr)</span></span>&#123;</span><br><span class="line">    $arrmerge=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">while</span>(count($leftarr) &amp;&amp; count($rightarr))</span><br><span class="line">        $arrmerge[]=$leftarr[<span class="number">0</span>]&lt;$rightarr[<span class="number">0</span>]?array_shift($leftarr):array_shift($rightarr);</span><br><span class="line">    <span class="keyword">return</span> array_merge($arrmerge,$leftarr,$rightarr);</span><br><span class="line">&#125;</span><br><span class="line">merge_sort($arr);</span><br><span class="line">printArr($arr);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printArr</span><span class="params">($arr)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($arr);$i++)</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">' '</span>.$arr[$i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/16/itled/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1031,705 +1690,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/ysql读写分离/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/ysql读写分离/" itemprop="url">mysql主从复制与读写分离</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T15:00:00+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="读写分离"><a href="#读写分离" class="headerlink" title="读写分离"></a>读写分离</h2><p>第一种：php程序上自己做逻辑判断，写php代码的时候，自己在程序上做逻辑判读写匹配。select，insert、update、delete做正则匹配，根据结果选择写服务器（主服务器）。如果是select操作则选择读服务器（从服务器器） mysql_connect(‘读写的区分’)</p>
-<p>第二种：MySQL- Proxy是实现”读写分离(Read/Write Splitting)”的一个软件（MySQL官方提供 ，也叫中间件）<br>基本的原理<br>让主数据库处理写操作（insert、update、delete），<br>而从数据库处理查询操作（select）。<br>而数据库的一致性则通过主从复制来实现。</p>
-<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>在一主多从的数据库体系中，多个从服务器采用异步的方式更新主数据库的变化，<br>业务服务器在执行写或者相关修改数据库的操作是在主服务器上进行的，<br>读操作则是在各从服务器上进行。</p>
-<p><img src="\images\pasted-70.png" alt="upload successful"><br>MySQL之间数据复制的基础是二进制日志文件（binary log file）。一台MySQL数据库一旦启用二进制日志后，其作为master，它的数据库中所有操作都会以“事件”的方式记录在二进制日志中，其他数据库作为slave通过一个I/O线程与主服务器保持通信，并监控master的二进制日志文件的变化，如果发现master二进制日志文件发生变化，则会把变化复制到自己的中继日志中，然后slave的一个SQL线程会把相关的“事件”执行到自己的数据库中，以此实现从数据库和主数据库的一致性，也就实现了主从复制。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/试题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/试题/" itemprop="url">php面试题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T14:53:00+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726" target="_blank" rel="noopener">https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726</a></p>
-<h2 id="php常用框架、模板引擎"><a href="#php常用框架、模板引擎" class="headerlink" title="php常用框架、模板引擎"></a>php常用框架、模板引擎</h2><p>框架：如CI、Yii、Laravel，thinkphp<br>模板引擎：smarty</p>
-<h2 id="AJAX的优势？"><a href="#AJAX的优势？" class="headerlink" title="AJAX的优势？"></a>AJAX的优势？</h2><p>ajax是异步传输技术，可以通过javascript实现，也可以通过JQuery框架实现，实现局部刷新，减轻了服务器的压力，也提高了用户体验。</p>
-<h2 id="程序的开发中提高程序的运行效率？"><a href="#程序的开发中提高程序的运行效率？" class="headerlink" title="程序的开发中提高程序的运行效率？"></a>程序的开发中提高程序的运行效率？</h2><p>（1）优化SQL语句，查询语句中尽量不使用select *，用哪个字段查哪个字段；少用子查询可用表连接代替；少用模糊查询。<br>（2）数据表中创建索引。<br>（3）对程序中经常用到的数据生成缓存（比如使用redis缓存数据，比如使用ob进行动态页面静态化等等）。<br>（4）对mysql做主从复制，读写分离。（提高mysq执行效率和查询速度）<br>（5）使用nginx做负载均衡。（将访问压力平均分配到多态服务器）</p>
-<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>①可以实现代码的重用性，避免产生代码冗余；<br>②M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式</p>
-<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，json数据格式固定，可以被多种语言用作数据的传递。<br>PHP中处理json格式的函数为<br>json_decode( string $json [, bool $assoc ] ) ，接受一个 JSON格式的字符串并且把它转换为PHP变量，<br>Json_encode：将PHP变量转换成json格式。</p>
-<h2 id="Print、echo、print-r区别"><a href="#Print、echo、print-r区别" class="headerlink" title="Print、echo、print_r区别"></a>Print、echo、print_r区别</h2><p>（1） echo和print都可以做输出，不同的是，echo不是函数，没有返回值，而print是一个函数有返回值，所以相对而言如果只是输出echo会更快，而print_r通常用于打印变量的相关信息，通常在调试中使用。<br>（2） print 是打印字符串<br>（3）print_r 则是打印复合类型 如数组 对象</p>
-<h2 id="SESSION与COOKIE的区别？"><a href="#SESSION与COOKIE的区别？" class="headerlink" title="SESSION与COOKIE的区别？"></a>SESSION与COOKIE的区别？</h2><p>（1）存储位置：session存储于服务器，cookie存储于浏览器<br>（2）安全性：session安全性比cookie高<br>（3）session为‘会话服务’，在使用时需要开启服务，cookie不需要开启，可以直接用</p>
-<p>PHP操作文件的常用函数？（重点看函数的‘参数’和‘返回值’）</p>
-<p>（1）打开文件 fopen()<br>$file = fopen(“/home/test/test.txt”,”r”);<br><a href="http://www.w3school.com.cn/php/func_filesystem_fopen.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/php/func_filesystem_fopen.asp</a><br>（2）读取文件 fgets()  ;  注：file_get_contents()也是读取文件<br>fgets() 函数从文件指针中读取一行。<br>fgets(file,length)<br>（3）写入文件fwrite()  ;  注：file_put_contents()同样可以写入文件<br>（4）关闭文件句柄 fclose()<br>（5）移动 / 重命名文件 rename()<br>（6）复制文件 copy()<br>（7）创建文件 vim  或 touch<br>（8）删除文件 unlink()<br>（9）获取文件上次访问的时间 fileatime()<br>（10）获取文件上次修改的时间 filemtime()<br>（11）获取文件大小 filesize()<br>（12）获取文件类型  filetype()<br>（13）获取文件详细信息 state()<br>（14）判断是否是目录 is_dir()</p>
-<h2 id="试述视图的优点？"><a href="#试述视图的优点？" class="headerlink" title="试述视图的优点？"></a>试述视图的优点？</h2><p>(1) 视图能够简化用户的操作<br>(2) 视图使用户能以多种角度看待同一数据；<br>(3) 视图为数据库提供了一定程度的逻辑独立性；<br>(4) 视图能够对机密数据提供安全保护。</p>
-<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>MySQL数据库作发布系统的存储，一天五万条以上的增量，预计运维三年,怎么优化？<br>（1）设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。<br>（2） 选择合适的表字段数据类型和存储引擎，适当的添加索引。<br>（3） 做mysql主从复制读写分离。<br>（4）对数据表进行分表，减少单表中的数据量提高查询速度。<br>（5）添加缓存机制，比如redis，memcached等。<br>（6）对不经常改动的页面，生成静态页面（比如做ob缓存）。<br>（7）书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</p>
-<h2 id="简述-private、-protected、-public修饰符的访问权限。"><a href="#简述-private、-protected、-public修饰符的访问权限。" class="headerlink" title="简述 private、 protected、 public修饰符的访问权限。"></a>简述 private、 protected、 public修饰符的访问权限。</h2><p>private : 私有成员, 在类的内部才可以访问。</p>
-<p>protected : 保护成员，该类内部和继承类中可以访问。</p>
-<p>public : 公共成员，完全公开，没有访问限制。</p>
-<h2 id="堆和栈的区别？"><a href="#堆和栈的区别？" class="headerlink" title="堆和栈的区别？"></a>堆和栈的区别？</h2><p>栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；</p>
-<p>堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小。</p>
-<h2 id="XML-与-HTML-的主要区别"><a href="#XML-与-HTML-的主要区别" class="headerlink" title="XML 与 HTML 的主要区别"></a>XML 与 HTML 的主要区别</h2><p>语法要求不同：</p>
-<p>（1）在html中不区分大小写，在xml中严格区分。</p>
-<p>（2）在HTML中，有时不严格，如果上下文清楚地显示出段落或者列表键在何处结尾，那么你可以省略</p>或者之类的结束标记。在XML中，是严格的树状结构，绝对不能省略掉结束标记。<p></p>
-<p>（3） 在XML中，拥有单个标记而没有匹配的结束标记的元素必须用一个/ 字符作为结尾。这样分析器就知道不用查找结束标记了。</p>
-<p>（4）在XML中，属性值必须分装在引号中。在HTML中，引号是可用可不用的。 </p>
-<p>（5）在HTML中，可以拥有不带值的属性名。在XML中，所有的属性都必须带有相应的值。 </p>
-<p>（6） 在XML文档中，空白部分不会被解析器自动删除；但是html是过滤掉空格的。</p>
-<p>标记不同：</p>
-<p>（1）html使用固有的标记；而xml没有固有的标记。</p>
-<p>（2）Html标签是预定义的；XML标签是免费的、自定义的、可扩展的。</p>
-<p>作用不同：</p>
-<p>（1）html是用来显示数据的；xml是用来描述数据、存放数据的，所以可以作为持久化的介质！Html将数据和显示结合在一起，在页面中把这数据显示出来；xml则将数据和显示分开。 XML被设计用来描述数据，其焦点是数据的内容。HTML被设计用来显示数据，其焦点是数据的外观。</p>
-<p>（2）xml不是HTML的替代品，xml和html是两种不同用途的语言。 XML 不是要替换 HTML；实际上XML 可以视作对 HTML 的补充。XML 和HTML 的目标不同HTML 的设计目标是显示数据并集中于数据外观，而XML的设计目标是描述数据并集中于数据的内容。</p>
-<p>（3）对于XML最好的形容可能是: XML是一种跨平台的，与软、硬件无关的，处理与传输信息的工具。</p>
-<p>（4）XML未来将会无所不在。XML将成为最普遍的数据处理和数据传输的工具。</p>
-<h2 id="抽象类和接口的概念以及区别？"><a href="#抽象类和接口的概念以及区别？" class="headerlink" title="抽象类和接口的概念以及区别？"></a>抽象类和接口的概念以及区别？</h2><p>抽象类：它是一种特殊的，不能被实例化的类，只能作为其他类的父类使用。使用abstract关键字声明。<br>接口：它是一种特殊的抽象类，也是一个特殊的类，使用interface声明。</p>
-<p>区别：<br>（1）抽象类的操作通过继承关键字extends实现，而接口的使用是通过implements关键字来实现。<br>（2）抽象类中有数据成员，可以实现数据的封装，但是接口没有数据成员。<br>（3）抽象类中可以有构造方法，但是接口没有构造方法。<br>（4）抽象类的方法可以通过private、protected、public关键字修饰（抽象方法不能是private），而接口中的方法只能使用public关键字修饰。<br>（5）一个类只能继承于一个抽象类，而一个类可以同时实现多个接口。<br>（6）抽象类中可以有成员方法的实现代码，而接口中不可以有成员方法的实现代码。</p>
-<h2 id="什么是构造函数，什么是析构函数，作用是什么？"><a href="#什么是构造函数，什么是析构函数，作用是什么？" class="headerlink" title="什么是构造函数，什么是析构函数，作用是什么？"></a>什么是构造函数，什么是析构函数，作用是什么？</h2><p>构造函数（方法）是对象创建完成后第一个被对象自动调用的方法。它存在于每个声明的类中，是一个特殊的成员方法。作用是执行一些初始化的任务。Php中使用__construct()声明构造方法，并且只能声明一个。</p>
-<p>析构函数（方法）作用和构造方法正好相反，是对象被销毁之前最后一个被对象自动调用的方法。是PHP5中新添加的内容作用是用于实现在销毁一个对象之前执行一些特定的操作，诸如关闭文件和释放内存等。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/-树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/-树/" itemprop="url">B+树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T21:39:12+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>B+树</p>
-<p><img src="\images\pasted-42.png" alt="upload successful"><br>节点中有重复元素，而且叶子节点还用指针连在一起<br>每一个父节点的元素都出现在子节点中，是子节点的最大（或最小元素）</p>
-<p><img src="\images\pasted-43.png" alt="upload successful"><br>根节点元素8是子节点2,5,8的最大元素，也是子节点6,8的最大元素<br>根节点15是11,15的最大元素，也是叶子节点13,15的最大元素</p>
-<p>根节点的最大元素（15），以后无论插入删除多少元素，始终保持最大元素在根节点当中。<br>B+树的叶子节点包含了根节点的全部元素信息</p>
-<p><img src="\images\pasted-44.png" alt="upload successful"><br>并且每一个叶子节点都带有指向下一个节点的指针，形成了一个有序链表。</p>
-<p>卫星数据，指的是索引元素锁指向的数据记录，不如数据库中的某一行。B-树中，无论中间节点还是叶子节点都带有卫星数据。<br><img src="\images\pasted-45.png" alt="upload successful"><br>B+树中，只有叶子节点带有卫星数据，其余中间节点仅仅是索引，没有任何数据关联<br>在数据库的聚集索引（Clustered Index）中，叶子节点直接包含卫星数据。在非聚集索引（NonClustered Index）中，叶子节点带有指向卫星数据的指针。</p>
-<p>B+树的查询速度为什么快<br>单元素查询中，B+树会自顶向下逐层查找节点，最终找到匹配的叶子节点。<br>找3，第一次磁盘IO：</p>
-<p><img src="\images\pasted-46.png" alt="upload successful"><br>第二次磁盘IO：</p>
-<p><img src="\images\pasted-47.png" alt="upload successful"><br>第三次磁盘IO：</p>
-<p><img src="\images\pasted-48.png" alt="upload successful"><br>B+树比B-树更加矮胖（中间节点不存卫星可以容纳更多数据），查询IO更小，更加稳定</p>
-<p>B+树范围查找 只需要在链表上遍历即可，以下为查找3-11</p>
-<p>自顶向下，查找到范围的下限（3）：<br><img src="\images\pasted-49.png" alt="upload successful"><br>通过链表指针，遍历到元素6, 8：</p>
-<p><img src="\images\pasted-50.png" alt="upload successful"><br>通过链表指针，遍历到元素9, 11，遍历结束：</p>
-<p><img src="\images\pasted-51.png" alt="upload successful"></p>
-<p>B+树的特征：<br>1.有k个子树的中间节点包含有k个元素（B树中是k-1个元素），每个元素不保存数据，只用来索引，所有数据都保存在叶子节点。<br>2.所有的叶子结点中包含了全部元素的信息，及指向含这些元素记录的指针，且叶子结点本身依关键字的大小自小而大顺序链接。<br>3.所有的中间节点元素都同时存在于子节点，在子节点元素中是最大（或最小）元素。<br>B+树的优势：<br>1.单一节点存储更多的元素，使得查询的IO次数更少。<br>2.所有查询都要查找到叶子节点，查询性能稳定。<br>3.所有叶子节点形成有序链表，便于范围查询。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/二叉树/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/二叉树/" itemprop="url">平衡二叉树、二叉排序树、完全二叉树、满二叉树</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T20:55:41+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h2><p>来自二叉排序树的旋转<br>为了保证树不至于台倾斜，尽量保证两边平衡。<br>1、平衡二叉树要么是一棵空树<br>2、要么保证左右子树的高度之差不大于 1<br>3、子树也必须是一颗平衡二叉树<br>平衡二叉树在添加和删除时需要进行旋转保证整个树的平衡，使用平衡二叉树时，插入、查找时间复杂度都是O(logn)</p>
-<h2 id="完全二叉树"><a href="#完全二叉树" class="headerlink" title="完全二叉树"></a>完全二叉树</h2><p>完全二叉树：对于一个树高为h的二叉树，如果其第0层至第h-1层的节点都满。如果最下面一层节点不满，则所有的节点在左边的连续排列，空位都在右边。这样的二叉树就是一棵完全二叉树。<br>完全二叉树最重要的性质：如果n个节点的完全二叉树的节点按照层次并按从左到右的顺序从0开始编号，对于人一个绩点都有：</p>
-<p>·序号为0的节点是根<br>·对于i&gt;0，其父节点的编号为(i-1)/2。<br>·若2i+1&lt;n，其左子节点的序号为2i+1，否则没有左子节点。<br>·若2i+2&lt;n，其右子节点的序号为2i+2，否则没有右子节点。</p>
-<p><img src="\images\pasted-39.png" alt="upload successful"></p>
-<h2 id="满二叉树"><a href="#满二叉树" class="headerlink" title="满二叉树"></a>满二叉树</h2><p>满二叉树：树中每个分支结点（非叶结点）都有两棵非空子树</p>
-<p><img src="\images\pasted-40.png" alt="upload successful"><br>使二叉树可以方便的存入表或者数组，直接根绝元素下标就可以找到一个节点的子节点或者父节点(也就是可以完全确定二叉树的结构)，无须用额外的形式记录树结构信息。<br>使其可以方便地存入一系列连续位置，一般二叉树不能方便地映射到线性结构，完全二叉树到线性结构有定义非常自然的双向映射，可以方便地从其线性结构恢复完全二叉树。</p>
-<h2 id="二叉排序树"><a href="#二叉排序树" class="headerlink" title="二叉排序树"></a>二叉排序树</h2><p>在最好的情况下，二叉排序树的查找效率比较高，是 O(logn)，其访问性能近似于折半查找；</p>
-<p><img src="\images\pasted-41.png" alt="upload successful"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/12/cc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/12/cc/" itemprop="url">mvcc多版本并发控制</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-12T13:08:02+08:00">
-                2019-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://www.jianshu.com/p/cef49aeff36b" target="_blank" rel="noopener">https://www.jianshu.com/p/cef49aeff36b</a><br><a href="https://www.cnblogs.com/phpper/p/6937650.html" target="_blank" rel="noopener">https://www.cnblogs.com/phpper/p/6937650.html</a></p>
-<p>MVCC，Multi-Version Concurrency Control，多版本并发控制。<br>MVCC 是一种并发控制的方法，一般在数据库管理系统中，实现对数据库的并发访问；在编程语言中实现事务内存。<br>MVCC可以看作一种乐观锁的实现方式</p>
-<h2 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h2><p>每行数据都存在一个版本，每次数据更新时都更新该版本。<br>修改时Copy出当前版本随意修改，各个事务之间无干扰。<br>保存时比较版本号，如果成功（commit），则覆盖原记录；失败则放弃copy（rollback）</p>
-<p>InnoDB存储引擎MVCC的实现策略<br>在每一行数据中额外保存两个隐藏的列：当前行创建时的版本号和删除时的版本号（可能为空，其实还有一列称为回滚指针，用于事务回滚，不在本文范畴）。这里的版本号并不是实际的时间值，而是系统版本号。每开始新的事务，系统版本号都会自动递增。事务开始时刻的系统版本号会作为事务的版本号，用来和查询每行记录的版本号进行比较。</p>
-<p>每个事务又有自己的版本号，这样事务内执行CRUD操作时，就通过版本号的比较来达到数据版本控制的目的。</p>
-<h2 id="MVCC优缺点"><a href="#MVCC优缺点" class="headerlink" title="MVCC优缺点"></a>MVCC优缺点</h2><p>MVCC在大多数情况下代替了行锁，实现了对读的非阻塞，读不加锁，读写不冲突。缺点是每行记录都需要额外的存储空间，需要做更多的行维护和检查工作。</p>
-<h2 id="mvcc如何解决幻读"><a href="#mvcc如何解决幻读" class="headerlink" title="mvcc如何解决幻读"></a>mvcc如何解决幻读</h2><p>保证一个事务<br>读不了在它之后插入的数据，读不了在它之前删除的数据<br>读的了在它之前插入的数据，读的了在它之后删除的数据</p>
-<p>查询条件<br>1) 删除版本号未指定或者大于当前事务版本号，即查询事务开启后确保读取的行未被删除。(即上述事务id为2的事务查询时，依然能读取到事务id为3所删除的数据行)。不能读取&lt;=当前事务版本号的被删除数据</p>
-<p>2) 创建版本号&lt;=当前事务版本号 ，就是说记录创建是在当前事务中（等于的情况）或者在当前事务启动之前的其他事物进行的insert。 不能读取在当前事务之后创建的数据</p>
-<p>当前事务版本号为100，能够读取：数据的删除版本号&gt;100且创建版本号&lt;=100</p>
-<p>多版本并发控制。InnoDB为每行记录添加了一个版本号（系统版本号），每当修改数据时，版本号+1。<br>在读取事务开始时，系统会给事务一个当前版本号，事务会读取版本号&lt;=当前版本号的数据，这时就算另一个事务插入一个数据，并立马提交，新插入这条数据的版本号会比读取事务的版本号高，因此读取事务读的数据还是不会变。<br>例如：<br>此时books表中有5条数据，版本号为1<br>事务A，系统版本号2：select <em> from books；因为1&lt;=2所以此时会读取5条数据。<br>事务B，系统版本号3：insert into books …，插入一条数据，新插入的数据版本号为3，而其他的数据的版本号仍然是2，插入完成之后commit，事务结束。<br>事务A，系统版本号2：再次select </em> from books；只能读取&lt;=2的数据，事务B新插入的那条数据版本号为3，因此读不出来，解决了幻读的问题。</p>
-<p>1：当前读:给改条数据加锁(悲观锁),即读取的时候就加锁，防止其他事务读取该数据().它能保证读取的都是最新数据<br>2：快照读:mvcc，多版本并发控制，详细的原理就不说了，它使得读写不冲突，由于读的都是事务的当前版本的数据，因此重复读也不会发现数据被修改</p>
-<p>DELETE<br>InnoDB会为删除的每一行保存当前事务的ID作为删除标识.</p>
-<p>UPDATE<br>InnoDB执行UPDATE，实际上是新插入了一行记录，并保存其创建时间为当前事务的ID，同时保存当前事务ID到要UPDATE的行的删除时间。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1777,7 +1742,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

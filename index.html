@@ -409,6 +409,652 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/战浦发-代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/战浦发-代码/" itemprop="url">备战浦发-代码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T19:57:43+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> a[<span class="number">10</span>];</span><br><span class="line"><span class="comment">//	a[0] = 'a';</span></span><br><span class="line">	a[<span class="number">0</span>] = <span class="string">'a'</span> - <span class="number">32</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%s"</span>,a);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//去重 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">RemoveDuplicate</span><span class="params">(<span class="keyword">char</span> *str)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k, len;</span><br><span class="line"> </span><br><span class="line">	len = <span class="built_in">strlen</span>(str);</span><br><span class="line">	<span class="keyword">for</span>(i = k = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(str[i])</span><br><span class="line">		&#123;</span><br><span class="line">			str[k++] = str[i];</span><br><span class="line">			<span class="keyword">for</span>(j = i + <span class="number">1</span>; j &lt; len; j++)</span><br><span class="line">				<span class="keyword">if</span>(str[j] == str[i])</span><br><span class="line">					str[j] = <span class="string">'\0'</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	str[k] = <span class="string">'\0'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mains</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">100</span>];</span><br><span class="line">	gets(str);</span><br><span class="line">	RemoveDuplicate(str);</span><br><span class="line">	<span class="built_in">puts</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mainb</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> str[<span class="number">1000</span>];</span><br><span class="line">	gets(str);</span><br><span class="line">	<span class="keyword">int</span> len = <span class="built_in">strlen</span>(str);</span><br><span class="line">	<span class="keyword">char</span> tmp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len/<span class="number">2</span>;i++)&#123;</span><br><span class="line">		tmp = str[i];</span><br><span class="line">		str[i] = str[len<span class="number">-1</span>-i];</span><br><span class="line">		str[len<span class="number">-1</span>-i] = tmp;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">puts</span>(str);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//选择排序 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mainc</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">100</span>];</span><br><span class="line">	<span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> t;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    &#125;	</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;len;j++)</span><br><span class="line">		<span class="keyword">if</span>(a[i]&lt;a[j])&#123;</span><br><span class="line">			t = a[i];</span><br><span class="line">			a[i] = a[j];</span><br><span class="line">			a[j] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%4d"</span>,a[i]);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">" "</span>);	</span><br><span class="line"> 	</span><br><span class="line">    &#125;	</span><br><span class="line">    </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//猴子偷桃 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main11</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">9</span>;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">		n = (n+<span class="number">1</span>)*<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,n);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main110</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> i[<span class="number">10</span>] ;</span><br><span class="line">  i[<span class="number">0</span>] = <span class="string">'a'</span>+<span class="number">1</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"%s"</span>,i);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 1/2+2/3。。。 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main10</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N,i;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> sum,temp;</span><br><span class="line"></span><br><span class="line">sum=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"please input the numberN\n"</span>); </span><br><span class="line"></span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;N);</span><br><span class="line"><span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">temp=i*<span class="number">1.0</span>/(<span class="number">2</span>*i<span class="number">-1</span>);<span class="comment">//注意i*1.0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%lf "</span>,temp);</span><br><span class="line"></span><br><span class="line"> sum=sum+temp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">printf</span>(<span class="string">"the result is:%lf"</span>,sum);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//凯撒密码 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> passwd[<span class="number">100</span>],encrypted[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> i,j,k,t,move;</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter message to be encrypted:"</span>);</span><br><span class="line">        gets(passwd);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Enter shift amount(1-25):"</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%*c"</span>,&amp;move);</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="built_in">strlen</span>(passwd); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(passwd[i] &gt;= <span class="string">'A'</span> &amp;&amp; passwd[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                passwd[i] = ((passwd[i]-<span class="string">'A'</span>)+move)%<span class="number">26</span>+<span class="string">'A'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(passwd[i] &gt;= <span class="string">'a'</span> &amp;&amp; passwd[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                passwd[i] = ((passwd[i]-<span class="string">'a'</span>)+move)%<span class="number">26</span>+<span class="string">'a'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>,passwd);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="comment">//n的阶乘  </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,j,n,temp,d=<span class="number">1</span>,carry;<span class="comment">//temp为阶乘元素与临时结果的乘积，carry是进位 ，d是位数 </span></span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">3000</span>];<span class="comment">//确保数组足够大 </span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);<span class="comment">//n的阶乘 </span></span><br><span class="line">	a[<span class="number">0</span>]=<span class="number">1</span>;<span class="comment">//先初始化为1，方便后面运算 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=n;i++)<span class="comment">//从2开始阶乘 ,每次循环计算i阶乘的结果 </span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">1</span>,carry=<span class="number">0</span>;j&lt;=d;j++)<span class="comment">// 每次循环初始化进位的值 </span></span><br><span class="line">		&#123;</span><br><span class="line">			temp=a[j<span class="number">-1</span>]*i+carry;<span class="comment">//相应阶乘中的一项与当前所得临时结果的某位相乘加上进位 </span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"temp:%d\n"</span>,&amp;temp);</span><br><span class="line">			a[j<span class="number">-1</span>]=temp%<span class="number">10</span>;<span class="comment">//更新临时结果的位上信息 </span></span><br><span class="line">			carry=temp/<span class="number">10</span>;<span class="comment">//如果有进位就进入下面的循环</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"carry:%d\n"</span>,&amp;carry); </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(carry)     <span class="comment">//如果有进位 </span></span><br><span class="line">		&#123;   ++d;        <span class="comment">//增加进位，位数加一</span></span><br><span class="line">	                a[d<span class="number">-1</span>]=carry%<span class="number">10</span>;   <span class="comment">//给新的进位赋值 </span></span><br><span class="line">			carry=carry/<span class="number">10</span>;    <span class="comment">//看还可不可以再进位 </span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"n!="</span>);</span><br><span class="line">	<span class="keyword">for</span>(j=d<span class="number">-1</span>;j&gt;=<span class="number">0</span>;j--)       <span class="comment">//从高位向低位依次输出 </span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,a[j]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/战浦发-非代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/战浦发-非代码/" itemprop="url">备战浦发-非代码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T19:52:53+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="2分钟的自我介绍："><a href="#2分钟的自我介绍：" class="headerlink" title="2分钟的自我介绍："></a>2分钟的自我介绍：</h2><p>各位面试官您好，我是来自武汉科技大学的17级研究生殷航，我所在的实验室是湖北高校思政网，思政网是湖北省教育厅与我校联合开发的面向湖北高校的一个功能网站，资源网站与专题网站，我在实验室参与思政网网站的办公系统的版本迭代，负责并完成其中的新闻模块，用户模块与数据展示模块，主要使用到mysql，php与vue。<br>今年年初和另一位同学编写了武汉市筑朗公司的业务系统的，这是我校一位老师接下的需求，我们沿用了在思政网使用的框架，在今年4月份的时候将它写完，在其中我负责了材料模块，发包报价模块的前后台代码与数据库设计。<br>我在今年五月份到八月份在北京新浪的IS微博数据仓库实习，参与完成了鹰眼分析版，鹰眼平台，寻辙三大项目的多个需求，主要使用mysql，es搜索引擎，php，vue与ci框架（前后端不分离），平时的工作主要是写前端页面，数据接口，能够独立完成项目经理每周布置的需求，并与大数据的同事一起完成业务接口，<br>我的研究方向是基于深度学习的文本检测，目前已经实现了基于yolo算法的桥梁病害检测，训练数据集后，可以在一张具有桥梁病害的图片中用矩形框框选出病害位置，接下来的工作是复用于文本检测数据集与论文的撰写。<br>目前主要的技术栈是php、mysql、vue.js以及element-ui与echart等第三方插件，了解mvc框架，使用过thinkphp、ci框架，了解redis，了解并实际使用过mysql索引。</p>
+<p>自我介绍</p>
+<p>我是来自武汉科技大学的17级研究生殷航，我所在的实验室叫湖北高校思政网，是湖北省教育局与我校合作建设的一个实验室，</p>
+<h2 id="思政网"><a href="#思政网" class="headerlink" title="思政网"></a>思政网</h2><p>湖北省教育厅思政处与各高校联合的 工作网站，专题网站与资源网站<br>湖北高校思政网是湖北省教育厅思想政治教育与社会科学研究处（湖北省委高校工委宣传处）工作网站、专题网站、资源网站，建设目标是打造成集外网信息发布、内网办公自动化、培训培养、网络课程、交流互动及远程督导、微信、短信、动漫宣传等多功能融合的全省高校思想政治教育信息综合服务平台。<br>做了什么？</p>
+<p>我们的作品就是湖北高校思政网的网站，它是一个面向湖北各高校思政处老师的一个新闻投稿与展示网站，我们平时的工作就是维护网站与后台办公OA系统的迭代</p>
+<p>怎么做的？<br>使用了php mysql vuethink<br>我负责了最新版本的思政网的 1、新闻模块 2、先进典型模块 3、用户管理模块的前后台代码 其中最复杂的新闻模块 拥有 1、新闻审核 2、富文本编辑器插件的引入融合 3、新闻投稿 4、利用echart图表展示波动的新闻数据 如投稿量 排名 </p>
+<p>学到什么？<br>从这个项目<br>熟悉mvc架构 熟悉thinkphp 熟练了php与mysql   前端入门 </p>
+<h2 id="筑朗建筑发包系统"><a href="#筑朗建筑发包系统" class="headerlink" title="筑朗建筑发包系统"></a>筑朗建筑发包系统</h2><p>第二个项目是 导师委托我和另外一个人写的筑朗建筑发包系统<br>做了啥？<br>是一个 装修中间商的网站 包含了他们所有的业务<br>1、装修报价 2、发包报价  3、市场材料的价格管理 4相关数据excel报表输出<br>我负责了2发包报价 3材料管理</p>
+<p>发包报价 承接队友装修报价的数据，也就是他们公司和客户谈好的装修方案，在发包中可以对所有的装修方案编辑对应的材料价格与组价，在前端用到了watch监听，即修改一个材料如瓷砖-会直接在前端变动价格，发包这一个前端vue的代码量有3000行</p>
+<p>材料管理<br>填写表单入库，针对材料的不同属性进行约束，主要是数据库的设计，因为他们的材料价格要随市场变动 项目需要留档 中间有很多冲突 ，要和发包 装修衔接上，从早期的普通的材料表 到中间设计了材料数据可以存在不同时间的同名数据并且不可删除 到最后是用了两张表 存新数据与旧数据</p>
+<p>这里面最难的地方是需求不明确，与需求频繁变更。<br>今年年初定的第一版，之后三个月基本每天他们都在变需求，然后老师也没有起到项目经理的作用，许多的功能都是我和我的队友一起天天讨论，根据对方模糊的描述修改功能的</p>
+<p>学到什么？<br>对js有了一定的了解 熟悉了vue  熟练使用elementUI 最重要的是收获了开发时的坚持不懈 坚持不懈 坚持不懈 （因为对方过年的时候都在跟我提需求该需求）在不利的情况下主动思考解决问题的办法 以及完成一个项目所需要付出的代价</p>
+<h2 id="新浪-IS微博数据仓库部门"><a href="#新浪-IS微博数据仓库部门" class="headerlink" title="新浪 IS微博数据仓库部门"></a>新浪 IS微博数据仓库部门</h2><p>两面技术面与hr面<br>做了啥？<br>鹰眼分析版 是一个包含分析热词 ，计算热点数据的pv（访问量） uv（独立访客） 监测特定微博账号博文内容等功能</p>
+<p>我所做的是<br>连接hive服务器，写数据接口创建任务<br>大数据的动态展示 （利用echart）如时间段内每天某电影词汇数据的热度<br>Excel的词上传 词下载<br>服务器跑完项目之后的邮箱提醒</p>
+<p>趋势的页面开发 接口</p>
+<p>比较有意义的是 写前端组件与组件复用 数据库唯一索引</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/29/对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/29/对象/" itemprop="url">类与对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-29T14:50:45+08:00">
+                2019-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="封装-继承-多态"><a href="#封装-继承-多态" class="headerlink" title="封装 继承 多态"></a>封装 继承 多态</h2><p>所谓封装：<br>也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是对象和类概念的主要特性。 简单的说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。</p>
+<p>所谓继承：<br>是指可以让某个类型的对象获得另一个类型的对象的属性的方法。它支持按级分类的概念。继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。 通过继承创建的新类称为“子类”或“派生类”，被继承的类称为“基类”、“父类”或“超类”。继承的过程，就是从一般到特殊的过程。要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。继承概念的实现方式有二类：实现继承与接口继承。实现继承是指直接使用基类的属性和方法而无需额外编码的能力；接口继承是指仅使用属性和方法的名称、但是子类必须提供实现的能力；</p>
+<p>所谓多态：<br>就是指一个类实例的相同方法在不同情形有不同表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。</p>
+<h2 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h2><p>（1）构造方法：<br>     抽象类可以有构造方法，接口中不能有构造方法。</p>
+<p>（2）抽象类中可以有普通成员变量，接口中没有普通成员变量<br>（3）抽象类中可以包含静态方法，接口中不能包含静态方法</p>
+<p>（4）继承：<br>     一个类可以实现多个接口，但只能继承一个抽象类。<br>（5）如果抽象类实现接口，则可以把接口中方法映射到抽象类中作为抽象方法而不必实现，而在抽象类的子类中实现接口中方法</p>
+<h2 id="抽象类与接口的共通"><a href="#抽象类与接口的共通" class="headerlink" title="抽象类与接口的共通"></a>抽象类与接口的共通</h2><p>(1) 都可以被继承<br>(2) 都不能被实例化<br>(3) 都可以包含方法声明<br>(4) 派生类必须实现未实现的方法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/回顾/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/27/回顾/" itemprop="url">实习回顾</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-27T13:50:52+08:00">
+                2019-08-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>实习回顾 新浪 5.9-8.2</p>
+<h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>第一天就是配环境 熟悉新环境<br>新浪必须要内网可以访问服务器与数据库 因为了IP地址解析，无论是测试服务器还是线上都是如此，另外必须要配置Redis环境。其余都和我之前一样 wamp直接配好</p>
+<p>第一个需求<br>第一个需求是修改一个词云页面，做一个input能更改词云一个项目的名称，实现立刻重命名与暂时重命名的功能。后台只是简单动了一点</p>
+<p>第二个需求<br>新浪有它自己的URL类别 如短URL 长URL mid uid<br>这些是新浪微博的ID 都可以进行互转 如短URL是十六位转换 我要做的是优化原来页面 优化操作体验 原来的操作有点反人类</p>
+<p>第一个较难的需求<br>鹰眼平台 数据流页面 难在前端 页面中有两列,一列是微博 一个个排列 点击一个微博出现cms接口的连接 难在鼠标滚轮看两列的时候 左右两列不能同步 最后对右边一列做了滚轮事件监听 让它呈现吸顶的效果</p>
+<p>这个页面也接触到了组件方式写的vue 在之前我写的vue都是一个父组件从头写到尾，为后期写趋势做铺垫</p>
+<h2 id="主要任务"><a href="#主要任务" class="headerlink" title="主要任务"></a>主要任务</h2><p>鹰眼分析版 写的最多的需求 总得来说是一套数据分析的业务平台<br>1.创建任务<br>鹰眼分析版中趋势分析 是根据<br>关键词 如狮子王<br>mid<br>uid<br>趋势类别 如关注点分析 提及趋势 相关趋势<br>时间条件 七月一号至十号<br>其他参数 如 汇总拆分 是否视频<br>这些参数传递给后台接口 </p>
+<p>2.任务进库 任务交大数据计算<br>我在后台接口将参数与状态写进数据库后 再传递给hive计算接口 hive是大数据那边计算用的技术 他们会根据参数将该任务的pv或uv按天写进数据库 </p>
+<p>3.任务显示与业务方<br>大数据跑完后会将MySQL状态改为成功，然后我再从MySQL中取出这些pv数据 展示到页面的echart图表里 根据天周月可以切换，可以做词拆分，比如奶粉可以拆分为飞鹤 美赞臣 爱他美 另外做Excel下载接口 做相关博文展示接口 新浪的业务需求方则是需要这些数据 做排行 热词<br>分析 报表<br>大部分的数据都用到echart 这是共同点 很多趋势有它独立的分析展示 </p>
+<p>比如事件走势 要展示一段是时间内 初始博文 最热博文 最多点击率博文<br>比如情感分析 需要用到词云接口 展示的是根据那几个关键词衍生出的上百个相关词<br>还有博文的转发博主排行 是table形式展示的</p>
+<p>还有以得分来衡量词的 做了百分比条</p>
+<p>我的大部分工作都是趋势分析这边的 加强了对echart的应用 学会了和数据方与产品经理积极沟通解决问题 因为一开始我根本不知道这个需求到底为什么要这么做 所以不问的话进度很慢<br>，日常改bug，自己测代码，用postman测PHP接口</p>
+<p>在实习未了做了一个主题分析，是对之前趋势分析的一个总控 因为各趋势创建任务的相似性 以及趋势展示的模块话 需求要求能够一次性跑多个趋势 于是就要加一张表表示个趋势需要的参数 加一张表记录主题内容 这个应该讲不清楚 大概意思就是一次性创建几个趋势 成功后也在一个页面里面展示</p>
+<h2 id="几个比较有意义的需求"><a href="#几个比较有意义的需求" class="headerlink" title="几个比较有意义的需求"></a>几个比较有意义的需求</h2><p>1.百万数据迁移<br>大数据那边重做了一个趋势的运行方式 也换了三张新表存计算结果 但是之前的数据在老表里面 总共有两百万数据 如何迁移？<br>老表中存储的是一个个任务大ID 在ID下有各种数据 于是我按照任务ID 来分别传递数据<br>首先是MySQLgroupby出ID表 然后按照ID 每查五十个数 就进行字符串拼接 再插入到新表中<br>写了两个接口 第一个接口用于查找拼接 第二个根据jobID插入新表 需要计算轮数 拼多了字段MySQL会报错 整个迁移大概用了二十分钟 由于按jobID迁移的 中间出了错不用全部重来 </p>
+<p>2.领域标签管理 词上传<br>难点在于去重 每次都是业务整理的大几千词汇 进行上传<br>早期去重用的是先上传上去，再用sql语句去重，这样非常低效<br>后来使用了唯一索引，可以很好的实现去重<br>词分为 一级词 二级 三级 四级 other </p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/21/恩达/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/21/恩达/" itemprop="url">吴恩达深度学习视频学习2019.08.21</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-21T16:02:33+08:00">
+                2019-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>逻辑回归模型： 一种简单的神经网络</p>
+<p>为了计算逻辑回归的参数 w 与 b 我们需要定义一个 成本函数</p>
+<p><img src="\images\pasted-133.png" alt="upload successful"><br>训练样本（i）对应的预测值是yhat（i）<br>是用训练样本，通过sigmoid函数作用到wTx。。函数得到的</p>
+<p>损失函数：<br>通过损失函数得到预测y与真实y进行比较，然后调整<br>损失函数能够衡量训练效果<br>sigmod函数，用于判断概率</p>
+<p>梯度下降法：<br>用于训练学习 w/b</p>
+<p><img src="\images\pasted-134.png" alt="upload successful"></p>
+<p>横轴代表空间参数w（一般w是高维代表多个参数）和b<br>我们要做的是找到合适的w/b使其对应的成本函数j（w,b）为最小值</p>
+<p>所以，我们就需要使用一种方法先初始化w/b<br>梯度下降方法所做的就是 从初始点开始，朝最陡的下坡走一步（学习率a），下降一步之后在那里停下（一次迭代），<br><img src="\images\pasted-135.png" alt="upload successful"><br>这里显示如何通过求导实现梯度下降<br><img src="\images\pasted-136.png" alt="upload successful"></p>
+<p>反向传播算法</p>
+<p><img src="\images\pasted-137.png" alt="upload successful"></p>
+<p><img src="\images\pasted-138.png" alt="upload successful"></p>
+<p>更新w1，w2，b</p>
+<p>向量化：指python中进行向量运算计算结果，速度远快与for循环计算<br><img src="\images\pasted-139.png" alt="upload successful"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/16/环神经网络/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -921,641 +1567,9 @@
       
         
           
-            <p>msyql 200万数据迁移<br>trend与trend_new<br><img src="\images\pasted-123.png" alt="upload successful"></p>
+            <p>原创 by 殷航<br>msyql 200万数据迁移<br>trend与trend_new<br><img src="\images\pasted-123.png" alt="upload successful"></p>
 <p>data与data_new<br><img src="\images\pasted-124.png" alt="upload successful"></p>
 <p>data_new最大，1980页<br><img src="\images\pasted-125.png" alt="upload successful"><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run_combine</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $ids = [<span class="number">518</span>,<span class="number">520</span>,<span class="number">524</span>,<span class="number">525</span>,<span class="number">542</span>,<span class="number">544</span>,<span class="number">558</span>,<span class="number">689</span>,<span class="number">690</span>,<span class="number">758</span>,<span class="number">759</span>];</span><br><span class="line">        <span class="keyword">foreach</span> ($ids <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $job_id = $v;</span><br><span class="line">            <span class="comment">// $sign = $this-&gt;insert_trend($job_id);</span></span><br><span class="line">            <span class="comment">// if($sign==1)&#123;</span></span><br><span class="line">            <span class="comment">//     $sign = $this-&gt;insert_data($job_id);</span></span><br><span class="line">            <span class="comment">// &#125;  </span></span><br><span class="line">            $sign = <span class="keyword">$this</span>-&gt;insert_data($job_id);        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">print</span> json_encode(<span class="keyword">array</span>(<span class="string">'code'</span>=&gt;<span class="number">0</span>, <span class="string">'desc'</span>=&gt;<span class="string">'okokokokokokok'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_trend</span><span class="params">($job_id)</span></span>&#123;</span><br><span class="line">        $sql1 = <span class="string">"select * from t_result_pub_trend where job_id = '$job_id'"</span>;</span><br><span class="line">        $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">        $data = [];</span><br><span class="line">        </span><br><span class="line">        $len = count($rows);</span><br><span class="line">        <span class="comment">// $this-&gt;p($rows[22775]);</span></span><br><span class="line">        $i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">            $i++;</span><br><span class="line">            $data[$j][] = $v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//insert</span></span><br><span class="line">        <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $one = [];</span><br><span class="line">            <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_name'</span>].<span class="string">"','"</span>.$v1[<span class="string">'pv'</span>].<span class="string">"','"</span>.$v1[<span class="string">'hour'</span>].<span class="string">"')"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">            $sql = <span class="string">"INSERT  INTO t_result_pub_trend_new (job_id,dt,uid,category_name,pv,`hour`) VALUES $tmp"</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">            </span><br><span class="line">        &#125;          </span><br><span class="line">        <span class="keyword">unset</span>($rows);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_data</span><span class="params">($job_id)</span></span>&#123;</span><br><span class="line">        $sql1 = <span class="string">"select * from t_result_pub_data where job_id = '$job_id'"</span>;</span><br><span class="line">        $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">        $data = [];</span><br><span class="line">        </span><br><span class="line">        $len = count($rows);</span><br><span class="line">        $i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">            $i++;</span><br><span class="line">            $data[$j][] = $v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//insert</span></span><br><span class="line">        <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $one = [];</span><br><span class="line">            <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'time'</span>].<span class="string">"','"</span>.$v1[<span class="string">'mid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'is_topic'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_names'</span>].<span class="string">"','"</span>.$v1[<span class="string">'atuids'</span>].<span class="string">"','"</span>.$v1[<span class="string">'total_valid_cs'</span>].<span class="string">"','"</span>.$v1[<span class="string">'id'</span>].<span class="string">"')"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">            $sql = <span class="string">"INSERT  INTO t_result_pub_data_new (job_id,dt,uid,`time`,mid,is_topic,category_names,atuids,total_valid_cs,id) VALUES $tmp"</span>;</span><br><span class="line">            <span class="comment">// $this-&gt;p($sql);</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">            </span><br><span class="line">        &#125;         </span><br><span class="line">        <span class="keyword">unset</span>($rows);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_data_special</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $job_id = <span class="number">852</span>;</span><br><span class="line">        $sql_num = <span class="string">"select count('id') ct from t_result_pub_data where job_id = '$job_id'"</span>;</span><br><span class="line">        $all = <span class="keyword">$this</span>-&gt;db-&gt;query($sql_num)-&gt;row_array();</span><br><span class="line">        $num = $all[<span class="string">'ct'</span>];</span><br><span class="line">        $ci = round($num/<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ($w=<span class="number">0</span>; $w&lt; $ci; $w++) &#123; </span><br><span class="line">            $x = $w *<span class="number">10000</span>;</span><br><span class="line">            $sql1 = <span class="string">"select * from t_result_pub_data where job_id = '$job_id' limit $x , 10000"</span>;</span><br><span class="line">            $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">            $data = [];</span><br><span class="line">            </span><br><span class="line">            $len = count($rows);</span><br><span class="line">            $i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">                $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">                $i++;</span><br><span class="line">                $data[$j][] = $v;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//insert</span></span><br><span class="line">            <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">                $one = [];</span><br><span class="line">                <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                    $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'time'</span>].<span class="string">"','"</span>.$v1[<span class="string">'mid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'is_topic'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_names'</span>].<span class="string">"','"</span>.$v1[<span class="string">'atuids'</span>].<span class="string">"','"</span>.$v1[<span class="string">'total_valid_cs'</span>].<span class="string">"','"</span>.$v1[<span class="string">'id'</span>].<span class="string">"')"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">                $sql = <span class="string">"INSERT ignore INTO t_result_pub_data_new (job_id,dt,uid,`time`,mid,is_topic,category_names,atuids,total_valid_cs,id) VALUES $tmp"</span>;</span><br><span class="line">                <span class="comment">// $this-&gt;p($sql);</span></span><br><span class="line">                <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">                </span><br><span class="line">            &#125;        </span><br><span class="line">            <span class="keyword">unset</span>($rows);              </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;p($sql1);</span><br><span class="line">        <span class="comment">// $this-&gt;p($x);</span></span><br><span class="line">        <span class="keyword">print</span> json_encode(<span class="keyword">array</span>(<span class="string">'code'</span>=&gt;<span class="number">0</span>, <span class="string">'desc'</span>=&gt;<span class="string">'okokokokokokok'</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/眼系统/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/02/眼系统/" itemprop="url">鹰眼系统</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-02T19:09:39+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>依靠微博日志 进行实时计算 过滤日志<br>实时算各种榜单<br>实时监控大V账号</p>
-<p>xunzhe 根据条件筛选用户 用到ES引擎</p>
-<p>爬虫scrapy  目标： 高性能高可用分布式爬虫</p>
-<p>前端JQuery-Angular.js-vue.js<br>目标：前后端分离</p>
-<p>新浪为什么要用php ci框架</p>
-<p>08年到现在还是php 能用就行… </p>
-<p>Apache 高并发会有问题 所以采用nginx</p>
-<p>thrift</p>
-<p>es速度远超mysql 与mongodb相当</p>
-<p>mysql慢查询 读写分离延迟</p>
-<p>hbase redis</p>
-<p>数据计算</p>
-<p>离线技术：hadoop（mapreducehive），spark</p>
-<p>实时技术： ols-&gt;spark streaming-&gt;flink</p>
-<p>多维查询： ckickhouse，presto</p>
-<p>鹰眼如何监控<br>1选择监控的账号<br>2 </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/thon知识积累/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/25/thon知识积累/" itemprop="url">python知识积累</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-25T16:23:11+08:00">
-                2019-06-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>scrapy</p>
-<p>pipline持久化</p>
-<p>google baidu本身也是爬虫</p>
-<p>代理ip与访问间隔 防止封ip</p>
-<p>利用深度学习绕过机器图片检测</p>
-<p>滑动进度条不匀速 js代码</p>
-<p>模拟登陆 爬取数据必须登陆 携带cookie</p>
-<p>反爬虫</p>
-<p>检测是否访问js、css</p>
-<p>自定义字体库</p>
-<p>递归的url 蜜罐</p>
-<p>只开放手机端 不开放其他接口</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/京之旅day3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/10/京之旅day3/" itemprop="url">北京之旅day3</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-10T20:32:58+08:00">
-                2019-05-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="入职"><a href="#入职" class="headerlink" title="入职"></a>入职</h2><p>昨天入职，今天正式开始接需求，一开始的需求不会太难，但是我还是花了很多时间去看懂他的代码结构，索性最后还是写出来我想要的效果，也算是在周末前给自己的一个定心丸，毕竟如果今天什么都做不出来的话，那么接下来的日子就不好过了。</p>
-<h2 id="坑"><a href="#坑" class="headerlink" title="坑"></a>坑</h2><p>今天又去逛了超市，感觉其实没什么好买的，以后晚上应该都是吃零食，因为新浪的伙食，看上去很好看，看上去也很多，但是只要你加一个荤菜，你就会后悔来北京，那是指数级别的加价，我的天哪，加一个荤菜，给我加十块钱，还有昨天吃那个凉面，花了我十三块钱，还没有五谷烩四块钱的热干面好吃，真的是一言难尽。</p>
-<h2 id="补充昨天的"><a href="#补充昨天的" class="headerlink" title="补充昨天的"></a>补充昨天的</h2><p>day2主要是到处去逛，一天骑了好长时间的车，而且我发现，在北京，hellobike特别抢手，因为每天早上公司门口停满了hellobike，每天晚上公司门口，一辆hellobike都没有，只剩下破铜烂铁，我还是不打算去办摩拜，因为走回来也只要30分钟，都还好，</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/京之旅day1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/07/京之旅day1/" itemprop="url">北京之旅day1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-07T21:46:29+08:00">
-                2019-05-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>   之所以去北京是为了新浪的实习，而且目前也只有新浪的offer，是在是没得法子。。虽然昨天下午接了小米的电话，但是好像也不能立刻改变什么，该去的还是要去，历练嘛，不能在毕业之前还心里没有谱，那不等于白读三年研究生。。<br>    早上坐了校车从东澜岸赶到学校，等到了青山老妈已经请了假在帮我收拾行李，老爸打电话告诉我过会送我去火车站，然后我又被我妈怂恿跑去办理银行卡挂失（这导致我当天到了北京之后没有钱付房租，还是找媳妇要的钱付的。。。），实在不是什么明智之举。<br>    去北京，不是第一次去，感觉北京的天气比武汉的舒服，因为不是很热，有风吹过，吹的人心情舒畅一点点，也没有雾霾什么的，听说在办世园会。动车是真的贵，也是真的快，1000公里4小时就到了，但是要花520大洋。中介小哥倒是十分热情，虽然我还不知道他会不会有什么套路，但是年级比我小两岁，如果碰到个40岁的中介绝对比他会的套路多，我在来之前其实大致确定了要住的房子，便宜，优惠一个月，位置还可以，空气也还算可以，我强制他带我去看了其他两套房子，是那种我知道肯定我不会选的，结果比我想的还要差，第一家屋子只能住两个人，客厅里到处都是鞋子衣物，我懂那个租户的想法，想利用这样脏乱的环境劝退其他人，好让自己好好住在里面，并且他是有一个女的一起住的，哪个在外漂的人愿意天天听别个床板吱呀吱呀声。。。另外一家更贵一点，房间更大一点，但是房子味道很重。。。自如的套路其实都写在合同里面了，坑你一个月的房租，比同行高得多的服务费，但是他掌握的房源多，并且服务还算可以，只要甲醛没得问题其他都还好。算下来转租有点难度，估计要花费9000到10000左右，也就是说我工资刚刚抵押房钱，所以说还是武汉好啊，北京不拿几万工资根本活不下去。<br>    晚上在外面晃荡一下，找了一家餐馆吃了点，估计以后会经常去那边吃，物价的话还好，但是味道真的一般，也许明天我可能就会去买个奶锅买点面条每天自己下面吃，这样一天的开销，早晚餐可以压缩到十元左右，每天应该会到处逛逛，去新浪看看，</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/xo重新部署的方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/29/xo重新部署的方法/" itemprop="url">hexo重新部署的方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T09:35:21+08:00">
-                2019-04-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装Git-Bash"><a href="#安装Git-Bash" class="headerlink" title="安装Git Bash"></a>安装Git Bash</h2><p>百度git安装</p>
-<h2 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h2><p>百度</p>
-<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p>npm install hexo-cli -g </p>
-<h2 id="生成SSH并添加到github"><a href="#生成SSH并添加到github" class="headerlink" title="生成SSH并添加到github"></a>生成SSH并添加到github</h2><p>git config –global user.name “yourname”<br>git config –global user.email <a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a><br>ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“<br>拷贝秘钥到GitHub上，替换秘钥</p>
-<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>npm install hexo-deployer-git –save</p>
 
           
         
@@ -1595,7 +1609,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1643,7 +1657,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">80</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
