@@ -290,6 +290,159 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/19/TTP响应报头/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/19/TTP响应报头/" itemprop="url">跨域请求</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-19T09:23:00+08:00">
+                2019-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/http/" itemprop="url" rel="index">
+                    <span itemprop="name">http</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><p>浏览器对于javascript的同源策略的限制,例如a.cn下面的js不能调用b.cn中的js,对象或数据(因为a.cn和b.cn是不同域),所以跨域就出现了.</p>
+<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>请求的url地址,必须与浏览器上的url地址处于同域上,也就是域名,端口,协议相同.<br>比如:我在本地上的域名是study.cn,请求另外一个域名一段数据，这个时候在浏览器上会报错</p>
+<p><img src="\images\pasted-86.png" alt="upload successful"></p>
+<p><img src="\images\pasted-85.png" alt="upload successful"></p>
+<p>p($header)每次请求打印出来的头部：<br><img src="\images\pasted-87.png" alt="upload successful"></p>
+<h2 id="Access-Control-Allow-Origin"><a href="#Access-Control-Allow-Origin" class="headerlink" title="Access-Control-Allow-Origin"></a>Access-Control-Allow-Origin</h2><p>该字段是必须的。它的值要么是请求时Origin字段的值，要么是一个*，表示接受任意域名的请求。<br>如需允许所有资源都可以访问您的资源，您可以如此设置：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Access</span>-Control-Allow-Origin: *</span><br></pre></td></tr></table></figure></p>
+<p>如需允许<a href="https://developer.mozilla.org访问您的资源，您可以设置：" target="_blank" rel="noopener">https://developer.mozilla.org访问您的资源，您可以设置：</a><br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Allow-<span class="string">Origin:</span>  <span class="string">https:</span><span class="comment">//developer.mozilla.org</span></span><br></pre></td></tr></table></figure></p>
+<p>zl的origin为<a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a></p>
+<h2 id="Access-Control-Allow-Credentials"><a href="#Access-Control-Allow-Credentials" class="headerlink" title="Access-Control-Allow-Credentials"></a>Access-Control-Allow-Credentials</h2><p>该字段可选。它的值是一个布尔值，表示是否允许发送Cookie。默认情况下，Cookie不包括在CORS请求之中。设为true，即表示服务器明确许可，Cookie可以包含在请求中，一起发给服务器。这个值也只能设为true，如果服务器不要浏览器发送Cookie，删除该字段即可。</p>
+<h2 id="Access-Control-Allow-Methods"><a href="#Access-Control-Allow-Methods" class="headerlink" title="Access-Control-Allow-Methods"></a>Access-Control-Allow-Methods</h2><p>响应首部 Access-Control-Allow-Methods 在对 preflight request.（预检请求）的应答中明确了客户端所要访问的资源允许使用的方法或方法列表。</p>
+<h2 id="Access-Control-Allow-Headers"><a href="#Access-Control-Allow-Headers" class="headerlink" title="Access-Control-Allow-Headers"></a>Access-Control-Allow-Headers</h2><p>预检请求,列出了将会在正式请求的 Access-Control-Expose-Headers 字段中出现的首部信息。</p>
+<h2 id="Access-Control-Expose-Headers"><a href="#Access-Control-Expose-Headers" class="headerlink" title="Access-Control-Expose-Headers"></a>Access-Control-Expose-Headers</h2><p>该字段可选。CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma。如果想拿到其他字段，就必须在Access-Control-Expose-Headers里面指定。上面的例子指定，getResponseHeader(‘FooBar’)可以返回FooBar字段的值。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/SI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1530,166 +1683,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/p-mysql函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/14/p-mysql函数/" itemprop="url">php mysql函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-14T15:18:14+08:00">
-                2019-04-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>　　mysql_affected_rows： 得到 MySQL 最后操作影响的列数目。<br>　　mysql_close： 关闭 MySQL 服务器连接。<br>　　mysql_connect： 打开 MySQL 服务器连接。<br>　　mysql_create_db： 建立一个 MySQL 新数据库。<br>　　mysql_data_seek： 移动内部返回指针。<br>　　mysql_db_query： 送查询字符串 (query) 到 MySQL 数据库。<br>　　mysql_drop_db： 移除数据库。<br>　　mysql_errno： 返回错误信息代码。<br>　　mysql_error： 返回错误信息。<br>　　mysql_fetch_array： 返回数组资料。<br>　　mysql_fetch_field： 取得字段信息。<br>　　mysql_fetch_lengths： 返回单列各栏资料最大长度。<br>　　mysql_fetch_object： 返回类资料。<br>　　mysql_fetch_row： 返回单列的各字段。<br>　　mysql_field_name： 返回指定字段的名称。<br>　　mysql_field_seek： 配置指针到返回值的某字段。<br>　　mysql_field_table： 获得目前字段的资料表 (table) 名称。<br>　　mysql_field_type： 获得目前字段的类型。<br>　　mysql_field_flags： 获得目前字段的标志。<br>　　mysql_field_len： 获得目前字段的长度。<br>　　mysql_free_result： 释放返回占用内存。<br>　　mysql_insert_id： 返回最后一次使用 INSERT 指令的 ID。<br>　　mysql_list_fields： 列出指定资料表的字段 (field)。<br>　　mysql_list_dbs： 列出 MySQL 服务器可用的数据库 (database)。<br>　　mysql_list_tables： 列出指定数据库的资料表 (table)。<br>　　mysql_num_fields： 取得返回字段的数目。<br>　　mysql_num_rows： 取得返回列的数目。<br>　　mysql_pconnect： 打开 MySQL 服务器持续连接。<br>　　mysql_query： 送出一个 query 字符串。<br>　　mysql_result： 取得查询 (query) 的结果。<br>　　mysql_select_db： 选择一个数据库。<br>　　mysql_tablename： 取得资料表名称。</p>
-<p>　　mysql_affected_rows　得到 MySQL 最后操作影响的列数目。<br>　　语法： int mysql_affected_rows(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　内容说明： 本函数可得到 MySQL 最后查询操作 INSERT、UPDATE 或 DELETE 所影响的列 (row) 数目。若最后的查询 (query) 是使用 DELETE 而且没有使用 WHERE 命令，则会删除全部资料，本函数将返回 0。若最后使用的是 SELECT，则用本函数不会得到预期的数目，因为要改变 MySQL 数据库本函数才有效，欲得到 SELECT 返回的数目需使用 mysql_num_rows() 函数。</p>
-<p>　　mysql_close　关闭 MySQL 服务器连接。<br>　　语法： int mysql_close(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数关闭与 MySQL 数据库服务器的连接。若无指定参数 link_identifier 则会关闭最后的一笔连接。用 mysql_pconnect() 连接则无法使用本函数关闭。实际上本函数不是一定需要的，当 PHP 整页程序结束后，将会自动关闭与数据库的非永久性 (non-persistent) 连接。成功返回 true、失败返回 false 值。<br>　　参考： mysql_connect() mysql_pconnect()</p>
-<p>　　mysql_connect　打开 MySQL 服务器连接。<br>　　语法： int mysql_connect(string [hostname] [：port], string [username], string [password]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数建立与 MySQL 服务器的连接。其中所有的参数都可省略。当使用本函数却不加任何参数时，参数 hostname 的默认值为 localhost、参数 username 的默认值为 PHP 执行行程的拥有者、参数 password 则为空字符串 (即没有密码)。而参数 hostname 后面可以加冒号与埠号，代表使用那个埠与 MySQL 连接。当然在使用数据库时，早点使用 mysql_close() 将连接关掉可以节省资源。</p>
-<p>　　 使用范例<br>　　&lt;?php<br>　　　　$dbh = mysql_connect(‘localhost：3306’,’mcclain’,’standard’);<br>　　　　mysql_select_db(‘admreqs’);<br>　　　　$query = “insert into requests(date, request, email, priority,status) values 　　　　(NOW(),’$description’, ‘$email’, ‘$priority’, ‘NEW’)”;<br>　　　　$res = mysql_query($query, $dbh);<br>　　　　$query = “select max(id) from requests”;<br>　　　　$res = mysql_query($query, $dbh);<br>　　　　$err = mysql_error();<br>　　　　if($err){<br>　　　　　　echo “发生错误，请通知<a href="mailto：webmaster@my.site">站长</a>“;<br>　　　　}<br>　　　　$row = mysql_fetch_row($res);<br>　　　　echo “未来您使用的号码为： “.$row[0];<br>　　?&gt;<br>　　参考： mysql_close() mysql_pconnect()</p>
-<p>　　mysql_create_db　建立一个 MySQL 新数据库。<br>　　语法： int mysql_create_db(string database name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来建立新的数据库 (database)。在建立前，必须先与服务器连接。<br>　　参考： mysql_drop_db()</p>
-<p>　　mysql_data_seek　移动内部返回指针。<br>　　语法： int mysql_data_seek(int result_identifier, int row_number);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可移动内部返回的列指针到指定的 row_number 去。之后若使用 mysql_fetch_row() 可以返回新列的值。成功返回 true、失败则返回 false。</p>
-<p>　　mysql_db_query　送查询字符串 (query) 到 MySQL 数据库。<br>　　语法： int mysql_db_query(string database, string query, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来送出查询字符串 (query) 到后端的 MySQL 数据库中。而可省略的参数 　　link_identifier 若不存在，程序会自动寻找其它 mysql_connect() 连接后的连接代码。发生错误时会返回 false，其它没错误时则返回它的返回代码。<br>　　参考： mysql_connect()</p>
-<p>　　mysql_drop_db　移除数据库。<br>　　语法： int mysql_drop_db(string database_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数移除已存在的数据库。成功返回 true、失败则返回 false。<br>　　参考： mysql_create_db()</p>
-<p>　　mysql_errno<br>　　返回错误信息代码。<br>　　语法： int mysql_errno(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能　<br>　　内容说明： 本函数可以得到 MySQL 数据库服务器的错误代码。通常用在 PHP 网页程序开发阶段，作为 PHP 与 MySQL 的除错用。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect(“marliesle”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　　　mysql_select_db(“nonexistentdb”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　　　$conn = mysql_query(“SELECT * FROM nonexistenttable”);<br>　　　　echo mysql_errno().”： “.mysql_error().”<br>“;<br>　　?&gt;<br>　　参考： mysql_error()</p>
-<p>　　mysql_error　返回错误信息。<br>　　语法： string mysql_error(int [link_identifier]);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到 MySQL 数据库服务器的错误信息。通常用在 PHP 网页程序开发阶段，与 mysql_errno() 一起作为PHP 与 MySQL 的除错用。<br>　　参考： mysql_errno()</p>
-<p>　　mysql_fetch_array　返回数组资料。<br>　　语法： array mysql_fetch_array(int result, int [result_typ]);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 拆到数组变量中。若 result 没有资料，则返回 false 值。而本函数可以说是 mysql_fetch_row() 的加强函数，除可以将返回列及数字索引放入数组之外，还可以将文字索引放入数组中。若是好几个返回字段都是相同的文字名称，则最后一个置入的字段有效，解 决方法是使用数字索引或者为这些同名的字段 (column) 取别名 (alias)。治募注意的是使用本函数的处理速度其实不会比 mysql_fetch_row() 函数慢，要用哪个函数还是看使用的需求决定。参数 result_typ 是一个常量值，有以下几种常量 MYSQL_ASSOC、MYSQL_NUM 与 MYSQL_BOTH。</p>
-<p>　　 使用范例<br>　　&lt;?php<br>　　　　mysql_connect($host,$user,$password);<br>　　　　$result = mysql_db_query(“database”,”select * from table”);<br>　　　　while($row = mysql_fetch_array($result)) {<br>　　　　　　echo $row[“user_id”];<br>　　　　　　echo $row[“fullname”];<br>　　　　}<br>　　　　mysql_free_result($result);<br>　　?&gt;</p>
-<p>　　mysql_fetch_field　取得字段信息。<br>　　语法： object mysql_fetch_field(int result, int [field_offset]);<br>　　返回值： 类<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数返回的类资料为 result 的字段 (Column) 信息。返回类的属性如下：</p>
-<p>　　name - 字段名称<br>　　table - 字段所在表格的资料表名称<br>　　max_length - 字段的最大长度<br>　　not_null - 若为 1 表示本字段不能是空的 (null)<br>　　primary_key - 若为 1 表示本字段是主要键 (primary key)<br>　　unique_key - 若为 1 表示本字段为不可重覆键 (unique key)<br>　　multiple_key - 若为 1 表示本字段为可重覆键 (non-unique key)<br>　　numeric - 若为 1 表示本字段为数字类型 (numeric)<br>　　blob - 若为 1 表示本字段为位类型 (BLOB)<br>　　type - 字段类型<br>　　unsigned - 若为 1 表示本字段为无记号 (unsigned)<br>　　zerofill - 若为 1 表示本字段为被零填满 (zero-filled)<br>　　参考： mysql_field_seek()</p>
-<p>　　mysql_fetch_lengths　返回单列各栏资料最大长度。<br>　　语法： array mysql_fetch_lengths(int result);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数将 mysql_fetch_row() 处理过的最后一列资料的各字段资料最大长度放在数组变量之中。若执行失败则返回 false 值。返回数组的第一笔资料索引值是 0。<br>　　参考： mysql_fetch_row()</p>
-<p>mysql_fetch_object　返回类资料。<br>　　语法： object mysql_fetch_object(int result, int [result_typ]);<br>　　返回值： 类<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 拆到类变量中。使用方法和 mysql_fetch_array() 几乎相同，不同的地方在于本函数返回资料是类而不是数组。若 result 没有资料，则返回 false 值。另外治募注意的地方是，取回的类资料的索引只能是文字而不能用数字，这是因为类的特性。类资料的特性中所有的属性 (property) 名称都不能是数字，因此只好乖乖使用文字字符串当索引了。参数 result_typ是一个常量值，有以下几种常量 MYSQL_ASSOC、MYSQL_NUM 与 MYSQL_BOTH。关于速度方面，本函数的处理速度几乎和 mysql_fetch_row() 及 mysql_fetch_array() 二函数差不多，要用哪个函数还是看使用的需求决定。</p>
-<p>　　 使用范例，下面的例子示范如使用返回的类。<br>　　&lt;?php<br>　　　　mysql_connect($host,$user,$password);<br>　　　　$result = mysql_db_query(“MyDatabase”,”select * from test”);<br>　　　　while($row = mysql_fetch_object($result)) {<br>　　　　　　echo $row-&gt;user_id;<br>　　　　　　echo $row-&gt;fullname;<br>　　　　}<br>　　　　mysql_free_result($result);<br>　　?&gt;<br>　　参考： mysql_fetch_array() mysql_fetch_row()</p>
-<p>　　mysql_fetch_row　返回单列的各字段。<br>　　语法： array mysql_fetch_row(int result);<br>　　返回值： 数组<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来将查询结果 result 之单列拆到数组变量中。数组的索引是数字索引，第一个的索引值是 0。若 result 没有资料，则返回 false 值。<br>参考： mysql_fetch_array() mysql_fetch_object() mysql_data_seek() mysql_fetch_lengths() mysql_result()</p>
-<p>　　mysql_field_name　返回指定字段的名称。<br>　　语法： string mysql_field_name(int result, int field_index);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数用来取得指定字段的名称。</p>
-<p>　　使用范例<br>　　mysql_field_name($result,2); </p>
-<p>　　mysql_field_seek　配置指针到返回治募某字段。<br>　　语法： int mysql_field_seek(int result, int field_offset);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数配置目前的指针到返回治募特定字段中。<br>　　参考： mysql_fetch_field()</p>
-<p>　　mysql_field_table　获得目前字段的资料表 (table) 名称。<br>　　语法： string mysql_field_table(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的资料表名。</p>
-<p>　　mysql_field_type　获得目前字段的类型。<br>　　语法： string mysql_field_type(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的类型格式。返回的字符串为字段的类型，包括了 int、real、string、blob….等等，详见 MySQL 的相关文件中有关于类型的部份。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect(“localhost：3306”);<br>　　　　mysql_select_db(“wisconsin”);<br>　　　　$result = mysql_query(“SELECT * FROM onek”);<br>　　　　$fields = mysql_num_fields($result);<br>　　　　$rows = mysql_num_rows($result);<br>　　　　$i = 0;<br>　　　　$table = mysql_field_table($result, $i);<br>　　　　echo “资料表 ‘“.$table.”‘ 有 “.$fields.” 栏及 “.$rows.” 列。<br>“;<br>　　　　echo “本资料表的字段如下<br>“;<br>　　　　while ($i &lt; $fields) {<br>　　　　　　$type = mysql_field_type ($result, $i);<br>　　　　　　$name = mysql_field_name ($result, $i);<br>　　　　　　$len = mysql_field_len ($result, $i);<br>　　　　　　$flags = mysql_field_flags ($result, $i);<br>　　　　　　echo $type.” “.$name.” “.$len.” “.$flags.”<br>“;<br>　　　　　　$i++;<br>　　　　}<br>　　　　mysql_close();<br>　　?&gt;</p>
-<p>　　mysql_field_flags　获得目前字段的标志。<br>　　语法： string mysql_field_flags(int result, int field_offset);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的标志。若一个字段有数种属性标志，则返回的标志为这些属性连起来的字符串，每个属性都用空格隔开，可以使用 explode() 切开这些字符串。返回的标志可能是：not_null、primary_key、unique_key、multiple_key、blob、 unsigned、zerofill、binary、enum、auto_increment、timestamp。</p>
-<p>　　mysql_field_len　获得目前字段的长度。<br>　　语法： int mysql_field_len(int result, int field_offset);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到目前所在字段的长度。</p>
-<p>　　mysql_free_result　释放返回占用内存。<br>　　语法： boolean mysql_free_result(int result);<br>　　返回值： 布尔值<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以释放目前 MySQL 数据库 query 返回所占用的内存。一般只有在非常担心在内存的使用上可能会不足的情形下才会用本函数。PHP 程序会在结束时自动释放。</p>
-<p>　　mysql_insert_id　返回最后一次使用 INSERT 指令的 ID。<br>　　语法： int mysql_insert_id(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到最后一次使用 INSERT 到 MySQL 数据库的执行 ID。<a href="mailto:sleibowitz@btcwcu.org" target="_blank" rel="noopener">sleibowitz@btcwcu.org</a> (13-May-1999) 指出在 PHP 3.0.7版用 REPLACE 也和使用 INSERT 一样，可以使用本函数获得 ID。</p>
-<p>　　mysql_list_fields　列出指定资料表的字段 (field)。<br>　　语法： int mysql_list_fields(string database_name, string table_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到指定的资料表的所有字段。返回的字段信息可以供 mysql_field_flags()、mysql_field_len()、mysql_field_name() 及 mysql_field_type() 等函数使用。若有错误则返回 -1。</p>
-<p>　　mysql_list_dbs　列出 MySQL 服务器可用的数据库 (database)。<br>　　语法： int mysql_list_dbs(int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到 MySQL 服务器的可用数据库。</p>
-<p>　　mysql_list_tables　列出指定数据库的资料表 (table)。<br>　　语法： int mysql_list_tables(string database, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到指定数据库中的所有资料表名称。</p>
-<p>　　mysql_num_fields　取得返回字段的数目。<br>　　语法： int mysql_num_fields(int result);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到返回字段的数目。<br>　　参考： mysql_db_query() mysql_query() mysql_fetch_field() mysql_num_rows()</p>
-<p>　　mysql_num_rows　取得返回列的数目。<br>　　语法： int mysql_num_rows(int result);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可以得到返回列的数目。<br>　　参考： mysql_db_query() mysql_query() mysql_fetch_row()</p>
-<p>　　mysql_pconnect　打开 MySQL 服务器持续连接。<br>　　语法： int mysql_pconnect(string [hostname] [：port], string [username], string [password]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数和 mysql_connect() 雷同。不同的地方在于使用本函数打开数据库时，程序会先寻找是否曾经执行过本函数，若执行过则返回先前执行的 ID。另一个不同的地方是本函数无法使用 mysql_close() 关闭数据库。</p>
-<p>　　mysql_query　送出一个 query 字符串。<br>　　语法： int mysql_query(string query, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数送出 query 字符串供 MySQL 做相关的处理或者执行。若没有指定 link_identifier 参数，则程序会自动寻找最近打开的 ID。当 query 查询字符串是 UPDATE、INSERT 及 DELETE 时，返回的可能是 true 或者 false；查询的字符串是 SELECT 则返回新的 ID 值。<a href="mailto:joey@samaritan.com" target="_blank" rel="noopener">joey@samaritan.com</a> (09-Feb-1999) 指出，当返回 false 时，并不是执行成功但无返回值，而是查询的字符串有错误。<br>　　参考： mysql_db_query() mysql_select_db() mysql_connect() </p>
-<p>　　mysql_result　取得查询 (query) 的结果。<br>　　语法： int mysql_result(int result, int row, mixed field);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数取得一格 query 的结果。参数 field 可以是字段名称、顺序或者是 FieldName.TableName 的格式。在返回资料量少时，可以使用本函数来处理。当数据库大时，本函数的效率就有待考量了，这时可以使用较有效率的 mysql_fetch_row()、mysql_fetch_array() 及 mysql_fetch_object() 等函数。</p>
-<p>　　mysql_select_db　选择一个数据库。<br>　　语法： int mysql_select_db(string database_name, int [link_identifier]);<br>　　返回值： 整数<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数选择 MySQL 服务器中的数据库以供之后的资料查询作业 (query) 处理。成功返回 true，失败则返回 false。<br>　　参考： mysql_connect() mysql_pconnect() mysql_query()</p>
-<p>　　mysql_tablename　取得资料表名称。<br>　　语法： string mysql_tablename(int result, int i);<br>　　返回值： 字符串<br>　　函数种类： 数据库功能<br>　　内容说明： 本函数可取得资料表名称字符串，一般配合 mysql_list_tables() 函数使用，取得该函返回的数字的名称字符串。</p>
-<p>　　使用范例<br>　　&lt;?php<br>　　　　mysql_connect (“localhost：3306”);<br>　　　　$result = mysql_list_tables (“wisconsin”);<br>　　　　$i = 0;<br>　　　　while ($i &lt; mysql_num_rows ($result)) {<br>　　　　　　$tb_names[$i] = mysql_tablename ($result, $i);<br>　　　　　　echo $tb_names[$i] . “<br>“;<br>　　　　　　$i++;<br>　　　　}<br>　　?&gt;</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1742,7 +1735,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -290,6 +290,128 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/19/titled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/19/titled/" itemprop="url">php写的mysql数据迁移</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-19T11:05:17+08:00">
+                2019-07-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>原创 by 殷航<br>msyql 200万数据迁移<br>trend与trend_new<br><img src="\images\pasted-123.png" alt="upload successful"></p>
+<p>data与data_new<br><img src="\images\pasted-124.png" alt="upload successful"></p>
+<p>data_new最大，1980页<br><img src="\images\pasted-125.png" alt="upload successful"><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run_combine</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $ids = [<span class="number">518</span>,<span class="number">520</span>,<span class="number">524</span>,<span class="number">525</span>,<span class="number">542</span>,<span class="number">544</span>,<span class="number">558</span>,<span class="number">689</span>,<span class="number">690</span>,<span class="number">758</span>,<span class="number">759</span>];</span><br><span class="line">        <span class="keyword">foreach</span> ($ids <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $job_id = $v;</span><br><span class="line">            <span class="comment">// $sign = $this-&gt;insert_trend($job_id);</span></span><br><span class="line">            <span class="comment">// if($sign==1)&#123;</span></span><br><span class="line">            <span class="comment">//     $sign = $this-&gt;insert_data($job_id);</span></span><br><span class="line">            <span class="comment">// &#125;  </span></span><br><span class="line">            $sign = <span class="keyword">$this</span>-&gt;insert_data($job_id);        </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">print</span> json_encode(<span class="keyword">array</span>(<span class="string">'code'</span>=&gt;<span class="number">0</span>, <span class="string">'desc'</span>=&gt;<span class="string">'okokokokokokok'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_trend</span><span class="params">($job_id)</span></span>&#123;</span><br><span class="line">        $sql1 = <span class="string">"select * from t_result_pub_trend where job_id = '$job_id'"</span>;</span><br><span class="line">        $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">        $data = [];</span><br><span class="line">        </span><br><span class="line">        $len = count($rows);</span><br><span class="line">        <span class="comment">// $this-&gt;p($rows[22775]);</span></span><br><span class="line">        $i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">            $i++;</span><br><span class="line">            $data[$j][] = $v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//insert</span></span><br><span class="line">        <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $one = [];</span><br><span class="line">            <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_name'</span>].<span class="string">"','"</span>.$v1[<span class="string">'pv'</span>].<span class="string">"','"</span>.$v1[<span class="string">'hour'</span>].<span class="string">"')"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">            $sql = <span class="string">"INSERT  INTO t_result_pub_trend_new (job_id,dt,uid,category_name,pv,`hour`) VALUES $tmp"</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">            </span><br><span class="line">        &#125;          </span><br><span class="line">        <span class="keyword">unset</span>($rows);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_data</span><span class="params">($job_id)</span></span>&#123;</span><br><span class="line">        $sql1 = <span class="string">"select * from t_result_pub_data where job_id = '$job_id'"</span>;</span><br><span class="line">        $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">        $data = [];</span><br><span class="line">        </span><br><span class="line">        $len = count($rows);</span><br><span class="line">        $i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">            $i++;</span><br><span class="line">            $data[$j][] = $v;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//insert</span></span><br><span class="line">        <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            $one = [];</span><br><span class="line">            <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'time'</span>].<span class="string">"','"</span>.$v1[<span class="string">'mid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'is_topic'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_names'</span>].<span class="string">"','"</span>.$v1[<span class="string">'atuids'</span>].<span class="string">"','"</span>.$v1[<span class="string">'total_valid_cs'</span>].<span class="string">"','"</span>.$v1[<span class="string">'id'</span>].<span class="string">"')"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">            $sql = <span class="string">"INSERT  INTO t_result_pub_data_new (job_id,dt,uid,`time`,mid,is_topic,category_names,atuids,total_valid_cs,id) VALUES $tmp"</span>;</span><br><span class="line">            <span class="comment">// $this-&gt;p($sql);</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">            </span><br><span class="line">        &#125;         </span><br><span class="line">        <span class="keyword">unset</span>($rows);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    &#125;    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">insert_data_special</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $job_id = <span class="number">852</span>;</span><br><span class="line">        $sql_num = <span class="string">"select count('id') ct from t_result_pub_data where job_id = '$job_id'"</span>;</span><br><span class="line">        $all = <span class="keyword">$this</span>-&gt;db-&gt;query($sql_num)-&gt;row_array();</span><br><span class="line">        $num = $all[<span class="string">'ct'</span>];</span><br><span class="line">        $ci = round($num/<span class="number">10000</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ($w=<span class="number">0</span>; $w&lt; $ci; $w++) &#123; </span><br><span class="line">            $x = $w *<span class="number">10000</span>;</span><br><span class="line">            $sql1 = <span class="string">"select * from t_result_pub_data where job_id = '$job_id' limit $x , 10000"</span>;</span><br><span class="line">            $rows = <span class="keyword">$this</span>-&gt;db-&gt;query($sql1)-&gt;result_array(); </span><br><span class="line">            $data = [];</span><br><span class="line">            </span><br><span class="line">            $len = count($rows);</span><br><span class="line">            $i = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">foreach</span> ($rows <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">                $j = ceil(($i+<span class="number">1</span>) / <span class="number">50</span>);</span><br><span class="line">                $i++;</span><br><span class="line">                $data[$j][] = $v;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//insert</span></span><br><span class="line">            <span class="keyword">foreach</span> ($data <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">                $one = [];</span><br><span class="line">                <span class="keyword">foreach</span> ($data[$k] <span class="keyword">as</span> $k1 =&gt; $v1) &#123;</span><br><span class="line">                    $one[] = <span class="string">"('"</span>.$v1[<span class="string">'job_id'</span>].<span class="string">"','"</span>.$v1[<span class="string">'dt'</span>].<span class="string">"','"</span>.$v1[<span class="string">'uid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'time'</span>].<span class="string">"','"</span>.$v1[<span class="string">'mid'</span>].<span class="string">"','"</span>.$v1[<span class="string">'is_topic'</span>].<span class="string">"','"</span>.$v1[<span class="string">'category_names'</span>].<span class="string">"','"</span>.$v1[<span class="string">'atuids'</span>].<span class="string">"','"</span>.$v1[<span class="string">'total_valid_cs'</span>].<span class="string">"','"</span>.$v1[<span class="string">'id'</span>].<span class="string">"')"</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                $tmp = implode(<span class="string">','</span>, $one);</span><br><span class="line">                $sql = <span class="string">"INSERT ignore INTO t_result_pub_data_new (job_id,dt,uid,`time`,mid,is_topic,category_names,atuids,total_valid_cs,id) VALUES $tmp"</span>;</span><br><span class="line">                <span class="comment">// $this-&gt;p($sql);</span></span><br><span class="line">                <span class="keyword">$this</span>-&gt;db-&gt;query($sql); </span><br><span class="line">                </span><br><span class="line">            &#125;        </span><br><span class="line">            <span class="keyword">unset</span>($rows);              </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;p($sql1);</span><br><span class="line">        <span class="comment">// $this-&gt;p($x);</span></span><br><span class="line">        <span class="keyword">print</span> json_encode(<span class="keyword">array</span>(<span class="string">'code'</span>=&gt;<span class="number">0</span>, <span class="string">'desc'</span>=&gt;<span class="string">'okokokokokokok'</span>));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/眼系统/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1435,146 +1557,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/ysql索引/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/ysql索引/" itemprop="url">mysql索引优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-23T15:02:56+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="索引的优缺点"><a href="#索引的优缺点" class="headerlink" title="索引的优缺点"></a>索引的优缺点</h2><p>优点<br>①类似大学图书馆的书目索引，提高数据的检索效率，降低数据库的IO成本。<br>②通过索引列对数据进行排序，降低数据的排序成本，从而降低CPU的消耗。<br>缺点<br>①索引实际上也是一张表，该表保存了主键与索引字段，并指向实体表的记录，所以索引列也要占用空间。<br>②虽然索引大大提高了查询效率，但是降低了更新表的速度，如insert、update和delete操作。因为更新表时，MySQL不仅要保存数据，还要保存索引文件每次更新的索引列字段，并且在更新操作后，会更新相应字段索引的信息。<br>③索引只是提高查询效率的一个因素，如果你的MySQL有大量的数据表，就需要花时间研究建立最优秀的索引或优化查询语句。</p>
-<h2 id="索引分类"><a href="#索引分类" class="headerlink" title="索引分类"></a>索引分类</h2><p>索引主要分为以下三类：<br>①单值索引：一个索引只包含单个列，一个表可以有多个单值索引。<br>②唯一索引：索引列的值必须唯一，但允许有空值，主键就是唯一索引。<br>③复合索引：一个索引包含多个列<br>索引的结构：<br>①BTREE索引；②Hash索引；③Full-Text索引；④R-Tree索引。</p>
-<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p>①创建索引<br>create [unique] index indexname on tablename(columnname(length));</p>
-<p>alter table tablename add index indexname (columnname(length));<br>注：如果是char、varchar类型的字段，length可以小于字段实际长度；如果是blob、text类型，必须指定length。<br>②删除索引<br>drop index indexname on tablename;<br>③查看索引<br>show index from tablename;<br>④其他创建索引的方式</p>
-<p>1.添加主键索引<br>ALTER TABLE <code>table_name</code> ADD PRIMARY KEY (<code>column</code>) </p>
-<p>2.添加唯一索引<br>ALTER TABLE <code>table_name</code> ADD UNIQUE (<code>column</code>) </p>
-<p>3.添加全文索引<br>ALTER TABLE <code>table_name</code> ADD FULLTEXT (<code>column</code>) </p>
-<p>4.添加普通索引<br>ALTER TABLE <code>table_name</code> ADD INDEX index_name (<code>column</code> ) </p>
-<p>5.添加组合索引<br>ALTER TABLE <code>table_name</code> ADD INDEX index_name (<code>column1</code>, <code>column2</code>, <code>column3</code>)</p>
-<h2 id="建立索引与否的具体情况"><a href="#建立索引与否的具体情况" class="headerlink" title="建立索引与否的具体情况"></a>建立索引与否的具体情况</h2><p>①需建立索引的情况</p>
-<p>#1.主键自动建立唯一索引。</p>
-<p>#2.频繁作为查询条件的字段。</p>
-<p>#3.查询中与其他表关联的字段，外键关系建立索引。</p>
-<p>#4.高并发下趋向创建组合索引。</p>
-<p>#5.查询中排序的字段，排序字段若通过索引去访问将大大提高排序速度。</p>
-<p>#6.查询中统计或分组字段。<br>②不需要创建索引的情况</p>
-<p>#1.表记录太少。（数据量太少MySQL自己就可以搞定了）</p>
-<p>#2.经常增删改的表。</p>
-<p>#3.数据重复且平均分配的字段，如国籍、性别，不适合创建索引。</p>
-<p>#4.频繁更新的字段不适合建立索引。</p>
-<p>#5.Where条件里用不到的字段不创建索引。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1627,7 +1609,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

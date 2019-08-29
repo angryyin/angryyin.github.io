@@ -290,6 +290,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/29/算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/29/算法/" itemprop="url">动态规划与贪心算法的区别与联系</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-29T10:51:00+08:00">
+                2019-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/高级算法/" itemprop="url" rel="index">
+                    <span itemprop="name">高级算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>动态规划的路径规划：<a href="https://blog.csdn.net/xgf415/article/details/52662389" target="_blank" rel="noopener">https://blog.csdn.net/xgf415/article/details/52662389</a></p>
+<p>0-1背包问题： <a href="https://www.jianshu.com/p/b86148c10142" target="_blank" rel="noopener">https://www.jianshu.com/p/b86148c10142</a><br>动态规划和贪心算法都是一种递推算法<br>均有局部最优解来推导全局最优解<br>背包问题可以由贪心算法求解，但是0-1背包问题不能而需要采取动态规划。</p>
+<h2 id="不同点："><a href="#不同点：" class="headerlink" title="不同点： "></a>不同点： </h2><p>贪心算法：<br>1.贪心算法中，作出的每步贪心决策都无法改变，因为贪心策略是由上一步的最优解推导下一步的最优解，而上一部之前的最优解则不作保留。<br>2.由（1）中的介绍，可以知道贪心法正确的条件是：每一步的最优解一定包含上一步的最优解。 </p>
+<h2 id="贪心法的基本思路："><a href="#贪心法的基本思路：" class="headerlink" title="贪心法的基本思路："></a>贪心法的基本思路：</h2><p>从问题的某一个初始解出发逐步逼近给定的目标，以尽可能快的地求得更好的解。当达到某算法中的某一步不能再继续前进时，算法停止。<br>该算法存在问题：   </p>
+<ol>
+<li>不能保证求得的最后解是最佳的；   </li>
+<li>不能用来求最大或最小解问题；   </li>
+<li>只能求满足某些约束条件的可行解的范围。实现该算法的过程：<br>从问题的某一初始解出发；</li>
+</ol>
+<p>while   能朝给定总目标前进一步   do<br>求出可行解的一个解元素；<br>由所有解元素组合成问题的一个可行解 </p>
+<p>贪心算法最经典的例子，给钱问题。<br>比如中国的货币，只看元，有1元2元5元10元20、50、100   </p>
+<p>如果我要16元，可以拿16个1元，8个2元，但是怎么最少呢？<br>如果用贪心算，就是我每一次拿那张可能拿的最大的。<br>比如16，我第一次拿20拿不起，拿10元，OK，剩下6元，再拿个5元，剩下1元<br>也就是3张   10、5、1。   </p>
+<p>每次拿能拿的最大的，就是贪心。   </p>
+<p>但是一定注意，贪心得到的并不是最优解，也就是说用贪心不一定是拿的最少的张数<br>贪心只能得到一个比较好的解，而且贪心算法很好想得到。<br>再注意，为什么我们的钱可以用贪心呢？因为我们国家的钱的大小设计，正好可以使得贪心算法算出来的是最优解（一般是个国家的钱币都应该这么设计）。如果设计成别的样子情况就不同了<br>比如某国的钱币分为   1元3元4元<br>如果要拿6元钱   怎么拿？贪心的话   先拿4   再拿两个1     一共3张钱<br>实际最优呢？   两张3元就够了  </p>
+<p>贪心算法两个最重要的性质：<br>（1）贪心选择性质；<br>（2）最优子结构性质；</p>
+<p>其中，贪心选择性质：自顶向下进行决策，每次做出的决策都是局部最优解，且每次做出决策后问题规模都变小了；最优子结构性质：即问题的最优解结构中包含子问题的最优解；</p>
+<p>动态规划算法的两个最重要的性质：<br>（1）重叠子问题性质；<br>（2）最优子结构性质；</p>
+<p>其中最优解子结构性质和贪心算法相似，唯一不同的是重叠子问题性质，因为动态规划算法是自底向上的算法，它需要首先将原始问题分解为若干个相互有联系的子问题，在计算的时候有的子问题可能会被计算很多次，所以动态规划算法会将这些子问题的解存在一个表格中，使得最终对于这些子问题只需要求解一次（可以使原来需要再指数时间内解决的问题可以在多项式问题中得到解决）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/28/序与中序还原树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1610,148 +1769,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/25/题-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/25/题-1/" itemprop="url">环队列叫号问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-25T13:44:00+08:00">
-                2019-03-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>有m个猴子，按顺时针方向围成一个圈选大王。从第1号开始报数1，2，……，数到n号时该猴子退出到圈外，如此报数直到圈内只剩下一个猴子时，此猴子便是大王。由键盘输入m，n，打印出猴子大王序号。<br>输入 10 3<br>输出 4</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> monkey(<span class="number">4</span>,<span class="number">1</span>);<span class="comment">//5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">monkey</span><span class="params">($m,$n)</span></span>&#123;</span><br><span class="line">   <span class="comment">//定义arr猴子数组，</span></span><br><span class="line">   $arr=range(<span class="number">1</span>,$m);</span><br><span class="line">   $i=<span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span>(count($arr)&gt;<span class="number">1</span>)&#123;</span><br><span class="line">   	  <span class="comment">//出队</span></span><br><span class="line">       <span class="keyword">if</span>(($i+<span class="number">1</span>)%$n==<span class="number">0</span>)&#123;</span><br><span class="line">       	  <span class="comment">//如果猴子序号/猴王号n余数为0，踢走</span></span><br><span class="line">           <span class="keyword">unset</span>($arr[$i]);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="comment">//否则将该序号放在猴子数组队尾</span></span><br><span class="line">           $arr[]=$arr[$i];</span><br><span class="line">           <span class="keyword">unset</span>($arr[$i]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">echo</span> $i.<span class="string">"\n"</span>;</span><br><span class="line">       $i++;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//最后key i所对应的就是猴王</span></span><br><span class="line">   <span class="keyword">return</span> $arr[$i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1804,7 +1821,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
