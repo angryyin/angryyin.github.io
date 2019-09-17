@@ -84,7 +84,7 @@
 <meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="在数据库题目中，由于现在大部分公司都是使用MySql作为数据库，因此笔者及其朋友所遇到的问题也都是MySql相关的知识点。1）MySql中索引的基本定义，优劣势，以及索引优化。索引是帮助Mysql高效获取数据的数据结构，因此，索引的本质就是数据结构，索引的目的在于提高查询效率，可类比字典。索引：排好序的快速查找的数据结构。用途：排序 + 快速查找。注意，是两种功能。数据库除了存储数据本身之外，还维">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-04-23T07:28:52.097Z">
+<meta property="og:updated_time" content="2019-09-17T01:40:54.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据库总结">
 <meta name="twitter:description" content="在数据库题目中，由于现在大部分公司都是使用MySql作为数据库，因此笔者及其朋友所遇到的问题也都是MySql相关的知识点。1）MySql中索引的基本定义，优劣势，以及索引优化。索引是帮助Mysql高效获取数据的数据结构，因此，索引的本质就是数据结构，索引的目的在于提高查询效率，可类比字典。索引：排好序的快速查找的数据结构。用途：排序 + 快速查找。注意，是两种功能。数据库除了存储数据本身之外，还维">
@@ -374,6 +374,21 @@
 <p>#3.Using Where：表明索引被用来执行索引键值的查找。</p>
 <p>#4.Using Index：表示相应的 SELECT 操作中使用了覆盖索引，避免访问了表的数据行，效率可以。<br>总结：<br>type、key、ref、Extra，这四个字段比较重要，sql语句的“烂”的程度，通过这几个字段体现。<br>type：取值从最好到最差依次是：system &gt; const &gt; eq_ref &gt; ref &gt; range &gt; index &gt; all，查询时至少保证在range，最好达到ref。<br>key：实际使用的索引，如果为NULL，则表示未使用索引。<br>ref：显示那一列索引被使用了。<br>Extra：最好是Using Index、Using Where，一定不能是Using Temporary、Using filesort。<br>5）MySql的事务隔离级别，不可重复读、脏读、幻读。<br>MySql的事务隔离级别有4个，隔离等级从低到高依次为Read uncommitted （读取未提交内容）、Read committed（读取提交内容） 、Repeatable read（可重复读） 、Serializable （串行），这四个级别可以逐个解决脏读 、不可重复读 、幻读这几类问题，其中Repeatable read是MySql事务的默认隔离级别。</p>
 <p>从表中可以看出Serializable隔离等级最高，可以避免一切并发问题，但是效率低。<br>脏读：A事务更新一份数据，但事务未提交，B事务在此时读取了同一份数据，由于某些原因，A事务发生了回滚操作，则B事务拿着失效的数据去做操作就会发生错误。脏读通俗来说就是读错了，读错了。<br>不可重复读：对于不可重复读的解释很多资料说得非常模糊，这里给出一个比较清晰的解释。A事务两次读取同一数据，在A事务还没有结束时，B事务也访问该同一数据，并进行了修改。那么在A事务中的两次读数据之间，由于B事务的修改，A事务两次读到的的数据可能是不一样的。这样就发生了在一个事务内两次读到的数据是不一样的，因此称为是不可重复读。（即在重复对数据进行读取的时候，不能得到相同的数据内容，感觉这个不可重复读翻译很不好理解，个人的理解方式：不可重复读，那重复读会出现什么情况呢，重复读出现数据不一致的情况，所以还是不要重复读——&gt;不可重复读）<br>例如，一个编辑人员两次读取同一文档，但在两次读取之间，作者重写了该文档。当编辑人员第二次读取文档时，文档已更改，则编辑第二次读取的文档与第一次就不一致了。<br>幻读：通俗来讲读取到的数据像产生幻觉一样。是指当事务不是独立执行时发生的一种现象。事务A在两次查询的过程中（比如查询结果8列），事务B对该表进行了插入、删除操作（增加或减少了2列），从而事务A第二次查询的结果发生了变化，两次查询的数据不一样，感觉产生了“幻觉”一样。<br>虚读：通俗来讲读取的数据不同。A事务在两次查询的过程中（查询结果一列），B事务对数据进行了修改，从而使A事务第二次查询的结果不一样。<br>脏读的事务未提交，虚读与幻读事务已经提交。<br>Read uncommitted（读未提交内容）<br>在该级别下，A事务对一行数据修改的过程中，不允许B事务对该行数据进行修改，但允许B事务对该行数据进行读操作。 因此本级别下，不会出现更新丢失（i++问题），但会出现脏读（A修改时，发生了回滚）、不可重复读（B两次读取时，A修改了数据），幻读（幻读是不可重复读的一种情况）。<br>Read committed（读提交内容）<br>在该级别下，未提交的写事务不允许其他事务访问该行，因此不会出现脏读；但是读取数据的事务允许其他事务的访问该行数据，因此会出现不可重复读的情况。A读取数据，B紧接着A更改了数据，并提交了事务，A再次读取数据时，发现数据已经改变。出现不可重复读和幻读想象。<br>Repeatable read（可重复读）<br>在该级别下，读事务时禁止写事务（读写互斥），A在读取数据时数据为100，事务提交后，紧接着B对数据修改为200，当A再次读取时，发现数据不一样，出现幻读。<br>Serialiazble read（串行）<br>隔离级别最高，避免一切并发问题，但效率低，生产中基本不用。<br>6）delete 与 truncate 区别，分别适用于哪种场景。<br>delete与truncate都是做删除操作，但是两者间还是有一定区别：<br>①truncate删除速度快，没有日志记录，数据不可恢复。释放表或索引的空间<br>②delete删除速度慢，因为删除中会产生日志记录，数据可恢复。不会释放表或索引的空间。<br>③应用场景这个不好说，delete可恢复，truncate不可恢复，只有根据具体需求进行选择了。<br>7）MySql中主从复制，集群。<br>MySql提供主从复制的功能，基础是二进制日志文件。<br>关于集群方面，功力不深，需要更进一步的了解，才能很好的回答该问题。<br>参考：<br><a href="https://www.cnblogs.com/gl-developer/p/6170423.html" target="_blank" rel="noopener">https://www.cnblogs.com/gl-developer/p/6170423.html</a><br>8）B+树、为什么使用 B+树、B+树优缺点<br>关于B+树，笔者并不是特别的了解。放上一链接：<a href="https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.02.md" target="_blank" rel="noopener">https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/03.02.md</a><br>为什么使用B+树？<br>①B+树支持区间查询，而B树不支持。<br>②B+树方便扫库，它直接从叶子节点出发，就可以进行扫描，而B树需进行中序遍历（LDR）。<br>③B+树磁盘读写代价更低。<br>缺点：<br>①当查找数据在非叶子节点时，B+树会走一条根到叶子节点的路径。<br>参考：<br><a href="https://www.cnblogs.com/tiancai/p/9024351.html" target="_blank" rel="noopener">https://www.cnblogs.com/tiancai/p/9024351.html</a><br><a href="http://darrenzhu.iteye.com/blog/2050082" target="_blank" rel="noopener">http://darrenzhu.iteye.com/blog/2050082</a><br>9）MySql存储引擎MyISAM和InnoDB的区别。<br>①MyISAM不支持外键，InnoDB支持外键。<br>②MyISAM不支持事务，InnoDB支持事务。<br>③MyISAM是表锁，InnoDB是行锁。<br>④MyISAM支持全文索引，InnoDB不支持。<br>⑤MyISAM的查询速度比InnoDB快。</p>
+<p>1.隐式转换导致索引失效.这一点应当引起重视.也是开发中经常会犯的错误.<br> 由于表的字段tu_mdn定义为varchar2(20),但在查询时把该字段作为number类型以where条件传给Oracle,这样会导致索引失效.<br> 错误的例子：select <em> from test where tu_mdn=13333333333;<br> 正确的例子：select </em> from test where tu_mdn=’13333333333’;</p>
+<p>2.对索引列进行运算导致索引失效,我所指的对索引列进行运算包括(+，-，<em>，/，! 等)<br> 错误的例子：select </em> from test where id-1=9;<br> 正确的例子：select * from test where id=10;</p>
+<p>3.使用Oracle内部函数导致索引失效.对于这样情况应当创建基于函数的索引.<br> 错误的例子：select <em> from test where round(id)=10; 说明，此时id的索引已经不起作用了<br> 正确的例子：首先建立函数索引，create index test_id_fbi_idx on test(round(id));然后 select </em> from test where round(id)=10; 这时函数索引起作用了</p>
+<p>4.以下使用会使索引失效，应避免使用；<br> a. 使用 &lt;&gt; 、not in 、not exist、!=<br> b. like “%_” 百分号在前（可采用在建立索引时用reverse(columnName)这种方法处理）<br> c. 单独引用复合索引里非第一位置的索引列.应总是使用索引的第一个列，如果索引是建立在多个列上, 只有在它的第一个列被where子句引用时，优化器才会选择使用该索引。<br> d. 字符型字段为数字时在where条件里不添加引号.<br> e. 当变量采用的是times变量，而表的字段采用的是date变量时.或相反情况。</p>
+<p>5.不要将空的变量值直接与比较运算符（符号）比较。<br> 如果变量可能为空，应使用 IS NULL 或 IS NOT NULL 进行比较，或者使用 ISNULL 函数。</p>
+<p>6.不要在 SQL 代码中使用双引号。<br> 因为字符常量使用单引号。如果没有必要限定对象名称，可以使用（非 ANSI SQL 标准）括号将名称括起来。</p>
+<p>7.将索引所在表空间和数据所在表空间分别设于不同的磁盘chunk上，有助于提高索引查询的效率。</p>
+<ol start="8">
+<li><p>Oracle默认使用的基于代价的SQL优化器（CBO）非常依赖于统计信息，一旦统计信息不正常，会导致数据库查询时不使用索引或使用错误的索引。<br>一般来说，Oracle的自动任务里面会包含更新统计信息的语句，但如果表数据发生了比较大的变化（超过20%）,可以考虑立即手动更新统计信息，例如：analyze table abc compute statistics，但注意，更新   统计信息比较耗费系统资源，建议在系统空闲时执行。</p>
+</li>
+<li><p>Oracle在进行一次查询时，一般对一个表只会使用一个索引.<br>因此，有时候过多的索引可能导致Oracle使用错误的索引，降低查询效率。例如某表有索引1（Policyno）和索引2（classcode），如果查询条件为policyno = ‘xx’ and classcode = ‘xx’，则系统有可能会使用索   引2，相较于使用索引1，查询效率明显降低。</p>
+</li>
+<li><p>优先且尽可能使用分区索引。</p>
+</li>
+</ol>
 
       
     </div>
@@ -408,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/23/引失效的情况/" rel="prev" title="索引失效的情况">
-                索引失效的情况 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/24/布式session/" rel="prev" title="分布式session">
+                分布式session <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -480,7 +495,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

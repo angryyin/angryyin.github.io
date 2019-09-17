@@ -77,17 +77,19 @@
 
 
 
-<meta name="description" content="来自https://m.jb51.net/article/24101.htm javascript深入理解js闭包 闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。 一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。 变量的作用域无非就是两种：全局变量和局部变量。 Javascript语言的特殊之处，就在于函数内部">
+<meta name="description" content="链接：https://www.nowcoder.com/questionTerminal/25c5ed98b19b4df4aecfedcc11bee913来源：牛客网 1.getColor()  var getColor = test4399.getColor; 即var getColor = function(){var color = “red”;alert(this.color);}; 执行">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js闭包">
-<meta property="og:url" content="http://yoursite.com/2019/07/24/s闭包/index.html">
+<meta property="og:title" content="学习js">
+<meta property="og:url" content="http://yoursite.com/2019/09/08/s/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="来自https://m.jb51.net/article/24101.htm javascript深入理解js闭包 闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。 一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。 变量的作用域无非就是两种：全局变量和局部变量。 Javascript语言的特殊之处，就在于函数内部">
+<meta property="og:description" content="链接：https://www.nowcoder.com/questionTerminal/25c5ed98b19b4df4aecfedcc11bee913来源：牛客网 1.getColor()  var getColor = test4399.getColor; 即var getColor = function(){var color = “red”;alert(this.color);}; 执行">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-07-24T06:29:03.314Z">
+<meta property="og:image" content="http://yoursite.com/images/pasted-140.png">
+<meta property="og:updated_time" content="2019-09-17T01:38:45.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js闭包">
-<meta name="twitter:description" content="来自https://m.jb51.net/article/24101.htm javascript深入理解js闭包 闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。 一、变量的作用域要理解闭包，首先必须理解Javascript特殊的变量作用域。 变量的作用域无非就是两种：全局变量和局部变量。 Javascript语言的特殊之处，就在于函数内部">
+<meta name="twitter:title" content="学习js">
+<meta name="twitter:description" content="链接：https://www.nowcoder.com/questionTerminal/25c5ed98b19b4df4aecfedcc11bee913来源：牛客网 1.getColor()  var getColor = test4399.getColor; 即var getColor = function(){var color = “red”;alert(this.color);}; 执行">
+<meta name="twitter:image" content="http://yoursite.com/images/pasted-140.png">
 
 
 
@@ -117,14 +119,14 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/24/s闭包/">
+  <link rel="canonical" href="http://yoursite.com/2019/09/08/s/">
 
 
 
 
 
 
-  <title>js闭包 | 殷航的博客</title>
+  <title>学习js | 殷航的博客</title>
   
 
 
@@ -293,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/24/s闭包/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/08/s/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -310,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js闭包</h1>
+          <h1 class="post-title" itemprop="name headline">学习js</h1>
         
 
         <div class="post-meta">
@@ -322,8 +324,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T14:23:59+08:00">
-                2019-07-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-08T12:33:57+08:00">
+                2019-09-08
               </time>
             
 
@@ -360,7 +362,12 @@
       
 
       
-        <p>来自<a href="https://m.jb51.net/article/24101.htm" target="_blank" rel="noopener">https://m.jb51.net/article/24101.htm</a></p>
+        <p><img src="\images\pasted-140.png" alt="upload successful"><br>链接：<a href="https://www.nowcoder.com/questionTerminal/25c5ed98b19b4df4aecfedcc11bee913" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/25c5ed98b19b4df4aecfedcc11bee913</a><br>来源：牛客网</p>
+<p>1.getColor()  var getColor = test4399.getColor;</p>
+<p>即var getColor = function(){var color = “red”;alert(this.color);};</p>
+<p>执行getColor()函数时this指向的window，因为window.color为green，所以弹出green</p>
+<p>2.test4399.getColor(),此时this指向的是test4399，test4399.color为blue，所以弹出blue</p>
+<p>来自<a href="https://m.jb51.net/article/24101.htm" target="_blank" rel="noopener">https://m.jb51.net/article/24101.htm</a></p>
 <p>javascript深入理解js闭包</p>
 <p>闭包（closure）是Javascript语言的一个难点，也是它的特色，很多高级应用都要依靠闭包实现。</p>
 <h2 id="一、变量的作用域"><a href="#一、变量的作用域" class="headerlink" title="一、变量的作用域"></a>一、变量的作用域</h2><p>要理解闭包，首先必须理解Javascript特殊的变量作用域。</p>
@@ -461,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/19/titled/" rel="next" title="php写的mysql数据迁移">
-                <i class="fa fa-chevron-left"></i> php写的mysql数据迁移
+              <a href="/2019/08/29/nux/" rel="next" title="linux c++">
+                <i class="fa fa-chevron-left"></i> linux c++
               </a>
             
           </div>
@@ -471,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/13/笔/" rel="prev" title="随笔">
-                随笔 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/17/试汇总（php，mysql-）/" rel="prev" title="笔试汇总（php，mysql..）">
+                笔试汇总（php，mysql..） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -552,7 +559,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -84,7 +84,7 @@
 <meta property="og:site_name" content="殷航的博客">
 <meta property="og:description" content="实习回顾 新浪 5.9-8.2 开始第一天就是配环境 熟悉新环境新浪必须要内网可以访问服务器与数据库 因为了IP地址解析，无论是测试服务器还是线上都是如此，另外必须要配置Redis环境。其余都和我之前一样 wamp直接配好 第一个需求第一个需求是修改一个词云页面，做一个input能更改词云一个项目的名称，实现立刻重命名与暂时重命名的功能。后台只是简单动了一点 第二个需求新浪有它自己的URL类别 如">
 <meta property="og:locale" content="zh_Hans">
-<meta property="og:updated_time" content="2019-08-29T06:52:19.469Z">
+<meta property="og:updated_time" content="2019-09-17T01:39:17.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实习回顾">
 <meta name="twitter:description" content="实习回顾 新浪 5.9-8.2 开始第一天就是配环境 熟悉新环境新浪必须要内网可以访问服务器与数据库 因为了IP地址解析，无论是测试服务器还是线上都是如此，另外必须要配置Redis环境。其余都和我之前一样 wamp直接配好 第一个需求第一个需求是修改一个词云页面，做一个input能更改词云一个项目的名称，实现立刻重命名与暂时重命名的功能。后台只是简单动了一点 第二个需求新浪有它自己的URL类别 如">
@@ -374,7 +374,35 @@
 <p>我的大部分工作都是趋势分析这边的 加强了对echart的应用 学会了和数据方与产品经理积极沟通解决问题 因为一开始我根本不知道这个需求到底为什么要这么做 所以不问的话进度很慢<br>，日常改bug，自己测代码，用postman测PHP接口</p>
 <p>在实习未了做了一个主题分析，是对之前趋势分析的一个总控 因为各趋势创建任务的相似性 以及趋势展示的模块话 需求要求能够一次性跑多个趋势 于是就要加一张表表示个趋势需要的参数 加一张表记录主题内容 这个应该讲不清楚 大概意思就是一次性创建几个趋势 成功后也在一个页面里面展示</p>
 <h2 id="几个比较有意义的需求"><a href="#几个比较有意义的需求" class="headerlink" title="几个比较有意义的需求"></a>几个比较有意义的需求</h2><p>1.百万数据迁移<br>大数据那边重做了一个趋势的运行方式 也换了三张新表存计算结果 但是之前的数据在老表里面 总共有两百万数据 如何迁移？<br>老表中存储的是一个个任务大ID 在ID下有各种数据 于是我按照任务ID 来分别传递数据<br>首先是MySQLgroupby出ID表 然后按照ID 每查五十个数 就进行字符串拼接 再插入到新表中<br>写了两个接口 第一个接口用于查找拼接 第二个根据jobID插入新表 需要计算轮数 拼多了字段MySQL会报错 整个迁移大概用了二十分钟 由于按jobID迁移的 中间出了错不用全部重来 </p>
-<p>2.领域标签管理 词上传<br>难点在于去重 每次都是业务整理的大几千词汇 进行上传<br>早期去重用的是先上传上去，再用sql语句去重，这样非常低效<br>后来使用了唯一索引，可以很好的实现去重<br>词分为 一级词 二级 三级 四级 other </p>
+<p>2.领域标签管理 词上传<br>难点在于去重 每次都是业务整理的大几千词汇 进行上传<br>早期去重用的是先上传上去，再用sql语句去重，这样非常低效<br>后来使用了唯一索引，可以很好的实现去重<br>词分为 一级词 二级 三级 四级 other</p>
+<p>依靠微博日志 进行实时计算 过滤日志<br>实时算各种榜单<br>实时监控大V账号</p>
+<p>xunzhe 根据条件筛选用户 用到ES引擎</p>
+<p>爬虫scrapy  目标： 高性能高可用分布式爬虫</p>
+<p>前端JQuery-Angular.js-vue.js<br>目标：前后端分离</p>
+<p>新浪为什么要用php ci框架</p>
+<p>08年到现在还是php 能用就行… </p>
+<p>Apache 高并发会有问题 所以采用nginx</p>
+<p>thrift</p>
+<p>es速度远超mysql 与mongodb相当</p>
+<p>mysql慢查询 读写分离延迟</p>
+<p>hbase redis</p>
+<p>数据计算</p>
+<p>离线技术：hadoop（mapreducehive），spark</p>
+<p>实时技术： ols-&gt;spark streaming-&gt;flink</p>
+<p>多维查询： ckickhouse，presto</p>
+<p>鹰眼如何监控<br>1选择监控的账号<br>2</p>
+<p>scrapy</p>
+<p>pipline持久化</p>
+<p>google baidu本身也是爬虫</p>
+<p>代理ip与访问间隔 防止封ip</p>
+<p>利用深度学习绕过机器图片检测</p>
+<p>滑动进度条不匀速 js代码</p>
+<p>模拟登陆 爬取数据必须登陆 携带cookie</p>
+<p>反爬虫</p>
+<p>检测是否访问js、css</p>
+<p>自定义字体库</p>
+<p>递归的url 蜜罐</p>
+<p>只开放手机端 不开放其他接口</p>
 
       
     </div>
@@ -490,7 +518,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

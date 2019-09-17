@@ -77,12 +77,12 @@
 
 
 
-<meta name="description" content="B+树 节点中有重复元素，而且叶子节点还用指针连在一起每一个父节点的元素都出现在子节点中，是子节点的最大（或最小元素） 根节点元素8是子节点2,5,8的最大元素，也是子节点6,8的最大元素根节点15是11,15的最大元素，也是叶子节点13,15的最大元素 根节点的最大元素（15），以后无论插入删除多少元素，始终保持最大元素在根节点当中。B+树的叶子节点包含了根节点的全部元素信息 并且每一个叶子节点">
+<meta name="description" content="B+树为什么说B+树比B树更适合数据库索引？1、 B+树的磁盘读写代价更低：B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多，一次性读入内存的需要查找的关键字也就越多，相对IO读写次数就降低了。 2、B+树的查询效率更加稳定：由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B+树">
 <meta property="og:url" content="http://yoursite.com/2019/04/12/-树/index.html">
 <meta property="og:site_name" content="殷航的博客">
-<meta property="og:description" content="B+树 节点中有重复元素，而且叶子节点还用指针连在一起每一个父节点的元素都出现在子节点中，是子节点的最大（或最小元素） 根节点元素8是子节点2,5,8的最大元素，也是子节点6,8的最大元素根节点15是11,15的最大元素，也是叶子节点13,15的最大元素 根节点的最大元素（15），以后无论插入删除多少元素，始终保持最大元素在根节点当中。B+树的叶子节点包含了根节点的全部元素信息 并且每一个叶子节点">
+<meta property="og:description" content="B+树为什么说B+树比B树更适合数据库索引？1、 B+树的磁盘读写代价更低：B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多，一次性读入内存的需要查找的关键字也就越多，相对IO读写次数就降低了。 2、B+树的查询效率更加稳定：由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字">
 <meta property="og:locale" content="zh_Hans">
 <meta property="og:image" content="http://yoursite.com/images/pasted-42.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-43.png">
@@ -94,10 +94,10 @@
 <meta property="og:image" content="http://yoursite.com/images/pasted-49.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-50.png">
 <meta property="og:image" content="http://yoursite.com/images/pasted-51.png">
-<meta property="og:updated_time" content="2019-04-13T02:04:16.890Z">
+<meta property="og:updated_time" content="2019-09-11T11:22:37.245Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B+树">
-<meta name="twitter:description" content="B+树 节点中有重复元素，而且叶子节点还用指针连在一起每一个父节点的元素都出现在子节点中，是子节点的最大（或最小元素） 根节点元素8是子节点2,5,8的最大元素，也是子节点6,8的最大元素根节点15是11,15的最大元素，也是叶子节点13,15的最大元素 根节点的最大元素（15），以后无论插入删除多少元素，始终保持最大元素在根节点当中。B+树的叶子节点包含了根节点的全部元素信息 并且每一个叶子节点">
+<meta name="twitter:description" content="B+树为什么说B+树比B树更适合数据库索引？1、 B+树的磁盘读写代价更低：B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多，一次性读入内存的需要查找的关键字也就越多，相对IO读写次数就降低了。 2、B+树的查询效率更加稳定：由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字">
 <meta name="twitter:image" content="http://yoursite.com/images/pasted-42.png">
 
 
@@ -371,7 +371,9 @@
       
 
       
-        <p>B+树</p>
+        <p>B+树<br>为什么说B+树比B树更适合数据库索引？<br>1、 B+树的磁盘读写代价更低：B+树的内部节点并没有指向关键字具体信息的指针，因此其内部节点相对B树更小，如果把所有同一内部节点的关键字存放在同一盘块中，那么盘块所能容纳的关键字数量也越多，一次性读入内存的需要查找的关键字也就越多，相对IO读写次数就降低了。</p>
+<p>2、B+树的查询效率更加稳定：由于非终结点并不是最终指向文件内容的结点，而只是叶子结点中关键字的索引。所以任何关键字的查找必须走一条从根结点到叶子结点的路。所有关键字查询的路径长度相同，导致每一个数据的查询效率相当。</p>
+<p>3、由于B+树的数据都存储在叶子结点中，分支结点均为索引，方便扫库，只需要扫一遍叶子结点即可，但是B树因为其分支结点同样存储着数据，我们要找到具体的数据，需要进行一次中序遍历按序来扫，所以B+树更加适合在区间查询的情况，所以通常B+树用于数据库索引。</p>
 <p><img src="\images\pasted-42.png" alt="upload successful"><br>节点中有重复元素，而且叶子节点还用指针连在一起<br>每一个父节点的元素都出现在子节点中，是子节点的最大（或最小元素）</p>
 <p><img src="\images\pasted-43.png" alt="upload successful"><br>根节点元素8是子节点2,5,8的最大元素，也是子节点6,8的最大元素<br>根节点15是11,15的最大元素，也是叶子节点13,15的最大元素</p>
 <p>根节点的最大元素（15），以后无论插入删除多少元素，始终保持最大元素在根节点当中。<br>B+树的叶子节点包含了根节点的全部元素信息</p>
@@ -492,7 +494,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">79</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
