@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/edis架构/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yinhang">
@@ -309,7 +309,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/09/dis/" itemprop="url">Redis</a></h1>
+                <a class="post-title-link" href="/2019/04/10/edis架构/" itemprop="url">Redis 有哪些架构模式？讲讲各自的特点</a></h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
-                2019-04-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:52:00+08:00">
+                2019-04-10
               </time>
             
 
@@ -382,17 +382,338 @@
 
       
         
-          <h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p><img src="\images\pasted-30.png" alt="upload successful"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/09/dis/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <h2 id="单机版"><a href="#单机版" class="headerlink" title="单机版"></a>单机版</h2><p>特点：简单<br>问题：<br>1、内存容量有限 2、处理能力有限 3、无法高可用。</p>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><p>Redis 的复制（replication）功能允许用户根据一个 Redis 服务器来创建任意多个该服务器的复制品，其中被复制的服务器为主服务器（master），而通过复制创建出来的服务器复制品则为从服务器（slave）。 只要主从服务器之间的网络连接正常，主从服务器两者会具有相同的数据，主服务器就会一直将发生在自己身上的数据更新同步 给从服务器，从而一直保证主从服务器的数据相同。</p>
+<p>特点：<br>1、master/slave 角色<br>2、master/slave 数据相同<br>3、降低 master 读压力在转交从库</p>
+<p>问题：<br>无法保证高可用<br>没有解决 master 写的压力</p>
+<h2 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h2><p>Redis sentinel 是一个分布式系统中监控 redis 主从服务器，并在主服务器下线时自动进行故障转移。其中三个特性：<br>1、监控（Monitoring）：Sentinel  会不断地检查你的主服务器和从服务器是否运作正常。<br>2、提醒（Notification）：当被监控的某个 Redis 服务器出现问题时， Sentinel 可以通过 API 向管理员或者其他应用程序发送通知。<br>3、自动故障迁移（Automatic failover）：当一个主服务器不能正常工作时， Sentinel 会开始一次自动故障迁移操作。</p>
+<p>特点：<br>1、保证高可用<br>2、监控各个节点<br>3、自动故障迁移<br>缺点：主从模式，切换需要时间丢数据<br>没有解决 master 写的压力</p>
+<h2 id="集群（proxy-型）"><a href="#集群（proxy-型）" class="headerlink" title="集群（proxy 型）"></a>集群（proxy 型）</h2><p>Twemproxy 是一个 Twitter 开源的一个 redis 和 memcache 快速/轻量级代理服务器； Twemproxy 是一个快速的单线程代理程序，支持 Memcached ASCII 协议和 redis 协议。<br>特点：<br>1、多种 hash 算法：MD5、CRC16、CRC32、CRC32a、hsieh、murmur、Jenkins<br>2、支持失败节点自动删除<br>3、后端 Sharding 分片逻辑对业务透明，业务方的读写方式和操作单个 Redis 一致<br>缺点：增加了新的 proxy，需要维护其高可用。<br>failover 逻辑需要自己实现，其本身不能支持故障的自动转移可扩展性差，进行扩缩容都需要手动干预</p>
+<h2 id="集群（直连型）："><a href="#集群（直连型）：" class="headerlink" title="集群（直连型）："></a>集群（直连型）：</h2><p>从redis 3.0之后版本支持redis-cluster集群，Redis-Cluster采用无中心结构，每个节点保存数据和整个集群状态,每个节点都和其他所有节点连接。</p>
+<p>特点：<br>1、无中心架构（不存在哪个节点影响性能瓶颈），少了 proxy 层。<br>2、数据按照 slot 存储分布在多个节点，节点间数据共享，可动态调整数据分布。<br>3、可扩展性，可线性扩展到 1000 个节点，节点可动态添加或删除。<br>4、高可用性，部分节点不可用时，集群仍可用。通过增加 Slave 做备份数据副本<br>5、实现故障自动 failover，节点之间通过 gossip 协议交换状态信息，用投票机制完成 Slave到 Master 的角色提升。</p>
+<p>缺点：<br>1、资源隔离性较差，容易出现相互影响的情况。<br>2、数据通过异步复制,不保证数据的强一致性</p>
+
+          
         
       
-    </p></div>
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/dis分布式锁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/dis分布式锁/" itemprop="url">Redis分布式锁</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T13:37:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>分布式锁一般有三种实现方式：</p>
+<ol>
+<li>数据库乐观锁</li>
+<li>基于Redis的分布式锁</li>
+<li>基于ZooKeeper的分布式锁</li>
+</ol>
+<p>为了确保分布式锁可用，我们至少要确保锁的实现同时满足以下四个条件：<br>1.互斥性。在任意时刻，只有一个客户端能持有锁。<br>2.不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。<br>3.具有容错性。只要大部分的Redis节点正常运行，客户端就可以加锁和解锁。<br>4.解铃还须系铃人。加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了。</p>
+<p>Q:使用过Redis分布式锁么，它是怎么实现的？<br>先拿setnx来争抢锁，抢到之后，再用expire给锁加一个过期时间防止锁忘记了释放。</p>
+<p>Q:如果在setnx之后执行expire之前进程意外crash或者要重启维护了，那会怎么样？<br>set指令有非常复杂的参数，这个应该是可以同时把setnx和expire合成一条指令来用的！</p>
+<h2 id="SETNX命令简介"><a href="#SETNX命令简介" class="headerlink" title="SETNX命令简介"></a>SETNX命令简介</h2><p>命令格式<br>SETNX key value</p>
+<p>将 key 的值设为 value，当且仅当 key 不存在。<br>若给定的 key 已经存在，则 SETNX 不做任何动作。<br>SETNX 是SET if Not eXists的简写。</p>
+<p>返回值<br>返回整数，具体为<br>-1，当 key 的值被设置<br>-0，当 key 的值没被设置</p>
+<p>例子<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">1</span> </span><br><span class="line">    redis&gt; SETNX mykey “hello” </span><br><span class="line">    (<span class="type">integer</span>) <span class="number">0</span> </span><br><span class="line">    redis&gt; GET mykey </span><br><span class="line">    “hello” </span><br><span class="line">    redis&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用SETNX实现分布式锁"><a href="#使用SETNX实现分布式锁" class="headerlink" title="使用SETNX实现分布式锁"></a>使用SETNX实现分布式锁</h2><p>多个进程执行以下Redis命令：</p>
+<p>SETNX lock.foo <current 1 unix time + lock timeout></current></p>
+<p>如果 SETNX 返回1，说明该进程获得锁，SETNX将键 lock.foo 的值设置为锁的超时时间（当前时间 + 锁的有效时间）。<br>如果 SETNX 返回0，说明其他进程已经获得了锁，进程不能进入临界区。进程可以在一个循环中不断地尝试 SETNX 操作，以获得锁。</p>
+<h2 id="解决死锁"><a href="#解决死锁" class="headerlink" title="解决死锁"></a>解决死锁</h2><p>考虑一种情况，如果进程获得锁后，断开了与 Redis 的连接（可能是进程挂掉，或者网络中断），如果没有有效的释放锁的机制，那么其他进程都会处于一直等待的状态，即出现“死锁”。</p>
+<p>上面在使用 SETNX 获得锁时，我们将键 lock.foo 的值设置为锁的有效时间，进程获得锁后，其他进程还会不断的检测锁是否已超时，如果超时，那么等待的进程也将有机会获得锁。</p>
+<p>然而，锁超时时，我们不能简单地使用 DEL 命令删除键 lock.foo 以释放锁。考虑以下情况，进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。进程P2，P3正在不断地检测锁是否已释放或者已超时，执行流程如下：</p>
+<p>P2和P3进程读取键 lock.foo 的值，检测锁是否已超时（通过比较当前时间和键 lock.foo 的值来判断是否超时）<br>P2和P3进程发现锁 lock.foo 已超时<br>P2执行 DEL lock.foo命令<br>P2执行 SETNX lock.foo命令，并返回1，即P2获得锁<br>P3执行 DEL lock.foo命令将P2刚刚设置的键 lock.foo 删除（这步是由于P3刚才已检测到锁已超时）<br>P3执行 SETNX lock.foo命令，并返回1，即P3获得锁<br>P2和P3同时获得了锁<br>从上面的情况可以得知，在检测到锁超时后，进程不能直接简单地执行 DEL 删除键的操作以获得锁。</p>
+<p>为了解决上述算法可能出现的多个进程同时获得锁的问题，我们再来看以下的算法。<br>我们同样假设进程P1已经首先获得了锁 lock.foo，然后进程P1挂掉了。接下来的情况：</p>
+<p>进程P4执行 SETNX lock.foo 以尝试获取锁<br>由于进程P1已获得了锁，所以P4执行 SETNX lock.foo 返回0，即获取锁失败<br>P4执行 GET lock.foo 来检测锁是否已超时，如果没超时，则等待一段时间，再次检测<br>如果P4检测到锁已超时，即当前的时间大于键 lock.foo 的值，P4会执行以下操作<br>GETSET lock.foo <current 1 unix timestamp + lock timeout><br>由于 GETSET 操作在设置键的值的同时，还会返回键的旧值，通过比较键 lock.foo 的旧值是否小于当前时间，可以判断进程是否已获得锁<br>假如另一个进程P5也检测到锁已超时，并在P4之前执行了 GETSET 操作，那么P4的 GETSET 操作返回的是一个大于当前时间的时间戳，这样P4就不会获得锁而继续等待。注意到，即使P4接下来将键 lock.foo 的值设置了比P5设置的更大的值也没影响。<br>另外，值得注意的是，在进程释放锁，即执行 DEL lock.foo 操作前，需要先判断锁是否已超时。如果锁已超时，那么锁可能已由其他进程获得，这时直接执行 DEL lock.foo 操作会导致把其他进程已获得的锁释放掉。</current></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">acquireLock</span><span class="params">(String lock)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 1. 通过SETNX试图获取一个lock</span></span><br><span class="line">    <span class="keyword">boolean</span> success = <span class="keyword">false</span>;</span><br><span class="line">    Jedis jedis = pool.getResource();       </span><br><span class="line">    <span class="keyword">long</span> value = System.currentTimeMillis() + expired + <span class="number">1</span>;     </span><br><span class="line">    System.out.println(value);    </span><br><span class="line">    <span class="keyword">long</span> acquired = jedis.setnx(lock, String.valueOf(value));</span><br><span class="line">    <span class="comment">//SETNX成功，则成功获取一个锁</span></span><br><span class="line">    <span class="keyword">if</span> (acquired == <span class="number">1</span>)      </span><br><span class="line">        success = <span class="keyword">true</span>;</span><br><span class="line">    <span class="comment">//SETNX失败，说明锁仍然被其他对象保持，检查其是否已经超时</span></span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">long</span> oldValue = Long.valueOf(jedis.get(lock));</span><br><span class="line"> </span><br><span class="line">        <span class="comment">//超时</span></span><br><span class="line">        <span class="keyword">if</span> (oldValue &lt; System.currentTimeMillis()) &#123;</span><br><span class="line">            String getValue = jedis.getSet(lock, String.valueOf(value));               </span><br><span class="line">            <span class="comment">// 获取锁成功</span></span><br><span class="line">            <span class="keyword">if</span> (Long.valueOf(getValue) == oldValue) </span><br><span class="line">                success = <span class="keyword">true</span>;</span><br><span class="line">            <span class="comment">// 已被其他进程捷足先登了</span></span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                success = <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//未超时，则直接返回失败</span></span><br><span class="line">        <span class="keyword">else</span>             </span><br><span class="line">            success = <span class="keyword">false</span>;</span><br><span class="line">    &#125;        </span><br><span class="line">    pool.returnResource(jedis);</span><br><span class="line">    <span class="keyword">return</span> success;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/p中间件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/p中间件/" itemprop="url">php中间件（middleware）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T12:45:00+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="什么是中间件？"><a href="#什么是中间件？" class="headerlink" title="什么是中间件？"></a>什么是中间件？</h2><p>中间件顾名思义是指在请求和响应中间,进行请求数据的拦截处理，数据校验，并且进行逻辑处理后判断是否允许进入下一个中间件。中间件分为前缀中间件，后置中间件。可以用于权限认证。日志记录等</p>
+<p>中间件是一个闭包，而且返回一个闭包。中间件为过滤进入应用的HTTP请求提供了一套便利的机制，可以分为前置中间件和后置中间件。常用于验证用户是否经过认证，添加响应头（跨域），记录请求日志等。</p>
+<p>如果你想修改请求，例如被传送到view中的HttpRequest对象。 或者你想修改view返回的HttpResponse对象，这些都可以通过中间件来实现。</p>
+<h2 id="中间件应用场景"><a href="#中间件应用场景" class="headerlink" title="中间件应用场景"></a>中间件应用场景</h2><p>1.做IP访问频率限制<br>某些IP访问服务器的频率过高，进行拦截，比如限制每分钟不能超过20次。<br>2.URL访问过滤<br>如果用户访问的是login视图（放过）<br>如果访问其他视图，需要检测是不是有session认证，已经有了放行，<br>没有返回login，这样就省得在多个视图函数上写装饰器了！</p>
+<h2 id="图样"><a href="#图样" class="headerlink" title="图样"></a>图样</h2><p><img src="\images\pasted-36.png" alt="upload successful"></p>
+<h2 id="thinkphp5-1中间件"><a href="#thinkphp5-1中间件" class="headerlink" title="thinkphp5.1中间件"></a>thinkphp5.1中间件</h2><p>thinkphp中间件主要用于拦截或过滤应用的HTTP请求，并进行必要的业务处理。<br><a href="https://www.kancloud.cn/manual/thinkphp5_1/564279" target="_blank" rel="noopener">https://www.kancloud.cn/manual/thinkphp5_1/564279</a></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 框架核心应用层application</span></span><br><span class="line">$application = <span class="function"><span class="keyword">function</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"this is a &#123;$name&#125; 应用层\n"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置校验中间件auth</span></span><br><span class="line">$auth = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个校验中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 前置过滤中间件filter</span></span><br><span class="line">$filter = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个过滤中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $handler($name);    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 后置日志中间件log</span></span><br><span class="line">$log = <span class="function"><span class="keyword">function</span><span class="params">($handler)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">($name)</span> <span class="title">use</span> <span class="params">($handler)</span> </span>&#123;</span><br><span class="line">        $return = $handler($name);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&#123;$name&#125; 需要一个后置日志中间件\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> $return;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 中间件栈</span></span><br><span class="line">$stack = [];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打包</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">pack_middleware</span><span class="params">($handler, $stack)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">foreach</span> (array_reverse($stack) <span class="keyword">as</span> $key =&gt; $middleware)&#123;</span><br><span class="line">        $handler = $middleware($handler);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $handler;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册中间件</span></span><br><span class="line"><span class="comment">//// 这里用的都是全局中间件，实际应用时还可以为指定路由注册局部中间件</span></span><br><span class="line">$stack[<span class="string">'log'</span>] = $log;</span><br><span class="line">$stack[<span class="string">'filter'</span>] = $filter;</span><br><span class="line">$stack[<span class="string">'auth'</span>] = $auth;</span><br><span class="line">$run = pack_middleware($application, $stack);</span><br><span class="line">$run(<span class="string">'wtf'</span>);</span><br></pre></td></tr></table></figure>
+<p>输出： </p>
+<p>wtf 需要一个过滤中间件<br>wtf 需要一个校验中间件<br>this is a wtf 应用层<br>wtf 需要一个后置日志中间件</p>
+<h2 id="打包程序"><a href="#打包程序" class="headerlink" title="打包程序"></a>打包程序</h2><p>中间件的执行顺序是由打包函数(pack_middleware)决定，这里返回的闭包实际上相当于:</p>
+<pre><code>$run = $log($filter($auth($application)));$run(&apos;Laravle&apos;);
+</code></pre><h2 id="编写规范"><a href="#编写规范" class="headerlink" title="编写规范"></a>编写规范</h2><p>中间件要要满足一定的规范：总是返回一个闭包，闭包中总是传入相同的参数（由主要逻辑决定）， 闭包总是返回句柄(handler)的执行结果；<br>如果中间件的逻辑在返回句柄return $handler($name)前完成，就是前置中间件，否则为后置中间件。</p>
+
+          
+        
+      
+    </div>
     
     
     
@@ -532,6 +853,152 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/09/php设计模式/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/09/dis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/09/dis/" itemprop="url">Redis</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-09T20:30:00+08:00">
+                2019-04-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="Redis实际应用场景"><a href="#Redis实际应用场景" class="headerlink" title="Redis实际应用场景"></a>Redis实际应用场景</h2><p><img src="\images\pasted-30.png" alt="upload successful"><br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/09/dis/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1300,436 +1767,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/反转/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/反转/" itemprop="url">链表反转</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T16:39:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔试/" itemprop="url" rel="index">
-                    <span itemprop="name">笔试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*class ListNode&#123;</span></span><br><span class="line"><span class="comment">    var $val;</span></span><br><span class="line"><span class="comment">    var $next = NULL;</span></span><br><span class="line"><span class="comment">    function __construct($x)&#123;</span></span><br><span class="line"><span class="comment">        $this-&gt;val = $x;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">&#125;*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReverseList</span><span class="params">($pHead)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span>($pHead==<span class="keyword">NULL</span>||$pHead-&gt;next==<span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> $pHead;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将原链表的元素一个个插入到新链表的头部</span></span><br><span class="line">    $pPre = <span class="keyword">NULL</span>;</span><br><span class="line">    $pCur = $pHead;</span><br><span class="line">    <span class="keyword">while</span> ($pCur-&gt;next != <span class="keyword">NULL</span>) &#123;</span><br><span class="line">        $pNext = $pCur-&gt;next;</span><br><span class="line">        $pCur-&gt;next = $pPre;</span><br><span class="line">        $pPre = $pCur;</span><br><span class="line">        $pCur = $pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    $pCur-&gt;next = $pPre;</span><br><span class="line">    <span class="keyword">return</span> $pCur;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/层次遍历/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/层次遍历/" itemprop="url">树的层次遍历</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T14:08:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔试/" itemprop="url" rel="index">
-                    <span itemprop="name">笔试</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><img src="\images\pasted-10.png" alt="upload successful"></p>
-<p>1、把根节点A放入队列，此时队列为：A，队列头指针指向A，也就是队列第一个元素<br>2、把当前队列头指针所指元素的左右儿子放入队列，即将B C放入队列，此时队列为A B C ，队列头指针向下移一格，此时指向B<br>3、不断重复2步骤。此时把B的左右儿子取出来放入队尾，队列变为A B C D E，队列头指针后移，指向c，c没有子节点，队列不再延长；<br>4、结束条件，队列头指针和为指针重合时，输出最后一个元素，算法结束！</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$re = reConstructBinaryTree($pre, $vin);</span><br><span class="line">PrintFromTopToBottom($re);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">PrintFromTopToBottom</span><span class="params">($re)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $quene=<span class="keyword">array</span>();</span><br><span class="line">    $res=<span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">if</span>($re==<span class="keyword">null</span>) <span class="keyword">return</span> $res;</span><br><span class="line">    array_push($quene,$re);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(!<span class="keyword">empty</span>($quene))&#123;</span><br><span class="line">        <span class="comment">// quene出队，队头值赋值给tmp，最后打印tmp的val</span></span><br><span class="line">        <span class="comment">//这里使队列出队是为了将quene的指针右移，使tmp成为quene右移指针之后的树，如ABC，下一步要将B的孩子DE入队，那么就需要使tmp指向B</span></span><br><span class="line">        $tmp=array_shift($quene);</span><br><span class="line">        <span class="comment">//左右节点依次入队</span></span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;left!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;left);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($tmp-&gt;right!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            array_push($quene,$tmp-&gt;right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将tmp的val入队</span></span><br><span class="line">        array_push($res,$tmp-&gt;val);</span><br><span class="line">    &#125;</span><br><span class="line">    print_r($res) ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/遍历与对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/遍历与对比/" itemprop="url">树的遍历与对比</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T13:47:00+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TreeNode</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> $val;</span><br><span class="line">    <span class="keyword">var</span> $left = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="keyword">var</span> $right = <span class="keyword">NULL</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($val)</span></span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;val = $val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reConstructBinaryTree</span><span class="params">($pre, $vin)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// write code here</span></span><br><span class="line">    <span class="keyword">if</span>($pre &amp;&amp; $vin)&#123;</span><br><span class="line">        $treeRoot  = <span class="keyword">new</span> TreeNode($pre[<span class="number">0</span>]);</span><br><span class="line">        $index = array_search($pre[<span class="number">0</span>],$vin);</span><br><span class="line">        $treeRoot-&gt;left = reConstructBinaryTree(array_slice($pre,<span class="number">1</span>,$index),array_slice($vin,<span class="number">0</span>,$index));</span><br><span class="line">        $treeRoot-&gt;right = reConstructBinaryTree(array_slice($pre,$index+<span class="number">1</span>),array_slice($vin,$index+<span class="number">1</span>));</span><br><span class="line">        <span class="keyword">return</span> $treeRoot;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$pre = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>];</span><br><span class="line">$vin = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">8</span>,<span class="number">6</span>];</span><br><span class="line">$pre1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">7</span>];</span><br><span class="line">$vin1 = [<span class="number">4</span>,<span class="number">7</span>,<span class="number">2</span>,<span class="number">1</span>];</span><br><span class="line">$pRoot1 = reConstructBinaryTree($pre, $vin);</span><br><span class="line">$pRoot2 = reConstructBinaryTree($pre1,$vin1);</span><br><span class="line"><span class="keyword">echo</span> HasSubtree($pRoot1, $pRoot2);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HasSubtree</span><span class="params">($pRoot1, $pRoot2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        $re = <span class="keyword">false</span>;</span><br><span class="line">        <span class="comment">//当Tree1和Tree2都不为零的时候，才进行比较。否则直接返回false</span></span><br><span class="line">        <span class="keyword">if</span>($pRoot1!=<span class="keyword">NULL</span>&amp;&amp;$pRoot2!=<span class="keyword">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//如果找到了对应Tree2的根节点的点</span></span><br><span class="line">            <span class="keyword">if</span>($pRoot1-&gt;val==$pRoot2-&gt;val)&#123;</span><br><span class="line">                <span class="comment">//以这个根节点为为起点判断是否包含Tree2</span></span><br><span class="line">                $re = judge($pRoot1,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果找不到，那么就再去root的左儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;left,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!$re)&#123;</span><br><span class="line">                <span class="comment">//如果还找不到，那么就再去root的右儿子当作起点，去判断时候包含Tree2</span></span><br><span class="line">                $re = HasSubtree($pRoot1-&gt;right,$pRoot2);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>($re == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $re;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">judge</span><span class="params">($pRoot1, $pRoot2)</span></span>&#123;</span><br><span class="line">    <span class="comment">//如果Tree2已经遍历完了都能对应的上，返回true</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot2 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果Tree2还没有遍历完，Tree1却遍历完了。返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1 == <span class="keyword">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果其中有一个点没有对应上，返回false</span></span><br><span class="line">    <span class="keyword">if</span>($pRoot1-&gt;val != $pRoot2-&gt;val)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//如果根节点对应的上，那么就分别去子节点里面匹配</span></span><br><span class="line">    <span class="keyword">return</span> judge($pRoot1-&gt;left,$pRoot2-&gt;left)&amp;&amp;judge($pRoot1-&gt;right,$pRoot2-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1777,7 +1819,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">79</span>
+                  <span class="site-state-item-count">82</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1865,7 +1907,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
