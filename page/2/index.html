@@ -290,6 +290,428 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/14/总结】php知识累计汇总/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/14/总结】php知识累计汇总/" itemprop="url">【积累】PHP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-14T15:59:00+08:00">
+                2020-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/积累/" itemprop="url" rel="index">
+                    <span itemprop="name">积累</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="php常用字符串函数"><a href="#php常用字符串函数" class="headerlink" title="php常用字符串函数"></a>php常用字符串函数</h2><p>strlen($str);//返回字符串长度 mb_strlen($str) 可以返回中文字符长度</p>
+<p>strtolower($str);//字母转小写</p>
+<p>strtoupper($str);//字母转大写</p>
+<p>ucwords($str);//每一个单词的首字母转大写</p>
+<p>ucfirst($str);//首字母转大写</p>
+<p>str_replace(‘a’,’b’,$str);//b替换$str 中的a 区分大小写  ;</p>
+<p>str_ireplace(‘a’,’b’,$str);//替换 不区分大小写</p>
+<p>htmlspecialchars($str,ENT_NOQUOTES);//字符串转换为html 实体 ENT_COMPT(默认只编译双引号)ENT_QUOTES单引号双引号都编译,ENT_NOQUOTES不编译任何引号</p>
+<p>trim($str);//删除字符串前后（左右）空格</p>
+<p>ltrim($str);//只删除字符串左侧的空格</p>
+<p>rtrim($str);//只删除字符串右侧的空格<br>//trim加第二个参数 就是移除指定的字符集 如ltrim($str,’0..9’) 移除左侧数字开头的字符</p>
+<p>strpos($str,’a’);//字符串a 在$str 第一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>stripos($str,’a’);//同上 但是不区分大小写</p>
+<p>strrpos($str,’a’);//字符串a 在$str 最后一次出现的位置 索引0开始 没有出现返回false 区分大小写</p>
+<p>strripos($str,’a’);//同上 但是不区分大小写</p>
+<p>substr($str,0,3);//截取字符串 $str 的第一个字符 截取长度3 长度不填默认截取到最后  参数为负数则倒数</p>
+<p>strstr($str,’a’);//截取字符串 $str 中的第一个字符’a’后的字符串 如 sabc -&gt; abc</p>
+<p>strrchr($str,’a’);//截取字符串 $str 中最后一一个字符’a’后的字符串</p>
+<p>strrev($str);//字符串反转 abcd-&gt;dcba</p>
+<p>md5($str);//字符串MD5加密</p>
+<p>str_shuffle($str);//随机打乱字符串顺序</p>
+<p>explode(‘-‘,$str);//指定分隔符分割字符串 返回数组 ‘-’ 分割$str</p>
+<p>implode(‘-‘,$str);//数组拼接字符串 与explode()相反</p>
+<h2 id="php常用数组操作"><a href="#php常用数组操作" class="headerlink" title="php常用数组操作"></a>php常用数组操作</h2><p>一、数组操作的基本函数</p>
+<p>数组的键名和值<br>array_values($arr);  获得数组的值<br>array_keys($arr);  获得数组的键名<br>array_flip($arr);  数组中的值与键名互换（如果有重复前面的会被后面的覆盖）<br>in_array(“apple”,$arr);  在数组中检索apple<br>array_search(“apple”,$arr);  在数组中检索apple ，如果存在返回键名<br>array_key_exists(“apple”,$arr);  检索给定的键名是否存在数组中<br>isset($arr[apple]):   检索给定的键名是否存在数组中</p>
+<p>数组的内部指针<br>current($arr);  返回数组中的当前单元<br>pos($arr);  返回数组中的当前单元<br>key($arr);  返回数组中当前单元的键名<br>prev($arr);  将数组中的内部指针倒回一位<br>next($arr);  将数组中的内部指针向前移动一位<br>end($arr);  将数组中的内部指针指向最后一个单元<br>reset($arr;  将数组中的内部指针指向第一个单元<br>each($arr);  将返回数组当前元素的一个键名/值的构造数组，并使数组指针向前移动一位<br>list($key,$value)=each($arr);  获得数组当前元素的键名和值</p>
+<p>数组和变量之间的转换<br>extract($arr);用于把数组中的元素转换成变量导入到当前文件中，键名当作变量名，值作为变量值<br>注：（第二个参数很重要，可以看手册使用）使用方法 echo $a;<br>compact(var1,var2,var3);用给定的变量名创建一个数组</p>
+<p>二、数组的分段和填充</p>
+<p>数组的分段<br>array_slice($arr,0,3);  可以将数组中的一段取出，此函数忽略键名<br>array_splice($arr,0,3，array(“black”,”maroon”));  可以将数组中的一段取出，与上个函数不同在于返回的序列从原数组中删除</p>
+<p>分割多个数组<br>array_chunk($arr,3,TRUE);  可以将一个数组分割成多个，TRUE为保留原数组的键名</p>
+<p>数组的填充<br>array_pad($arr,5,’x’);  将一个数组填补到制定长度</p>
+<p>三、数组与栈</p>
+<p>array_push($arr,”apple”,”pear”);  将一个或多个元素压入数组栈的末尾（入栈），返回入栈元素的个数<br>array_pop($arr);  将数组栈的最后一个元素弹出（出栈）</p>
+<p>四、数组与列队</p>
+<p>array_shift($arr);数组中的第一个元素移出并作为结果返回（数组长度减1，其他元素向前移动一位，数字键名改为从零技术，文字键名不变）<br>array_unshift($arr,”a”,array(1,2));在数组的开头插入一个或多个元素</p>
+<p>五、回调函数</p>
+<p>array_walk($arr,’function’,’words’);  使用用户函数对数组中的每个成员进行处理（第三个参数传递给回调函数function）<br>array_mpa(“function”,$arr1,$arr2);  可以处理多个数组（当使用两个或更多数组时，他们的长度应该相同）<br>array_filter($arr,”function”);  使用回调函数过滤数组中的每个元素，如果回调函数为TRUE，数组的当前元素会被包含在返回的结果数组中，数组的键名保留不变<br>array_reduce($arr,”function”,”<em>“);  转化为单值函数（</em>为数组的第一个值）</p>
+<p>六、数组的排序</p>
+<p>通过元素值对数组排序<br>sort($arr);  由小到大的顺序排序（第二个参数为按什么方式排序）忽略键名的数组排序<br>rsort($arr);  由大到小的顺序排序（第二个参数为按什么方式排序）忽略键名的数组排序<br>usort($arr,”function”);  使用用户自定义的比较函数对数组中的值进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）忽略键名的数组排序<br>asort($arr);  由小到大的顺序排序（第二个参数为按什么方式排序）保留键名的数组排序<br>arsort($arr);  由大到小的顺序排序（第二个参数为按什么方式排序）保留键名的数组排序<br>uasort($arr,”function”);  使用用户自定义的比较函数对数组中的值进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）保留键名的数组排序</p>
+<p>通过键名对数组排序<br>ksort($arr);  按照键名正序排序<br>krsort($arr);  按照键名逆序排序<br>uksort($arr,”function”);  使用用户自定义的比较函数对数组中的键名进行排序（function中有两个参数，0表示相等，正数表示第一个大于第二个，负数表示第一个小于第二个）</p>
+<p>自然排序法排序<br>natsort($arr);  自然排序（忽略键名）<br>natcasesort($arr);  自然排序（忽略大小写，忽略键名）</p>
+<p>七、数组的计算</p>
+<p>数组元素的求和<br>array_sum($arr);  对数组内部的所有元素做求和运算</p>
+<p>数组的合并<br>array_merge($arr1,$arr2);  合并两个或多个数组（相同的字符串键名，后面的覆盖前面的，相同的数字键名，后面的不会做覆盖操作，而是附加到后面）<br>“+”$arr1+$arr2;  对于相同的键名只保留后一个<br>array_merge_recursive($arr1,$arr2);   递归合并操作，如果数组中有相同的字符串键名，这些值将被合并到一个数组中去。如果一个值本身是一个数组，将按照相应的键名把它合并为另一个数组。当数组 具有相同的数组键名时，后一个值将不会覆盖原来的值，而是附加到后面</p>
+<p>数组的差集<br>array_diff($arr1,$arr2);  返回差集结果数组<br>array_diff_assoc($arr1,$arr2,$arr3);  返回差集结果数组，键名也做比较</p>
+<p>数组的交集<br>array_intersect($arr1,$arr2);  返回交集结果数组<br>array_intersect_assoc($arr1,$arr2);  返回交集结果数组，键名也做比较</p>
+<p>八、其他的数组函数</p>
+<p>range(0,12);  创建一个包含指定范围单元的数组<br>array_unique($arr);  移除数组中重复的值，新的数组中会保留原始的键名<br>array_reverse($arr,TRUE);  返回一个单元顺序与原数组相反的数组，如果第二个参数为TRUE保留原来的键名<br>//srand((float)microtime()*10000000);   随机种子触发器<br>array_rand($arr,2);  从数组中随机取出一个或 多个元素<br>shuffle($arr);  将数组的顺序打乱</p>
+<h2 id="PHP单列封装redis数据库访问"><a href="#PHP单列封装redis数据库访问" class="headerlink" title="PHP单列封装redis数据库访问"></a>PHP单列封装redis数据库访问</h2><p>三私一公<br>私有静态属性<br>私有构造方法<br>私有克隆方法<br>公有静态方法<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="class"><span class="keyword">class</span> <span class="title">Handle</span> </span>&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> $handle = <span class="keyword">NULL</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">private</span> <span class="keyword">static</span> $_instance = <span class="keyword">NULL</span>;        <span class="comment">//定义私有的属性变量</span></span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">getInstance</span><span class="params">()</span> </span>&#123;   <span class="comment">//定义公用的静态方法</span></span></span><br><span class="line"><span class="php">        <span class="keyword">if</span> (<span class="keyword">NULL</span> == <span class="keyword">self</span>::$_instance) &#123;</span></span><br><span class="line"><span class="php">            <span class="keyword">self</span>::$_instance = <span class="keyword">new</span> <span class="keyword">self</span>;</span></span><br><span class="line"><span class="php">        &#125;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="keyword">self</span>::$_instance;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="php">    $redis = <span class="keyword">new</span> Redis();          <span class="comment">//实例化redis</span></span></span><br><span class="line"><span class="php">    $redis-&gt;connect(<span class="string">'127.0.0.1'</span>,<span class="number">6379</span>);</span></span><br><span class="line"><span class="php">    <span class="comment">//$redis-&gt;auth(Conf::AUTH);</span></span></span><br><span class="line"><span class="php">    <span class="keyword">$this</span>-&gt;handle = &amp;$redis;       <span class="comment">//将变量与redis通过引用符关联在一起，以后直接使用handle即可，相当于将redis付给一个变量，这是另一种写法</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">$this</span>-&gt;handle-&gt;close();</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hget</span><span class="params">($k,$v)</span> </span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;handle-&gt;hget($k , $v);  <span class="comment">//获取redis键名</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">$test = Handle::getInstance();</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> $test-&gt;hget(<span class="number">1</span>,<span class="number">1</span>);</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="PHP生成器函数"><a href="#PHP生成器函数" class="headerlink" title="PHP生成器函数"></a>PHP生成器函数</h2><p>生成器函数的核心是yield关键字。它最简单的调用形式看起来像一个return申明，不同之处在于普通return会返回值并终止函数的执行，而yield会返回一个值给循环调用此生成器的代码并且只是暂停执行生成器函数<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span>  <span class="title">my_range</span><span class="params">($start,$limit)</span></span>&#123;    </span><br><span class="line">	<span class="keyword">for</span>($i=$start;$i&lt;=$limit;$i++)&#123;</span><br><span class="line">		<span class="keyword">yield</span> $i;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">foreach</span>($arr <span class="keyword">as</span> $num)&#123;</span><br><span class="line">	<span class="keyword">echo</span> $num.PHP_EOL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="php内置常量"><a href="#php内置常量" class="headerlink" title="php内置常量"></a>php内置常量</h2><p><img src="\images\pasted-127.png" alt="upload successful"></p>
+<p>关于http头 <a href="https://www.cnblogs.com/poissonnotes/p/4844014.html" target="_blank" rel="noopener">https://www.cnblogs.com/poissonnotes/p/4844014.html</a></p>
+<h2 id="PHP拷贝机制"><a href="#PHP拷贝机制" class="headerlink" title="PHP拷贝机制"></a>PHP拷贝机制</h2><p>深拷贝：赋值时值完全复制，完全的copy，对其中一个作出改变，不会影响另一个<br>浅拷贝：赋值时，引用赋值，相当于取了一个别名。对其中一个修改，会影响另一个<br>PHP中， = 赋值时，普通对象是深拷贝，但对对象来说，是浅拷贝。也就是说，对象的赋值是引用赋值。（对象作为参数传递时，也是引用传递，无论函数定义时参数前面是否有&amp;符号）<br>php5中，对象的 = 赋值和传递都是引用。要想实现拷贝副本，php提供了clone函数实现。</p>
+<h2 id="php的线程与进程"><a href="#php的线程与进程" class="headerlink" title="php的线程与进程"></a>php的线程与进程</h2><p>进程：是执行中一段程序，即一旦程序被载入到内存中并准备执行，它就是一个进程。进程是表示资源分配的的基本概念，又是调度运行的基本单位，是系统中的并发执行的单位。</p>
+<p>线程：单个进程中执行中每个任务就是一个线程。线程是进程中执行运算的最小单位。</p>
+<p>PHP 默认并不支持多线程，要使用多线程需要安装 pthread 扩展，而要安装 pthread 扩展，必须使用 –enable-maintainer-zts 参数重新编译 PHP，这个参数是指定编译 PHP 时使用线程安全方式。</p>
+<p>什么是线程安全?<br>如果你的代码所在的进程中有多个线程在同时运行，而这些线程可能会同时运行这段代码。如果每次运行结果和单线程运行的结果是一样的，而且其他的变量的值也和预期的是一样的，就是线程安全的。</p>
+<h2 id="什么是PDO？"><a href="#什么是PDO？" class="headerlink" title="什么是PDO？"></a>什么是PDO？</h2><p>PDO就是PHP data Object 提供了PHP操作多种1（12种）数据库的统一的接口</p>
+<h2 id="为什么使用PDO？"><a href="#为什么使用PDO？" class="headerlink" title="为什么使用PDO？"></a>为什么使用PDO？</h2><p>PDO是PHP5新加入的一个重大功能，我们的数据库服务器为MySQL，所有的程序代码的数据库操作全是一mysql(）或者mysqli()函数来操作，当我们的数据库 需要更换时比如换成，SQL、SERVER、PostgreSQL、MS 等，我们不可能去修改所有的程序代码！所以就要用到PDO，PDO很好的帮我们解决了这个问题，使用PDO操作非常方便，只需要修改数据源格式，和加载相应的驱动文件到PHP.ini即可；</p>
+<h2 id="PHP抽象类"><a href="#PHP抽象类" class="headerlink" title="PHP抽象类"></a>PHP抽象类</h2><p>抽象类与接口紧密相关，它们不能实例化，并且常常部分实现或根本不实现。抽象类和接口之间的一个主要差别是：类可以实现无限个接口，但仅能从一个抽象（或任何其他类型）类继承。从抽象类派生的类仍可实现接口。可以在创建组件时使用抽象类，因为它们使您得以在某些方法中指定不变级功能，但直到需要该类的特定实现之后才实现其他方法。抽象类也制定版本，因为如果在派生类中需要附加功能，则可以将其添加到基类而不中断代码。<br>PHP抽象类应用的定义：<br>abstract class ClassName{<br>}</p>
+<h2 id="什么是抽象方法"><a href="#什么是抽象方法" class="headerlink" title="什么是抽象方法"></a>什么是抽象方法</h2><p>我们在类里面定义的没有方法体的方法就是抽象方法，所谓的没有方法体指的是，在方法声明的时候没有大括号以及其中的内容，而是直接在声明时在方法名后加上分号结束，另外在声明抽象方法时还要加一个关键字“abstract”来修饰；</p>
+<h2 id="什么是php抽象类"><a href="#什么是php抽象类" class="headerlink" title="什么是php抽象类"></a>什么是php抽象类</h2><p>只要一个类里面有一个方法是抽象方法，那么这个类就要定义为抽象类，抽象类也要使用“abstract”关键字来修饰；在抽象类里面可以有不是抽象的方法和成员属性，但只要有一个方法是抽象的方法，这个类就必须声明为抽象类，使用”abstract”来修饰。</p>
+<h2 id="PHP抽象类应用要点："><a href="#PHP抽象类应用要点：" class="headerlink" title="PHP抽象类应用要点："></a>PHP抽象类应用要点：</h2><p>　　1.定义一些方法，子类必须完全实现这个抽象中所有的方法<br>　　2.不能从抽象类创建对象，它的意义在于被扩展<br>　　3.抽象类通常具有抽象方法，方法中没有大括号</p>
+<h2 id="PHP抽象类应用重点："><a href="#PHP抽象类应用重点：" class="headerlink" title="PHP抽象类应用重点："></a>PHP抽象类应用重点：</h2><p>　　1.抽象方法不必实现具体的功能，由子类来完成<br>　　2.在子类实现抽象类的方法时，其子类的可见性必须大于或等于抽象方法的定义<br>　　3.抽象类的方法可以有参数，也可以为空<br>　　4.如果抽象方法有参数，那么子类的实现也必须有相同的参数个数</p>
+<p>PHP抽象类应用示例：<br>abstract public function_name(); //注意没有大括号</p>
+<h2 id="PHP抽象类规则："><a href="#PHP抽象类规则：" class="headerlink" title="PHP抽象类规则："></a>PHP抽象类规则：</h2><p>某个类只要至少含有一个抽象方法，就必须声明为抽象类<br>抽象方法，不能够含有函数体<br>继承抽象类的子类，实现抽象方法的，必须跟该抽象方法具有相同或者更低的访问级别<br>继承抽象类的子类，如果不实现所有抽象方法，那么该子类也为抽象类</p>
+<h2 id="计算矩形的周长"><a href="#计算矩形的周长" class="headerlink" title="计算矩形的周长"></a>计算矩形的周长</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt; ?PHP   </span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;   </span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>;   </span><br><span class="line"><span class="comment">//和一般的方法不同的是，这个方法没有大括号   </span></span><br><span class="line"><span class="comment">//你不能创建这个抽象类的实例：$Shape_Rect= new Shape(); </span></span><br><span class="line">&#125;   </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span></span>&#123;   </span><br><span class="line"><span class="keyword">private</span> $width;   </span><br><span class="line"><span class="keyword">private</span> $height;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($width=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">$height=<span class="number">0</span>)</span></span>&#123;   </span><br><span class="line"></span><br><span class="line">　　<span class="keyword">$this</span>-&gt;width=$width;   </span><br><span class="line">　　<span class="keyword">$this</span>-&gt;height=$height;   </span><br><span class="line">&#125;   </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_area</span><span class="params">()</span></span>&#123;   </span><br><span class="line">　　<span class="keyword">echo</span> (<span class="keyword">$this</span>-&gt;width+<span class="keyword">$this</span>-&gt;height)*<span class="number">2</span>;   </span><br><span class="line">&#125;   </span><br><span class="line">&#125;   </span><br><span class="line">$Shape_Rect = <span class="keyword">new</span> Rectangle(<span class="number">20</span>,<span class="number">30</span>);   </span><br><span class="line">$Shape_Rect-&gt;get_area();   </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="php垃圾回收机制"><a href="#php垃圾回收机制" class="headerlink" title="php垃圾回收机制"></a>php垃圾回收机制</h2><p>转载： <a href="http://blog.csdn.net/u011957758/article/details/76864400" target="_blank" rel="noopener">http://blog.csdn.net/u011957758/article/details/76864400</a></p>
+<p>refcount：多少个变量是一样的用了相同的值，这个数值就是多少。<br>is_ref：bool类型，当refcount大于2的时候，其中一个变量用了地址&amp;的形式进行赋值，好了，它就变成1了。</p>
+<p>unset并非一定会释放内存，当有两个变量指向的时候，并非会释放变量占用的内存，只是refcount减1.</p>
+<p><img src="/images/pasted-0.png" alt="upload successful"></p>
+<p>如果unset（$a）</p>
+<p><img src="/images/pasted-3.png" alt="upload successful"><br>如果在小于php5.3的版本就会出现一个问题：$a已经不在符号表了，没有变量再指向此zval容器，用户已无法访问，但是由于数组的refcount变为1而不是0，导致此部分内存不能被回收从而产生了内存泄漏。</p>
+<p>5.3之后版本处理垃圾<br>判断处理过程<br>1.如果一个zval的refcount增加，那么此zval还在使用，不属于垃圾<br>2.如果一个zval的refcount减少到0， 那么zval可以被释放掉，不属于垃圾<br>3.如果一个zval的refcount减少之后大于0，那么此zval还不能被释放，此zval可能成为一个垃圾</p>
+<p>白话文版：就是对此zval中的每个元素进行一次refcount减1操作，操作完成之后，如果zval的refcount=0，那么这个zval就是一个垃圾</p>
+<p><img src="/images/pasted-4.png" alt="upload successful"><br>A：为了避免每次变量的refcount减少的时候都调用GC的算法进行垃圾判断，此算法会先把所有前面准则3情况下的zval节点放入一个节点(root)缓冲区(root buffer)，并且将这些zval节点标记成紫色，同时算法必须确保每一个zval节点在缓冲区中之出现一次。当缓冲区被节点塞满的时候，GC才开始开始对缓冲区中的zval节点进行垃圾判断。</p>
+<p>B：当缓冲区满了之后，算法以深度优先对每一个节点所包含的zval进行减1操作，为了确保不会对同一个zval的refcount重复执行减1操作，一旦zval的refcount减1之后会将zval标记成灰色。需要强调的是，这个步骤中，起初节点zval本身不做减1操作，但是如果节点zval中包含的zval又指向了节点zval（环形引用），那么这个时候需要对节点zval进行减1操作。</p>
+<p>C：算法再次以深度优先判断每一个节点包含的zval的值，如果zval的refcount等于0，那么将其标记成白色(代表垃圾)，如果zval的refcount大于0，那么将对此zval以及其包含的zval进行refcount加1操作，这个是对非垃圾的还原操作，同时将这些zval的颜色变成黑色（zval的默认颜色属性）</p>
+<p>D：遍历zval节点，将C中标记成白色的节点zval释放掉。</p>
+<pre><code>&lt;?php
+$a = [&apos;one&apos;]; --- zval_a（将$a对应的zval，命名为zval_a）
+$a[] = &amp;$a; --- step1
+unset($a);  --- step2
+</code></pre><p>为进行unset之前(step1)，进行算法计算，对这个数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，由于索引1对应的就是zval_a，所以这个时候zval_a的refcount应该变成了1，这样说明zval_a不是一个垃圾不进行回收。</p>
+<p>当执行unset的时候(step2)，进行算法计算，由于环形引用，上文得出会有垃圾的结构体，zval_a的refcount是1(zval_a中的索引1指向zval_a)，用算法对数组中的所有元素（索引0和索引1）的zval的refcount进行减1操作，这样zval_a的refcount就会变成0，于是就认为zval_a是一个需要回收的垃圾。</p>
+<p>算法总的套路:对于一个包含环形引用的数组，对数组中包含的每个元素的zval进行减1操作，之后如果发现数组自身的zval的refcount变成了0，那么可以判断这个数组是一个垃圾。</p>
+<p>unset<br>unset只是断开一个变量到一块内存区域的连接，同时将该内存区域的引用计数-1；内存是否回收主要还是看refount是否到0了，以及gc算法判断。</p>
+<p>= null 操作；<br>a=null是直接将a 指向的数据结构置空，同时将其引用计数归0。</p>
+<p>脚本执行结束<br>脚本执行结束，该脚本中使用的所有内存都会被释放，不论是否有引用环。</p>
+<p><a href="https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726" target="_blank" rel="noopener">https://blog.csdn.net/m_nanle_xiaobudiu/article/details/79251726</a></p>
+<h2 id="php常用框架、模板引擎"><a href="#php常用框架、模板引擎" class="headerlink" title="php常用框架、模板引擎"></a>php常用框架、模板引擎</h2><p>框架：如CI、Yii、Laravel，thinkphp<br>模板引擎：smarty</p>
+<h2 id="AJAX的优势？"><a href="#AJAX的优势？" class="headerlink" title="AJAX的优势？"></a>AJAX的优势？</h2><p>ajax是异步传输技术，可以通过javascript实现，也可以通过JQuery框架实现，实现局部刷新，减轻了服务器的压力，也提高了用户体验。</p>
+<h2 id="程序的开发中提高程序的运行效率？"><a href="#程序的开发中提高程序的运行效率？" class="headerlink" title="程序的开发中提高程序的运行效率？"></a>程序的开发中提高程序的运行效率？</h2><p>（1）优化SQL语句，查询语句中尽量不使用select *，用哪个字段查哪个字段；少用子查询可用表连接代替；少用模糊查询。<br>（2）数据表中创建索引。<br>（3）对程序中经常用到的数据生成缓存（比如使用redis缓存数据，比如使用ob进行动态页面静态化等等）。<br>（4）对mysql做主从复制，读写分离。（提高mysq执行效率和查询速度）<br>（5）使用nginx做负载均衡。（将访问压力平均分配到多态服务器）</p>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><p>①可以实现代码的重用性，避免产生代码冗余；<br>②M和V的实现代码分离，从而使同一个程序可以使用不同的表现形式</p>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><p>JSON(JavaScript Object Notation)是一种轻量级的数据交换格式，json数据格式固定，可以被多种语言用作数据的传递。<br>PHP中处理json格式的函数为<br>json_decode( string $json [, bool $assoc ] ) ，接受一个 JSON格式的字符串并且把它转换为PHP变量，<br>Json_encode：将PHP变量转换成json格式。</p>
+<h2 id="Print、echo、print-r区别"><a href="#Print、echo、print-r区别" class="headerlink" title="Print、echo、print_r区别"></a>Print、echo、print_r区别</h2><p>（1） echo和print都可以做输出，不同的是，echo不是函数，没有返回值，而print是一个函数有返回值，所以相对而言如果只是输出echo会更快，而print_r通常用于打印变量的相关信息，通常在调试中使用。<br>（2） print 是打印字符串<br>（3）print_r 则是打印复合类型 如数组 对象</p>
+<h2 id="SESSION与COOKIE的区别？"><a href="#SESSION与COOKIE的区别？" class="headerlink" title="SESSION与COOKIE的区别？"></a>SESSION与COOKIE的区别？</h2><p>（1）存储位置：session存储于服务器，cookie存储于浏览器<br>（2）安全性：session安全性比cookie高<br>（3）session为‘会话服务’，在使用时需要开启服务，cookie不需要开启，可以直接用</p>
+<p>PHP操作文件的常用函数？（重点看函数的‘参数’和‘返回值’）</p>
+<p>（1）打开文件 fopen()<br>$file = fopen(“/home/test/test.txt”,”r”);<br><a href="http://www.w3school.com.cn/php/func_filesystem_fopen.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/php/func_filesystem_fopen.asp</a><br>（2）读取文件 fgets()  ;  注：file_get_contents()也是读取文件<br>fgets() 函数从文件指针中读取一行。<br>fgets(file,length)<br>（3）写入文件fwrite()  ;  注：file_put_contents()同样可以写入文件<br>（4）关闭文件句柄 fclose()<br>（5）移动 / 重命名文件 rename()<br>（6）复制文件 copy()<br>（7）创建文件 vim  或 touch<br>（8）删除文件 unlink()<br>（9）获取文件上次访问的时间 fileatime()<br>（10）获取文件上次修改的时间 filemtime()<br>（11）获取文件大小 filesize()<br>（12）获取文件类型  filetype()<br>（13）获取文件详细信息 state()<br>（14）判断是否是目录 is_dir()</p>
+<h2 id="试述视图的优点？"><a href="#试述视图的优点？" class="headerlink" title="试述视图的优点？"></a>试述视图的优点？</h2><p>(1) 视图能够简化用户的操作<br>(2) 视图使用户能以多种角度看待同一数据；<br>(3) 视图为数据库提供了一定程度的逻辑独立性；<br>(4) 视图能够对机密数据提供安全保护。</p>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>MySQL数据库作发布系统的存储，一天五万条以上的增量，预计运维三年,怎么优化？<br>（1）设计良好的数据库结构，允许部分数据冗余，尽量避免join查询，提高效率。<br>（2） 选择合适的表字段数据类型和存储引擎，适当的添加索引。<br>（3） 做mysql主从复制读写分离。<br>（4）对数据表进行分表，减少单表中的数据量提高查询速度。<br>（5）添加缓存机制，比如redis，memcached等。<br>（6）对不经常改动的页面，生成静态页面（比如做ob缓存）。<br>（7）书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE.</p>
+<h2 id="简述-private、-protected、-public修饰符的访问权限。"><a href="#简述-private、-protected、-public修饰符的访问权限。" class="headerlink" title="简述 private、 protected、 public修饰符的访问权限。"></a>简述 private、 protected、 public修饰符的访问权限。</h2><p>private : 私有成员, 在类的内部才可以访问。</p>
+<p>protected : 保护成员，该类内部和继承类中可以访问。</p>
+<p>public : 公共成员，完全公开，没有访问限制。</p>
+<h2 id="堆和栈的区别？"><a href="#堆和栈的区别？" class="headerlink" title="堆和栈的区别？"></a>堆和栈的区别？</h2><p>栈是编译期间就分配好的内存空间，因此你的代码中必须就栈的大小有明确的定义；</p>
+<p>堆是程序运行期间动态分配的内存空间，你可以根据程序的运行情况确定要分配的堆内存的大小。</p>
+<h2 id="XML-与-HTML-的主要区别"><a href="#XML-与-HTML-的主要区别" class="headerlink" title="XML 与 HTML 的主要区别"></a>XML 与 HTML 的主要区别</h2><p>语法要求不同：</p>
+<p>（1）在html中不区分大小写，在xml中严格区分。</p>
+<p>（2）在HTML中，有时不严格，如果上下文清楚地显示出段落或者列表键在何处结尾，那么你可以省略</p>或者之类的结束标记。在XML中，是严格的树状结构，绝对不能省略掉结束标记。<p></p>
+<p>（3） 在XML中，拥有单个标记而没有匹配的结束标记的元素必须用一个/ 字符作为结尾。这样分析器就知道不用查找结束标记了。</p>
+<p>（4）在XML中，属性值必须分装在引号中。在HTML中，引号是可用可不用的。 </p>
+<p>（5）在HTML中，可以拥有不带值的属性名。在XML中，所有的属性都必须带有相应的值。 </p>
+<p>（6） 在XML文档中，空白部分不会被解析器自动删除；但是html是过滤掉空格的。</p>
+<p>标记不同：</p>
+<p>（1）html使用固有的标记；而xml没有固有的标记。</p>
+<p>（2）Html标签是预定义的；XML标签是免费的、自定义的、可扩展的。</p>
+<p>作用不同：</p>
+<p>（1）html是用来显示数据的；xml是用来描述数据、存放数据的，所以可以作为持久化的介质！Html将数据和显示结合在一起，在页面中把这数据显示出来；xml则将数据和显示分开。 XML被设计用来描述数据，其焦点是数据的内容。HTML被设计用来显示数据，其焦点是数据的外观。</p>
+<p>（2）xml不是HTML的替代品，xml和html是两种不同用途的语言。 XML 不是要替换 HTML；实际上XML 可以视作对 HTML 的补充。XML 和HTML 的目标不同HTML 的设计目标是显示数据并集中于数据外观，而XML的设计目标是描述数据并集中于数据的内容。</p>
+<p>（3）对于XML最好的形容可能是: XML是一种跨平台的，与软、硬件无关的，处理与传输信息的工具。</p>
+<p>（4）XML未来将会无所不在。XML将成为最普遍的数据处理和数据传输的工具。</p>
+<h2 id="抽象类和接口的概念以及区别？"><a href="#抽象类和接口的概念以及区别？" class="headerlink" title="抽象类和接口的概念以及区别？"></a>抽象类和接口的概念以及区别？</h2><p>抽象类：它是一种特殊的，不能被实例化的类，只能作为其他类的父类使用。使用abstract关键字声明。<br>接口：它是一种特殊的抽象类，也是一个特殊的类，使用interface声明。</p>
+<p>区别：<br>（1）抽象类的操作通过继承关键字extends实现，而接口的使用是通过implements关键字来实现。<br>（2）抽象类中有数据成员，可以实现数据的封装，但是接口没有数据成员。<br>（3）抽象类中可以有构造方法，但是接口没有构造方法。<br>（4）抽象类的方法可以通过private、protected、public关键字修饰（抽象方法不能是private），而接口中的方法只能使用public关键字修饰。<br>（5）一个类只能继承于一个抽象类，而一个类可以同时实现多个接口。<br>（6）抽象类中可以有成员方法的实现代码，而接口中不可以有成员方法的实现代码。</p>
+<h2 id="什么是构造函数，什么是析构函数，作用是什么？"><a href="#什么是构造函数，什么是析构函数，作用是什么？" class="headerlink" title="什么是构造函数，什么是析构函数，作用是什么？"></a>什么是构造函数，什么是析构函数，作用是什么？</h2><p>构造函数（方法）是对象创建完成后第一个被对象自动调用的方法。它存在于每个声明的类中，是一个特殊的成员方法。作用是执行一些初始化的任务。Php中使用__construct()声明构造方法，并且只能声明一个。</p>
+<p>析构函数（方法）作用和构造方法正好相反，是对象被销毁之前最后一个被对象自动调用的方法。是PHP5中新添加的内容作用是用于实现在销毁一个对象之前执行一些特定的操作，诸如关闭文件和释放内存等。</p>
+<h2 id="isnull-empty-isset"><a href="#isnull-empty-isset" class="headerlink" title="isnull empty isset"></a>isnull empty isset</h2><p><img src="\images\pasted-126.png" alt="upload successful"><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$a = [<span class="string">'null'</span>];</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">isset</span>($a)) ;</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(<span class="keyword">empty</span>($a));</span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">print_r(is_null($a));</span></span><br><span class="line"><span class="php"><span class="comment">//                  isset empty isnull</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=null            0     1     1</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=0               1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=false           1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=""              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="0"             1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=[]              1     1     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a=1               1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//a="null"          1     0     0</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a = ['null'];    1     0     0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//不定义            0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a=null;unset($a);0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"><span class="comment">//$a='1';unset($a); 0     1     wrong&amp;1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//wrong&amp;1:</span></span></span><br><span class="line"><span class="php"><span class="comment">//Undefined variable: a</span></span></span><br><span class="line"><span class="php"><span class="comment">//1</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=null或不定义a isest为0</span></span></span><br><span class="line"><span class="php"><span class="comment">//只有a=1(not0)或a="有东西，null也算"(数组规则一样) empty为0</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php"><span class="comment">//is_null判断null 只有当a=null时才为1，当变量不存在时会报错并报1，其他都为false</span></span></span><br><span class="line"><span class="php"><span class="comment">//isset 判断存在  当a被赋值（除a=null） isset就为true 表示变量存在，不判断变量含义，含义空亦true</span></span></span><br><span class="line"><span class="php"><span class="comment">//empty 判断空    仅当a被赋值并且变量含义不为空 empty($var)才为false 其他都是true</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="封装-继承-多态"><a href="#封装-继承-多态" class="headerlink" title="封装 继承 多态"></a>封装 继承 多态</h2><p>所谓封装：<br>也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信的进行信息隐藏。封装是面向对象的特征之一，是对象和类概念的主要特性。 简单的说，一个类就是一个封装了数据以及操作这些数据的代码的逻辑实体。在一个对象内部，某些代码或某些数据可以是私有的，不能被外界访问。通过这种方式，对象对内部数据提供了不同级别的保护，以防止程序中无关的部分意外的改变或错误的使用了对象的私有部分。</p>
+<p>所谓继承：<br>是指可以让某个类型的对象获得另一个类型的对象的属性的方法。它支持按级分类的概念。继承是指这样一种能力：它可以使用现有类的所有功能，并在无需重新编写原来的类的情况下对这些功能进行扩展。 通过继承创建的新类称为“子类”或“派生类”，被继承的类称为“基类”、“父类”或“超类”。继承的过程，就是从一般到特殊的过程。要实现继承，可以通过“继承”（Inheritance）和“组合”（Composition）来实现。继承概念的实现方式有二类：实现继承与接口继承。实现继承是指直接使用基类的属性和方法而无需额外编码的能力；接口继承是指仅使用属性和方法的名称、但是子类必须提供实现的能力；</p>
+<p>所谓多态：<br>就是指一个类实例的相同方法在不同情形有不同表现形式。多态机制使具有不同内部结构的对象可以共享相同的外部接口。这意味着，虽然针对不同对象的具体操作不同，但通过一个公共的类，它们（那些操作）可以通过相同的方式予以调用。</p>
+<h2 id="抽象类与接口的区别"><a href="#抽象类与接口的区别" class="headerlink" title="抽象类与接口的区别"></a>抽象类与接口的区别</h2><p>（1）构造方法：<br>     抽象类可以有构造方法，接口中不能有构造方法。</p>
+<p>（2）抽象类中可以有普通成员变量，接口中没有普通成员变量<br>（3）抽象类中可以包含静态方法，接口中不能包含静态方法</p>
+<p>（4）继承：<br>     一个类可以实现多个接口，但只能继承一个抽象类。<br>（5）如果抽象类实现接口，则可以把接口中方法映射到抽象类中作为抽象方法而不必实现，而在抽象类的子类中实现接口中方法</p>
+<h2 id="抽象类与接口的共通"><a href="#抽象类与接口的共通" class="headerlink" title="抽象类与接口的共通"></a>抽象类与接口的共通</h2><p>(1) 都可以被继承<br>(2) 都不能被实例化<br>(3) 都可以包含方法声明<br>(4) 派生类必须实现未实现的方法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/13/果只剩下博客文件该如何恢复/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yinhang">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="殷航的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/04/13/果只剩下博客文件该如何恢复/" itemprop="url">【总结】如果只剩下博客文件该如何恢复</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-04-13T17:22:00+08:00">
+                2020-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>如果只剩下了博客文件夹，如何最快速的恢复博客呢？<br>1.安装git与node.js<br>  安装 npm install hexo-deployer-git –save</p>
+<p>2.blog文件夹右键git bash here<br> 执行npm install hexo-cli -g</p>
+<p>3.在控制台中输入,其中yourname为github昵称，邮箱是github绑定邮箱<br>git config –global user.name “yourname”<br>git config –global user.email “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“<br>ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com" target="_blank" rel="noopener">youremail@example.com</a>“</p>
+<p>4.去shh文件夹下找到rsa.pub，去github上替换公钥，接下来验证。</p>
+<p>5.验证公钥<br>ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a><br>如果出现success与自己的github用户名，则成功。<br>在此期间如果出现22端口连接不上的问题，在ssh文件夹下新建无后缀的config文件，在文件中键入以下内容，并且每行后一定不能留空格</p>
+<p>Host github.com<br>User “<a href="mailto:2417666758@qq.com" target="_blank" rel="noopener">2417666758@qq.com</a>“<br>Hostname ssh.github.com<br>PreferredAuthentications publickey<br>IdentityFile ~/.ssh/id_rsa<br>Port 443</p>
+<p>6.如果hexo s启动时报index错，则是没有安装hexo的search模块，安装处理_post文件夹，具体做法是写一篇博客后再把之前的导入进去。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/27/回顾/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1516,331 +1938,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/inux基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/08/inux基础操作/" itemprop="url">【积累】linux基础操作</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-08T14:51:00+08:00">
-                2019-04-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/积累/" itemprop="url" rel="index">
-                    <span itemprop="name">积累</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="find操作"><a href="#find操作" class="headerlink" title="find操作"></a>find操作</h2><p>将目前目录及其子目录下所有延伸档名是 c 的文件列出来。<br>find . -name “*.c”<br><img src="\images\pasted-26.png" alt="upload successful"><br>将目前目录其其下子目录中所有一般文件列出<br>find . -type f</p>
-<p>递归查找<br>find . -r -name “*.txt”</p>
-<h2 id="grep操作"><a href="#grep操作" class="headerlink" title="grep操作"></a>grep操作</h2><p>grep查找字符（利用递归查找在后缀为md的文件中查找字符为1的文件）<br>grep -r 1 *.md</p>
-<p>找出程序运行的端口<br>netstat -ap | grep ssh</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/30/ysql千行笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yinhang">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="殷航的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/30/ysql千行笔记/" itemprop="url">【搬运】mysql千行笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-30T19:48:00+08:00">
-                2019-03-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/搬运/" itemprop="url" rel="index">
-                    <span itemprop="name">搬运</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Windows服务</p>
-<pre><code>-- 启动MySQL
-   net start mysql
--- 创建Windows服务
-   sc create mysql binPath= mysqld_bin_path(注意：等号与值之间有空格)
-</code></pre><p>连接与断开服务器</p>
-<pre><code>mysql -h 地址 -P 端口 -u 用户名 -p 密码
-
-SHOW PROCESSLIST -- 显示哪些线程正在运行
-SHOW VARIABLES -- 显示系统变量信息
-</code></pre><p> 数据库操作</p>
-<pre><code>-- 查看当前数据库
-   SELECT DATABASE();
--- 显示当前时间、用户名、数据库版本
-   SELECT now(), user(), version();
--- 创建库
-   CREATE DATABASE[ IF NOT EXISTS] 数据库名 数据库选项
-   数据库选项：
-       CHARACTER SET charset_name
-       COLLATE collation_name
--- 查看已有库
-   SHOW DATABASES[ LIKE &apos;PATTERN&apos;]
--- 查看当前库信息
-   SHOW CREATE DATABASE 数据库名
--- 修改库的选项信息
-   ALTER DATABASE 库名 选项信息
--- 删除库
-   DROP DATABASE[ IF EXISTS] 数据库名
-       同时删除该数据库相关的目录及其目录内容
-</code></pre>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/03/30/ysql千行笔记/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1888,7 +1990,7 @@ SHOW VARIABLES -- 显示系统变量信息
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
