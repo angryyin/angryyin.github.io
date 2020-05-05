@@ -6,7 +6,7 @@
     <content><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=3&id=2059989167&auto=1&height=66"></iframe>]]></content>
   </entry>
   <entry>
-    <title>前段面试题</title>
+    <title>前端面试题</title>
     <url>/2020/05/05/%E9%9D%A2%E8%AF%95%E9%A2%98/</url>
     <content><![CDATA[<h2 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h2><p>JavaScript执行上下文(context)主要指代码执行环境的抽象概念。执行上下文分为三种：</p>
 <p>全局执行上下文<br>函数执行上下文<br>eval执行上下文</p>
